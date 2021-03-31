@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.moblin.chat
+Exec=@bindir@/empathy
+

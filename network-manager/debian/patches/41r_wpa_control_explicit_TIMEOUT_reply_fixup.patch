@@ -1,0 +1,27 @@
+---
+ src/wpa_ctrl.c |    2 ++
+ 1 file changed, 2 insertions(+)
+
+Index: network-manager.debian/src/wpa_ctrl.c
+===================================================================
+--- network-manager.debian.orig/src/wpa_ctrl.c
++++ network-manager.debian/src/wpa_ctrl.c
+@@ -190,16 +190,18 @@
+ 					reply[res] = '\0';
+ 					msg_cb(reply, res);
+ 				}
+ 				continue;
+ 			}
+ 			*reply_len = res;
+ 			break;
+ 		} else {
++			sprintf(reply, "TIMEOUT[CLI]\0");
++			*reply_len = strlen("TIMEOUT[CLI]\0");
+ 			return -2;
+ 		}
+ 	}
+ 	return 0;
+ }
+ 
+ 
+ static int wpa_ctrl_attach_helper(struct wpa_ctrl *ctrl, int attach)

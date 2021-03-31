@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="libempathy Reference Manual" link="index.html" author="" name="libempathy" version="2">
+  <chapters>
+    <sub name="libempathy API reference" link="ch01.html">
+      <sub name="EmpathyTpGroup" link="EmpathyTpGroup.html"/>
+      <sub name="EmpathyTpContactList" link="EmpathyTpContactList.html"/>
+      <sub name="EmpathyTpChat" link="EmpathyTpChat.html"/>
+      <sub name="EmpathyTpChatroom" link="EmpathyTpChatroom.html"/>
+      <sub name="empathy-avatar" link="libempathy-empathy-avatar.html"/>
+      <sub name="EmpathyConf" link="EmpathyConf.html"/>
+      <sub name="EmpathyMessage" link="EmpathyMessage.html"/>
+      <sub name="empathy-contact-list" link="libempathy-empathy-contact-list.html"/>
+      <sub name="EmpathyFilter" link="EmpathyFilter.html"/>
+      <sub name="EmpathyPresence" link="EmpathyPresence.html"/>
+      <sub name="EmpathyChandler" link="EmpathyChandler.html"/>
+      <sub name="EmpathyContactManager" link="EmpathyContactManager.html"/>
+      <sub name="EmpathyIdle" link="EmpathyIdle.html"/>
+      <sub name="empathy-time" link="libempathy-empathy-time.html"/>
+      <sub name="empathy-utils" link="libempathy-empathy-utils.html"/>
+      <sub name="EmpathyChatroomManager" link="EmpathyChatroomManager.html"/>
+      <sub name="EmpathyContact" link="EmpathyContact.html"/>
+      <sub name="EmpathyLogManager" link="EmpathyLogManager.html"/>
+      <sub name="EmpathyChatroom" link="EmpathyChatroom.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="EmpathyTpGroupPriv" link="EmpathyTpGroup.html#EmpathyTpGroupPriv"/>
+    <keyword type="struct" name="EmpathyTpGroup" link="EmpathyTpGroup.html#EmpathyTpGroup-struct"/>
+    <keyword type="struct" name="EmpathyTpGroupInfo" link="EmpathyTpGroup.html#EmpathyTpGroupInfo"/>
+    <keyword type="function" name="empathy_tp_group_new ()" link="EmpathyTpGroup.html#empathy-tp-group-new"/>
+    <keyword type="function" name="empathy_tp_group_add_members ()" link="EmpathyTpGroup.html#empathy-tp-group-add-members"/>
+    <keyword type="function" name="empathy_tp_group_add_member ()" link="EmpathyTpGroup.html#empathy-tp-group-add-member"/>
+    <keyword type="function" name="empathy_tp_group_remove_members ()" link="EmpathyTpGroup.html#empathy-tp-group-remove-members"/>
+    <keyword type="function" name="empathy_tp_group_remove_member ()" link="EmpathyTpGroup.html#empathy-tp-group-remove-member"/>
+    <keyword type="function" name="empathy_tp_group_get_members ()" link="EmpathyTpGroup.html#empathy-tp-group-get-members"/>
+    <keyword type="function" name="empathy_tp_group_get_all_members ()" link="EmpathyTpGroup.html#empathy-tp-group-get-all-members"/>
+    <keyword type="function" name="empathy_tp_group_get_local_pending_members_with_info ()" link="EmpathyTpGroup.html#empathy-tp-group-get-local-pending-members-with-info"/>
+    <keyword type="function" name="empathy_tp_group_info_list_free ()" link="EmpathyTpGroup.html#empathy-tp-group-info-list-free"/>
+    <keyword type="function" name="empathy_tp_group_get_name ()" link="EmpathyTpGroup.html#empathy-tp-group-get-name"/>
+    <keyword type="function" name="empathy_tp_group_get_self_handle ()" link="EmpathyTpGroup.html#empathy-tp-group-get-self-handle"/>
+    <keyword type="function" name="empathy_tp_group_get_object_path ()" link="EmpathyTpGroup.html#empathy-tp-group-get-object-path"/>
+    <keyword type="function" name="empathy_tp_group_is_member ()" link="EmpathyTpGroup.html#empathy-tp-group-is-member"/>
+    <keyword type="" name="The &quot;local-pending&quot; signal" link="EmpathyTpGroup.html#EmpathyTpGroup-local-pending"/>
+    <keyword type="" name="The &quot;members-added&quot; signal" link="EmpathyTpGroup.html#EmpathyTpGroup-members-added"/>
+    <keyword type="" name="The &quot;members-removed&quot; signal" link="EmpathyTpGroup.html#EmpathyTpGroup-members-removed"/>
+    <keyword type="" name="The &quot;remote-pending&quot; signal" link="EmpathyTpGroup.html#EmpathyTpGroup-remote-pending"/>
+    <keyword type="struct" name="EmpathyTpContactListPriv" link="EmpathyTpContactList.html#EmpathyTpContactListPriv"/>
+    <keyword type="struct" name="EmpathyTpContactList" link="EmpathyTpContactList.html#EmpathyTpContactList-struct"/>
+    <keyword type="function" name="empathy_tp_contact_list_new ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-new"/>
+    <keyword type="function" name="empathy_tp_contact_list_get_account ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-get-account"/>
+    <keyword type="function" name="empathy_tp_contact_list_get_user ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-get-user"/>
+    <keyword type="function" name="empathy_tp_contact_list_get_from_id ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-get-from-id"/>
+    <keyword type="function" name="empathy_tp_contact_list_get_from_handle ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-get-from-handle"/>
+    <keyword type="function" name="empathy_tp_contact_list_get_from_handles ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-get-from-handles"/>
+    <keyword type="function" name="empathy_tp_contact_list_rename_group ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-rename-group"/>
+    <keyword type="function" name="empathy_tp_contact_list_get_groups ()" link="EmpathyTpContactList.html#empathy-tp-contact-list-get-groups"/>
+    <keyword type="" name="The &quot;destroy&quot; signal" link="EmpathyTpContactList.html#EmpathyTpContactList-destroy"/>
+    <keyword type="struct" name="EmpathyTpChatPriv" link="EmpathyTpChat.html#EmpathyTpChatPriv"/>
+    <keyword type="struct" name="EmpathyTpChat" link="EmpathyTpChat.html#EmpathyTpChat-struct"/>
+    <keyword type="function" name="empathy_tp_chat_new ()" link="EmpathyTpChat.html#empathy-tp-chat-new"/>
+    <keyword type="function" name="empathy_tp_chat_new_with_contact ()" link="EmpathyTpChat.html#empathy-tp-chat-new-with-contact"/>
+    <keyword type="function" name="empathy_tp_chat_get_acknowledge ()" link="EmpathyTpChat.html#empathy-tp-chat-get-acknowledge"/>
+    <keyword type="function" name="empathy_tp_chat_set_acknowledge ()" link="EmpathyTpChat.html#empathy-tp-chat-set-acknowledge"/>
+    <keyword type="function" name="empathy_tp_chat_get_channel ()" link="EmpathyTpChat.html#empathy-tp-chat-get-channel"/>
+    <keyword type="function" name="empathy_tp_chat_get_pendings ()" link="EmpathyTpChat.html#empathy-tp-chat-get-pendings"/>
+    <keyword type="function" name="empathy_tp_chat_send ()" link="EmpathyTpChat.html#empathy-tp-chat-send"/>
+    <keyword type="function" name="empathy_tp_chat_set_state ()" link="EmpathyTpChat.html#empathy-tp-chat-set-state"/>
+    <keyword type="function" name="empathy_tp_chat_get_id ()" link="EmpathyTpChat.html#empathy-tp-chat-get-id"/>
+    <keyword type="" name="The &quot;account&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--account"/>
+    <keyword type="" name="The &quot;acknowledge&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--acknowledge"/>
+    <keyword type="" name="The &quot;anonymous&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--anonymous"/>
+    <keyword type="" name="The &quot;description&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--description"/>
+    <keyword type="" name="The &quot;invite-only&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--invite-only"/>
+    <keyword type="" name="The &quot;limit&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--limit"/>
+    <keyword type="" name="The &quot;limited&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--limited"/>
+    <keyword type="" name="The &quot;moderated&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--moderated"/>
+    <keyword type="" name="The &quot;name&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--name"/>
+    <keyword type="" name="The &quot;password&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--password"/>
+    <keyword type="" name="The &quot;password-required&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--password-required"/>
+    <keyword type="" name="The &quot;persistent&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--persistent"/>
+    <keyword type="" name="The &quot;private&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--private"/>
+    <keyword type="" name="The &quot;subject&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--subject"/>
+    <keyword type="" name="The &quot;subject-contact&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--subject-contact"/>
+    <keyword type="" name="The &quot;subject-timestamp&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--subject-timestamp"/>
+    <keyword type="" name="The &quot;tp-chan&quot; property" link="EmpathyTpChat.html#EmpathyTpChat--tp-chan"/>
+    <keyword type="" name="The &quot;chat-state-changed&quot; signal" link="EmpathyTpChat.html#EmpathyTpChat-chat-state-changed"/>
+    <keyword type="" name="The &quot;destroy&quot; signal" link="EmpathyTpChat.html#EmpathyTpChat-destroy"/>
+    <keyword type="" name="The &quot;message-received&quot; signal" link="EmpathyTpChat.html#EmpathyTpChat-message-received"/>
+    <keyword type="" name="The &quot;send-error&quot; signal" link="EmpathyTpChat.html#EmpathyTpChat-send-error"/>
+    <keyword type="struct" name="EmpathyTpChatroomPriv" link="EmpathyTpChatroom.html#EmpathyTpChatroomPriv"/>
+    <keyword type="struct" name="EmpathyTpChatroom" link="EmpathyTpChatroom.html#EmpathyTpChatroom-struct"/>
+    <keyword type="function" name="empathy_tp_chatroom_new ()" link="EmpathyTpChatroom.html#empathy-tp-chatroom-new"/>
+    <keyword type="function" name="empathy_tp_chatroom_get_invitation ()" link="EmpathyTpChatroom.html#empathy-tp-chatroom-get-invitation"/>
+    <keyword type="function" name="empathy_tp_chatroom_accept_invitation ()" link="EmpathyTpChatroom.html#empathy-tp-chatroom-accept-invitation"/>
+    <keyword type="function" name="empathy_tp_chatroom_set_topic ()" link="EmpathyTpChatroom.html#empathy-tp-chatroom-set-topic"/>
+    <keyword type="macro" name="EMPATHY_TYPE_AVATAR" link="libempathy-empathy-avatar.html#EMPATHY-TYPE-AVATAR:CAPS"/>
+    <keyword type="struct" name="EmpathyAvatar" link="libempathy-empathy-avatar.html#EmpathyAvatar"/>
+    <keyword type="function" name="empathy_avatar_get_gtype ()" link="libempathy-empathy-avatar.html#empathy-avatar-get-gtype"/>
+    <keyword type="function" name="empathy_avatar_new ()" link="libempathy-empathy-avatar.html#empathy-avatar-new"/>
+    <keyword type="function" name="empathy_avatar_ref ()" link="libempathy-empathy-avatar.html#empathy-avatar-ref"/>
+    <keyword type="function" name="empathy_avatar_unref ()" link="libempathy-empathy-avatar.html#empathy-avatar-unref"/>
+    <keyword type="struct" name="EmpathyConf" link="EmpathyConf.html#EmpathyConf-struct"/>
+    <keyword type="function" name="EmpathyConfNotifyFunc ()" link="EmpathyConf.html#EmpathyConfNotifyFunc"/>
+    <keyword type="function" name="empathy_conf_get ()" link="EmpathyConf.html#empathy-conf-get"/>
+    <keyword type="function" name="empathy_conf_shutdown ()" link="EmpathyConf.html#empathy-conf-shutdown"/>
+    <keyword type="function" name="empathy_conf_notify_add ()" link="EmpathyConf.html#empathy-conf-notify-add"/>
+    <keyword type="function" name="empathy_conf_notify_remove ()" link="EmpathyConf.html#empathy-conf-notify-remove"/>
+    <keyword type="function" name="empathy_conf_set_int ()" link="EmpathyConf.html#empathy-conf-set-int"/>
+    <keyword type="function" name="empathy_conf_get_int ()" link="EmpathyConf.html#empathy-conf-get-int"/>
+    <keyword type="function" name="empathy_conf_set_bool ()" link="EmpathyConf.html#empathy-conf-set-bool"/>
+    <keyword type="function" name="empathy_conf_get_bool ()" link="EmpathyConf.html#empathy-conf-get-bool"/>
+    <keyword type="function" name="empathy_conf_set_string ()" link="EmpathyConf.html#empathy-conf-set-string"/>
+    <keyword type="function" name="empathy_conf_get_string ()" link="EmpathyConf.html#empathy-conf-get-string"/>
+    <keyword type="function" name="empathy_conf_set_string_list ()" link="EmpathyConf.html#empathy-conf-set-string-list"/>
+    <keyword type="function" name="empathy_conf_get_string_list ()" link="EmpathyConf.html#empathy-conf-get-string-list"/>
+    <keyword type="struct" name="EmpathyMessage" link="EmpathyMessage.html#EmpathyMessage-struct"/>
+    <keyword type="enum" name="enum EmpathyMessageType" link="EmpathyMessage.html#EmpathyMessageType"/>
+    <keyword type="function" name="empathy_message_get_gtype ()" link="EmpathyMessage.html#empathy-message-get-gtype"/>
+    <keyword type="function" name="empathy_message_new ()" link="EmpathyMessage.html#empathy-message-new"/>
+    <keyword type="function" name="empathy_message_set_type ()" link="EmpathyMessage.html#empathy-message-set-type"/>
+    <keyword type="function" name="empathy_message_get_sender ()" link="EmpathyMessage.html#empathy-message-get-sender"/>
+    <keyword type="function" name="empathy_message_set_sender ()" link="EmpathyMessage.html#empathy-message-set-sender"/>
+    <keyword type="function" name="empathy_message_get_receiver ()" link="EmpathyMessage.html#empathy-message-get-receiver"/>
+    <keyword type="function" name="empathy_message_set_receiver ()" link="EmpathyMessage.html#empathy-message-set-receiver"/>
+    <keyword type="function" name="empathy_message_get_body ()" link="EmpathyMessage.html#empathy-message-get-body"/>
+    <keyword type="function" name="empathy_message_set_body ()" link="EmpathyMessage.html#empathy-message-set-body"/>
+    <keyword type="function" name="empathy_message_get_timestamp ()" link="EmpathyMessage.html#empathy-message-get-timestamp"/>
+    <keyword type="function" name="empathy_message_set_timestamp ()" link="EmpathyMessage.html#empathy-message-set-timestamp"/>
+    <keyword type="function" name="empathy_message_type_from_str ()" link="EmpathyMessage.html#empathy-message-type-from-str"/>
+    <keyword type="function" name="empathy_message_type_to_str ()" link="EmpathyMessage.html#empathy-message-type-to-str"/>
+    <keyword type="" name="The &quot;body&quot; property" link="EmpathyMessage.html#EmpathyMessage--body"/>
+    <keyword type="" name="The &quot;receiver&quot; property" link="EmpathyMessage.html#EmpathyMessage--receiver"/>
+    <keyword type="" name="The &quot;sender&quot; property" link="EmpathyMessage.html#EmpathyMessage--sender"/>
+    <keyword type="" name="The &quot;timestamp&quot; property" link="EmpathyMessage.html#EmpathyMessage--timestamp"/>
+    <keyword type="" name="The &quot;type&quot; property" link="EmpathyMessage.html#EmpathyMessage--type"/>
+    <keyword type="struct" name="EmpathyContactList" link="libempathy-empathy-contact-list.html#EmpathyContactList-struct"/>
+    <keyword type="struct" name="EmpathyContactListIface" link="libempathy-empathy-contact-list.html#EmpathyContactListIface"/>
+    <keyword type="struct" name="EmpathyContactListInfo" link="libempathy-empathy-contact-list.html#EmpathyContactListInfo"/>
+    <keyword type="function" name="empathy_contact_list_info_new ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-info-new"/>
+    <keyword type="function" name="empathy_contact_list_info_free ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-info-free"/>
+    <keyword type="function" name="empathy_contact_list_setup ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-setup"/>
+    <keyword type="function" name="empathy_contact_list_find ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-find"/>
+    <keyword type="function" name="empathy_contact_list_add ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-add"/>
+    <keyword type="function" name="empathy_contact_list_remove ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-remove"/>
+    <keyword type="function" name="empathy_contact_list_get_members ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-get-members"/>
+    <keyword type="function" name="empathy_contact_list_get_local_pending ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-get-local-pending"/>
+    <keyword type="function" name="empathy_contact_list_process_pending ()" link="libempathy-empathy-contact-list.html#empathy-contact-list-process-pending"/>
+    <keyword type="" name="The &quot;contact-added&quot; signal" link="libempathy-empathy-contact-list.html#EmpathyContactList-contact-added"/>
+    <keyword type="" name="The &quot;contact-removed&quot; signal" link="libempathy-empathy-contact-list.html#EmpathyContactList-contact-removed"/>
+    <keyword type="" name="The &quot;local-pending&quot; signal" link="libempathy-empathy-contact-list.html#EmpathyContactList-local-pending"/>
+    <keyword type="struct" name="EmpathyFilterPriv" link="EmpathyFilter.html#EmpathyFilterPriv"/>
+    <keyword type="struct" name="EmpathyFilter" link="EmpathyFilter.html#EmpathyFilter-struct"/>
+    <keyword type="function" name="empathy_filter_new ()" link="EmpathyFilter.html#empathy-filter-new"/>
+    <keyword type="function" name="empathy_filter_process ()" link="EmpathyFilter.html#empathy-filter-process"/>
+    <keyword type="" name="The &quot;new-channel&quot; signal" link="EmpathyFilter.html#EmpathyFilter-new-channel"/>
+    <keyword type="" name="The &quot;process&quot; signal" link="EmpathyFilter.html#EmpathyFilter-process"/>
+    <keyword type="struct" name="EmpathyPresence" link="EmpathyPresence.html#EmpathyPresence-struct"/>
+    <keyword type="function" name="empathy_presence_new ()" link="EmpathyPresence.html#empathy-presence-new"/>
+    <keyword type="function" name="empathy_presence_new_full ()" link="EmpathyPresence.html#empathy-presence-new-full"/>
+    <keyword type="function" name="empathy_presence_get_state ()" link="EmpathyPresence.html#empathy-presence-get-state"/>
+    <keyword type="function" name="empathy_presence_get_status ()" link="EmpathyPresence.html#empathy-presence-get-status"/>
+    <keyword type="function" name="empathy_presence_set_state ()" link="EmpathyPresence.html#empathy-presence-set-state"/>
+    <keyword type="function" name="empathy_presence_set_status ()" link="EmpathyPresence.html#empathy-presence-set-status"/>
+    <keyword type="function" name="empathy_presence_sort_func ()" link="EmpathyPresence.html#empathy-presence-sort-func"/>
+    <keyword type="function" name="empathy_presence_state_get_default_status ()" link="EmpathyPresence.html#empathy-presence-state-get-default-status"/>
+    <keyword type="function" name="empathy_presence_state_to_str ()" link="EmpathyPresence.html#empathy-presence-state-to-str"/>
+    <keyword type="function" name="empathy_presence_state_from_str ()" link="EmpathyPresence.html#empathy-presence-state-from-str"/>
+    <keyword type="" name="The &quot;state&quot; property" link="EmpathyPresence.html#EmpathyPresence--state"/>
+    <keyword type="" name="The &quot;status&quot; property" link="EmpathyPresence.html#EmpathyPresence--status"/>
+    <keyword type="struct" name="EmpathyChandler" link="EmpathyChandler.html#EmpathyChandler-struct"/>
+    <keyword type="function" name="empathy_chandler_new ()" link="EmpathyChandler.html#empathy-chandler-new"/>
+    <keyword type="" name="The &quot;new-channel&quot; signal" link="EmpathyChandler.html#EmpathyChandler-new-channel"/>
+    <keyword type="struct" name="EmpathyContactManagerPriv" link="EmpathyContactManager.html#EmpathyContactManagerPriv"/>
+    <keyword type="struct" name="EmpathyContactManager" link="EmpathyContactManager.html#EmpathyContactManager-struct"/>
+    <keyword type="function" name="empathy_contact_manager_new ()" link="EmpathyContactManager.html#empathy-contact-manager-new"/>
+    <keyword type="function" name="empathy_contact_manager_get_list ()" link="EmpathyContactManager.html#empathy-contact-manager-get-list"/>
+    <keyword type="function" name="empathy_contact_manager_get_user ()" link="EmpathyContactManager.html#empathy-contact-manager-get-user"/>
+    <keyword type="function" name="empathy_contact_manager_create ()" link="EmpathyContactManager.html#empathy-contact-manager-create"/>
+    <keyword type="function" name="empathy_contact_manager_rename_group ()" link="EmpathyContactManager.html#empathy-contact-manager-rename-group"/>
+    <keyword type="function" name="empathy_contact_manager_get_groups ()" link="EmpathyContactManager.html#empathy-contact-manager-get-groups"/>
+    <keyword type="struct" name="EmpathyIdlePriv" link="EmpathyIdle.html#EmpathyIdlePriv"/>
+    <keyword type="struct" name="EmpathyIdle" link="EmpathyIdle.html#EmpathyIdle-struct"/>
+    <keyword type="function" name="empathy_idle_new ()" link="EmpathyIdle.html#empathy-idle-new"/>
+    <keyword type="function" name="empathy_idle_get_state ()" link="EmpathyIdle.html#empathy-idle-get-state"/>
+    <keyword type="function" name="empathy_idle_set_state ()" link="EmpathyIdle.html#empathy-idle-set-state"/>
+    <keyword type="function" name="empathy_idle_get_status ()" link="EmpathyIdle.html#empathy-idle-get-status"/>
+    <keyword type="function" name="empathy_idle_set_status ()" link="EmpathyIdle.html#empathy-idle-set-status"/>
+    <keyword type="function" name="empathy_idle_get_flash_state ()" link="EmpathyIdle.html#empathy-idle-get-flash-state"/>
+    <keyword type="function" name="empathy_idle_set_flash_state ()" link="EmpathyIdle.html#empathy-idle-set-flash-state"/>
+    <keyword type="function" name="empathy_idle_set_presence ()" link="EmpathyIdle.html#empathy-idle-set-presence"/>
+    <keyword type="" name="The &quot;flash-state&quot; property" link="EmpathyIdle.html#EmpathyIdle--flash-state"/>
+    <keyword type="" name="The &quot;state&quot; property" link="EmpathyIdle.html#EmpathyIdle--state"/>
+    <keyword type="" name="The &quot;status&quot; property" link="EmpathyIdle.html#EmpathyIdle--status"/>
+    <keyword type="macro" name="EMPATHY_TIME_FORMAT_DISPLAY_SHORT" link="libempathy-empathy-time.html#EMPATHY-TIME-FORMAT-DISPLAY-SHORT:CAPS"/>
+    <keyword type="macro" name="EMPATHY_TIME_FORMAT_DISPLAY_LONG" link="libempathy-empathy-time.html#EMPATHY-TIME-FORMAT-DISPLAY-LONG:CAPS"/>
+    <keyword type="typedef" name="EmpathyTime" link="libempathy-empathy-time.html#EmpathyTime"/>
+    <keyword type="function" name="empathy_time_get_current ()" link="libempathy-empathy-time.html#empathy-time-get-current"/>
+    <keyword type="function" name="empathy_time_get_local_time ()" link="libempathy-empathy-time.html#empathy-time-get-local-time"/>
+    <keyword type="function" name="empathy_time_parse ()" link="libempathy-empathy-time.html#empathy-time-parse"/>
+    <keyword type="function" name="empathy_time_parse_format ()" link="libempathy-empathy-time.html#empathy-time-parse-format"/>
+    <keyword type="function" name="empathy_time_to_string_utc ()" link="libempathy-empathy-time.html#empathy-time-to-string-utc"/>
+    <keyword type="function" name="empathy_time_to_string_local ()" link="libempathy-empathy-time.html#empathy-time-to-string-local"/>
+    <keyword type="macro" name="G_STR_EMPTY()" link="libempathy-empathy-utils.html#G-STR-EMPTY:CAPS"/>
+    <keyword type="enum" name="enum EmpathyRegExType" link="libempathy-empathy-utils.html#EmpathyRegExType"/>
+    <keyword type="function" name="empathy_substring ()" link="libempathy-empathy-utils.html#empathy-substring"/>
+    <keyword type="function" name="empathy_regex_match ()" link="libempathy-empathy-utils.html#empathy-regex-match"/>
+    <keyword type="function" name="empathy_strcasecmp ()" link="libempathy-empathy-utils.html#empathy-strcasecmp"/>
+    <keyword type="function" name="empathy_strncasecmp ()" link="libempathy-empathy-utils.html#empathy-strncasecmp"/>
+    <keyword type="function" name="empathy_xml_validate ()" link="libempathy-empathy-utils.html#empathy-xml-validate"/>
+    <keyword type="function" name="empathy_xml_node_get_child ()" link="libempathy-empathy-utils.html#empathy-xml-node-get-child"/>
+    <keyword type="function" name="empathy_xml_node_get_child_content ()" link="libempathy-empathy-utils.html#empathy-xml-node-get-child-content"/>
+    <keyword type="function" name="empathy_xml_node_find_child_prop_value ()" link="libempathy-empathy-utils.html#empathy-xml-node-find-child-prop-value"/>
+    <keyword type="function" name="empathy_account_hash ()" link="libempathy-empathy-utils.html#empathy-account-hash"/>
+    <keyword type="function" name="empathy_account_equal ()" link="libempathy-empathy-utils.html#empathy-account-equal"/>
+    <keyword type="function" name="empathy_mission_control_new ()" link="libempathy-empathy-utils.html#empathy-mission-control-new"/>
+    <keyword type="function" name="empathy_inspect_handle ()" link="libempathy-empathy-utils.html#empathy-inspect-handle"/>
+    <keyword type="function" name="empathy_inspect_channel ()" link="libempathy-empathy-utils.html#empathy-inspect-channel"/>
+    <keyword type="function" name="empathy_strdiff ()" link="libempathy-empathy-utils.html#empathy-strdiff"/>
+    <keyword type="struct" name="EmpathyChatroomManagerPriv" link="EmpathyChatroomManager.html#EmpathyChatroomManagerPriv"/>
+    <keyword type="struct" name="EmpathyChatroomManager" link="EmpathyChatroomManager.html#EmpathyChatroomManager-struct"/>
+    <keyword type="function" name="empathy_chatroom_manager_new ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-new"/>
+    <keyword type="function" name="empathy_chatroom_manager_add ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-add"/>
+    <keyword type="function" name="empathy_chatroom_manager_remove ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-remove"/>
+    <keyword type="function" name="empathy_chatroom_manager_find ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-find"/>
+    <keyword type="function" name="empathy_chatroom_manager_get_chatrooms ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-get-chatrooms"/>
+    <keyword type="function" name="empathy_chatroom_manager_get_count ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-get-count"/>
+    <keyword type="function" name="empathy_chatroom_manager_store ()" link="EmpathyChatroomManager.html#empathy-chatroom-manager-store"/>
+    <keyword type="" name="The &quot;chatroom-added&quot; signal" link="EmpathyChatroomManager.html#EmpathyChatroomManager-chatroom-added"/>
+    <keyword type="" name="The &quot;chatroom-removed&quot; signal" link="EmpathyChatroomManager.html#EmpathyChatroomManager-chatroom-removed"/>
+    <keyword type="struct" name="EmpathyContact" link="EmpathyContact.html#EmpathyContact-struct"/>
+    <keyword type="enum" name="enum EmpathySubscription" link="EmpathyContact.html#EmpathySubscription"/>
+    <keyword type="function" name="empathy_contact_get_gtype ()" link="EmpathyContact.html#empathy-contact-get-gtype"/>
+    <keyword type="function" name="empathy_contact_new ()" link="EmpathyContact.html#empathy-contact-new"/>
+    <keyword type="function" name="empathy_contact_new_full ()" link="EmpathyContact.html#empathy-contact-new-full"/>
+    <keyword type="function" name="empathy_contact_get_id ()" link="EmpathyContact.html#empathy-contact-get-id"/>
+    <keyword type="function" name="empathy_contact_get_name ()" link="EmpathyContact.html#empathy-contact-get-name"/>
+    <keyword type="function" name="empathy_contact_get_avatar ()" link="EmpathyContact.html#empathy-contact-get-avatar"/>
+    <keyword type="function" name="empathy_contact_get_account ()" link="EmpathyContact.html#empathy-contact-get-account"/>
+    <keyword type="function" name="empathy_contact_get_presence ()" link="EmpathyContact.html#empathy-contact-get-presence"/>
+    <keyword type="function" name="empathy_contact_get_groups ()" link="EmpathyContact.html#empathy-contact-get-groups"/>
+    <keyword type="function" name="empathy_contact_get_subscription ()" link="EmpathyContact.html#empathy-contact-get-subscription"/>
+    <keyword type="function" name="empathy_contact_get_handle ()" link="EmpathyContact.html#empathy-contact-get-handle"/>
+    <keyword type="function" name="empathy_contact_is_user ()" link="EmpathyContact.html#empathy-contact-is-user"/>
+    <keyword type="function" name="empathy_contact_set_id ()" link="EmpathyContact.html#empathy-contact-set-id"/>
+    <keyword type="function" name="empathy_contact_set_name ()" link="EmpathyContact.html#empathy-contact-set-name"/>
+    <keyword type="function" name="empathy_contact_set_avatar ()" link="EmpathyContact.html#empathy-contact-set-avatar"/>
+    <keyword type="function" name="empathy_contact_set_account ()" link="EmpathyContact.html#empathy-contact-set-account"/>
+    <keyword type="function" name="empathy_contact_set_presence ()" link="EmpathyContact.html#empathy-contact-set-presence"/>
+    <keyword type="function" name="empathy_contact_set_groups ()" link="EmpathyContact.html#empathy-contact-set-groups"/>
+    <keyword type="function" name="empathy_contact_set_subscription ()" link="EmpathyContact.html#empathy-contact-set-subscription"/>
+    <keyword type="function" name="empathy_contact_set_handle ()" link="EmpathyContact.html#empathy-contact-set-handle"/>
+    <keyword type="function" name="empathy_contact_set_is_user ()" link="EmpathyContact.html#empathy-contact-set-is-user"/>
+    <keyword type="function" name="empathy_contact_add_group ()" link="EmpathyContact.html#empathy-contact-add-group"/>
+    <keyword type="function" name="empathy_contact_remove_group ()" link="EmpathyContact.html#empathy-contact-remove-group"/>
+    <keyword type="function" name="empathy_contact_is_online ()" link="EmpathyContact.html#empathy-contact-is-online"/>
+    <keyword type="function" name="empathy_contact_is_in_group ()" link="EmpathyContact.html#empathy-contact-is-in-group"/>
+    <keyword type="function" name="empathy_contact_get_status ()" link="EmpathyContact.html#empathy-contact-get-status"/>
+    <keyword type="function" name="empathy_contact_equal ()" link="EmpathyContact.html#empathy-contact-equal"/>
+    <keyword type="function" name="empathy_contact_hash ()" link="EmpathyContact.html#empathy-contact-hash"/>
+    <keyword type="" name="The &quot;account&quot; property" link="EmpathyContact.html#EmpathyContact--account"/>
+    <keyword type="" name="The &quot;avatar&quot; property" link="EmpathyContact.html#EmpathyContact--avatar"/>
+    <keyword type="" name="The &quot;groups&quot; property" link="EmpathyContact.html#EmpathyContact--groups"/>
+    <keyword type="" name="The &quot;handle&quot; property" link="EmpathyContact.html#EmpathyContact--handle"/>
+    <keyword type="" name="The &quot;id&quot; property" link="EmpathyContact.html#EmpathyContact--id"/>
+    <keyword type="" name="The &quot;is-user&quot; property" link="EmpathyContact.html#EmpathyContact--is-user"/>
+    <keyword type="" name="The &quot;name&quot; property" link="EmpathyContact.html#EmpathyContact--name"/>
+    <keyword type="" name="The &quot;presence&quot; property" link="EmpathyContact.html#EmpathyContact--presence"/>
+    <keyword type="" name="The &quot;subscription&quot; property" link="EmpathyContact.html#EmpathyContact--subscription"/>
+    <keyword type="struct" name="EmpathyLogManagerPriv" link="EmpathyLogManager.html#EmpathyLogManagerPriv"/>
+    <keyword type="struct" name="EmpathyLogSearchHit" link="EmpathyLogManager.html#EmpathyLogSearchHit"/>
+    <keyword type="struct" name="EmpathyLogManager" link="EmpathyLogManager.html#EmpathyLogManager-struct"/>
+    <keyword type="function" name="empathy_log_manager_new ()" link="EmpathyLogManager.html#empathy-log-manager-new"/>
+    <keyword type="function" name="empathy_log_manager_add_message ()" link="EmpathyLogManager.html#empathy-log-manager-add-message"/>
+    <keyword type="function" name="empathy_log_manager_exists ()" link="EmpathyLogManager.html#empathy-log-manager-exists"/>
+    <keyword type="function" name="empathy_log_manager_get_dates ()" link="EmpathyLogManager.html#empathy-log-manager-get-dates"/>
+    <keyword type="function" name="empathy_log_manager_get_messages_for_file ()" link="EmpathyLogManager.html#empathy-log-manager-get-messages-for-file"/>
+    <keyword type="function" name="empathy_log_manager_get_messages_for_date ()" link="EmpathyLogManager.html#empathy-log-manager-get-messages-for-date"/>
+    <keyword type="function" name="empathy_log_manager_get_last_messages ()" link="EmpathyLogManager.html#empathy-log-manager-get-last-messages"/>
+    <keyword type="function" name="empathy_log_manager_get_chats ()" link="EmpathyLogManager.html#empathy-log-manager-get-chats"/>
+    <keyword type="function" name="empathy_log_manager_search_new ()" link="EmpathyLogManager.html#empathy-log-manager-search-new"/>
+    <keyword type="function" name="empathy_log_manager_search_free ()" link="EmpathyLogManager.html#empathy-log-manager-search-free"/>
+    <keyword type="function" name="empathy_log_manager_get_date_readable ()" link="EmpathyLogManager.html#empathy-log-manager-get-date-readable"/>
+    <keyword type="macro" name="EMPATHY_TYPE_CHATROOM_INVITE" link="EmpathyChatroom.html#EMPATHY-TYPE-CHATROOM-INVITE:CAPS"/>
+    <keyword type="struct" name="EmpathyChatroomPriv" link="EmpathyChatroom.html#EmpathyChatroomPriv"/>
+    <keyword type="struct" name="EmpathyChatroom" link="EmpathyChatroom.html#EmpathyChatroom-struct"/>
+    <keyword type="function" name="empathy_chatroom_new ()" link="EmpathyChatroom.html#empathy-chatroom-new"/>
+    <keyword type="function" name="empathy_chatroom_new_full ()" link="EmpathyChatroom.html#empathy-chatroom-new-full"/>
+    <keyword type="function" name="empathy_chatroom_get_account ()" link="EmpathyChatroom.html#empathy-chatroom-get-account"/>
+    <keyword type="function" name="empathy_chatroom_set_account ()" link="EmpathyChatroom.html#empathy-chatroom-set-account"/>
+    <keyword type="function" name="empathy_chatroom_get_room ()" link="EmpathyChatroom.html#empathy-chatroom-get-room"/>
+    <keyword type="function" name="empathy_chatroom_set_room ()" link="EmpathyChatroom.html#empathy-chatroom-set-room"/>
+    <keyword type="function" name="empathy_chatroom_get_name ()" link="EmpathyChatroom.html#empathy-chatroom-get-name"/>
+    <keyword type="function" name="empathy_chatroom_set_name ()" link="EmpathyChatroom.html#empathy-chatroom-set-name"/>
+    <keyword type="function" name="empathy_chatroom_get_auto_connect ()" link="EmpathyChatroom.html#empathy-chatroom-get-auto-connect"/>
+    <keyword type="function" name="empathy_chatroom_set_auto_connect ()" link="EmpathyChatroom.html#empathy-chatroom-set-auto-connect"/>
+    <keyword type="function" name="empathy_chatroom_equal ()" link="EmpathyChatroom.html#empathy-chatroom-equal"/>
+    <keyword type="" name="The &quot;account&quot; property" link="EmpathyChatroom.html#EmpathyChatroom--account"/>
+    <keyword type="" name="The &quot;auto-connect&quot; property" link="EmpathyChatroom.html#EmpathyChatroom--auto-connect"/>
+    <keyword type="" name="The &quot;name&quot; property" link="EmpathyChatroom.html#EmpathyChatroom--name"/>
+    <keyword type="" name="The &quot;room&quot; property" link="EmpathyChatroom.html#EmpathyChatroom--room"/>
+  </functions>
+</book>

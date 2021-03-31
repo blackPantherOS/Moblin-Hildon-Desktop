@@ -1,0 +1,1 @@
+This is a Hildon statusbar plugin.   When touched, it toggles the visibility of the matchbox keyboard.  It shows the keyboard that is currently selected in the control panel configuration.

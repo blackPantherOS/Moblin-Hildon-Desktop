@@ -1,0 +1,146 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+DEBIAN_MB_DIR := /usr/lib/midbrowser-$(shell tail -1 midbrowser/config/version.txt)
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+        OPTFLAGS = -O0
+else
+        OPTFLAGS = -O2 -fno-strict-aliasing
+endif
+
+OPTFLAGS += -g
+
+CXX=g++-4.2
+CC=gcc-4.2
+export CXX CC
+
+DEB_CONFIGURE_USER_FLAGS= \
+        --prefix=/usr \
+        --enable-application=midbrowser \
+        --enable-webservices \
+        --enable-safe-browsing \
+        --with-default-mozilla-five-home=$(DEBIAN_MB_DIR) \
+        --with-user-appdir=.mozilla \
+        --with-system-jpeg=/usr \
+        --with-system-zlib=/usr \
+        --without-system-nspr \
+        --without-system-nss \
+        --disable-javaxpcom \
+        --disable-crashreporter \
+        --disable-elf-dynstr-gc \
+        --disable-installer \
+        --disable-strip \
+        --disable-strip-libs \
+        --disable-install-strip \
+        --disable-tests \
+        --disable-mochitest \
+        --disable-updater \
+        --enable-optimize="-pipe -w $(OPTFLAGS)" \
+        --with-distribution-id=com.ubuntu \
+	$(NULL)
+
+config.status: configure
+	dh_testdir
+	# Add here commands to configure the package.
+	./configure $(DEB_CONFIGURE_USER_FLAGS) --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info --enable-extensions="default,grabanddrag"
+
+build: build-stamp
+
+build-stamp:  config.status
+	dh_testdir
+
+	# Add here commands to compile the package.
+	$(MAKE)
+
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+	rm -f build-stamp 
+
+	# Add here commands to clean up after the build process.
+	-$(MAKE) distclean
+ifneq "$(wildcard /usr/share/misc/config.sub)" ""
+	cp -f /usr/share/misc/config.sub config.sub
+endif
+ifneq "$(wildcard /usr/share/misc/config.guess)" ""
+	cp -f /usr/share/misc/config.guess config.guess
+endif
+
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	# Add here commands to install the package into debian/midbrowser
+	mkdir -p $(CURDIR)/debian/midbrowser/usr/share/applications
+	mkdir -p $(CURDIR)/debian/midbrowser/usr/share/icons/hicolor/48x48/apps
+	mkdir -p $(CURDIR)/debian/midbrowser/usr/share/man/man1
+	mkdir -p $(CURDIR)/debian/midbrowser/etc/midbrowser
+	mkdir -p $(CURDIR)/debian/midbrowser/etc/midbrowser/pref
+
+	cp -f debian/midbrowser.desktop $(CURDIR)/debian/midbrowser/usr/share/applications/midbrowser.desktop
+	cp -f debian/midbrowser.png $(CURDIR)/debian/midbrowser/usr/share/icons/hicolor/48x48/apps/midbrowser.png
+	cp -f debian/midbrowser.1 $(CURDIR)/debian/midbrowser/usr/share/man/man1/midbrowser.1
+	cp -f debian/midbrowser.js $(CURDIR)/debian/midbrowser/etc/midbrowser/pref/midbrowser.js
+	cp -f debian/midbrowserrc $(CURDIR)/debian/midbrowser/etc/midbrowser/midbrowserrc
+	cp -f debian/welcome.html $(CURDIR)/debian/midbrowser/etc/midbrowser/welcome.html
+	cp -f debian/note.png $(CURDIR)/debian/midbrowser/etc/midbrowser/note.png
+	cp -f debian/moblin-header.png $(CURDIR)/debian/midbrowser/etc/midbrowser/moblin-header.png
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+	dh_install --sourcedir=debian/tmp/
+#	dh_installmenu
+#	dh_installdebconf	
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_python
+#	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+#	dh_perl
+#	dh_makeshlibs
+	dh_installdeb
+#	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install 

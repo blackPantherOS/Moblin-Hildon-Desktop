@@ -1,0 +1,34 @@
+diff -Nur network-manager-applet-0.6.5/src/applet.c network-manager-applet-0.6.5.new/src/applet.c
+--- network-manager-applet-0.6.5/src/applet.c	2007-06-26 08:29:33.000000000 +0000
++++ network-manager-applet-0.6.5.new/src/applet.c	2007-06-26 08:29:55.000000000 +0000
+@@ -857,9 +857,8 @@
+ 	GdkPixbuf *pixbuf = NULL;
+ 
+ 	g_return_val_if_fail (applet != NULL, NULL);
+-	g_return_val_if_fail (dev != NULL, NULL);
+ 
+-	if (network_device_is_wireless (dev))
++	if (dev && network_device_is_wireless (dev))
+ 	{
+ 		if (applet->is_adhoc)
+ 			pixbuf = applet->adhoc_icon;
+@@ -1087,7 +1086,9 @@
+ 			break;
+ 
+ 		case NM_STATE_CONNECTED:
+-			if (network_device_is_wired (act_dev))
++			if (! act_dev)
++				tip = g_strdup (_("Manual network configuration"));
++			else if (network_device_is_wired (act_dev))
+ 				tip = g_strdup (_("Wired network connection"));
+ 			else if (network_device_is_wireless (act_dev))
+ 			{
+@@ -2205,6 +2206,7 @@
+ {
+ 	g_return_if_fail (applet != NULL);
+ 	g_return_if_fail (state <= NM_STATE_DISCONNECTED);
++
+ 	applet->nm_state = state;
+ 	nma_enable_networking_set_active (applet);
+ }
+

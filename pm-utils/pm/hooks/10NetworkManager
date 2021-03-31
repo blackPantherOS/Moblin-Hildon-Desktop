@@ -1,0 +1,41 @@
+#!/bin/sh
+
+. /etc/pm/functions
+
+suspend_nm() {
+    stopservice mDNSResponder
+
+    # Tell NetworkManager to shut down networking
+    dbus-send --system                         \
+        --print-reply                          \
+        --reply-timeout=2000                   \
+        --dest=org.freedesktop.NetworkManager  \
+        /org/freedesktop/NetworkManager        \
+        org.freedesktop.NetworkManager.sleep >/dev/null 2>&1 0<&1
+    return $?
+}
+
+resume_nm() {
+    # Wake up NetworkManager and make it do a new connection
+    dbus-send --system                        \
+        --dest=org.freedesktop.NetworkManager \
+        /org/freedesktop/NetworkManager       \
+        org.freedesktop.NetworkManager.wake >/dev/null 2>&1 0<&1
+    rc=$?
+
+    restartservice mDNSResponder
+    return $rc
+}
+
+case "$1" in
+	hibernate|suspend)
+		suspend_nm
+		;;
+	thaw|resume)
+		resume_nm
+		;;
+	*)
+		;;
+esac
+
+exit $?

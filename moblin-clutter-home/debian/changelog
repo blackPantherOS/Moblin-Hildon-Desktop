@@ -1,0 +1,11 @@
+moblin-clutter-home (0.1) gaston; urgency=low
+
+  [ Horace Li ]
+  * Initial debianized package release.
+  * Remove gnome-menus dependency, we are going to create moblin-home-config
+    to hold applications.menu for moblin-clutter-home.
+
+  [ Bob Spencer ]
+  * Cutting a release for testing of CB systems
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 14 Nov 2007 22:27:39 -0800

@@ -1,0 +1,110 @@
+Desktop Launcher
+================
+
+This a Clutter (www.clutter-project.org) based  desktop launcher which provides
+a way to view and launch applications from a UMPC's 'home' screen.
+
+Usage
+=====
+
+Executing desktop-launcher will start the program in 'desktop' mode, where it
+will become the 'desktop' window, i.e. remain under all other windows.
+
+Although navigation depends on the animation in use, generally dragging the
+mouse left/right will move through the items, and clicking on an item will
+launch it.
+
+Left/right arrow and enter keys will also work.
+
+desktop-launcher has the following options:
+  -w, --windowed        Start launcher in windowed mode (for debugging).
+
+Minimaps
+========
+
+desktop-launcher has two in-built minimaps, one is a map of all the applications
+in the animation, and clicking the application will quickly take you to that
+item.
+
+The other is a 'category' map, which shows icon for all the loaded categories,
+and upon clicking an icon, the animation will show items from that category.
+
+The map shown can be switched by a gconf key:
+
+"/apps/desktop-launcher/minimap_mode" which accepts an int of either:
+0, which is the map of applications or
+1, which is the map of categories
+
+Background
+==========
+
+The desktop-launcher background is fully customisable through two gconf keys:
+
+"/apps/desktop-launcher/picture_filename" which is the path to the
+picture file. This can be any format supported by Gdk.
+
+"/apps/desktop-launcher/picture_options" which is a string describing
+how to display the picture. This can be either:
+
+"none"      - Display the picture 'as-is', from 0,0 co-ordinates.
+"wallpaper" - Tile the picture.
+"centred"   - Centre the picture.
+"scaled"    - Scale the picture (scaled by height).
+"stretched" - Stretch the picture to fit the window size (without preserving
+              aspect ratio).
+
+The launcher will react to changes immediately.
+
+You can also adjust the title and comment colours by tweaking the following
+keys:
+"/apps/desktop-launcher/title_color" & "/apps/desktop-launcher/comment_color",
+both of which are lists of type int and size 3. Each int represents red, green
+or blue, and can be between 0 and 255. Again, the launcher will react to 
+changes immediately.
+
+Custom Animations
+=================
+
+All animations should inherit from LauncherAnimation, and provide the following
+signals:
+
+void (*active_item_changed) (LauncherAnimation *anim, LauncherItem *item);
+  This is a signal which lets the application know which item is currently in
+  the 'active' position.
+
+void (*launch_started) (LauncherAnimation *anim, LauncherItem *item);
+  This is emitted when a user chooses to launch an application. It will hide 
+  the minimap at the bottom of the screen.
+
+void (*launch_finished) (LauncherAnimation *anim, LauncherItem *item);
+  This is emitted when the launching application finishes launching, and allows
+  the application to restore the minimap at the bottom of the screen.
+  
+
+The animation is responsible for positioning the items and animating a item
+whilst it is launching.
+
+Launching Applications (& startup-notification)
+===============================================
+
+Application launching and launch progress monitoring is handled by the
+LauncherStartup object.
+
+In it's current form, it uses libsn to start and monitor the items it launches.
+Monitoring is important as when an item is launching, the desktop-launcher will
+provide visual feedbackt to the user. Once and application has completed 
+startup (either by libsn notifying us, or a timeout expiring), the 
+desktop-launcher returns to its original state.
+
+If you would like to replace the usage of libsn with other launch/monitoring 
+method, you only have to change LauncherStartup to your needs.
+
+Menus
+=====
+
+Currently, menus are controlled by libgnome-menu, as this is quite complete,
+and can handle the freedesktop.org spec very well. It is also used because it
+can react immediately to menu-personalisation by the user.
+
+If you who like to use another menu-system, you need to adapt LauncherMenu to
+your needs.

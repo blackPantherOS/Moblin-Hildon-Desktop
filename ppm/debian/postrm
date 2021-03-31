@@ -1,0 +1,11 @@
+#! /bin/sh
+
+set -e
+
+rm -f /etc/rc1.d/K01ppmd
+rm /etc/rc2.d/S98ppmd
+rm /etc/rc3.d/S98ppmd
+rm /etc/rc4.d/S98ppmd
+rm /etc/rc5.d/S98ppmd
+
+#DEBHELPER#

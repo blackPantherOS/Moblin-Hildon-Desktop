@@ -1,0 +1,14 @@
+Source: moblin-notes
+Section: editors
+Priority: optional
+Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Uploaders: Emanuele Rocca <ema@debian.org>, Simon Huggins <huggie@earth.li>, Rudy Godoy <rudy@kernel-panik.org>, Martin Loschwitz <madkiss@debian.org>, Yves-Alexis Perez <corsac@corsac.net>
+Build-Depends: debhelper (>= 4.0.0), docbook-to-man, pkg-config, libtool, intltool, autoconf, automake, libxml-parser-perl, chrpath, libhildon-1-dev, libhildonfm2-dev, libosso-dev
+Standards-Version: 3.7.2
+
+Package: moblin-notes
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: simple text editor
+ Moblin-notes is a graphical text editor on moblin and derived from mousepad.
+ .

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Photos
+GenericName=Photos
+Comment=View Photos
+Exec=moblin-media --mode photo 
+Terminal=false
+Type=Application
+Icon=media-photo
+StartupWMClass=MoblinMedia.py
+StartupNotify=true
+Categories=GTK;Application;Graphics
+X-Osso-Service=org.moblin.media.photo
+OnlyShowIn=GNOME;Mobile

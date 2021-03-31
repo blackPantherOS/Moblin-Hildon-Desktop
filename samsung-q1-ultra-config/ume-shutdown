@@ -1,0 +1,72 @@
+#!/bin/sh
+# hibernate
+# It is used to shutdown the system at mobline software stack run at 
+# samsung q1 ultra platform.
+#
+# Copyright 2007 Xu Martin <martin.xu@intel.com>
+#
+# This file is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+#
+#
+
+#lock acpid
+touch /var/lock/acpid
+
+/usr/bin/chvt 63
+/usr/sbin/vbetool dpms off
+
+#creat the symbol file.
+#note: if only one kernel exists at moblin, 
+#and never update the kernel mannual only 
+#the file only need to creat one time. 
+#That may save about 1 second at shutdown
+[ -e /fast-resume-symbol ] && rm -f /fast-resume-symbol
+
+/usr/sbin/grub-create-symbol /proc/kallsyms /fast-resume-symbol 
+if [ "#?"  -ne 0 ]
+then
+#normal shutdown
+	rm -f /fast-resume-symbol
+	rm /var/lock/acpid
+	/sbin/shutdown
+fi
+
+#enable acpi_enable work round at grub
+echo "m" >> /fast-resume-symbol
+
+#stop hildon desktop
+/sbin/initctl stop session > /dev/null 2>&1  
+pid_hildon=$(ps -C hildon-desktop -o pid=)
+kill  $pid_hildon
+
+/sbin/swapon -s | grep sda3 > /dev/null 2>&1 || /sbin/swapon /dev/sda3 > /dev/null 2>&1
+
+#shrink the slab and cached memory
+echo 2 > /proc/sys/vm/drop_caches
+echo 1 > /proc/sys/vm/drop_caches
+sleep 1
+echo 2 > /proc/sys/vm/drop_caches
+echo 1 > /proc/sys/vm/drop_caches
+sleep 1
+echo 2 > /proc/sys/vm/drop_caches
+echo 1 > /proc/sys/vm/drop_caches
+sleep 1
+echo 0 > /proc/sys/vm/drop_caches
+
+echo disk > /sys/power/state
+
+sbin/initctl start session > /dev/null 2>&1
+#unlock acpid
+rm /var/lock/acpid 

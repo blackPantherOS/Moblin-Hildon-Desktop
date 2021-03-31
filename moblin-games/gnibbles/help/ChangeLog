@@ -1,0 +1,28 @@
+2007-09-12  Claude Paroz  <claude@2xlibre.net>
+
+	* Makefile.am: Added fr to DOC_LINGUAS.
+	* fr/fr.po: Added French translation.
+	* fr/figures/*.png: Added remaining screenshots.
+
+2007-08-06  Claude Paroz <claude@2xlibre.net>
+	* fr/figures/tables.png:
+	* fr/figures/connect.png: Added figures linked from other manuals.
+
+2007-06-20  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+
+2007-05-13  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+
+2007-05-10  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Added Spanish translation
+	* es/figures/*.png: Added Spanish screenshots
+	* Makefile.am: Added es to DOC_LINGUAS
+
+2007-04-30  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Added Swedish translation.
+	* Makefile.am: Added sv to DOC_LINGUAS

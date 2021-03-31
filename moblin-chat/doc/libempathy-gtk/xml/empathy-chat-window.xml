@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyChatWindow">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyChatWindow</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyChatWindow</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyChatWindowPriv">EmpathyChatWindowPriv</link>;
+                    <link linkend="EmpathyChatWindow-struct">EmpathyChatWindow</link>;
+<link linkend="EmpathyChatWindow">EmpathyChatWindow</link>*  <link linkend="empathy-chat-window-get-default">empathy_chat_window_get_default</link>     (void);
+<link linkend="EmpathyChatWindow">EmpathyChatWindow</link>*  <link linkend="empathy-chat-window-new">empathy_chat_window_new</link>             (void);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-chat-window-get-dialog">empathy_chat_window_get_dialog</link>      (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="empathy-chat-window-add-chat">empathy_chat_window_add_chat</link>        (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-window-remove-chat">empathy_chat_window_remove_chat</link>     (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-window-move-chat">empathy_chat_window_move_chat</link>       (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *old_window,
+                                                         <link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *new_window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-window-switch-to-chat">empathy_chat_window_switch_to_chat</link>  (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-window-has-focus">empathy_chat_window_has_focus</link>       (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window);
+<link linkend="EmpathyChat">EmpathyChat</link>*        <link linkend="empathy-chat-window-find-chat">empathy_chat_window_find_chat</link>       (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *id);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyChatWindow
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyChatWindowPriv" role="struct"/>EmpathyChatWindowPriv</title>
+<indexterm><primary>EmpathyChatWindowPriv</primary></indexterm><programlisting>typedef struct _EmpathyChatWindowPriv EmpathyChatWindowPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyChatWindow-struct" role="struct"/>EmpathyChatWindow</title>
+<indexterm><primary>EmpathyChatWindow</primary></indexterm><programlisting>typedef struct _EmpathyChatWindow EmpathyChatWindow;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-get-default" role="function"/>empathy_chat_window_get_default ()</title>
+<indexterm><primary>empathy_chat_window_get_default</primary></indexterm><programlisting><link linkend="EmpathyChatWindow">EmpathyChatWindow</link>*  empathy_chat_window_get_default     (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-new" role="function"/>empathy_chat_window_new ()</title>
+<indexterm><primary>empathy_chat_window_new</primary></indexterm><programlisting><link linkend="EmpathyChatWindow">EmpathyChatWindow</link>*  empathy_chat_window_new             (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-get-dialog" role="function"/>empathy_chat_window_get_dialog ()</title>
+<indexterm><primary>empathy_chat_window_get_dialog</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_chat_window_get_dialog      (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-add-chat" role="function"/>empathy_chat_window_add_chat ()</title>
+<indexterm><primary>empathy_chat_window_add_chat</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_window_add_chat        (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-remove-chat" role="function"/>empathy_chat_window_remove_chat ()</title>
+<indexterm><primary>empathy_chat_window_remove_chat</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_window_remove_chat     (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-move-chat" role="function"/>empathy_chat_window_move_chat ()</title>
+<indexterm><primary>empathy_chat_window_move_chat</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_window_move_chat       (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *old_window,
+                                                         <link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *new_window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>old_window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-switch-to-chat" role="function"/>empathy_chat_window_switch_to_chat ()</title>
+<indexterm><primary>empathy_chat_window_switch_to_chat</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_window_switch_to_chat  (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window,
+                                                         <link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-has-focus" role="function"/>empathy_chat_window_has_focus ()</title>
+<indexterm><primary>empathy_chat_window_has_focus</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_window_has_focus       (<link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-window-find-chat" role="function"/>empathy_chat_window_find_chat ()</title>
+<indexterm><primary>empathy_chat_window_find_chat</primary></indexterm><programlisting><link linkend="EmpathyChat">EmpathyChat</link>*        empathy_chat_window_find_chat       (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *id);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

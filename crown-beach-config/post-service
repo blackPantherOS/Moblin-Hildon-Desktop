@@ -1,0 +1,21 @@
+#!/bin/sh -e
+### BEGIN INIT INFO
+# Provides:          ume-crown-beach-config
+# Required-Start:    
+# Default-Start:     2
+# Short-Description: run the services after the starting of GUI
+### END INIT INFO
+#
+# waiting for the GUI start finishing flag and run the services in rcP.d
+
+case "$1" in
+  start|"")
+	echo "start post-srv"
+	[ -x /usr/sbin/post-srv ] && /bin/sh /usr/sbin/post-srv &
+	;;
+  *)
+	echo "Usage: post-service [start]" >&2
+	exit 3
+	;;
+esac
+

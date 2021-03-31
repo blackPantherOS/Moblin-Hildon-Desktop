@@ -1,0 +1,16 @@
+#!/bin/sh
+
+[ -f /proc/acpi/ibm/led ] || exit 0
+
+case "$1" in
+	hibernate|suspend)
+		{ echo "7 blink" >/proc/acpi/ibm/led ; } 2>/dev/null
+		;;
+	thaw|resume) 
+		{ echo "7 off" >/proc/acpi/ibm/led ; } 2>/dev/null
+		;;
+	*)
+		;;
+esac
+
+exit $?

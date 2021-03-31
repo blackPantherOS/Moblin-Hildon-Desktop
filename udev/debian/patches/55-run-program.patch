@@ -1,0 +1,19 @@
+diff -ruNp udev-103~/udev_utils_run.c udev-103/udev_utils_run.c
+--- udev-103~/udev_utils_run.c	2006-10-20 13:43:35.000000000 +0100
++++ udev-103/udev_utils_run.c	2006-11-02 12:52:21.000000000 +0000
+@@ -159,8 +159,13 @@ int run_program(const char *command, con
+ 		}
+ 		execv(argv[0], argv);
+ 
+-		/* we should never reach this */
+-		err("exec of program '%s' failed", argv[0]);
++		if ((errno == ENOENT) || (errno = ENOTDIR)) {
++			/* will probably turn up later */
++			info("program '%s' not found", argv[0]);
++		} else {
++			/* bigger problems */
++			err("exec of program '%s' failed", argv[0]);
++		}
+ 		_exit(1);
+ 	case -1:
+ 		err("fork of '%s' failed: %s", argv[0], strerror(errno));

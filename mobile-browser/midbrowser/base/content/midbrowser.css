@@ -1,0 +1,8 @@
+
+menupopup.hildonmenu {
+  -moz-binding: url("chrome://midbrowser/content/hildonBindings.xml#hildonmenu");
+}
+
+toolbar[type="menubar"] {
+  -moz-binding: url("chrome://midbrowser/content/hildonBindings.xml#menutoolbar");
+}

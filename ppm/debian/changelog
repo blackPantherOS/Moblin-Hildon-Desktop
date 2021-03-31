@@ -1,0 +1,104 @@
+ppm (0.7) gaston; urgency=low
+
+  * Fix warning when compile ppmtool.
+  * Add new Duild-Depends in debian/control
+
+ -- Mohamed abbas <mohamed.abbas@intel.com>  Wed,  6 Feb 2008 04:30:52 -0800
+
+ppm (0.6) gaston; urgency=low
+
+  * Add new daemon to be run as user session to handle any plugin
+    need to be in user session
+  * Add dbud signal in ppmd to signal command run
+  * Fix the status display label.
+  * install ppmd in /user/sbin/ fix for bug #153130.
+  * Add a simple UI. the user need to run with --g/--gtk option.
+  * a fix for bug #163018.
+  * Add new display plugin to run in user session mode.
+
+ -- Mohamed abbas <mohamed.abbas@intel.com>  Wed,  6 Feb 2008 01:36:22 -0800
+
+ppm (0.5) gaston; urgency=low
+
+  * Adding runtime dependency on xbacklight
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 16 Oct 2007 10:59:07 -0700
+
+ppm (0.4) gaston; urgency=low
+
+  * Adding post install/remove packaging scripts to autoregister
+    the ppm service to be launched on startup
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Sun, 14 Oct 2007 18:43:33 -0700
+
+ppm (0.3) gaston; urgency=low
+
+  * Fixing bug in init script
+  * Cutting a gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Sun, 14 Oct 2007 15:06:48 -0700
+
+ppm (0.2) gaston; urgency=low
+
+  * Chaning the arch from 'all' to 'any'
+  * Cutting a gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 11 Oct 2007 10:08:46 -0700
+
+ppm (0.1) gaston; urgency=low
+
+  [ Mohamed Abbas <mohomad.abbas@intel.com> ]
+  * Apply Zhao, Fan patch to fix setting screensaver with value 0
+  * Add new functions to Power Policy manager dbus interface.
+    The added function is deactivate modes.
+    ppmtool is changed to allow to do set, append and deactivate.
+  * change maxperformance to max in all layers files, cpu plugin
+    support max values only
+
+  [ Sarah Sharp <sarah.a.sharp@intel.com> ]
+  * Remove device field from plugin messages
+  * Added README
+  * Added command-line option to activate modes.
+  * Ignores invalid modes (ones that don't match any available modes).
+    Need to check about activating invisible modes. Right now it will
+    probably activate them, which we may not want the user to do. May want
+    to put ifdef's around code so that it's only compiled in when the testing
+    make target is run.
+  * Added a small test plugin.
+  * The test plugin simply sends received commands to a log file.
+    Note that this plugin will fail if ppmd is not run as root
+    (since the log file is in /var/log).
+  * Update test plugin for new API.
+  * Renamed policies directory to layers.
+  * Reorganized plugin directory and makefiles.
+  * Made makefiles use standard installation directories.
+    See sections DESTDIR and "Variables for Installation Directories" in the GNU coding standards at
+    http://www.gnu.org/prep/standards/standards.html
+  * Generate config.h that points to install dirs.
+  * Factored out the test plugin logfile.
+    Make the build fail if targets fail.
+  * Add dependancy checking to compilation.
+    This will force a recompile if a .h file changes.
+    For some odd reason, this redoes the dependancy files if you type make twice in a row.
+    After that, it says there is nothing to do.
+    This is still better than the old system.
+  * Change dbus interface of PPM to support struct.
+    Added new function to append modes to PPM daemon
+  * Initial testing code commit.
+  * Suppress as much output to stdout when running in background.
+    Still gets some output from the display plugin.
+  * Changed find_layer to find_mode.
+  * Generate ppmd.service and fix dbus files' uninstall.
+
+  [ Rusty Lynch <rusty.lynch@intel.com> ]
+  * Initial debianization
+  * Fixing a bug that caused all radio's to be turned off when the policy
+    specifically asked to allow radio usage.
+  * Fixup the debian changlog file
+  * Fixing bug in debian packaging build and runtime deps
+  * Add debian specific init script
+  * cutting a gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 11 Oct 2007 09:38:41 -0700
+
+

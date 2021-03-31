@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EphySpinner</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="libempathy-gtk-empathy-profile-chooser.html" title="empathy-profile-chooser">
+<link rel="next" href="EmpathyCellRendererExpander.html" title="EmpathyCellRendererExpander">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-gtk-empathy-profile-chooser.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="EmpathyCellRendererExpander.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2603992" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2620503" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2620433" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2620475" class="shortcut">Implemented Interfaces</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EphySpinner"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2603992"></a><span class="refentrytitle">EphySpinner</span>
+</h2>
+<p>EphySpinner</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EphySpinner.html#EphySpinnerDetails">EphySpinnerDetails</a>;
+                    <a href="EphySpinner.html#EphySpinner-struct">EphySpinner</a>;
+GtkWidget*          <a href="EphySpinner.html#ephy-spinner-new">ephy_spinner_new</a>                    (void);
+void                <a href="EphySpinner.html#ephy-spinner-start">ephy_spinner_start</a>                  (<a href="EphySpinner.html" title="EphySpinner">EphySpinner</a> *throbber);
+void                <a href="EphySpinner.html#ephy-spinner-stop">ephy_spinner_stop</a>                   (<a href="EphySpinner.html" title="EphySpinner">EphySpinner</a> *throbber);
+void                <a href="EphySpinner.html#ephy-spinner-set-size">ephy_spinner_set_size</a>               (<a href="EphySpinner.html" title="EphySpinner">EphySpinner</a> *spinner,
+                                                         GtkIconSize size);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2620433"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----GInitiallyUnowned
+         +----GtkObject
+               +----GtkWidget
+                     +----EphySpinner
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2620475"></a><h2>Implemented Interfaces</h2>
+<p>
+EphySpinner implements
+ AtkImplementorIface and  GtkBuildable.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2620503"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2620519"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2620530"></a><h3>
+<a name="EphySpinnerDetails"></a>EphySpinnerDetails</h3>
+<a class="indexterm" name="id2620542"></a><pre class="programlisting">typedef struct _EphySpinnerDetails EphySpinnerDetails;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620558"></a><h3>
+<a name="EphySpinner-struct"></a>EphySpinner</h3>
+<a class="indexterm" name="id2620571"></a><pre class="programlisting">typedef struct _EphySpinner EphySpinner;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620586"></a><h3>
+<a name="ephy-spinner-new"></a>ephy_spinner_new ()</h3>
+<a class="indexterm" name="id2620598"></a><pre class="programlisting">GtkWidget*          ephy_spinner_new                    (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620635"></a><h3>
+<a name="ephy-spinner-start"></a>ephy_spinner_start ()</h3>
+<a class="indexterm" name="id2613467"></a><pre class="programlisting">void                ephy_spinner_start                  (<a href="EphySpinner.html" title="EphySpinner">EphySpinner</a> *throbber);</pre>
+<p>
+Start the spinner animation.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>throbber</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613516"></a><h3>
+<a name="ephy-spinner-stop"></a>ephy_spinner_stop ()</h3>
+<a class="indexterm" name="id2613528"></a><pre class="programlisting">void                ephy_spinner_stop                   (<a href="EphySpinner.html" title="EphySpinner">EphySpinner</a> *throbber);</pre>
+<p>
+Stop the spinner animation.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>throbber</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613578"></a><h3>
+<a name="ephy-spinner-set-size"></a>ephy_spinner_set_size ()</h3>
+<a class="indexterm" name="id2613589"></a><pre class="programlisting">void                ephy_spinner_set_size               (<a href="EphySpinner.html" title="EphySpinner">EphySpinner</a> *spinner,
+                                                         GtkIconSize size);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>spinner</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>size</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

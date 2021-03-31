@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyIdle</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyContactManager.html" title="EmpathyContactManager">
+<link rel="next" href="libempathy-empathy-time.html" title="empathy-time">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyContactManager.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="libempathy-empathy-time.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2602041" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2612842" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2610643" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2610667" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyIdle"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2602041"></a><span class="refentrytitle">EmpathyIdle</span>
+</h2>
+<p>EmpathyIdle</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyIdle.html#EmpathyIdlePriv">EmpathyIdlePriv</a>;
+                    <a href="EmpathyIdle.html#EmpathyIdle-struct">EmpathyIdle</a>;
+<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a>*        <a href="EmpathyIdle.html#empathy-idle-new">empathy_idle_new</a>                    (void);
+<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          <a href="EmpathyIdle.html#empathy-idle-get-state">empathy_idle_get_state</a>              (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle);
+void                <a href="EmpathyIdle.html#empathy-idle-set-state">empathy_idle_set_state</a>              (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);
+const gchar*        <a href="EmpathyIdle.html#empathy-idle-get-status">empathy_idle_get_status</a>             (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle);
+void                <a href="EmpathyIdle.html#empathy-idle-set-status">empathy_idle_set_status</a>             (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         const gchar *status);
+<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          <a href="EmpathyIdle.html#empathy-idle-get-flash-state">empathy_idle_get_flash_state</a>        (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle);
+void                <a href="EmpathyIdle.html#empathy-idle-set-flash-state">empathy_idle_set_flash_state</a>        (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);
+void                <a href="EmpathyIdle.html#empathy-idle-set-presence">empathy_idle_set_presence</a>           (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2610643"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyIdle
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2610667"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyIdle.html#EmpathyIdle--flash-state">flash-state</a>"              <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>            : Read / Write
+  "<a href="EmpathyIdle.html#EmpathyIdle--state">state</a>"                    <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>            : Read / Write
+  "<a href="EmpathyIdle.html#EmpathyIdle--status">status</a>"                   gchararray            : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2612842"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2612857"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2612868"></a><h3>
+<a name="EmpathyIdlePriv"></a>EmpathyIdlePriv</h3>
+<a class="indexterm" name="id2612880"></a><pre class="programlisting">typedef struct _EmpathyIdlePriv EmpathyIdlePriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2612897"></a><h3>
+<a name="EmpathyIdle-struct"></a>EmpathyIdle</h3>
+<a class="indexterm" name="id2612910"></a><pre class="programlisting">typedef struct _EmpathyIdle EmpathyIdle;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2612924"></a><h3>
+<a name="empathy-idle-new"></a>empathy_idle_new ()</h3>
+<a class="indexterm" name="id2612937"></a><pre class="programlisting"><a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a>*        empathy_idle_new                    (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2612973"></a><h3>
+<a name="empathy-idle-get-state"></a>empathy_idle_get_state ()</h3>
+<a class="indexterm" name="id2612985"></a><pre class="programlisting"><a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          empathy_idle_get_state              (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613041"></a><h3>
+<a name="empathy-idle-set-state"></a>empathy_idle_set_state ()</h3>
+<a class="indexterm" name="id2613052"></a><pre class="programlisting">void                empathy_idle_set_state              (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609875"></a><h3>
+<a name="empathy-idle-get-status"></a>empathy_idle_get_status ()</h3>
+<a class="indexterm" name="id2609886"></a><pre class="programlisting">const gchar*        empathy_idle_get_status             (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609943"></a><h3>
+<a name="empathy-idle-set-status"></a>empathy_idle_set_status ()</h3>
+<a class="indexterm" name="id2609954"></a><pre class="programlisting">void                empathy_idle_set_status             (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610021"></a><h3>
+<a name="empathy-idle-get-flash-state"></a>empathy_idle_get_flash_state ()</h3>
+<a class="indexterm" name="id2610033"></a><pre class="programlisting"><a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          empathy_idle_get_flash_state        (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610089"></a><h3>
+<a name="empathy-idle-set-flash-state"></a>empathy_idle_set_flash_state ()</h3>
+<a class="indexterm" name="id2610102"></a><pre class="programlisting">void                empathy_idle_set_flash_state        (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610170"></a><h3>
+<a name="empathy-idle-set-presence"></a>empathy_idle_set_presence ()</h3>
+<a class="indexterm" name="id2610182"></a><pre class="programlisting">void                empathy_idle_set_presence           (<a href="EmpathyIdle.html" title="EmpathyIdle">EmpathyIdle</a> *idle,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>idle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2610271"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2613913"></a><h3>
+<a name="EmpathyIdle--flash-state"></a>The "<code class="literal">flash-state</code>" property</h3>
+<a class="indexterm" name="id2613925"></a><pre class="programlisting">  "flash-state"              <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>            : Read / Write</pre>
+<p>flash-state.</p>
+<p>Default value: MC_PRESENCE_UNSET</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613947"></a><h3>
+<a name="EmpathyIdle--state"></a>The "<code class="literal">state</code>" property</h3>
+<a class="indexterm" name="id2613960"></a><pre class="programlisting">  "state"                    <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>            : Read / Write</pre>
+<p>state.</p>
+<p>Default value: MC_PRESENCE_AVAILABLE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613983"></a><h3>
+<a name="EmpathyIdle--status"></a>The "<code class="literal">status</code>" property</h3>
+<a class="indexterm" name="id2613995"></a><pre class="programlisting">  "status"                   gchararray            : Read / Write</pre>
+<p>status.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div>
+</body>
+</html>

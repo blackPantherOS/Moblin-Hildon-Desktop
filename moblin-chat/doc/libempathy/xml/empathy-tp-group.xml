@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyTpGroup">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyTpGroup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyTpGroup</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyTpGroupPriv">EmpathyTpGroupPriv</link>;
+                    <link linkend="EmpathyTpGroup-struct">EmpathyTpGroup</link>;
+                    <link linkend="EmpathyTpGroupInfo">EmpathyTpGroupInfo</link>;
+<link linkend="EmpathyTpGroup">EmpathyTpGroup</link>*     <link linkend="empathy-tp-group-new">empathy_tp_group_new</link>                (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);
+<link linkend="void">void</link>                <link linkend="empathy-tp-group-add-members">empathy_tp_group_add_members</link>        (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="GArray">GArray</link> *handles,
+                                                         const <link linkend="gchar">gchar</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-tp-group-add-member">empathy_tp_group_add_member</link>         (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="guint">guint</link> handle,
+                                                         const <link linkend="gchar">gchar</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-tp-group-remove-members">empathy_tp_group_remove_members</link>     (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="GArray">GArray</link> *handle,
+                                                         const <link linkend="gchar">gchar</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-tp-group-remove-member">empathy_tp_group_remove_member</link>      (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="guint">guint</link> handle,
+                                                         const <link linkend="gchar">gchar</link> *message);
+<link linkend="GArray">GArray</link>*             <link linkend="empathy-tp-group-get-members">empathy_tp_group_get_members</link>        (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);
+<link linkend="void">void</link>                <link linkend="empathy-tp-group-get-all-members">empathy_tp_group_get_all_members</link>    (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="GArray">GArray</link> **members,
+                                                         <link linkend="GArray">GArray</link> **local_pending,
+                                                         <link linkend="GArray">GArray</link> **remote_pending);
+<link linkend="GList">GList</link>*              <link linkend="empathy-tp-group-get-local-pending-members-with-info">empathy_tp_group_get_local_pending_members_with_info</link>
+                                                        (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);
+<link linkend="void">void</link>                <link linkend="empathy-tp-group-info-list-free">empathy_tp_group_info_list_free</link>     (<link linkend="GList">GList</link> *infos);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-tp-group-get-name">empathy_tp_group_get_name</link>           (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);
+<link linkend="guint">guint</link>               <link linkend="empathy-tp-group-get-self-handle">empathy_tp_group_get_self_handle</link>    (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-tp-group-get-object-path">empathy_tp_group_get_object_path</link>    (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-tp-group-is-member">empathy_tp_group_is_member</link>          (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="guint">guint</link> handle);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyTpGroup
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyTpGroup-local-pending">local-pending</link>&quot;                                  : Run Last
+  &quot;<link linkend="EmpathyTpGroup-members-added">members-added</link>&quot;                                  : Run Last
+  &quot;<link linkend="EmpathyTpGroup-members-removed">members-removed</link>&quot;                                : Run Last
+  &quot;<link linkend="EmpathyTpGroup-remote-pending">remote-pending</link>&quot;                                 : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyTpGroupPriv" role="struct"/>EmpathyTpGroupPriv</title>
+<indexterm><primary>EmpathyTpGroupPriv</primary></indexterm><programlisting>typedef struct _EmpathyTpGroupPriv EmpathyTpGroupPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyTpGroup-struct" role="struct"/>EmpathyTpGroup</title>
+<indexterm><primary>EmpathyTpGroup</primary></indexterm><programlisting>typedef struct _EmpathyTpGroup EmpathyTpGroup;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyTpGroupInfo" role="struct"/>EmpathyTpGroupInfo</title>
+<indexterm><primary>EmpathyTpGroupInfo</primary></indexterm><programlisting>typedef struct {
+	guint  member;
+	guint  actor;
+	guint  reason;
+	gchar *message;
+} EmpathyTpGroupInfo;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-new" role="function"/>empathy_tp_group_new ()</title>
+<indexterm><primary>empathy_tp_group_new</primary></indexterm><programlisting><link linkend="EmpathyTpGroup">EmpathyTpGroup</link>*     empathy_tp_group_new                (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tp_chan</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-add-members" role="function"/>empathy_tp_group_add_members ()</title>
+<indexterm><primary>empathy_tp_group_add_members</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_group_add_members        (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="GArray">GArray</link> *handles,
+                                                         const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handles</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-add-member" role="function"/>empathy_tp_group_add_member ()</title>
+<indexterm><primary>empathy_tp_group_add_member</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_group_add_member         (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="guint">guint</link> handle,
+                                                         const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-remove-members" role="function"/>empathy_tp_group_remove_members ()</title>
+<indexterm><primary>empathy_tp_group_remove_members</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_group_remove_members     (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="GArray">GArray</link> *handle,
+                                                         const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-remove-member" role="function"/>empathy_tp_group_remove_member ()</title>
+<indexterm><primary>empathy_tp_group_remove_member</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_group_remove_member      (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="guint">guint</link> handle,
+                                                         const <link linkend="gchar">gchar</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-get-members" role="function"/>empathy_tp_group_get_members ()</title>
+<indexterm><primary>empathy_tp_group_get_members</primary></indexterm><programlisting><link linkend="GArray">GArray</link>*             empathy_tp_group_get_members        (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-get-all-members" role="function"/>empathy_tp_group_get_all_members ()</title>
+<indexterm><primary>empathy_tp_group_get_all_members</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_group_get_all_members    (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="GArray">GArray</link> **members,
+                                                         <link linkend="GArray">GArray</link> **local_pending,
+                                                         <link linkend="GArray">GArray</link> **remote_pending);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>members</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>local_pending</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>remote_pending</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-get-local-pending-members-with-info" role="function"/>empathy_tp_group_get_local_pending_members_with_info ()</title>
+<indexterm><primary>empathy_tp_group_get_local_pending_members_with_info</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_tp_group_get_local_pending_members_with_info
+                                                        (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-info-list-free" role="function"/>empathy_tp_group_info_list_free ()</title>
+<indexterm><primary>empathy_tp_group_info_list_free</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_group_info_list_free     (<link linkend="GList">GList</link> *infos);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>infos</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-get-name" role="function"/>empathy_tp_group_get_name ()</title>
+<indexterm><primary>empathy_tp_group_get_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_tp_group_get_name           (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-get-self-handle" role="function"/>empathy_tp_group_get_self_handle ()</title>
+<indexterm><primary>empathy_tp_group_get_self_handle</primary></indexterm><programlisting><link linkend="guint">guint</link>               empathy_tp_group_get_self_handle    (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-get-object-path" role="function"/>empathy_tp_group_get_object_path ()</title>
+<indexterm><primary>empathy_tp_group_get_object_path</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_tp_group_get_object_path    (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-group-is-member" role="function"/>empathy_tp_group_is_member ()</title>
+<indexterm><primary>empathy_tp_group_is_member</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_tp_group_is_member          (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *group,
+                                                         <link linkend="guint">guint</link> handle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyTpGroup-local-pending"/>The &quot;local-pending&quot; signal</title>
+<indexterm><primary>EmpathyTpGroup::local-pending</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *empathytpgroup,
+                                                        <link linkend="gpointer">gpointer</link>        arg1,
+                                                        <link linkend="guint">guint</link>           arg2,
+                                                        <link linkend="guint">guint</link>           arg3,
+                                                        <link linkend="gchar">gchar</link>          *arg4,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)           : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpgroup</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg4</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyTpGroup-members-added"/>The &quot;members-added&quot; signal</title>
+<indexterm><primary>EmpathyTpGroup::members-added</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *empathytpgroup,
+                                                        <link linkend="gpointer">gpointer</link>        arg1,
+                                                        <link linkend="guint">guint</link>           arg2,
+                                                        <link linkend="guint">guint</link>           arg3,
+                                                        <link linkend="gchar">gchar</link>          *arg4,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)           : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpgroup</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg4</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyTpGroup-members-removed"/>The &quot;members-removed&quot; signal</title>
+<indexterm><primary>EmpathyTpGroup::members-removed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *empathytpgroup,
+                                                        <link linkend="gpointer">gpointer</link>        arg1,
+                                                        <link linkend="guint">guint</link>           arg2,
+                                                        <link linkend="guint">guint</link>           arg3,
+                                                        <link linkend="gchar">gchar</link>          *arg4,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)           : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpgroup</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg4</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyTpGroup-remote-pending"/>The &quot;remote-pending&quot; signal</title>
+<indexterm><primary>EmpathyTpGroup::remote-pending</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpGroup">EmpathyTpGroup</link> *empathytpgroup,
+                                                        <link linkend="gpointer">gpointer</link>        arg1,
+                                                        <link linkend="guint">guint</link>           arg2,
+                                                        <link linkend="guint">guint</link>           arg3,
+                                                        <link linkend="gchar">gchar</link>          *arg4,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)           : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpgroup</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg4</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

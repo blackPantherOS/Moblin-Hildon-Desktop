@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.12">
+<!ENTITY manrevision "2.10">
+<!ENTITY date "February 2005">
+<!ENTITY appname "Same GNOME">
+<!ENTITY app "<application>Same GNOME</application>">
+<!ENTITY plainapp "Same GNOME">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Apr 11, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+  <articleinfo> 
+    <title>Manual de <application><application>Same GNOME</application></application></title>       
+    
+    <abstract role="description">
+      <para>Same GNOME es un juego tipo puzzle. El objetivo es eliminar tantos objetos como sea posible en el menor número de movimientos posibles.</para>
+    </abstract>
+
+    <copyright> 
+      <year>2005</year> 
+      <holder>Callum McKenzie</holder> 
+    </copyright><copyright><year>2007</year><holder>Jorge González (jorgegonz@svn.gnome.org)</holder></copyright> 
+
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+
+    <publisher role="maintainer"> 
+      <publishername>Proyecto de documentación de GNOME</publishername> 
+    </publisher> 
+
+   
+   <!-- This file  contains link to license for the documentation (GNU FDL), and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+    <authorgroup> 
+      <author> 
+		<firstname>Callum</firstname> 
+		<surname>McKenzie</surname> 
+		<affiliation> 
+	  		<orgname>Proyecto de documentación de GNOME</orgname> 
+	  		<address> <email>callum@physics.otago.ac.nz</email> </address> 
+		</affiliation> 
+      </author> 
+<!-- This is appropriate place for other contributors: translators,
+     maintainers,  etc. Commented out by default.
+     
+      <othercredit role="translator">
+		<firstname>Latin</firstname> 
+		<surname>Translator 1</surname> 
+		<affiliation> 
+	  		<orgname>Latin Translation Team</orgname> 
+	  		<address> <email>translator@gnome.org</email> </address> 
+		</affiliation>
+		<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+
+    <revhistory>
+      <revision> 
+		    <revnumber>Manual de Same GNOME V2.10</revnumber>
+		    <date>Febrero de 2005</date> 
+		    <revdescription> 
+    			<para>Versión inicial para el nuevo Same GNOME.</para>		    
+	  		  <para role="author">Callum McKenzie <email>callum@physics.otago.ac.nz</email></para>
+	  		  <para role="publisher">Proyecto de documentación de GNOME</para>
+    		</revdescription> 
+      </revision> 
+    </revhistory> 
+
+    <releaseinfo>Éste manual describe la versión 2.12 de Same GNOME.</releaseinfo> 
+    <legalnotice> 
+      <title>Comentarios</title> 
+      <para>Para informar sobre un fallo o hacer sugerencias sobre <application>Same GNOME</application> o sobre este manual, siga las indicaciones en la <ulink url="ghelp:gnome-feedback" type="help">Página de comentarios de GNOME</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice> 
+  </articleinfo> 
+
+  <indexterm zone="index"> 
+    <primary>Same GNOME</primary> 
+  </indexterm> 
+
+<!-- ============= Document Body ============================= -->
+
+  <sect1 id="introduction"> 
+    <title>Jugar a <application>Same GNOME</application></title> 
+    <para><application>Same GNOME</application> es un juego tipo puzle. El objetivo es eliminar el máximo número de objetos en el menor número de movimientos posibles. Los objetos que están adyacentes los unos de los otros se eliminan como un grupo. Los demás objetos se colapsan para rellenar los huecos vacíos y se forman nuevos grupos. No puede eliminar objetos individualmente.</para>
+
+    <figure id="start-up">
+      <title><application>Same GNOME</application> al comienzo de un nuevo juego.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/start-up.png" format="PNG"/>
+	        </imageobject>
+	      </mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>El tablero se inicia como una rejilla llena de objetos. Dependiendo del tamaño de tablero que seleccione, habrá tres o cuatro tipos de objetos. Si un grupo de objetos adyacentes son todos del mismo tipo, entonces pueden ser eliminados simplemente pulsando encima de ellos con el ratón (o pulsando la barra espaciadora). Cuando mueve el ratón sobre un grupo que puede eliminar, los objetos comenzarán a moverse. El número de objetos en el grupo y los puntos que obtendrá al eliminar ese grupo se muestran en la esquina inferior izquierda de la ventana. Cuantos más objetos tenga un grupo más puntos obtendrá. Una vez que el grupo ha sido eliminado, los objetos encima de él comenzarán a caer para rellenar el espacio. Si se elimina una columna entera, entonces los objetos se desplazarán hacia la izquierda para rellenar el espacio.</para>
+
+    <figure id="play">
+      <title>Jugar a <application>Same GNOME</application>.</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/play.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
+    </figure>
+
+    <para>La puntuación está basada en el número de objetos que elimine:</para>
+    
+    <informaltable frame="topbot">
+    <tgroup cols="2" align="center">
+    <thead><row>
+    <entry>Número de objetos</entry>
+    <entry>Puntos obtenidos</entry>
+    </row></thead>
+    <tbody>
+    <row><entry>2</entry><entry>0</entry></row>
+    <row><entry>3</entry><entry>1</entry></row>
+    <row><entry>4</entry><entry>4</entry></row>
+    <row><entry>5</entry><entry>9</entry></row>
+    <row><entry>6</entry><entry>16</entry></row>
+    <row><entry>7</entry><entry>25</entry></row>
+    <row><entry>8</entry><entry>36</entry></row>
+    <row><entry>9</entry><entry>49</entry></row>
+    <row><entry>&vellip;</entry><entry>&vellip;</entry></row>
+    <row><entry>p</entry><entry>(n - 2)<superscript>2</superscript></entry></row>
+    </tbody>
+    </tgroup>
+    </informaltable>
+    <para>Si limpia la pantalla hay una bonificación de 1.000 puntos.</para>
+  </sect1>
+
+  <sect1 id="same-gnome-customisation">
+    <title>Personalizar</title>
+
+    <sect2 id="changing-the-look">
+      <title>Cambiar la apariencia</title>
+      <para>Cambiar el tamaño de un objeto es tan simple como redimensionar la ventana. Para hacer un uso máximo de la pantalla elija la opción <guimenuitem>Pantalla completa</guimenuitem> del menú <guimenu>Ver</guimenu>.</para>
+
+      <para>Para cambiar la apariencia de los objetos use el elemento <guimenuitem>Tema</guimenuitem> en el menú <guimenu>Ver</guimenu>. Al seleccionar un elemento de la lista el tema cambiará inmediatamente.</para>
+
+        <para>También puede crear sus propios temas, aunque el proceso no es muy directo todavía. Use una copia de un tema existente a modo de plantilla y modifíquelo con su programa de dibujo favorito. Ponga el resultado en <filename>$XDG_DATA_HOME/gnome-games/same-gnome/themes/2.10/</filename>. Se incluirá automáticamente en la lista de temas la próxima vez que inicie <application>Same GNOME</application>. <filename>$XDG_DATA_HOME</filename> generalmente es <filename>~/.local/share/</filename>.</para>
+    </sect2>
+
+    <sect2 id="changing-the-size">
+      <title>Cambiar el tamaño</title>
+      <para>El menú <guimenu>Tamaño</guimenu> contiene tres configuraciones: pequeño, mediano y grande. Además de incrementar el número de objetos, la configuración grande también incrementa el número de objetos diferentes.</para>
+    </sect2>
+
+    <sect2 id="changing-the-speed">
+    <title>Cambiar la velocidad</title>
+    <para>La animación predeterminada está diseñada para ser suave y elegante. Si le gusta jugar de una forma rápida y furiosa entonces puede que sea demasiado lento. Seleccionando la opción <guimenuitem>Animación rápida</guimenuitem> del menú <guimenu>Ver</guimenu> puede acelerar el juego a expensas de la calidad de la animación.</para>
+    </sect2>
+
+  </sect1>
+
+  <sect1 id="same-gnome-strategy">
+    <title>Estrategia</title>
+
+    <para>La regla más importante cuando busque una alta puntuación es pensar por adelantado: cada grupo que elimine formará y destruirá otros grupos.</para>
+
+<para>Elimine los grupos superiores primero, a no ser que eliminando otro grupo se haga mayor. Los objetos alineados verticalmente no se pueden desalinear, pero los horizontales sí.</para>
+
+    <para>Ya que la puntuación se incrementa cuadráticamente, un grupo de objetos grande son siempre mejores. Por ejemplo, la diferencia de puntos entre un grupo de seis objetos y un grupo de siete objetos es de nueve puntos. En una situación donde tenga que elegir entre juntar dos grupos de dos en uno de cuatro o sólo añadir uno más a un grupo de seis, entonces debería añadir un sólo objeto al último grupo. Aunque los grupos de dos que ha dejado no puntúan, el grupo grande puntúa más que ellos juntos.</para>
+
+    <para>No se olvide de la bonificación de mil puntos por eliminar todas las bolas. Para obtener los 1.000 puntos de un sólo grupo necesita 34 objetos. Es muy poco probable que se de la situación en la que pueda eliminar un grupo tan grande para limpiar la pantalla.</para>
+  </sect1>
+
+<!-- ============= About ================================== -->
+  <sect1 id="same-gnome-about"> 
+    <title>Acerca de <application>Same GNOME</application></title> 
+    <para>Callum McKenzie (<email>callum@physics.otago.ac.nz</email>) escribió <application>Same GNOME</application>. Para obtener más información sobre <application>Same GNOME</application>, por favor visite la <ulink url="http://www.gnome.org/projects/gnome-games/" type="http">página web de juegos de GNOME</ulink>.</para>
+    <para>Para informar de un fallo o hacer alguna sugerencia concerniente a esta aplicación o este manual, siga las indicaciones en este <ulink url="ghelp:GNOME-feedback" type="help">documento</ulink>.</para>
+
+    <para>Este programa se distribuye bajo los términos de la Licencia Pública General GNU tal como la publica la Free Software Foundation; en cualquiera de las versiones 2 de la Licencia o (a su elección) cualquier versión posterior. Puede encontrar una copia de esta licencia en este <ulink url="ghelp:gpl" type="help">enlace</ulink>, o en el archivo COPYING incluido con el código fuente de este programa.</para>
+
+  </sect1> 
+</article>

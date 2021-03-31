@@ -1,0 +1,6 @@
+glade/dialogs.glade
+glade/moblin_media.glade
+glade/settings_dialog.glade
+src/constant.py
+import/media-import
+import/media-import.glade

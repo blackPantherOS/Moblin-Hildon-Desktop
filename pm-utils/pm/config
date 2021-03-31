@@ -1,0 +1,3 @@
+SUSPEND_MODULES="button snd_hda_intel sdhci acpi_cpufreq thermal"
+
+HIBERNATE_RESUME_POST_VIDEO="no"

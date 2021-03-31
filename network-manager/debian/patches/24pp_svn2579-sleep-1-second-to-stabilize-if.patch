@@ -1,0 +1,25 @@
+
+Prefetch svn branch checkin:
+   http://svn.gnome.org/viewcvs/NetworkManager/branches/NETWORKMANAGER_0_6_0_RELEASE/
+
+Rev: 2579
+Comment:
+  * src/nm-device-802-11-wireless.c:
+	- (real_act_stage2_config): sleep 1 second to allow link status
+	to stabilize
+
+--
+Index: bzr.debian.0.9.5/src/nm-device-802-11-wireless.c
+===================================================================
+--- bzr.debian.0.9.5/src/nm-device-802-11-wireless.c	(revision 2578)
++++ bzr.debian.0.9.5.new/src/nm-device-802-11-wireless.c	(revision 2579)
+@@ -2981,6 +2981,9 @@
+ 		return NM_ACT_STAGE_RETURN_POSTPONE;
+ 	}
+ 
++	/* Some cards are dumb.  Wait a second */
++	sleep (1);
++
+ 	iface = nm_device_get_iface (dev);
+ 	if (!supplicant_exec (self))
+ 	{

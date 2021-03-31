@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<bindings id="hildonBindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl">
+
+  <!-- :::/ widgets \ ::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <binding id="hildonmenu" extends="chrome://global/content/bindings/popup.xml#popup">
+    <content>
+        <children/>
+    </content>
+
+    <implementation>
+      <constructor>
+	var eventService =
+	 	Components.classes['@moblin.org/hildon/eventservice;1']
+			.getService(Components.interfaces.nsIHildonXEventService);
+
+	var self = this;
+
+	var eventListener = {
+		hildonEvent: function (events, data)
+		{
+		        // unfortunately using window.screenX,Y isn't an option for us
+			// because it includes the window decoration. We want the
+			// XY-coordinates without window decoration and use special
+			// hildon event service method to retrieve those coordinates
+			// for the rootwindow containing our |self.parentNode| element.
+                        var xOffset = new Object();
+                        var yOffset = new Object();
+		        eventService.getElementsRootWindowOffsets(self.parentNode, xOffset, yOffset);
+			var xOffsetValue = xOffset.value;
+			var yOffsetValue = yOffset.value;
+
+			// |showPopup| with first parameter null appears not to honour
+			// absolute offsets provided.
+			// XXXlayoutbug?: maybe cause is that the view is not repositioned
+			// in nsPopupSetFrame::RepositionPopup when elementContent is null)?
+			self.showPopup(self.parentNode, xOffsetValue + 40, yOffsetValue, "popup", null, "none");
+		}
+	};
+
+	eventService.addEventListener(0, eventListener, this, null);
+      </constructor>
+    </implementation>
+  </binding>
+
+  <binding id="menutoolbar">
+    <content>
+      <xul:hbox id="autocomplete-security-wrapper" flex="1">
+        <children/>
+      </xul:hbox>
+    </content>
+
+    <implementation>
+      <constructor>
+	this.hidden=true;
+      </constructor>
+    </implementation>
+  </binding>
+</bindings>

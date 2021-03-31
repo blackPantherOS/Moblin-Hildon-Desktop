@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyChatroom">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyChatroom</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyChatroom</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="EMPATHY-TYPE-CHATROOM-INVITE:CAPS">EMPATHY_TYPE_CHATROOM_INVITE</link>
+                    <link linkend="EmpathyChatroomPriv">EmpathyChatroomPriv</link>;
+                    <link linkend="EmpathyChatroom-struct">EmpathyChatroom</link>;
+<link linkend="EmpathyChatroom">EmpathyChatroom</link>*    <link linkend="empathy-chatroom-new">empathy_chatroom_new</link>                (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *room);
+<link linkend="EmpathyChatroom">EmpathyChatroom</link>*    <link linkend="empathy-chatroom-new-full">empathy_chatroom_new_full</link>           (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *room,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gboolean">gboolean</link> auto_connect);
+<link linkend="McAccount">McAccount</link>*          <link linkend="empathy-chatroom-get-account">empathy_chatroom_get_account</link>        (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);
+<link linkend="void">void</link>                <link linkend="empathy-chatroom-set-account">empathy_chatroom_set_account</link>        (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-chatroom-get-room">empathy_chatroom_get_room</link>           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);
+<link linkend="void">void</link>                <link linkend="empathy-chatroom-set-room">empathy_chatroom_set_room</link>           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         const <link linkend="gchar">gchar</link> *room);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-chatroom-get-name">empathy_chatroom_get_name</link>           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);
+<link linkend="void">void</link>                <link linkend="empathy-chatroom-set-name">empathy_chatroom_set_name</link>           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chatroom-get-auto-connect">empathy_chatroom_get_auto_connect</link>   (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);
+<link linkend="void">void</link>                <link linkend="empathy-chatroom-set-auto-connect">empathy_chatroom_set_auto_connect</link>   (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         <link linkend="gboolean">gboolean</link> auto_connect);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chatroom-equal">empathy_chatroom_equal</link>              (<link linkend="gconstpointer">gconstpointer</link> v1,
+                                                         <link linkend="gconstpointer">gconstpointer</link> v2);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyChatroom
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyChatroom--account">account</link>&quot;                  <link linkend="McAccount">McAccount</link>             : Read / Write
+  &quot;<link linkend="EmpathyChatroom--auto-connect">auto-connect</link>&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyChatroom--name">name</link>&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyChatroom--room">room</link>&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EMPATHY-TYPE-CHATROOM-INVITE:CAPS" role="macro"/>EMPATHY_TYPE_CHATROOM_INVITE</title>
+<indexterm><primary>EMPATHY_TYPE_CHATROOM_INVITE</primary></indexterm><programlisting>#define EMPATHY_TYPE_CHATROOM_INVITE       (empathy_chatroom_invite_get_gtype ())
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyChatroomPriv" role="struct"/>EmpathyChatroomPriv</title>
+<indexterm><primary>EmpathyChatroomPriv</primary></indexterm><programlisting>typedef struct _EmpathyChatroomPriv EmpathyChatroomPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyChatroom-struct" role="struct"/>EmpathyChatroom</title>
+<indexterm><primary>EmpathyChatroom</primary></indexterm><programlisting>typedef struct _EmpathyChatroom EmpathyChatroom;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-new" role="function"/>empathy_chatroom_new ()</title>
+<indexterm><primary>empathy_chatroom_new</primary></indexterm><programlisting><link linkend="EmpathyChatroom">EmpathyChatroom</link>*    empathy_chatroom_new                (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *room);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>room</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-new-full" role="function"/>empathy_chatroom_new_full ()</title>
+<indexterm><primary>empathy_chatroom_new_full</primary></indexterm><programlisting><link linkend="EmpathyChatroom">EmpathyChatroom</link>*    empathy_chatroom_new_full           (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *room,
+                                                         const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gboolean">gboolean</link> auto_connect);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>room</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auto_connect</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-get-account" role="function"/>empathy_chatroom_get_account ()</title>
+<indexterm><primary>empathy_chatroom_get_account</primary></indexterm><programlisting><link linkend="McAccount">McAccount</link>*          empathy_chatroom_get_account        (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-set-account" role="function"/>empathy_chatroom_set_account ()</title>
+<indexterm><primary>empathy_chatroom_set_account</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatroom_set_account        (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-get-room" role="function"/>empathy_chatroom_get_room ()</title>
+<indexterm><primary>empathy_chatroom_get_room</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_chatroom_get_room           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-set-room" role="function"/>empathy_chatroom_set_room ()</title>
+<indexterm><primary>empathy_chatroom_set_room</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatroom_set_room           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         const <link linkend="gchar">gchar</link> *room);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>room</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-get-name" role="function"/>empathy_chatroom_get_name ()</title>
+<indexterm><primary>empathy_chatroom_get_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_chatroom_get_name           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-set-name" role="function"/>empathy_chatroom_set_name ()</title>
+<indexterm><primary>empathy_chatroom_set_name</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatroom_set_name           (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-get-auto-connect" role="function"/>empathy_chatroom_get_auto_connect ()</title>
+<indexterm><primary>empathy_chatroom_get_auto_connect</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chatroom_get_auto_connect   (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-set-auto-connect" role="function"/>empathy_chatroom_set_auto_connect ()</title>
+<indexterm><primary>empathy_chatroom_set_auto_connect</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatroom_set_auto_connect   (<link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom,
+                                                         <link linkend="gboolean">gboolean</link> auto_connect);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auto_connect</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-equal" role="function"/>empathy_chatroom_equal ()</title>
+<indexterm><primary>empathy_chatroom_equal</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chatroom_equal              (<link linkend="gconstpointer">gconstpointer</link> v1,
+                                                         <link linkend="gconstpointer">gconstpointer</link> v2);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>v2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyChatroom--account"/>The &quot;<literal>account</literal>&quot; property</title>
+<indexterm><primary>EmpathyChatroom:account</primary></indexterm><programlisting>  &quot;account&quot;                  <link linkend="McAccount">McAccount</link>             : Read / Write</programlisting>
+<para>The account associated with an chatroom.</para></refsect2>
+<refsect2><title><anchor id="EmpathyChatroom--auto-connect"/>The &quot;<literal>auto-connect</literal>&quot; property</title>
+<indexterm><primary>EmpathyChatroom:auto-connect</primary></indexterm><programlisting>  &quot;auto-connect&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Connect on startup.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyChatroom--name"/>The &quot;<literal>name</literal>&quot; property</title>
+<indexterm><primary>EmpathyChatroom:name</primary></indexterm><programlisting>  &quot;name&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>Chatroom name.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyChatroom--room"/>The &quot;<literal>room</literal>&quot; property</title>
+<indexterm><primary>EmpathyChatroom:room</primary></indexterm><programlisting>  &quot;room&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>Chatroom represented as 'room@server'.</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

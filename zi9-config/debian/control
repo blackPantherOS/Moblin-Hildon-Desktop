@@ -1,0 +1,13 @@
+Source: zi9-config 
+Section: admin
+Priority: extra
+Maintainer: Rusty Lynch <rusty.lynch@intel.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: ume-config-zi9-ultra
+Replaces: initscripts
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ume-config-common (>= 0.4)
+Description: Configuration for a Zi9 Prototype Device
+ This package provides zi9 specific configuration files

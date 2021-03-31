@@ -1,0 +1,751 @@
+2007-11-04  Horace Li <horace.li@intel.com>
+	
+        * Remove gnome-menus dependency, we are going to create moblin-home-config
+	  to hold applications.menu for moblin-clutter-home.
+	
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* data/Makefile.am:
+	Make sure the schema file is part of extra_dist.
+
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* README:
+	Updated for new gconf keys.
+
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* configure.ac:
+	* data/Makefile.am:
+	* data/desktop-launcher.schemas:
+	Create and install a schema file for gconf keys.
+
+	* src/launcher-animation-linear.c:
+	* src/launcher-background.c:
+	* src/launcher-item.h:
+	* src/launcher-minimap-manager.c:
+	Move all gconf keys to the /apps/desktop-launcher directory.
+	Hook up the title and comment label colours to gconf keys, so if in future
+	someone changes their background pic, they  can tweak the colours to match.
+
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-item.c:
+	Too many unrefs aren't good either. Fixes crash when menu is reloading.
+
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-background.c:
+	* src/launcher-catmap.c:
+	* src/launcher-item.c:
+	* src/launcher-menu.c:
+	Fix memory leaks, and make sure that objects are freed straight away if
+	no longer needed.
+	Reduced basic memory usage by a few megs.
+
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-catmap.c:
+	* src/launcher-menu.c:
+	* src/launcher-minimap.c:
+	* src/main.c:
+	Make sure objects are unrefed when not in use.
+
+2007-10-16  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-menu.c:
+	Launcher now reacts to menu changes! Will refresh item list whenever
+	applications are added or removed.
+
+2007-10-15  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Increased the release timeout to 300 before there is no accel on scroll.
+	Increased the accel to x2 for a stroke.
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Fixes to the kinetic scrolling to make it slightly better for instances
+	when you leave the mouse around.
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-minimap-manager.c:
+	Switch back to making the application view the default (cat_view was made
+	default default by accident :-)).
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* data/Makefile.am:
+	* data/hilight-long.svg:
+	A slightly longer hilight svg.
+
+	* src/launcher-minimap.c:
+	Set the hilight to draw under the 5 visible icons, rather than just the
+	active one.
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Fix position jumping caused by new item positioning calulations.
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-catmap.c:
+	* src/launcher-item.c:
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	* src/launcher-minimap-manager.c:
+	* src/launcher-minimap.c:
+	Added abilty to track menu changes (although only works for one change at
+	the moment, gmenu bug?).
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-menu.c:
+	Load in the settings.menu as well, now that category support is working
+	*so* well ;-).
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Move the animation slightly up, to accoutn for the larger minimap.
+	Set the comment when the application list is changed.
+
+	* src/launcher-catmap.c:
+	* src/launcher-catmap.h:
+	Increase the height of the map.	
+
+	* src/launcher-minimap-manager.c:
+	* src/launcher-minimap-manager.h:
+	Increase the height of the map.
+	Add a timeout in the init function to set the appropriete applications list.
+
+	* src/launcher-minimap.h:
+	Increase height size.
+
+	* src/main.c:
+	Don't explicity set the list on the animation, wait for the minimap manager 
+	to tell us which list to set.
+
+2007-10-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-catmap.c:
+	More fixes to the popup:
+		Works with the active texture.
+		Better psoitioning.
+	Made the seeker start at the correct place when the launcher is first
+	started.
+
+2007-10-11  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-catmap.c:
+	The category name popup works fully now. Hovering over a category will show
+	the popup and name, moving your finger to another category icon will
+	change the name on the popup.
+
+	* src/launcher-minimap-manager.c:
+	Propagate all events to the maps.
+
+	* src/main.c:
+	Propagate CLUTTER_MOTION events to the minimap-manager.
+
+2007-10-11  Neil J. Patel  <njp@o-hand.com>
+
+	* data/Makefile.am:
+	* data/catmap-hover.svg:
+	Added a hover image for when the user needs more information about a
+	particular category.
+
+	* src/launcher-catmap.c:
+	Created the popup, show it offscreen, as still some work to do.
+
+	* src/launcher-minimap-manager.c:
+	Code cleanup.
+
+2007-10-11  Neil J. Patel  <njp@o-hand.com>
+
+	* data/default.svg:
+	* data/spinner.svg:
+	Some tweaks to colour & curves.
+
+	* src/launcher-animation-linear.c:
+	Don't handle input while any of the timelines are playing.
+
+	* src/launcher-minimap-manager.c:
+	Remove stray g_print.
+
+	* src/launcher-startup.c:
+	Don't complete the animation straight away, add a 1 second timeout. The
+	reason being that some applications load too quickly, and don't let the
+	effects play properly.
+
+2007-10-11  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-minimap.c:
+	Fix the seeker so it positions itself correctly.
+
+2007-10-11  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-menu.c:
+	Always return a valid pixbuf. 
+
+2007-09-20  Neil J. Patel  <njp@o-hand.com>
+
+	* README:
+	Update to document the minimap options.
+
+2007-09-20  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Fix up code to allow changing of models.
+
+	* src/launcher-catmap.c:
+	* src/launcher-catmap.h:
+	Show a box of icons representing the categories.
+	Clickign on an icon withh show applications from that category.
+		
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	Make sure the list of applications within a category is a LauncherItem list, 
+	and not a LauncherMenuApplication list.
+
+	* src/launcher-minimap-manager.c:
+	* src/launcher-minimap-manager.h:
+	Propagate signals from the catmap.
+
+	* src/launcher-minimap.c:
+	Don't explicitly show the map.
+
+	* src/launcher-startup.c:
+	Comment some of the code.
+
+	* src/main.c:
+	Connect to the 'list-changed' signal and update the animation.
+
+2007-09-20  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-startup.c:
+	Have two different timeouts, one for apps with startup-notification (longer),
+	and one for apps that we cannot monitor the startup for.
+
+	* src/main.c:
+	Comment some of the callback functions explaining what they are doing.
+
+2007-09-19  Neil J. Patel  <njp@o-hand.com>
+
+	* README:
+	Add information regarding the application and how to customise it to your
+	needs.
+
+2007-09-19  Neil J. Patel  <njp@o-hand.com>
+
+	* src/Makefile.am:
+	* src/launcher-animation-linear.c:
+	Don't process events while the launch timeline is playing.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	Remove all sn code, and launching code. Instead use LauncherStartup object
+	for this.
+
+	* src/launcher-startup.c:
+	* src/launcher-startup.h:
+	A wrapper around which ever method is used for launching applications and 
+	monitoring their startup.
+	Currently this is startup-notification based.
+
+	* src/main.c:
+	init the LauncherStartup object.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* configure.ac:
+	Add dependancy on startup-notification-1
+
+	* src/launcher-item.c:
+	Add support for startup notification (no monitoring yet).
+
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	Add accessor functions to obtain the dektop-file path.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* src/Makefile.am:
+	Added launcher-util.[h|c]
+
+	* src/launcher-item.c:
+	Added basic launching of applications.
+
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	Added accessor functions for the 'exec' string.
+
+	* src/launcher-util.c:
+	* src/launcher-util.h:
+	Contains util functions, starting with exec_to_argv from matchbox-desktop-2.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* data/spinner.svg:
+	Added a glow for effect.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* data/spinner.svg:
+	Different spinner for new effect.
+
+	* src/launcher-animation-linear.c:
+	Change spinner so it is rotated and looks like it is on the background.
+
+	* src/launcher-spinner.c:
+	* src/launcher-spinner.h:
+	Increase the size, decrease fps.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Fix buf where some items were not correctly sized.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	* src/launcher-animation-linear.h:
+	Added signals for launch started/finished.
+
+	* src/launcher-minimap-manager.c:
+	* src/launcher-minimap-manager.h:
+	Added a show/hide function to hide the map when launching an item.
+
+	* src/main.c:
+	Hook up to the new animation signals to hide the map when launching an item,
+	and to restore it when the item has finished launching.
+
+2007-09-18  Neil J. Patel  <njp@o-hand.com>
+
+	* configure:
+	Remove as not needed.
+
+2007-09-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	More active_item animation, and timeline tweaks.
+
+2007-09-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	More activation animations.
+	Added reparenting of the active item so it doesn't fade with the stage.
+
+2007-09-12  Neil J. Patel  <njp@o-hand.com>
+
+	* data/Makefile.am:
+	* data/spinner.svg:
+	Add a spinner image.
+
+	* src/Makefile.am:
+	* src/launcher-animation-linear.c:
+	Show the spinner when a item is activated.
+
+	* src/launcher-spinner.c:
+	* src/launcher-spinner.h:
+	A spinner actor.
+
+2007-09-12  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Added 'clicked' event handling.
+
+	* src/launcher-catmap.c:
+	Fixed some positioning.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	Added stubs for launching the item.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-minimap-manager.c:
+	Correctly show the correct map depending on the user preference.
+
+	* src/launcher-minimap.c:
+	Some seeker positioning tweaks.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-catmap.c:
+	* src/launcher-catmap.h:
+	Some starting code for an implementation of a category chooser.
+
+	* src/launcher-minimap.c:
+	Correct seeker position.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* src/Makefile.am:
+	* src/launcher-catmap.c:
+	Make the seeker internal to the group.
+
+	* src/launcher-minimap-manager.c:
+	Hookup to gconf to allow 'on the fly' changes of the view.
+
+	* src/launcher-minimap.c:
+	Make the seeker internal to the group, so when we hide the group, the
+	seeker also hides.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* src/Makefile.am:
+	* src/launcher-minimap.c:
+	* src/main.c:
+	Add a launcher manager to abstract the minmap component. This is so the
+	launcher can activly switch between icon and category views.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* data/hilight.svg:
+	Increase the density of the border.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Adjust the timeline speed.
+
+	* src/launcher-menu.c:
+	Set a new max limit on loaded applications to 20.
+
+	* src/launcher-minimap.c:
+	Adjust the positioning of the seeker.
+
+2007-09-10  Neil J. Patel  <njp@o-hand.com>
+
+	* configure:
+	Removed a bunch of unnecessary files.
+
+2007-09-07  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	* src/launcher-menu.c:
+	Comment out some unnecessary g_prints.
+
+2007-09-07  Neil J. Patel  <njp@o-hand.com>
+
+	* data/hilight.svg:
+	Shrinked size so it works better for small sizes.
+
+	* src/launcher-animation-linear.c:
+	* src/launcher-animation-linear.h:
+	Added a 'active-icon-changed' signal, emitted when there is a new icon in
+	the center of the stage.
+
+	* src/launcher-item.c:
+	Fixed some sizing issues.
+
+	* src/launcher-menu.c:
+	Debug limit of 15 applications.
+
+	* src/launcher-minimap.c:
+	Implemented the code necessary to move the 'seeker' along the list of icons.
+
+	* src/main.c:
+	Connected the 'active-icon-changed' signal form the animation to the
+	minimap.
+
+2007-09-07  Neil J. Patel  <njp@o-hand.com>
+
+	* data/Makefile.am:
+	* data/hilight.svg:
+	Added the hilight image used for the minimap.
+
+2007-09-07  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Increase the label's opacity as it moves away from the center of the stage.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	Add a method to retrieve the LauncherItem' label.
+
+2007-09-07  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Fix the 'set_active_item' so it hides the comment and rewinds the main
+	timeline is it is already playing.
+
+	* src/launcher-minimap.c:
+	Send the 'active-item' signal, when an item is clicked.
+
+	* src/main.c:
+	Connect to the minimap's active-item signal and update the animation when
+	it is emitted.
+
+2007-09-07  Neil J. Patel  <njp@o-hand.com>
+
+	* src/Makefile.am:
+	* src/launcher-animation-linear.c:
+	Tweaked timeline settings.
+	Added more comments.
+
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	Added a method to retrieve a sized icon for an application.
+
+	* src/launcher-minimap.c:
+	* src/launcher-minimap.h:
+	A 'navigation' widget which allows a zoomed out view of the animation.
+	Therefore allowsing a quick way to move to different applications.
+
+	* src/main.c:
+	Added event distribution (to either the animation object or the minimap)
+	depending on the position of the animation (y value).
+
+2007-09-06  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Implemented new launcher-animation method to set the active item.
+
+	* src/launcher-animation.c:
+	* src/launcher-animation.h:
+	Added a method to set the active item.
+
+2007-09-06  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Fixed bounds checking.
+
+	* src/launcher-menu.c:
+	Use the 'size' variable in get_icon, rather than calling LAUNCHER_ITEM_WIDTH
+	directly.
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* src/main.c:
+	Set the desktop hint on fullscreen windows.
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-item.c:
+	Check icon size.
+
+	* src/launcher-menu.c:
+	Make sure the pixbuf returned is the correct size, scale it if required.
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Add comment label, with fading effect.
+
+	* src/launcher-item.c:
+	Tried to fix the issue of small labels when the icon size is wrong, but it
+	doesn't work :-/.
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-background.c:
+	Added a fading-transition on wallpaper changes.
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* data/Makefile.am:
+	Add a default background image.
+
+	* src/Makefile.am:
+	* src/launcher-animation-linear.c:
+	Some timeline tweaks.
+
+	* src/launcher-background.c:
+	* src/launcher-background.h:
+	Implement a background object which listens to gconf settings and updates
+	the background accordingly.
+
+	* src/launcher-item.c:
+	Fix some labels sizing issues.
+
+	* src/main.c:
+	Create and add the background object.
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Some more animation fixes.
+
+	* src/launcher-item.c:
+	Create and show the 'name' of the item.
+
+	* src/launcher-menu.c:
+	Only show the system.menu for now (only for debugging).
+
+2007-09-05  Neil J. Patel  <njp@o-hand.com>
+
+	* ChangeLog:
+	* src/launcher-animation-linear.c:
+	Add accurate movement, so animation always stops on an item.
+	Add ensure_layout function which amkes sure that all the visible actors are
+	at the correct scale.
+	Comment the code paths.
+	
+	* src/launcher-item.c:
+	Add comments describing why the _paint function is over-ridden.
+	Remove useless printfs.
+	Move the transformation code into the animation-linear object.
+
+	* src/launcher-menu.c:
+	Remove unecessary printfs.
+
+2007-09-04  Neil J. Patel  <njp@o-hand.com>
+
+	reviewed by: <delete if not using a buddy>
+	patch by: <delete if not someon* src/launcher-animation-linear.c:
+	* src/launcher-item.c:
+
+2007-09-04  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Move all the scaling and opacity controlling to the animation.
+	Add proper movement on button release (in addition to the movement on
+	button press).
+	Lots of code clean up.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	Override the group 'paint' function to control painting of actors, 
+	as we do not want to paint actors that can't be seen.
+	Also, in the future we want to destroy the texture when it no longer can
+	be seen, to save texture memory.
+
+2007-09-04  Neil J. Patel  <njp@o-hand.com>
+
+	* src/Makefile.am:
+	* src/launcher-animation-linear.c:
+	When new model is set, add it to the internal group.
+	Populate the handle_even function, so it does useful things.
+	Respond to drag movements (no kinetic scrolling yet, though).
+
+	* src/launcher-animation.c:
+	* src/launcher-animation.h:
+	Some spacing fixes.
+
+	* src/launcher-behave.c:
+	* src/launcher-behave.h:
+	Custom behaviour class which is an easy wrapper around a ClutterBehaviour.
+
+	* src/launcher-item.c:
+	Don't add the item to the stage group, leave that up to the animation.
+
+	* src/main.c:
+	Connect to stage input events, and respong accordingly.
+
+2007-09-03  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Add a ensure_layout function as a placeholder for model changes.
+	Implement set_list LauncherAnimation function.
+
+	* src/launcher-animation.c:
+	* src/launcher-animation.h:
+	Add a set_list virtual function to set the animations model.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	Fix some sizing issues.
+
+	* src/launcher-menu.c:
+	Comment out loading the 'applications' menu for now, as not all icons are
+	the correct size.
+
+	* src/main.c:
+	Init the menu and create the animation object.
+
+2007-09-03  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Make a GList property, which represents the current 'model'.
+
+	* src/main.c:
+	Dont hide pointer while developing.
+
+2007-09-03  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-item.c:
+	Create and size the item group properly.
+	Create, size and position the clutter texture correctly.
+
+	* src/launcher-menu.c:
+	Return the correct pixbuf for categories and applications.
+	Change the loaded icon size form a static number to a dynamic one calculated
+	using the size of the stage.
+
+2007-09-03  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-animation-linear.c:
+	Cleaned up init code.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	Made the LauncherMenuApplication a property.
+	Added accessor functions for application properties.
+
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	Removed the need to pass the LauncherMenu object for launcher_menu_category_*
+	and launcher_menu_application_* functions, as it is not necessary.
+
+2007-09-03  Neil J. Patel  <njp@o-hand.com>
+
+	* ChangeLog:
+	* src/Makefile.am:
+	* src/launcher-animation-linear.c:
+	* src/launcher-animation-linear.h:
+	Implementaion of a linear animation.
+
+	* src/launcher-animation.c:
+	* src/launcher-animation.h:
+	An 'animation' interface whihc needs to be implemented for new animations.
+
+	* src/launcher-item.c:
+	* src/launcher-item.h:
+	A wrapper around a LauncherMenuApplication, which is a ClutterGroup that
+	handles the texture memory and labels etc.
+
+	* src/launcher-menu.h:
+	Fixed a typo.
+
+	* src/main.c:
+	Moved the loading of menu's to after the stage and actors are created, 
+	to make it easy to implement a progress bar in the future.
+
+2007-08-30  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-menu.c:
+	Implement a method to get pixbuf's from a desktop files' icon name.
+
+	* src/main.c:
+	Call gtk_init ().
+
+2007-08-30  Neil J. Patel  <njp@o-hand.com>
+
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	Added some comments expaining the structure.
+	Added a launcher_menu_application_get_category accessor function.
+
+2007-08-30  Neil J. Patel  <njp@o-hand.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	* src/launcher-menu.c:
+	* src/launcher-menu.h:
+	* src/main.c:
+	Added a 'menu' object, which is a thin layer over gnome-menus.
+
+2007-08-29  Neil Jagdish Patel  <njp@o-hand.com>
+
+	* INSTALL:
+	* Makefile.am:
+	* src/Makefile.am:
+	* src/main.c:
+	Finish setting up autotools environment.

@@ -1,0 +1,933 @@
+network-manager (0.6.5-1moblin4) gaston; urgency=low
+
+  *Fixed Deadlock in NetworkManager.c, launchpad bugfix for 211212 
+
+ -- Raji Bommaraju <rajyalakshmi.bommaraju@intel.com>  Fri, 25 Apr 2008 18:56:20 -0700
+
+network-manager (0.6.5-1moblin3) gaston; urgency=low
+
+  *Fixing build failure
+
+ -- Raji Bommaraju <rajyalakshmi.bommaraju@intel.com>  Thu, 20 Mar 2008 13:33:38 -0700
+
+network-manager (0.6.5-1moblin2ubuntu1) feisty; urgency=low
+
+  * 
+
+ -- Raji Bommaraju <rajyalakshmi.bommaraju@intel.com>  Thu, 20 Mar 2008 13:23:25 -0700
+
+network-manager (0.6.5-1moblin2) gaston; urgency=low
+
+  *Fix for 198642, fix for crash with 8688 a2 driver
+
+ -- Raji Bommaraju <rajyalakshmi.bommaraju@intel.com>  Thu, 20 Mar 2008 13:20:35 -0700
+
+network-manager (0.6.5-1moblin1) gaston; urgency=low
+
+  *Fixed crownbeach crash 
+
+ -- Raji Bommaraju <rajyalakshmi.bommaraju@intel.com>  Thu, 17 Jan 2008 16:18:49 -0800
+
+network-manager (0.6.5-1moblin) gaston; urgency=low
+
+  * Adding network-manager source code to moblin builds
+
+ -- Raji Bommaraju <rajyalakshmi.bommaraju@intel.com>  Tue, 15 Jan 2008 11:15:53 -0800
+
+network-manager (0.6.5-0ubuntu16) gutsy; urgency=low
+
+  * debian/README.Debian: adapt README to match the new behaviour of
+    network-manager, which doesn't manage _any_ device configured in
+    /etc/network/interfaces anymore.
+  * debian/patches/42a_lp50214_gnome464215_fix_hidden.patch,series: new patch
+    that fixes hidden network for most chipsets (LP: #50214).
+
+ -- Alexander Sack <asac@ubuntu.com>  Mon, 15 Oct 2007 18:55:20 +0200
+
+network-manager (0.6.5-0ubuntu15) gutsy; urgency=low
+
+  * debian/patches/41z_lp138217_use_timeout_to_schedule_activation.patch,series:
+    don't use idle_source to schedule activation, but rest a bit by using a
+    timeout_source with 250ms delay (LP: #138217).
+  * debian/network-manager.postinst: sleep 2 seconds after ifblacklist_migrate.sh
+    (LP: #146757).
+  * debian/patches/41w_lp145683_cancel_scan_in_supplicant_cleanup.patch,series: first part
+    for lp145683 - cancel pending scans on terminate (LP: #145683).
+  * debian/patches/41wa_lp145683_wpa_ctrl_check_select_result_for_error.patch,series:
+    second part to fix lp145683; test select result for errors (in case of
+    TERMINATE) (LP: #145683).
+  * debian/patches/41y_queue_if_dbus_name_is_taken_on_startup.patch,series: make
+    restart of network manager more failsafe and even allow to take over name
+    ownership. When ownership is taken over (dbus signal |NameLost| received), we
+    shutdown cleanly by sending |X| through |nm_shutdown_pipe| (LP: #85113).
+  * debian/patches/41x_lp145653_reraise_fatal_signals.patch: re-raise fatal
+    signals (LP: #145653).
+
+ -- Alexander Sack <asac@ubuntu.com>  Tue, 02 Oct 2007 13:32:50 +0200
+
+network-manager (0.6.5-0ubuntu14) gutsy; urgency=low
+
+  * debian/ifblacklist_migrate.sh: fix "/etc/network/interfaces migration
+    overlooks wlan0" (LP: #141580).
+
+ -- Alexander Sack <asac@ubuntu.com>  Mon, 24 Sep 2007 10:21:46 +0200
+
+network-manager (0.6.5-0ubuntu13) gutsy; urgency=low
+
+  * debian/patches/20_do_not_take_over_dhcpv4iface_when_v6_is_configured.patch:
+    fix race/null-deref crash that happens if /e/n/i is not completely flushed out
+    by editor/network-admin (LP: #141106).
+  * debian/patches/41v_lp141233-fix-supplicant-cleanup-crashes.patch: Add patch
+    for LP: #141233 - fix crash by not sending ctrl commands to supplicant if no ctrl
+    socket is open.
+  * debian/patches/series: add new patch to quilt series
+  * debian/patches/41t_nm_device_wireless_index_ctrl_sockets_by_run_count.patch:
+    use two distinct variables to track and check connect attempt count to
+    supplicant and global supplicant socket. Fix bug that prevented network
+    manager from attempting to connect to supplicant ctrl for cases where
+    global control already took a long time to succeed. (LP: #141233).
+  * debian/patches/41t_nm_device_wireless_index_ctrl_sockets_by_run_count.patch:
+    close global ctrl socket connection when nm_utils_supplicant_request_with_check
+    failed.
+  * debian/patches/41u_custom_timeout_for_some_wpa_ctrl_operations.patch: update patch
+    because of overlapping change with 41t_* patch.
+
+ -- Alexander Sack <asac@ubuntu.com>  Fri, 21 Sep 2007 11:26:01 +0200
+
+network-manager (0.6.5-0ubuntu12) gutsy; urgency=low
+
+  * debian/patches/05-debian_backend.patch: don't manage auto/allow-* dhcp
+    interfaces anymore (LP: #139403).
+    - debian/ifblacklist_migrate.sh: new helper script that blacklists
+      auto/allow-* dhcp interfaces without any options.
+    - debian/network-manager.install: install helper script to $pkglibdir
+    - debian/network-manager.postinst: run ifblacklist_migrate.sh during
+      configure when upgrading from versions "lt-nl" 0.6.5-0ubuntu12.
+  * debian/changelog: add merge-dropped changelog entries for 0.6.3-2ubuntuX
+    revision series (LP: #124018)
+  * debian/patches/25_lp90267-dont-tear-down-upped-interfaces.patch,series:
+    drop this patch, so nm is allowed to tear down upped interfaces during
+    startup again.
+
+ -- Alexander Sack <asac@ubuntu.com>  Wed, 19 Sep 2007 18:38:17 +0200
+
+network-manager (0.6.5-0ubuntu11) gutsy; urgency=low
+
+  * debian/patches/25_lp90267-dont-tear-down-upped-interfaces.patch: remove
+        redundant nm_info output previously send to syslog/daemon.log 
+        (LP: #137744).
+  * debian/patches/41r_wpa_control_custom_timeout.patch: add a state timeout
+       to wpa control Private struct and add functions to set/unset this custom
+       timeout; in turn implement this feature and make wpa_ctrl obey this
+       custom timeout.
+  * debian/patches/41r_wpa_control_explicit_TIMEOUT_reply_fixup.patch: wpa_ctrl
+       returns bogus reply string which may lead to access of not-initialized
+       memory in case an operation times out. We fix this by explicitly setting
+       reply to TIMEOUT[CLI] on wpa_ctrl side before returning.
+  * debian/patches/41s_wpa_ctrl_socket_non_block.patch: setup wpa_ctrl_socket as
+       a real NON_BLOCK socket to prevent one potential reason for stale states
+       in network-manager (deadlocks).
+  * debian/patches/41t_nm_device_wireless_index_ctrl_sockets_by_run_count.patch:
+       to prevent new supplicant sockets to not conflict with sockets that might
+       still exist from previous run we now append a run_count index to _all_
+       socket control paths. This run_count is incremented in supplicant_cleanup
+       and is mod 10 to prevent any overflow when having more than 32-bit runs.
+  * debian/patches/41q_retry_supplicant_cleanup_startup_if_ctrl_interface_connect_failes.patch:
+       another try to terminate wpasupplicant more graceful: new shutdown
+       sequence sends disable_network, ap_scan 0, interface_remove, terminate.
+  * debian/patches/41u_custom_timeout_for_some_wpa_ctrl_operations.patch: we now
+       use a custom timeout for ctrl operations: INTERFACE_ADD, DISABLE_NETWORK,
+       TERMINATE; we take care that this timeout is unset after operations are
+       through.
+  * debian/patches/series: add all these great new patches to quilt _series_.
+  * debian/patches/41d_ipw3945_turn_off_essid_in_stage1.patch,
+      41l_enable_ipw3945_reset_essid.patch,series: drop from patchset - because
+      we have a real fix in ipw3945 driver now.
+  * debian/patches/41n_graceful_supplicant_shutdown.patch: update patch in turn of
+      dropping the patches above.
+
+ -- Alexander Sack <asac@ubuntu.com>  Mon, 10 Sep 2007 13:06:24 +0200
+
+network-manager (0.6.5-0ubuntu10) gutsy; urgency=low
+
+  * debian/patches/24pp_svn2754-lp101857-endianess.patch,series: prepatch patch
+      by Wojtek Kaniewski to fix endianess issues in NetworkManager
+      (LP: #101857).
+  * debian/network-manager.postinst: apply patch contributed by Villalovos, John L
+      <john.l.villalovos@intel.com> that prevents NetworkManager restart in postinst
+      if invoke-rc.d --disclose-deny dbus force-reload fails. This is required to not
+      start any service during chroot installs of ume.
+
+ -- Alexander Sack <asac@ubuntu.com>  Thu, 06 Sep 2007 15:16:46 +0200
+
+network-manager (0.6.5-0ubuntu9) gutsy; urgency=low
+
+  * debian/patches/series: disable 41o_completely_deactivate_stage1.patch
+    for tribe-4
+
+ -- Alexander Sack <asac@ubuntu.com>  Tue,  7 Aug 2007 12:36:37 +0200
+
+network-manager (0.6.5-0ubuntu8) gutsy; urgency=low
+
+  * debian/patches/41n_graceful_supplicant_shutdown.patch: move
+    supplicant_cleanup into stage1_prepare; remove test timeouts in
+    _stage2_config and add 1 second sleep to the end of xx_stage1_prepare
+  * debian/patches/series: add new patch 41n_graceful_supplicant_shutdown.patch
+    to series
+  * debian/patches/41l_enable_ipw3945_reset_essid.patch: enable
+    ipw3945_reset_essid, by setting up function in class constructor
+  * update debian/patches/41l_enable_ipw3945_reset_essid.patch:
+    completely deactivate device in  stage1 now
+  * debian/patches/series: add new patch 41l_enable_ipw3945_reset_essid.patch
+  * debian/patches/41m_unref_dbus_connection_on_shutdown.patch,
+    unref shared dbus_connection on shutdown (LP: #85113)
+  * debian/patches/series: add new patch 41m_unref_dbus_connection_on_shutdown.patch
+  * debian/patches/41k_20_sec_wireless_link_timeout.patch: increase
+    timeout for link setup ... taken from upstream ml
+  * debian/patches/series: add new patch 41k_20_sec_wireless_link_timeout.patch
+  * debian/patches/41e_fix_vpn_ftbfs_dont_disable_gnome_deprecated.patch: Fix
+    ftbfs because of recently deprecated gnome druid - this patch enables gnome
+    deprecated in Makefiles
+  * debian/patches/series: add new patch
+    41e_fix_vpn_ftbfs_dont_disable_gnome_deprecated.patch
+  * debian/patches/41d_ipw3945_turn_off_essid_in_stage1.patch:
+    implement stage1_prepare implementation in nm-device-802-11-wireless.c
+  * debian/patches/series: add new patch 41d_ipw3945_turn_off_essid_in_stage1.patch
+  * debian/rules, debian/control, debian/patches/series: Switch patchsystem to quilt
+  * debian/patches/41c_ubuntu-fixup--get_mode_always_fails_typo_fix.patch: fix
+    programming bug in wireless code
+  * debian/patches/24pp_svn2591_Ensure-the-device-is-up-stage3.patch: ensure
+    device is up in stage3 - cherry-picked from svn
+  * debian/patches/24pp_svn2618_set-hardware-RF-to-enabled-if-no-killswitches.patch:
+    enable hardware rf by default -  cherry-picked from svn
+  * debian/patches/24pp_svn2604_Add-HAL-based-rfkill-support.patch: hal based rfkill
+    - cherry-picked from svn
+  * debian/patches/24pp_svn2579-sleep-1-second-to-stabilize-if.patch: sleep to
+    stabilize link status - cherry-picked from svn
+  * debian/patches/41o_completely_deactivate_stage1.patch: use nm_device_deactivate
+    instead of just real_deactivate to deactivate device more cleanly
+
+ -- Alexander Sack <asac@ubuntu.com>  Tue,  7 Aug 2007 09:51:02 +0200
+
+network-manager (0.6.5-0ubuntu7) gutsy; urgency=low
+
+  [Alexander Sack <asac@ubuntu.com>]
+  * prefetch bugfix from svn - not-connected wired interface is if-upped:
+    1. 24a_svn2578-gnome354565-fix-ethernet-link-detection-races.patch:
+      -  prefetch patch from 0.6.0 release branch (rev 2578)
+    2. 24b_svn2605-gnome354565-dont-up-notwired-interfaces.patch:
+      -  prefetch patch from 0.6.0 release branch (rev 2605)
+  * debian/patches/25_lp90267-dont-tear-down-upped-interfaces.patch: fix master bug that
+    makes already configured interfaces (in /etc/network/interfaces) being torn down. This
+    causes issue for network cards that don't have a link beat and might caus troubles
+    for applications that have already bound to the interface and don't react on netlink
+    events (LP: #90267)
+
+  [Anthony Mercatante <tonio@ubuntu.com>]
+  * fixed network-manager.install and debian/rules:
+    - Installs nm-vpn-perperties in /usr/lib to make it a hidden binary
+    - Tell dh_shlibdeps to ignore nm-vpn-properties to avoid lots of gnome
+      dependancies, causing issues to release kubuntu Kubuntu.
+
+ -- Alexander Sack <asac@ubuntu.com>  Thu, 12 Jul 2007 11:15:56 +0200
+
+network-manager (0.6.5-0ubuntu6) gutsy; urgency=low
+
+  * debian/control:
+    - add a network-manager-dev Depends on libnm-util-dev
+
+ -- Sebastien Bacher <seb128@canonical.com>  Fri, 06 Jul 2007 10:59:49 +0200
+
+network-manager (0.6.5-0ubuntu5) gutsy; urgency=low
+
+  * install nm-vpn-properties (plus manpage) to package
+    network-manager. It got moved from network-manager-gnome here.
+    (LP: #123772)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Thu, 05 Jul 2007 09:56:34 +0200
+
+network-manager (0.6.5-0ubuntu4) gutsy; urgency=low
+
+  * debian/control: add iproute build-depends again to fix
+    autobuilder ftbfs. 
+
+ -- Alexander Sack <asac@ubuntu.com>  Tue, 26 Jun 2007 16:39:17 +0200
+
+network-manager (0.6.5-0ubuntu3) gutsy; urgency=low
+
+  Revert all changes from 0.6.5-0ubuntu1 and 0.6.5-0ubuntu2 to
+  redo new upstream source merge ...
+
+  Drop network-manager-gnome as gnome because the gui code is
+  now shipped in separate source:
+    * debian/network-manager-gnome.install,
+      debian/network-manager-gnome.manpages,
+      debian/nm-applet.sgml: obsolete files dropped
+
+    * debian/rules: don't create/install nm-applet manpage anymore
+
+    * debian/control: drop network-manager-gnome package
+
+
+  Adapt ubuntu patchset in turn of new upstream release 0.6.5:    
+    * debian/patches/05-debian_backend.patch: our @add_data changes
+      has been applied upstream - drop first hunk of interface_parser.c
+      diff.
+
+    * debian/patches/09_fix_bigendian_words.patch: drop as 
+      AC_C_BIGENDIAN check is now applied upstream - drop patch.
+
+    * debian/patches/10-po_fr.patch: we only had modifications for
+      applet .po entries. applet moved to its own source - drop patch.
+
+    * debian/patches/11-man_page_sh_name.patch: +.SH NAME as been
+      added upstream for /man/NetworkManagerDispatcher.1.in and
+      man/NetworkManager.1.in; thus, only keep diff for man/nm-tool.1.in.
+
+    * debian/patches/12_dbus1.0.patch: dbus_connection_disconnect was
+      replaced by dbus_connection_close + dbus_connection_unref; our
+      patch previously replaced dbus_connection_disconnect with
+      dbus_connection_unref (only) - drop patch due to upstream fix.
+
+    * debian/patches/13-rml-wpa-workarounds.patch: simple reapply patch
+      manually as upstream changed some unrelated code in patch proximity.
+  
+    * debian/patches/18_static_network-admin.patch: patch for gnome
+      applet only; since source has moved it has to go - drop patch
+  
+    * debian/patches/21_manual_means_always_online.diff: drop patch
+      for gnome applet code; recalc line numbers of other patches for
+      updated underlying upstream version; apply hunk
+      src/NetworkManagerMain.h manually because upstream changed code
+      in proximity.
+  
+    * debian/patches/22_manual_config_available_when_connected.patch:
+      applet changes only - drop patch
+  
+    * debian/patches/23_nm-monitor-eni.diff: manually apply
+      src/NetworkManagerSystem.h patch whose underlying code base
+      was changed within proximity of changes; in turn recalc patch
+      line number for src/backends/NetworkManagerDebian.c as well
+      as src/NetworkManager.c
+
+
+  Change Maintainer Field for ubuntu:
+    * debian/control: change maintainer field to coredev for upload
+
+ -- Alexander Sack <asac@ubuntu.com>  Mon, 25 Jun 2007 18:25:54 +0200
+
+network-manager (0.6.5-0ubuntu2) gutsy; urgency=low
+
+  * Added missing build-dep iproute.
+    Fixes FTBFS on the buildd
+  * Fixed path installation of nm-vpn-properties
+
+ -- Anthony Mercatante <tonio@ubuntu.com>  Mon, 18 Jun 2007 12:56:22 +0200
+
+network-manager (0.6.5-0ubuntu1) gutsy; urgency=low
+
+  * New upstream release
+  * Dropped obsolete 05-debian_backend.patch
+  * Dropped 09_fix_bigendian_words.patch, merged upstream
+  * Dropped 10-po_fr.patch, translation fixed upstream
+  * Dropped 11-man_page_sh_name.patch, merged upstream
+  * Dropped 12_dbus1.0.patch, merged upstream
+  * Dropped 13-rml-wpa-workarounds.patch, merged upstream
+  * Dropped obsolete 14-j-hostap-supplicant-driver.patch
+  * Dropped obsolete 16_undefined_macros.patch
+  * Dropped 18_static_network-admin.patch,
+    21_manual_means_always_online.diff and
+    22_manual_config_available_when_connected.patch, as the applet is
+    now a separate tarball
+  * Dropped obsolete
+    19_interfaces_can_have_more_than_one_instance.patch,
+    20_do_not_take_over_dhcpv4iface_when_v6_is_configured.patch
+
+  * Moved 19_interfaces_can_have_more_than_one_instance.patch,
+    20_do_not_take_over_dhcpv4iface_when_v6_is_configured.patch and
+    21_manual_means_always_online.diff in "patches-not-applied".
+    n-m 0.6.5 has major code changes and the applet is now separate tarball,
+    those patches need rewritting.
+
+ -- Anthony Mercatante <tonio@ubuntu.com>  Fri, 15 Jun 2007 11:29:53 +0200
+
+network-manager (0.6.4-6ubuntu7) feisty; urgency=low
+
+  * 21_manual_means_always_online.diff:
+    The previous version of this patch (ubuntu5) made a change to nm-applet
+    that would assume the state was disconnected if the device list was empty.
+    This didn't work since the device list is always empty on start because
+    the status is obtained first.
+
+    This was guarding against having the connected state with no devices,
+    which broke later assertions.  Change the patch to correct those
+    assertions instead; a connected state with no active device will now
+    display the wired icon with a "Manual network configuration" tooltip.
+
+    LP: #82335, #105234.
+
+  * 05-debian_backend.patch:
+    Revert change in ubuntu3 that commented out the blacklisting of
+    devices listed in /etc/network/interfaces with more exotic configuration
+    than just inet dhcp.  This was done by the above patch in ubuntu5, it
+    seems silly to do it there, better to do it in the original patch.
+
+  * 22_manual_config_available_when_connected.patch:
+    Display the "Manual configuration" menu option when we have no devices,
+    but are connected; since that means some number of blacklisted devices
+    exist.  Don't display the "No network devices" message in that case.
+
+ -- Scott James Remnant <scott@ubuntu.com>  Thu, 12 Apr 2007 19:32:01 +0100
+
+network-manager (0.6.4-6ubuntu6) feisty; urgency=low
+
+  * debian/rules:
+    - update translations template
+
+ -- Sebastien Bacher <seb128@canonical.com>  Wed, 11 Apr 2007 22:36:27 +0200
+
+network-manager (0.6.4-6ubuntu5) feisty; urgency=low
+
+  * Partially revert 0.6.4-6ubuntu3, but if we find interfaces which are
+    disabled, we assume we are always online to avoid trouble when people
+    have advanced and semi-advanced setups.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Mon,  9 Apr 2007 21:39:20 +0200
+
+network-manager (0.6.4-6ubuntu4) feisty; urgency=low
+
+  * /etc/network/interfaces can have more than one instance of the same
+    interface. For example:
+
+    iface eth0 inet dhcp
+    and later
+    iface eth0 inet6 static
+
+    The function ifparser_getif is capable only to return the first instance
+    of eth0 that is a legal entry for NM to take over, but NM still does not
+    know how to handle what's next.
+
+    Patch 19_interfaces_can_have_more_than_one_instance.patch creates a sub
+    list of linked if_block via nextsame, binding together all if_block's
+    related to the same interface and preserving if_data for each block.
+
+    Patch 20_do_not_take_over_dhcpv4iface_when_v6_is_configured.patch
+    blacklist interfaces that have dhcp for inet configuration but have an
+    inet6 entry following later on. NM does not know yet how to
+    store/restore/configure IPv6 (blacklisted too) so for now we tell NM
+    to keep the hands off these interfaces.
+
+    (Closes LP: #93636)
+
+ -- Fabio M. Di Nitto <fabbione@ubuntu.com>  Fri, 30 Mar 2007 11:17:42 +0200
+
+network-manager (0.6.4-6ubuntu3) feisty; urgency=low
+
+  * Manage some static devices we can understand.  This should avoid the
+    problem people are having with NM marking the machine as offline when
+    it's just on static instead.  LP #82335.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Tue, 13 Mar 2007 16:18:06 +0100
+
+network-manager (0.6.4-6ubuntu2) feisty; urgency=low
+
+  * Add "static configuration" menu item for NetworkRoaming spec.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 18 Jan 2007 11:22:19 +0100
+
+network-manager (0.6.4-6ubuntu1) feisty; urgency=low
+
+  * Merged with the Debian packages.  Remaining changes:
+    - Changed 12_dbus1.0.patch to unref rather than close the connection
+    - Added 13-rml-wpa-workarounds.patch
+    - Added 14-j-hostap-supplicant-driver.patch
+    - Added 16_undefined_macros.patch
+    - Call dh_iconcache for network-manager-gnome
+    - Add recommends on network-manager-gnome | network-manager-kde
+    - Remove "security" bit in README.Debian since we're using at_console
+      instead of the netdev group
+    - Remove the addition of the netdev group as well as the dependency on
+      adduser.
+  * Thanks to Riccardo Setti for help with merging the package.  Much
+    appreciated.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 15 Dec 2006 14:41:49 +0100
+
+network-manager (0.6.4-6) unstable; urgency=medium
+
+  * debian/patches/10-po_fr.patch
+    - Added. Small fixes for the French translation. (Closes: #401060)
+      Thanks to Cyril Brulebois.
+  * debian/patches/12_dbus1.0.patch
+    - Updated 12_dbus0.9.patch for D-Bus 1.0 to pass the correct flags to
+      dbus_bus_request_name(). (Closes: #401039)
+  * debian/patches/11-man_page_sh_name.patch
+    - Add missing ".SH NAME" stanzas to man pages.
+  * debian/network-manager-gnome.install
+    - Install the nm-applet autostart file into /etc/xdg/autostart rather than
+      /usr/share/gnome/autostart to be compliant to the fd.o autostart spec.
+  * Urgency medium, as it fixes a FTBFS bug.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 30 Nov 2006 21:30:47 +0100
+
+network-manager (0.6.4-5) unstable; urgency=low
+
+  * Small fix for the NetworkManagerDispatcher init script. 
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 25 Oct 2006 11:00:34 +0200
+
+network-manager (0.6.4-4) unstable; urgency=low
+
+  * Correct typo in package description. (Closes: #390062)
+  * debian/network-manager.postinst
+    - Create group netdev if not yet existent. Add a Depends on adduser.
+  * Add instructions to README.Debian how to restart NetworkManager after
+    modifying /etc/network/interfaces. (Closes: 384892)
+  * debian/patches/05-debian_backend.patch
+    - Fix the parser for /etc/network/interfaces. (Closes: #383765)
+    - Do not restart nscd on dns changes, only invalidate the hosts cache.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 24 Oct 2006 20:18:18 +0200
+
+network-manager (0.6.4-3) unstable; urgency=low
+
+  * Changed adeprecated dbus function. (Closes: 385380)
+    - Added 12_dbus0.9.patch.
+
+ -- Riccardo Setti <giskard@debian.org>  Tue,  5 Sep 2006 19:48:00 +0200
+
+network-manager (0.6.4-2) unstable; urgency=low
+
+  * Ship the nm-tool binary. (Closes: #384891)
+
+ -- Michael Biebl <biebl@teco.edu>  Tue, 15 Aug 2006 23:42:09 +0200
+
+network-manager (0.6.4-1) unstable; urgency=low
+
+  [ Riccardo Setti ]
+  * New upstream release. (Closes: #379163)
+    - Bumped hal deps to version 0.5.7.1. NM needs user haldaemon for dbus
+    operations.
+  * Allow interfaces marked "auto-hotplug" to be managed by NM.
+    (Closes: #381017)
+  * Added 09_fix_bigendian_words.patch which will fix the WPA+plain text pw
+    auth method on powerpc (and on other bigendian archs). (Closes: #381464)
+
+  [ Michael Biebl ]
+  * Merged the patches 05-resolvconf.patch and 08-disabled_devices.patch into
+    a single patch called 05-debian_backend.patch.
+  * Updated 05-debian_backend.patch to not control mapped interfaces.
+    (Closes: #377498)
+
+ -- Michael Biebl <biebl@teco.edu>  Tue,  8 Aug 2006 01:51:13 +0200
+
+network-manager (0.6.3-2) unstable; urgency=low
+
+  * Updated 02-dbus_access_network_manager.patch to allow the hal daemon
+    (running as user "hal") to send events about hotplugged devices to the
+    NetworkManager daemon. (Closes: 355785)
+  * Added a Recommends: notification-daemon to network-manager-gnome.
+  * Improved the package description and the manpage of network-manager-gnome.
+    (Closes: #362962)
+
+ -- Michael Biebl <biebl@teco.edu>  Tue, 20 Jun 2006 23:22:11 +0200
+
+network-manager (0.6.3-1) unstable; urgency=low
+
+  * New upstream release.
+    - Removed 07-libnm_glib_reconnect_dbus.patch, merged upstream.
+    - Removed 09-nm_bad_mutex_free.patch, fixed upstream.
+    - Removed 10-interface_parser_fixes.patch, merged upstream.
+    - Removed 11-carrier_detection.patch, merged upstream.
+  * Added a watch file.
+  * Added homepage URL to package description.
+
+ -- Michael Biebl <biebl@teco.edu>  Thu,  8 Jun 2006 16:21:43 +0200
+
+network-manager (0.6.2-3) unstable; urgency=low
+
+  * Ship the NEWS.Debian file only for the network-manager package.
+    (Closes: #367063)
+  * Added 11-carrier_detection.patch to support network cards which can't do
+    carrier detection. (Closes: #366373) 
+
+ -- Michael Biebl <biebl@teco.edu>  Tue, 16 May 2006 00:16:43 +0200
+
+network-manager (0.6.3-2ubuntu7) feisty; urgency=low
+
+  * Add debian/patches/00upstream-ftbfs.patch:
+    - Fix dbus version check in src/NetworkManagerDbus.c to work with dbus
+      1.0.
+    - src/nm-netlink-monitor.c: Standard fix for new if_addr.h world order.
+    - These issues are already fixed in the currently pending Debian merge, so
+      this patch can go away soon.
+  * Add debian/patches/13_avahi-autoipd.patch:
+    - src/nm-device.c: Do not use the internal get_autoip() function, but
+      instead check if avahi-autoipd was engaged for the interface and do not
+      meddle with the settings in that case. This is in accordance with
+      upstream who wants to completely throw away the internal IPv4LL code.
+    - src/dhcp-manager/nm-dhcp-manager.c: Raise DHCP timeout from 45 seconds
+      to 99 seconds, thus effectively disabling it. We want to use
+      dhclient.conf's timeout configuration; if that happens to be longer, we
+      interrupt dhclient while it's still working and get confused if the IP
+      suddenly changes underneath us.
+    - src/dhcp-manager/nm-dhcp-manager.c: Treat DHCDBD_FAIL like
+      DHCDBD_TIMEOUT, i. e. continue with stage 4 of device activation
+      (IPv4LL address assignment) instead of giving up and trying all over
+      again. Since dhcdbd calls dhclient in single-shot mode (-1), it will
+      never return with TIMEOUT, only with FAILURE, and we want to go into
+      zeroconf mode instead of being stuck in an endless retry loop.
+    - See https://wiki.ubuntu.com/ZeroConfNetworking for details.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com> Wed, 6 Dec 2006 16:42:54 +0100
+
+network-manager (0.6.3-2ubuntu6) edgy; urgency=low
+
+  * ndiswrapper uses the stock wext driver now, so remove that bit of the
+    10-rml-wpa-workarounds.patch. Adjust
+    11-j-hostap-supplicant-driver.patch appropriately. Malone: #46136
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com> Tue, 17 Oct 2006 13:17:59 +0200
+
+network-manager (0.6.3-2ubuntu5) edgy; urgency=low
+
+  * Rebuild against dbus 0.90
+  * debian/patches/12_dbus0.9.patch:
+    + s/dbus_connection_disconnect/dbus_connection_close/g
+
+ -- Sebastian Dröge <slomo@ubuntu.com> Thu, 24 Aug 2006 18:09:06 +0200
+
+network-manager (0.6.3-2ubuntu4) edgy; urgency=low
+
+  * Correct network manager to not touch resolv.conf, accidentally dropped
+    during the merge.
+
+ -- Scott James Remnant <scott@ubuntu.com> Tue, 22 Aug 2006 09:16:37 +0200
+
+network-manager (0.6.3-2ubuntu3) edgy; urgency=low
+
+  * debian/rules:
+    - Add dh_iconcache to network-manager-gnome.
+
+ -- Christian Bjälevik <nafallo@ubuntu.com> Sun, 6 Aug 2006 12:32:52 +0200
+
+network-manager (0.6.3-2ubuntu2) edgy; urgency=low
+
+  * Fix packaging so that the workaround patch isn't already applied, thus
+    breaking the builds.
+
+ -- Scott James Remnant <scott@ubuntu.com> Sun, 30 Jul 2006 23:24:43 +0100
+
+network-manager (0.6.3-2ubuntu1) edgy; urgency=low
+
+  * Merge with debian unstable, using Debian packaging as a base.
+    Remaining changes:
+    - our HAL daemon runs as the "haldaemon" user, not "hal",
+    - use at_console="true" instead of netdev,
+    - retain rml's workarounds patch,
+    - retain j's hostap patch.
+
+ -- Scott James Remnant <scott@ubuntu.com> Wed, 12 Jul 2006 22:13:20 +0100
+
+network-manager (0.6.2-2) unstable; urgency=low
+
+  * More integration work. (Closes: #355244)
+    - Added network-manager-dispatcher.script and
+      06-dispatch_more_events.patch.
+      This way the scripts in /etc/networks/if-*.d/ are called properly by
+      NetworkManagerDispatcher.
+      Thanks to the Ubuntu devs for this work!
+    - Added 08-disabled_devices.patch. Network interfaces listed in
+      /etc/network/interfaces which are not configured "auto" and "dhcp" are
+      not handled by NM. This makes it possible to configure interfaces 
+      statically and have NM not messing with them. 
+      Updated README.Debian to reflect these changes.
+    - Added 09-nm_bad_mutex_free.patch. Otherwise NM crashes if a device is
+      disabled.
+  * Added 07-libnm_glib_reconnect_dbus.patch which makes libnm_glib sleep 
+    between unsuccessful connection attempts to dbus. (Closes: #366010)
+  * Bumped Standards-Version to 3.7.2, no further changes required.
+  * Removed *.la files from the dev packages as we also ship pkg-config files
+    which are a better alternative.
+  * Added 10-interface_parser_fixes.patch which fixes several problems with
+    the /etc/network/interfaces parser. (Closes: #355564)
+
+ -- Michael Biebl <biebl@teco.edu>  Fri,  5 May 2006 18:01:47 +0200
+
+network-manager (0.6.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Updated if_fix.patch, parts of it have been fixed upstream.
+  * Renamed patches to use a more consistent naming scheme.
+  * Depend on dhcbd (>= 1.12-2) because NM 0.6.2 does not start dhcdbd itself
+    anymore.
+  * The wpa_supplicant binary was moved from /usr/sbin to /sbin. Updated
+    debian/rules accordingly.
+  * Added dependency on hal (Closes: #356622)
+  * Added autostart file to network-manager-gnome. This way nm-applet is
+    started automatically on login.
+
+ -- Michael Biebl <biebl@teco.edu>  Sun,  2 Apr 2006 19:48:28 +0200
+
+network-manager (0.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added myself to uploaders.
+  * Added a dependency on dbus.
+
+ -- Michael Biebl <biebl@teco.edu>  Tue, 14 Mar 2006 15:48:41 +0100
+
+network-manager (0.6.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #355246)
+    - most of the work is taken from the experimental branch of NM.
+      Thanks goes to  Michael Biebl.
+    - Added NetworkManagerDebian.patch which introduce supports for resolvconf
+  * switched to debhelper5.
+  * added libnl-util0, libnl-util-dev packages.
+    - added debian/libnl-util0.install , debian/libnl-util-dev.install
+  * removed debian/dirs as it was useless.
+  * added a dependency on wpasupplicant as it's necessary for all encrypted
+    connections.
+
+ -- Riccardo Setti <giskard@autistici.org>  Thu,  9 Mar 2006 15:38:01 +0100
+
+network-manager (0.5.1-3) unstable; urgency=low
+
+  * improved debian/copyright . I hope this time it will be 
+    good enough to pass the ftp-master check. Thanks to Joerg Jaspert who
+    has pointed me to the problem.
+
+ -- Riccardo Setti <giskard@autistici.org>  Sun, 26 Feb 2006 21:57:29 +0100
+
+network-manager (0.5.1-2) unstable; urgency=low
+
+  * improved manpages.
+    - added nm-vpn-properties, nm-applet manpages
+    - added debian/network-manager-gnome.manpages
+    - modifyed NetworManager*.sgml for reflect the correct website.
+  * added nm-vpn-properties.desktop, nm-logo.xpm
+  * added dbus_access_network_manager and dbus_access_nm_applet patches:
+    - switched to group netdev
+    - updated the dep on dhcdbd
+    - removed debian/network-manager.dbus-conf debian/nm-applet.conf
+  * removed network-manager.doc as it was empty. 
+  * uploaded to unstable.
+
+ -- Riccardo Setti <giskard@autistici.org>  Thu,  9 Feb 2006 10:18:13 +0100
+
+network-manager (0.5.1-1) experimental; urgency=low
+
+  * renamed 25NetworkManagerDispatcher in 26NetworkManagerDispatcher because
+    first we need to start NetworkManager and then NetworkManagerDispatcher 
+  * added networkmanger and networkmanaferdispatcher manpages. 
+  * Inital upload to Debian (Closes: #270538)
+  * work based on the ubuntu package
+  * Added 01.patch and 02.patch for fix the problem with recent linux 
+    kernel-headers
+ 
+ -- Riccardo Setti <giskard@autistici.org>  Mon, 5 Jan 2006 17:09:29 +0100
+
+network-manager (0.5.1-0ubuntu6) dapper; urgency=low
+
+  * Really don't depend on bind9 being installed
+
+ -- Matthew Garrett <mjg59@srcf.ucam.org>  Mon, 26 Dec 2005 00:40:29 +0000
+
+network-manager (0.5.1-0ubuntu5) dapper; urgency=low
+
+  * debian/control:
+    - Version dep on dhcdbd to (>= 1.10-0ubuntu2).
+
+ -- Christian Bjälevik <nafallo@ubuntu.com>  Wed, 21 Dec 2005 19:08:53 +0100
+
+network-manager (0.5.1-0ubuntu4) dapper; urgency=low
+
+  * debian/control:
+    - Version all accurances of libdbus-glib-1-dev to (>= 0.60).
+    - Removed not needed Build-Dep on libxdcmp-dev, this is a dep
+      of libx11-dev now.
+  * debian/patches/01-STOLEN_FROM_HEAD-dbus-60:
+    - Add a patch from CVS HEAD to fix FTBFS.
+      No patchsystem, only applied it.
+
+ -- Christian Bjälevik <nafallo@ubuntu.com>  Wed, 21 Dec 2005 14:22:34 +0100
+
+network-manager (0.5.1-0ubuntu3) dapper; urgency=low
+
+  * debian/control:
+    - Changed versioned dep on wireless-tools to >= 28pre9
+      (what upstream says in their .news).
+    - Removed commented out Conflicts-line.
+    - Do not depend on bind9 being installed.
+    - Added libxdmcp-dev as a Build-Dep.
+  * debian/*.dbus-event:
+    - Use "$NAME" instead of the incredible long "$DESC: ".
+  * debian/network-manager.postinst:
+    - Do not run gtk-update-icon-cache on configure cause
+      seb128 says it's a bad idea and explained why :-).
+  * debian/README:
+    - Fix typo (cann -> can).
+  * debian/rules:
+    - Removed named-support (we don't want bind9 for this)
+    - Added --with-distro=debian.
+
+ -- Christian Bjälevik <nafallo@ubuntu.com>  Thu, 15 Dec 2005 02:04:12 +0100
+
+network-manager (0.5.1-0ubuntu2) dapper; urgency=low
+
+  * remove .arch-ids traces
+
+ -- Jan Gerber <j@bootlab.org>  Sun, 13 Nov 2005 21:19:18 -0500
+
+network-manager (0.5.1-0ubuntu1) dapper; urgency=low
+
+  * New upstream version
+
+ -- Jan Gerber <j@bootlab.org>  Fri, 21 Oct 2005 08:33:25 -0400
+
+network-manager (0.5.0-0ubuntu1) breezy; urgency=low
+
+  * New upstream version
+  * split headers into network-manager-dev
+
+ -- Jan Gerber <j@bootlab.org>  Tue, 18 Oct 2005 17:43:56 +0200
+
+network-manager (0.4.1+cvs20050817-0ubuntu5) breezy; urgency=low
+
+  * fix postinst so its possible to install network-manager 
+    in pbuilder
+
+ -- Jan Gerber <j@bootlab.org>  Tue, 11 Oct 2005 19:23:47 +0200
+
+network-manager (0.4.1+cvs20050817-0ubuntu4) breezy; urgency=low
+
+  * update postinst to restart dbus on install
+
+ -- Jan Gerber <j@bootlab.org>  Sat, 29 Aug 2005 13:40:26 +0200
+
+network-manager (0.4.1+cvs20050817-0ubuntu3) breezy; urgency=low
+
+  * this is NetworkManager CVS Tag NM_0_4_1_RELEASE + 3 patches
+    - make dhcdbd only a runtime dependency
+    - fix build due to one too many ,s
+    - fix debian backend to support static IP settings again
+      (all changes are upstream by now)
+
+ -- Jan Gerber <j@bootlab.org>  Sat, 27 Aug 2005 23:40:26 +0200
+
+network-manager (0.4.1+cvs20050817-0ubuntu2) breezy; urgency=low
+
+  * restructure build system to creat orig.tar.gz and diff.gz files
+
+ -- Jan Gerber <j@bootlab.org>  Sat, 27 Aug 2005 14:04:26 +0200
+
+network-manager (0.4.1+cvs20050817-0unbuntu1) breezy; urgency=low
+
+  * fix loading static IP settings from /etc/network/interfaces
+
+ -- Jan Gerber <j@bootlab.org>  Sun, 21 Aug 2005 19:40:26 +0200
+
+network-manager (0.4.1+cvs20050817-0) breezy; urgency=low
+
+  * update to NM_0_4_1_RELEASE
+
+ -- Jan Gerber <j@bootlab.org>  Sun, 21 Aug 2005 15:27:26 +0200
+
+network-manager (0.4.1+cvs20050813-0) breezy; urgency=low
+
+  * change back to using BIND
+  * remove dependency on resolvconf and dnsmasq
+
+ -- Jan Gerber <j@bootlab.org>  Sat, 13 Aug 2005 19:37:26 +0200
+
+network-manager (0.4.1+cvs20050618-3) breezy; urgency=low
+
+  * Run resolvconf instead of messing with BIND.  Dependencies
+    changed too.  Unfortunately these changes are not properly
+    tested :-(.
+
+ -- Ian Jackson <ian@ubuntu.com>  Sat, 18 Jun 2005 13:33:26 +0100
+
+network-manager (0.4.1+cvs20050618-2) breezy; urgency=low
+
+  * Sort out chown of /var/lib/NetworkManager
+
+ -- Thom May <thom@ubuntu.com>  Sat, 18 Jun 2005 13:33:26 +0100
+
+network-manager (0.4.1+cvs20050618-1) breezy; urgency=low
+
+  * update from CVS
+  * Add configure magic to ensure we get the correct path for dhcdbd
+    (Ubuntu: #11905)
+  * Ensure /var/lib/NetworkManager is created with the correct permisions
+    (Ubuntu: #11904)
+  * Rename dbus event script to correct name and restart dbus in postinst
+  * Depend on lsb-base and use log_*_msg in event script
+
+ -- Thom May <thom@ubuntu.com>  Sat, 18 Jun 2005 11:22:49 +0100
+
+network-manager (0.4.1+cvs20050616-1) breezy; urgency=low
+
+  * New upstream. Fix descriptions.
+
+ -- Thom May <thom@ubuntu.com>  Thu, 16 Jun 2005 14:47:30 +0100
+   
+network-manager (0.4.1+cvs20050614-1) unstable; urgency=low
+
+  * New upstream release. Move to 0.4 branch; use dhcdbd.
+  * Drop network-manager-gnome
+  * add libnm-glib-0 and libnm-glib-0-dev
+
+ -- Thom May <thom@debian.org>  Tue, 14 Jun 2005 12:41:29 +0100
+
+network-manager (0.3.1+cvs20041108-1) unstable; urgency=low
+
+  * New upstream release
+  * Add dpatch
+
+ -- Thom May <thom@debian.org>  Mon,  8 Nov 2004 13:49:15 +0000
+
+network-manager (0.3.1+cvs20041101-2) unstable; urgency=low
+
+  * Update dependencies, thanks to j@bootlab.org
+
+ -- Thom May <thom@debian.org>  Tue,  2 Nov 2004 16:32:45 +0000
+
+network-manager (0.3.1+cvs20041101-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Thom May <thom@debian.org>  Mon,  1 Nov 2004 13:08:32 +0000
+
+network-manager (0.3.1+cvs20041028-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Thom May <thom@debian.org>  Thu, 28 Oct 2004 13:12:42 +0100
+
+network-manager (0.3+cvs20041016-2) unstable; urgency=low
+
+  * fix some minor problems in packaging; clean up for pkg-utopia entry
+
+ -- Thom May <thom@canonical.com>  Mon, 25 Oct 2004 13:43:07 +0100
+
+network-manager (0.3+cvs20041016-1) unstable; urgency=low
+
+  * New upstream release
+  * Clean up backend for debian
+
+ -- Thom May <thom@debian.org>  Sat, 16 Oct 2004 21:32:43 +0100
+
+network-manager (0.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Thom May <thom@debian.org>  Fri, 15 Oct 2004 13:55:46 +0100
+
+network-manager (0.2+cvs20040928-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Thom May <thom@debian.org>  Sun,  3 Oct 2004 11:54:56 +0100
+

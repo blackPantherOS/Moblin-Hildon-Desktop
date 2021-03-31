@@ -1,0 +1,58 @@
+---
+ src/nm-device-802-11-wireless.c |   26 ++++++++++++++------------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
+
+Index: network-manager.debian/src/nm-device-802-11-wireless.c
+===================================================================
+--- network-manager.debian.orig/src/nm-device-802-11-wireless.c
++++ network-manager.debian/src/nm-device-802-11-wireless.c
+@@ -2437,35 +2437,37 @@
+ supplicant_cleanup (NMDevice80211Wireless *self)
+ {
+ 	char * sock_path;
+ 
+ 	g_return_if_fail (self != NULL);
+ 
+ 	if (self->priv->supplicant.pid > 0)
+ 	{
+-	  	wpa_ctrl_set_custom_timeout(self->priv->supplicant.ctrl, 12);
+-		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++		if(self->priv->supplicant.ctrl) {
++	  		wpa_ctrl_set_custom_timeout(self->priv->supplicant.ctrl, 12);
++			if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+                         "DISABLE_NETWORK 0"))
+-			nm_warning("supplicant_cleanup - couldn't disable network in supplicant_cleanup");
++				nm_warning("supplicant_cleanup - couldn't disable network in supplicant_cleanup");
+ 
+-		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+-                        "AP_SCAN 0"))
+-			nm_warning("supplicant_cleanup - couldn't set AP_SCAN 0");
++			if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++        	                "AP_SCAN 0"))
++				nm_warning("supplicant_cleanup - couldn't set AP_SCAN 0");
+ 
+ 		//		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+ 		//                        "interface_remove %s", iface))
+ 		//			nm_warning("supplicant_cleanup - couldn't remove device interface %s", iface);
+ 
+-		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+-                        "TERMINATE"))
+-			nm_warning("supplicant_cleanup - couldn't terminate wpasupplicant cleanly.");
+-
+-		wpa_ctrl_unset_custom_timeout(self->priv->supplicant.ctrl);
+-
++			if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++	                        "TERMINATE"))
++				nm_warning("supplicant_cleanup - couldn't terminate wpasupplicant cleanly.");
++			wpa_ctrl_unset_custom_timeout(self->priv->supplicant.ctrl);
++		} else {
++			nm_warning("supplicant_cleanup - no ctrl socket established ... trying signat shutdown only.");
++		}
+ 		kill (self->priv->supplicant.pid, SIGTERM);
+ 		self->priv->supplicant.pid = -1;
+ 	}
+ 	if (self->priv->supplicant.watch)
+ 	{
+ 		g_source_destroy (self->priv->supplicant.watch);
+ 		self->priv->supplicant.watch = NULL;
+ 	}

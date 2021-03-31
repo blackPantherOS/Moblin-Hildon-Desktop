@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-account-widget-msn">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-account-widget-msn</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-account-widget-msn</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-account-widget-msn-new">empathy_account_widget_msn_new</link>      (<link linkend="McAccount">McAccount</link> *account);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="empathy-account-widget-msn-new" role="function"/>empathy_account_widget_msn_new ()</title>
+<indexterm><primary>empathy_account_widget_msn_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_account_widget_msn_new      (<link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

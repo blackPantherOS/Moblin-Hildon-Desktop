@@ -1,0 +1,3 @@
+#! /bin/sh
+
+gconf-schemas --register moblin-media.schemas 

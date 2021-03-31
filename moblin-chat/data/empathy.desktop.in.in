@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+X-Osso-Service=org.moblin.chat
+_Name=Moblin-chat Instant Messenger
+_Comment=Send and receive instant messages
+Exec=empathy
+Icon=empathy
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Network;InstantMessaging;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=empathy
+X-GNOME-Bugzilla-Component=General
+X-GNOME-Bugzilla-Version=@VERSION@

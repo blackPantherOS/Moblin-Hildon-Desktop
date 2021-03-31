@@ -1,0 +1,82 @@
+diff -Nur bzr.debian.0.9.4.patchupdate/src/dhcp-manager/nm-dhcp-manager.c bzr.debian.0.9.4.patchupdate.new/src/dhcp-manager/nm-dhcp-manager.c
+--- bzr.debian.0.9.4.patchupdate/src/dhcp-manager/nm-dhcp-manager.c	2007-06-25 17:14:46.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/dhcp-manager/nm-dhcp-manager.c	2007-06-25 17:16:23.000000000 +0200
+@@ -34,7 +34,7 @@
+ #include "nm-utils.h"
+ 
+ 
+-#define NM_DHCP_TIMEOUT		45	/* DHCP timeout, in seconds */
++#define NM_DHCP_TIMEOUT		99	/* DHCP timeout, in seconds */
+ 
+ struct NMDHCPManager
+ {
+@@ -681,6 +681,7 @@
+ 						}
+ 						break;
+ 
++					case DHCDBD_FAIL:		/* all attempts to contact server timed out, sleeping */
+ 					case DHCDBD_TIMEOUT:		/* timed out contacting DHCP server */
+ 						if (nm_act_request_get_stage (req) == NM_ACT_STAGE_IP_CONFIG_START)
+ 						{
+@@ -689,7 +690,6 @@
+ 						}
+ 						break;					
+ 
+-					case DHCDBD_FAIL:		/* all attempts to contact server timed out, sleeping */
+ 					case DHCDBD_ABEND:		/* dhclient exited abnormally */
+ //					case DHCDBD_END:		/* dhclient exited normally */
+ 						if (nm_act_request_get_stage (req) == NM_ACT_STAGE_IP_CONFIG_START)
+diff -Nur bzr.debian.0.9.4.patchupdate/src/nm-device.c bzr.debian.0.9.4.patchupdate.new/src/nm-device.c
+--- bzr.debian.0.9.4.patchupdate/src/nm-device.c	2007-06-25 17:16:23.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/nm-device.c	2007-06-25 17:16:23.000000000 +0200
+@@ -24,6 +24,7 @@
+ #include <dbus/dbus.h>
+ #include <netinet/in.h>
+ #include <string.h>
++#include <sys/wait.h>
+ 
+ #include "nm-device.h"
+ #include "nm-device-private.h"
+@@ -912,17 +913,22 @@
+ NMIP4Config *
+ nm_device_new_ip4_autoip_config (NMDevice *self)
+ {
+-	struct in_addr		ip;
+ 	NMIP4Config *		config = NULL;
+ 
+ 	g_return_val_if_fail (self != NULL, NULL);
+ 
+-	if (get_autoip (self, &ip))
+-	{
++	/* check if avahi-autoipd is running on the interface */
++	char* argv[] = { "/usr/sbin/avahi-autoipd", "--check", nm_device_get_iface(self), NULL };
++	gint exit_status;
++	if (g_spawn_sync (NULL, argv, NULL, 0, NULL, NULL, NULL, NULL,
++	    &exit_status, NULL) && WIFEXITED(exit_status) &&
++	    WEXITSTATUS(exit_status) == 0) {
+ 		#define LINKLOCAL_BCAST		0xa9feffff
+ 
+ 		config = nm_ip4_config_new ();
+-		nm_ip4_config_set_address (config, (guint32)(ip.s_addr));
++
++		nm_info ("avahi-autoipd running on %s, assuming IPv4LL address", nm_device_get_iface (self));
++		nm_ip4_config_set_address (config, 0); /* to indicate that it shouldn't be touched */
+ 		nm_ip4_config_set_netmask (config, (guint32)(ntohl (0xFFFF0000)));
+ 		nm_ip4_config_set_broadcast (config, (guint32)(ntohl (LINKLOCAL_BCAST)));
+ 		nm_ip4_config_set_gateway (config, 0);
+@@ -1174,6 +1180,15 @@
+ 	if (nm_device_activation_should_cancel (self))
+ 		goto out;
+ 
++	/* device was configured externally (e. g. from a DHCP exit hook
++	 * script), do not touch it */
++	if (nm_ip4_config_get_address(ip4_config) == 0) {
++		nm_info("not touching %s configuration, was configured externally", 
++			nm_device_get_iface (self));
++		nm_policy_schedule_activation_finish (req);
++		goto out;
++	}
++
+ 	nm_device_set_ip4_config (self, ip4_config);
+ 	if (nm_system_device_set_from_ip4_config (self))
+ 	{

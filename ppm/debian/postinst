@@ -1,0 +1,21 @@
+#! /bin/sh
+
+set -e
+
+if [ ! -L /etc/rc1.d/K01ppmd ]; then
+    ln -s /etc/init.d/ppmd /etc/rc1.d/K01ppmd
+fi
+if [ ! -L /etc/rc2.d/S98ppmd ]; then
+    ln -s /etc/init.d/ppmd /etc/rc2.d/S98ppmd
+fi
+if [ ! -L /etc/rc3.d/S98ppmd ]; then
+    ln -s /etc/init.d/ppmd /etc/rc3.d/S98ppmd
+fi
+if [ ! -L /etc/rc4.d/S98ppmd ]; then
+    ln -s /etc/init.d/ppmd /etc/rc4.d/S98ppmd
+fi
+if [ ! -L /etc/rc5.d/S98ppmd ]; then
+    ln -s /etc/init.d/ppmd /etc/rc5.d/S98ppmd
+fi
+
+#DEBHELPER#

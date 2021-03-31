@@ -1,0 +1,26 @@
+<!ENTITY toggle.label "Přepnout Grab and Drag">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Povolit/Zakázat rozšíření Grab and Drag">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Nastavení rozšíření Grab and Drag">
+<!ENTITY enabled.label "Rozšíření povoleno">
+<!ENTITY qt.label "Klávesa rychlého spuštění">
+<!ENTITY mousecursor.label "Kurzor myši">
+<!ENTITY grabcursor.label "Kurzor posouvání">
+<!ENTITY openhand.label "Otevřená ruka">
+<!ENTITY closedhand.label "Zaťatá ruka">
+<!ENTITY altopenhand.label "Otevřená ruka #2">
+<!ENTITY altclosedhand.label "Zaťatá ruka #2">
+<!ENTITY fourway.label "Kurzor pro přesun">
+<!ENTITY stdarrow.label "Standardní šipka">
+<!ENTITY defcur.label "Výchozí kurzor">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Přepínací klávesa">
+<!ENTITY options.togKey "Klávesa">
+<!ENTITY notes "Poznámky">
+<!ENTITY prefs.cursorwarning "Kurzor ruky vyžaduje Firefox nebo Thunderbird verze 1.5+. Některé operační systémy mohou nesprávně zobrazovat tento druh kurzoru.">
+<!ENTITY prefs.toolbarInfo "Přepínací tlačítko je možné umístit i na nástrojovou lištu (Zobrazit > Nástrojové lišty > Vlastní...)">
+<!ENTITY prefs.qtInfo "Podržení klávesy rychlého spuštění dočasně vypne rozšíření Grab and Drag, dokud klávesa není znovu uvolněna. To umožňuje jednoduchý výběr textu.">
+<!ENTITY prefs.rollForInfo "Pro více informací přejeďte myší nad nastavení.">

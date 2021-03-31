@@ -1,0 +1,2 @@
+ATTR{device}=="0x8118", ATTR{vendor}=="0x8086", ACTION=="online", RUN+="/lib/udev/mount_helper umount"
+ATTR{device}=="0x8118", ATTR{vendor}=="0x8086", ACTION=="offline", RUN+="/lib/udev/mount_helper mount"

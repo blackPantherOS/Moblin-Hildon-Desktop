@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyFilter</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="libempathy-empathy-contact-list.html" title="empathy-contact-list">
+<link rel="next" href="EmpathyPresence.html" title="EmpathyPresence">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-empathy-contact-list.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyPresence.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2585615" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2605415" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2605359" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2605383" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyFilter"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2585615"></a><span class="refentrytitle">EmpathyFilter</span>
+</h2>
+<p>EmpathyFilter</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyFilter.html#EmpathyFilterPriv">EmpathyFilterPriv</a>;
+                    <a href="EmpathyFilter.html#EmpathyFilter-struct">EmpathyFilter</a>;
+<a href="EmpathyFilter.html" title="EmpathyFilter">EmpathyFilter</a>*      <a href="EmpathyFilter.html#empathy-filter-new">empathy_filter_new</a>                  (const gchar *bus_name,
+                                                         const gchar *object_path,
+                                                         const gchar *channel_type,
+                                                         guint priority,
+                                                         guint flags);
+void                <a href="EmpathyFilter.html#empathy-filter-process">empathy_filter_process</a>              (<a href="EmpathyFilter.html" title="EmpathyFilter">EmpathyFilter</a> *filter,
+                                                         TpChan *tp_chan,
+                                                         gboolean process);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2605359"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyFilter
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2605383"></a><h2>Signals</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyFilter.html#EmpathyFilter-new-channel">new-channel</a>"                                    : Run Last
+  "<a href="EmpathyFilter.html#EmpathyFilter-process">process</a>"                                        : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2605415"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2605430"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2605441"></a><h3>
+<a name="EmpathyFilterPriv"></a>EmpathyFilterPriv</h3>
+<a class="indexterm" name="id2605454"></a><pre class="programlisting">typedef struct _EmpathyFilterPriv EmpathyFilterPriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605470"></a><h3>
+<a name="EmpathyFilter-struct"></a>EmpathyFilter</h3>
+<a class="indexterm" name="id2605482"></a><pre class="programlisting">typedef struct _EmpathyFilter EmpathyFilter;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607135"></a><h3>
+<a name="empathy-filter-new"></a>empathy_filter_new ()</h3>
+<a class="indexterm" name="id2607148"></a><pre class="programlisting"><a href="EmpathyFilter.html" title="EmpathyFilter">EmpathyFilter</a>*      empathy_filter_new                  (const gchar *bus_name,
+                                                         const gchar *object_path,
+                                                         const gchar *channel_type,
+                                                         guint priority,
+                                                         guint flags);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>bus_name</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>object_path</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>channel_type</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>priority</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>flags</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607290"></a><h3>
+<a name="empathy-filter-process"></a>empathy_filter_process ()</h3>
+<a class="indexterm" name="id2607301"></a><pre class="programlisting">void                empathy_filter_process              (<a href="EmpathyFilter.html" title="EmpathyFilter">EmpathyFilter</a> *filter,
+                                                         TpChan *tp_chan,
+                                                         gboolean process);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>filter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>tp_chan</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>process</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2607391"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2607402"></a><h3>
+<a name="EmpathyFilter-new-channel"></a>The "new-channel" signal</h3>
+<a class="indexterm" name="id2607410"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyFilter.html" title="EmpathyFilter">EmpathyFilter</a> *empathyfilter,
+                                                        TpConn        *arg1,
+                                                        TpChan        *arg2,
+                                                        gpointer       user_data)          : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathyfilter</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607519"></a><h3>
+<a name="EmpathyFilter-process"></a>The "process" signal</h3>
+<a class="indexterm" name="id2607526"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyFilter.html" title="EmpathyFilter">EmpathyFilter</a> *empathyfilter,
+                                                        guint          arg1,
+                                                        gboolean       arg2,
+                                                        gpointer       user_data)          : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathyfilter</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

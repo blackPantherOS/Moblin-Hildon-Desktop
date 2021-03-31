@@ -1,0 +1,1068 @@
+moblin-media (0.51)
+  * Fix it so that the program will hide instead of close, if other instances
+    are running.
+
+moblin-media (0.49)
+
+  * Make change so that the version number in the about box will track with
+    the changelog, as long as the changelog keeps the current version as the
+    first line in the file.  This fixes:
+    https://bugs.launchpad.net/bugs/203091
+
+moblin-media (0.48)
+
+  * Fix for issue with windowed mode video getting cropped.
+    https://bugs.launchpad.net/moblin-multimedia/+bug/191500
+
+moblin-media (0.47)
+
+  * Updated Chinese translation file
+  * Fix issue with two error messages when playing back unsupported file.
+    https://bugs.launchpad.net/moblin-multimedia/+bug/193616
+
+moblin-media (0.45)
+
+  * Fix issue with FAT filesystem and testing to see if device was attached to
+    a PC system.  This should fix bug
+    https://bugs.launchpad.net/moblin-other/+bug/208427
+
+moblin-media (0.44)
+
+  * More fixes for I18N stuff.
+
+moblin-media (0.43)
+
+  * Fixes for I18N stuff.
+
+moblin-media (0.42)
+
+  * Fixed desktop files to showup correctly
+  * cutting a release so they'll show up in QA images
+
+moblin-media (0.41)
+
+  * Fixed an issue caused by the thumbnail renaming fix from 0.40 where
+    the size would get dropped from the thumbnail name on rename operations
+  * Updating the desktop files to keep in sync with recent moblin specification
+    updates
+  * Fixed the hint window implementation to use strings instead of using
+    images with embedded strings.  This enable the hint windows to be localized
+	
+mobin-media (0.40)
+
+  * Adding a translation pot file and then also adding the Chinese translation
+    created by the validation team
+  * Fixed various internationalization bugs:
+	- https://bugs.launchpad.net/moblin-multimedia/+bug/198289
+	- https://bugs.launchpad.net/moblin-multimedia/+bug/198654
+	- https://bugs.launchpad.net/moblin-multimedia/+bug/199013
+	- https://bugs.launchpad.net/moblin-multimedia/+bug/199018
+  * Fixed https://bugs.launchpad.net/moblin-multimedia/+bug/194300, which
+    fixes a bug that would cause thumbnails to not correctly clear after
+    increasing the size of thumbnails
+  * Fixed https://bugs.launchpad.net/bugs/193616 where multiple error
+    message dialogs would be presented to the user on media playback error
+  * Fixed https://bugs.launchpad.net/bugs/195670 where renaming a photo
+    in some conditions would result in garbage text being displayed as the
+    file name in the thumbnail view
+  * Fixed https://bugs.launchpad.net/bugs/195656 where entering an invalid
+    URL in the new online music dialog could result in the user unable to
+    close the dialog
+  * Fixed https://bugs.launchpad.net/bugs/194292 where the import utility
+    would not correctly handle invalid media files
+  * Fixed https://bugs.launchpad.net/bugs/193596 where media files could not
+    be edited after they have been played.
+  * Fixed https://bugs.launchpad.net/bugs/191500 where videos in windowed 
+    mode (i.e. with the toolbar and marquee visible) would not correctly
+    fit into the window
+  * Fixed https://bugs.launchpad.net/bugs/193886 where the displayed sort
+    indicator did not match the actual sort method being called
+  * Fixed https://bugs.launchpad.net/bugs/193862 which was another bug with
+    online music addition dialog input handling
+  * Fixed https://bugs.launchpad.net/bugs/192825 where playing a video from 
+    online music view would leave the application toolbar in an invalid state
+	
+moblin-media (0.39)
+
+  [ Rusty Lynch ]
+  * Changed the application startup mechanism to use a top level python
+    file instead of a script
+  * Relicensed the codebase to use the MIT License
+
+  [ John L. Villalovos ]
+  * Fix for bug: https://bugs.launchpad.net/moblin-multimedia/+bug/194296
+    Image rotation causes loss in image quality.  Fix provided by Prajwal
+  * Fix for bug https://bugs.launchpad.net/moblin-multimedia/+bug/194286 can't
+    skip invalid images.  Worked with Prajwal on this.  Have a funky
+    invalid.png file that we need to make prettier.
+  * Have it use the same image for bad images in thumbnail and full view mode.
+  * Update the Invalid Image file to a new image
+
+  [ Bob Spencer ]
+  * Fix bug https://bugs.launchpad.net/moblin-multimedia/+bug/193862
+    Can't close URL edit box if invalid URL.
+
+ -- Bob Spencer <bob.spencer@intel.com>  Thu,  6 Mar 2008 00:36:11 -0800
+
+moblin-media (0.38) gaston; urgency=low
+
+  [ Rusty Lynch ]
+  * Landing a fix for https://bugs.launchpad.net/moblin-multimedia/+bug/192255
+    where an extra thumbnail icon will be added to an iconview after rotating
+  * Landing fix for https://bugs.launchpad.net/moblin-multimedia/+bug/192846
+    where USB host import would break on a system configured with the
+    media files located on a vfat partition
+
+  [ John L. Villalovos ]
+  * Fix for bug https://bugs.launchpad.net/moblin-multimedia/+bug/192077 this
+    is an ugly hack and it would be better to not be mounting /mediasync/ as
+    umask=000 in my opinion
+  * Landing a fix for https://bugs.launchpad.net/moblin-multimedia/+bug/192255
+    where an extra thumbnail icon will be added to an iconview after rotating
+  * Fix for bug: https://bugs.launchpad.net/moblin-multimedia/+bug/194296
+    Image rotation causes loss in image quality.  Fix provided by Prajwal
+
+ -- John L. Villalovos <john.l.villalovos@intel.com>  Fri, 29 Feb 2008 15:13:14 -0800
+
+moblin-media (0.37) gaston; urgency=low
+
+  [ Rusty Lynch ]
+  * Adding a fix for https://bugs.launchpad.net/moblin-multimedia/+bug/193022,
+    where the media service is bubbling up empty meta data (tag data) values
+    and as a result causing the titles of various music entries to become
+    empty
+  * Adding support for pls files
+  * Fixing bug https://bugs.launchpad.net/moblin-multimedia/+bug/193159,
+    where the initial drawing of a thumbnail view would contain what
+    looks like empty rows
+  * Adding support for persisting video/photo thumbnail size settings
+  * Fixing bug https://bugs.launchpad.net/moblin-multimedia/+bug/193163,
+    album art breakage
+  * Fixing bug https://bugs.launchpad.net/moblin-multimedia/+bug/192834,
+    where *.rm files were being treated as audio instead of videos
+  * Fixing bug https://bugs.launchpad.net/moblin-multimedia/+bug/193618,
+    where *.ram files were not being treated as audio files
+  * Adding usbc mount point detection to the import utility
+  * Adding support for the import utility to generate photo thumbnails
+  * Changed the default configuration to enable video thumbnails
+
+  [ John L. Villalovos ]
+  * Have stuff use constant variables instead of hardcoded numbers in the code
+  * Fix bug in full view photo rotate.  Was rotating in the wrong direction.
+  * Fix from Prajwal, which when rotating a full view picture, the thumbnail
+    will also get rotated.
+  * Working with Prajwal, we now have it so that when you rotate the thumbnail
+    it will also rotate the main image.
+
+ -- John L. Villalovos <john.l.villalovos@intel.com>  Thu, 21 Feb 2008 15:54:10 -0800
+
+moblin-media (0.36) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * In photo and video, when item deleted next one is selected
+  * Updated glade files.  Centered music playback graphic and text
+  * Added "info" dialog method in utils
+  * Added a couple strings in constant.py
+  * Removed unused code in toolbar_view
+  * Heavy changes to a tangled music_view.
+  * Fixed return path for music.  Now going home and coming back will
+    place you in the same mode you left, with toolbar correct
+  * Fixed about.dlg.  made it fit for small screen
+
+  [ Rusty Lynch ]
+  * Fixed a bug where music playlist would stop if a song ended while
+    the app was in video or photo view
+  * Fixed bug https://bugs.launchpad.net/moblin-multimedia/+bug/192077
+    where first-time-launch (without sample media installed), would not
+    correctly intialize the media library directories, resulting in
+    an uncaught exception.
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 15 Feb 2008 18:32:09 -0800
+
+moblin-media (0.35) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Fixed case when album art is bad.  Updated missing album art image
+  * Removed hidden directories under ~/.moblin-media
+  * cleaned up constants
+  * Cleaned up all the remaining refs to the defunct trash
+    can functionality
+  * In photo and video, when item deleted next one is selected
+
+  [ John L. Villalovos ]
+  * Removed hard-coding of display size.  Now using the
+    gtk.gdk.screen_width()/gtk.gdk.screen_height() functions.
+  * Fix for Bug #190755: Corrupt/Invalid photo's kill thumbnail creation
+    thread
+
+  [ Prajwal Mohan ]
+  * Adding more stuff to unittest. Fixing the shuffle bug 190311
+
+  [ Rusty Lynch ]
+  * Changed photoview to no longer autostart a slideshow by touching the
+    screen.  Now touching the screen (while not in a slideshow), will
+    only go to fullscreen mode.  Touching the screen while in a
+    slideshow will (as before) stop the slideshow and un-fullscreen
+  * Landed memory footprint improvements for viewing a large number of
+    thumbnail images, by removing the extra pixbuf in the iconview model
+
+ -- Bob Spencer <bob.spencer@intel.com>  Thu, 14 Feb 2008 12:55:29 -0800
+
+moblin-media (0.34) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Removed unnecessary glade files after consolidating into dialogs.glade
+  * Updated settings dialog (fixed theme, reduced toolbar options)
+  * Enabled OpenLocation dialog (had to fix widget names in dialogs.glade)
+  * Changed text on error dialogs
+  * Heavy top_menu changes to simplify and reduce number of lines of code
+    Removed trash feature.
+  * Fixed merge glitch in top_menu with HintWindow changes
+  * Replaced confirm dialog in glade with gtk.MessageDialog in utils
+
+  [ Prajwal Mohan ]
+  * Adding basic unit test to make file
+  * testMoblinMedia.py breaks the build. not using it for right now
+  * enabling unit test
+  * unit test not able to find the scr/*.py files
+
+  [ Rusty Lynch ]
+  * Adding il18n support
+  * Added USB client support
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Sat,  9 Feb 2008 21:35:36 -0800
+
+moblin-media (0.33) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Thumbnail generation optimized. Uses jpgs and in-memory bkgd image
+  * Changed thumb background to transparent. Reduced size to 1/5
+  * Commented out creation of lines around photos.  Can easily re-add
+  * Consolodated all dialogs into single "dialgs.glade" file
+
+  [ Rusty Lynch ]
+  * Fixed music player breakage in release 0.32
+  * Removed dbus-launch logic that was added in version 0.32, with the
+    intent that each of the media services should be creating their own
+    session auto-launch scripts
+  * Revamped the configuration implementation
+     - Added support for a moblin-media gconf schema
+     - Added gconf update listeners
+     - Trimmed down the settings dialog
+  * Removed the menu entries for fullscreen and show/hide labels
+  * Revamped the toolbar popup implementation added in version 0.32 in
+    favor of a much simpler implementation.  This new implementation:
+     - Will only auto-return to full screen in video mode
+     - Will simply toggle fullscreen on/off instead of keeping the app
+       in fullscreen and show the bottom toolbar
+     - Will automatically reset the timeout when the user interacts
+       with the toolbar
+  * Returned the previous touch-to-enter/leave-full screen behavior
+    for both photo and video view modes
+  * Added new configuration option to enable/disable requesting video 
+    thumbnails from the media service, with the default set to False
+
+  [ Shane Bryan ]
+  * Start saving photo rotatations to disk
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed,  6 Feb 2008 23:09:22 -0800
+
+moblin-media (0.32) gaston; urgency=low
+
+  * cutting v0.32 release to put into repository
+
+ -- Donald Wei <donald.wei@intel.com>  Mon,  4 Feb 2008 17:15:51 +0800
+
+moblin-media (0.31) gaston; urgency=low
+
+  [ Cathy Shen ]
+  * fix after "open location...", UI will change to online music page
+  * add progress bar click response function for music and video
+  * add three flags for import update status
+  * add service check when call stop function in media_service.py
+  * fix bug for can't display some song's metadata
+  * fix bug after sort the music list, and go back to single music
+    playback view, click "prev" or "next" button, the wrong music is
+    chosen
+  * replace album art missing PNGs for music song and online music
+  * fix some bugs in music, such as the now playing flag can't show
+    correctly
+  * fix bug when play an invalid http music, the error dialog can't be
+    closed
+  * remove internetRadio under sample content
+  * fix bug #187572, when play music can't play photo slide show at
+    the same time
+  * fix bug in command line, open location, launch from browse
+  * fix bug in online music edit
+  * fix album art size in music playback page
+  * fix command line issue
+  * add pop up toolbar for video playback and photo slide show
+  * fix bug #164655, limit title length for online music
+  * fix bug #186914, call service.close(), but not service.quit(), to
+    finish current session with DBus, but not close engine DBus, this
+    fasten the speed to playback music for the first time
+  * fix bug when fail to get music infor from mutagen
+  * fix bug #187569, when switch from fullscreen to un-fullscreen, the
+    photo will be hiden below toolbar partly
+  * fix bug #186970, when play video from browser, the video always
+    show on left-up screen
+  * fix bug, in video menu the fullscreen menu can't show correctly
+  * cut a gaston release
+
+  [ Donald Wei]
+  * Fix the dependency issue to gstreamer in control file
+
+ -- Donald Wei <donald.wei@intel.com>  Mon,  4 Feb 2008 14:31:04 +0800
+
+moblin-media (0.30) gaston; urgency=low
+
+  * fix application version in about dialog
+
+ -- Cathy Shen <cathy.shen@intel.com>  Mon, 28 Jan 2008 11:47:17 +0800
+
+moblin-media (0.29) gaston; urgency=low
+
+  * fix bug when launch moblin-media without any music files 
+
+ -- Cathy Shen <cathy.shen@intel.com>  Mon, 28 Jan 2008 11:43:59 +0800
+
+moblin-media (0.28) gaston; urgency=low
+
+  * change the "Name" to "Titile" in music playlist view
+  * fix bug #177109, auto copy media sample content to media folders
+  * change some theme images, such as resize bar
+  * move progress bar to toolbar for video and music
+  * remove DataBaseCon.py from src folder and MakeFile
+  * not allow to change playlist name of "All songs" and "Online Music"
+  * fix bug #184970, incorrect dialog when delete a photo in single
+    view
+  * fix bug #183954, not highlight text area when hide labels
+  * fix a critical bug in load_button() in ToolBarView.py, which block
+    launch moblin-media app in music mode
+  * re-add fullscreen and unfullscreen button for photo slide show
+    and video playback
+  * add error code handle functionality in MoblinMedia.py
+  * re-merge yanan's branch for fullscreen buttons
+  * remove unused png files from images folder
+  * upgrade gstreamer-dbus-service dependent version to 0.1.13
+  * fix bug #184972, update music playback page to be more attractive
+  * fix bug, after open a non-exist online music file, can't playback
+    music in local all song list
+  * remove helix pump function from application
+  * sync between UI and music information from engine
+  * fix bug #183951, switch to photo single view when click selected
+    photo
+  * move shuffle and repeat button to music single view
+  * fix bug when enter photo mode again, the selected photo can't open
+    by single click
+  * update button size in glade file according to theme image change
+  * update AlbumArtMissing.png
+  * auto refresh after import external media files
+  * fix bug the edit in top menu doesn't work well
+  * fix bug to support rm and ogg both in music and video mode
+  * cut a gaston release
+
+ -- Cathy Shen <cathy.shen@intel.com>  Fri, 25 Jan 2008 18:58:34 +0800
+
+moblin-media (0.27) gaston; urgency=low
+
+  [ Yanan Dong ]
+  * Filter file in three modes according to extending name
+
+  [ Shen Cathy]
+  * remove filelist for photo and video
+  * fix bug when slideshow photo
+  * fix bug for showing information dialog
+  * code clean to remove unused update ui code
+  * code clean to add comments for thumbnail
+  * code clean to use lowcase for functions
+  * code clean to remove unused code in music view
+
+  [ Jack Zhu ]
+  *  Add file:// protocol for local file, fix bug: 177844
+
+  [ Liming Zhu ]
+  * review and complete code clean to use lowcases
+
+  [ Cathy Shen ]
+  * add video and music back theme image
+  * add menu for music
+  * fix bug to add fake file to set window for helix thumbnail
+  * add pure black for moko spring background
+  * remove gstreamer related packages from control file
+  * add moko version information in control file
+  * fix bug in TopMenu.py for missing function thumbnail_deselected
+    and thumbnail_selected
+  * fix bug #183099, when there is error dialog, UI will go to
+    full screen
+  * fix bug in Setting.py for wrong spelling for "Cancel"
+  * add import debian package into moblin-media project
+    need to external detect storage card
+  * add import folder and moblin-media-import.install file
+  * change video single click function from button press to button
+    release
+  * fix bug #177619, use one button for error dialog
+  * fix a critical bug, after remove fullscreen feature for thumbnail,
+    need to disable fullscreen in menu.
+  * fix bug #164655, limit length of file name to 125
+  * add "sort by..." hint window for sort
+  * remove property and trash buttons from music single view and video
+    playback page
+  * upgrade dependence of hildon-theme-mobile-basic to v0.28
+  * cut a gaston release
+
+ -- Cathy Shen <cathy.shen@intel.com>  Mon, 21 Jan 2008 18:18:30 +0800
+
+moblin-media (0.26) gaston; urgency=low
+
+  * code clean step 1: convert tab to 4 spaces
+  * add repeat and shuffle function for music
+  * sort music columns from treeview header
+  * add resize bar for photo single view
+  * change combo box to toggle button
+  * fix duplicate URL issue for Online Music
+  * split filelist and thumbnail instance between photo and video
+  * split file index between photo and video
+  * add frame for selected thumbnail
+  * cut a 0.26 gaston release
+
+ -- Cathy Shen <cathy.shen@intel.com>  Tue,  8 Jan 2008 09:13:40 +0800
+
+moblin-media (0.25) gaston; urgency=low
+
+  * fix bug #177417, #177418, #177420, #177421, show label issue
+  * fix bug #177423, pop warning dialog if user rename a file to
+    an exist name
+  * fix bug #177603, generate thumbnail with gstreamer
+  * fix bug #163050, error dialog should be modal
+  * add flickr theme, fix bug #177616, helix thumbnail will cover
+    whole desktop
+
+ -- Cathy Shen <cathy.shen@intel.com>  Thu, 20 Dec 2007 17:52:44 +0800
+
+moblin-media (0.24) gaston; urgency=low
+
+  * cut 0.24 version
+
+ -- Cathy Shen <cathy.shen@intel.com>  Wed, 19 Dec 2007 18:09:29 +0800
+
+moblin-media (0.23) gaston; urgency=low
+
+  * fix a bug when switch from other mode to video mode, the toolbar
+    list combobox should be updated to thumbnail
+  * add new theme for "now playing" button, hide this button when
+    the background song/video has finished playing
+  * add hildon-theme-mobile-basic dependence for moblin-media app
+  * add ImageFinger class for photo process
+  * fix fullscreen issue when click fullscreen button
+  * fix dither issue when go back to unfullscreen
+  * fix bug when go to photo thumbnail first time, there is wide black
+    space between two thumbnail lines
+  * change from "Music Online" to "Online Music"
+  * add edit Online Music feature
+  * fix bug #176083, when playing slide, change setting will cause app
+    exit abnormal
+  * fix bug #177109, can't copy sample media files to media folders
+  * fix bug #176068, can't open remote picture
+  * fix bug #176089, prompt error dialog if can't support remote
+    picture playback
+  * fix bug #176290, #176287, switch between show/hide labels
+    correctly
+  * fix bug #176252, insensitive fullscreen for filelist view
+  * fix bug #176293
+  * fix bug #172732, return to thumbnail mode when close error dialog
+  * fix bug #176259 partly, will not open a music if click blank space
+  * cut a gaston release
+
+ -- Cathy Shen <cathy.shen@intel.com>  Wed, 19 Dec 2007 18:04:36 +0800
+
+moblin-media (0.22) gaston; urgency=low
+
+  *set photo thumbnail toolbar buttons according to menu
+  *update menu for photo thumbnail and single view
+  *fix one bug when resize single photo,
+   it will also resize other photos when open them in single view
+  *set photo single view toolbar buttons according to menu
+  *add setting menu for video thumbnail and single view
+  *set video thumbnail and single view toolbar buttons according to
+   menu
+  *implement new design for music thumbnail and playlist view
+  *update filelist, add moko, enable sort functionality
+  *Add about glade, change some name for file and widget to keep the
+   coding style
+  *fix bug in Makefile
+  *sync view of video menu and combo box on toolbar
+  *add twice click for audio thumbnail view
+  *fix return playback mode from thumbnail/list view
+  *add helix thumbnail for rm, rmvb
+  *fix bug to give right name for current single photo and video
+   when click information button or delete button
+  *fix one bug in Properties.glade to show the correct size of file
+  *add info and trash features for audio
+  *add info and trash features for filelist
+  *add twice click to playback in filelist
+  *fix bug for show label
+  *fix bug for show file properties in music playlist view
+  *remove play/pause button in music playlist/thumbnail view
+  *cut 0.22 gaston release 
+
+ -- Cathy Shen <cathy.shen@intel.com>  Wed, 12 Dec 2007 18:19:22 +0800
+
+moblin-media (0.21) gaston; urgency=low
+
+  *fix bug #164636, can't choose gst engine for the format helix don't
+   support
+  *add top menu for photo thumbnail, single photo view
+  *fix bug #163950 set the background to black
+  *fix bug #163945, #163947, set the time to positive and the
+   background to be black
+  *add twice clicks for thumbnail to view in single display mode
+  *add moko indicate bar for thumbnail view,
+   add panning for photo view
+  *fix bug in twice click among different thumbnail view
+  *fix bug when there is no service availabe, app can't exit 
+
+ -- Cathy Shen <cathy.shen@intel.com>  Tue,  4 Dec 2007 19:06:17 +0800
+
+moblin-media (0.20) gaston; urgency=low
+
+  [ Peter Zhu ]
+  * make clutter a cmd line option
+
+  [Halley Zhao]
+  * change the position unit from int32 to unit32 
+
+ -- Donald Wei <donad.wei@intel.com>  Thu, 22 Nov 2007 11:54:28 +0800
+
+moblin-media (0.19) gaston; urgency=low
+
+  [ Cathy Shen ]
+  * add clutter effect for album view and photo thumbnail view
+  * add moko for photo thumbnail view
+  * fix bug in control file
+  * fix bug #162325, when click next after file open, app will crash
+
+  [ Bob Spencer ]
+  * Updated image width to 52 in media toolbar to match theme
+
+  [ Cathy Shen ]
+  * add rotate for photo view by gesture
+  * remove moko vertical indicator
+  * replace PIL with python-gnome2
+  * add option of disable-hildon from command line
+  * fix flicker issue in album cover flow
+  * delay clutter initialization from startup until user click
+    respective view
+  * fix bug #162330, cursor will disappear when switch between two
+    playlist
+  * fix bug when stop a song first time, it will re-play automatically
+  * fix bug about can't re-arrange thumbnails after resizing
+  * fix bug #161102, the input of SetPosition should be unsigned int
+  * fix bug #162323, add "Error" title to error dialogue
+  * fix bug #163050, error or warning message box should be modal type
+  * fix bug #163057, could not add internet radio in playlist view
+
+  [ Rusty Lynch ]
+  * Performed initial code cleanup on the road to beta
+  * Added support for developer debug messages to the console
+  * Fixing command line support for starting moblin-media in
+    different modes
+  * Adding dbus support for starting moblin-media in different modes
+  * Replacing the icons images and desktop entries to represent
+    moblin-media as three different applications (for each of the
+    currently supported modes... video, photo, and music.)
+
+  [ Cathy Shen ]
+  * Thumbnail resize independent among audio/video/photo mode
+  * fix bug #163967, cancel don't work in file open
+
+  [ Zhu Liming ]
+  * fix bug when del song in playlist
+
+ -- Cathy Shen <cahty.shen@intel.com>  Thu, 22 Nov 2007 11:03:33 +0800
+
+moblin-media (0.18) gaston; urgency=low
+
+  [ Cathy Shen ]
+  * add filelist view
+  * fix bug #160687 for play/pause button
+  * get id3 info only when init and fix thread safety issue
+  * change the effect of gesture in photo full screen mode
+    when finger moves from left to right, show the prev image
+    when finger moves from right to left, show the next image
+
+  [ Bob Spencer ]
+  * Changed finger magnification to 4 modes instead of 30
+
+  [ Cathy Shen ]
+  * add prev/next functionality in filelist view
+  * modify time format to "remain time" for progress bar
+  * change slide show's interval from 1 sec to 3 sec
+  * fix full screen issue when back to normal view
+  * fix bug when there is "\x00" in album name or artist name
+  * fix a bug about UI-- when click on thumbnail area, the focus on
+    left button will disappear
+  * align position and whole length of gst and helix API
+    add ResizeWindow API calling in app
+  * cut a gaston release
+
+ -- Cathy Shen <cathy.shen@intel.com>  Mon, 12 Nov 2007 17:21:40 +0800
+
+moblin-media (0.17) gaston; urgency=low
+
+  [ Cathy Shen]
+  * fix bug in toolbar view when switch to next/prev file
+    in video and audio mode
+  * fix bug in thumbnail daemon
+
+  [ Dong Yanan]
+  * Change the UI appearance: three tab-look-like buttons
+
+  [ Donald Wei]
+  * fix the changelog
+
+  [ Yingbo Pan ]
+  * Speed the engine management start-up time
+
+  [ Jack Zhu ]
+  * Support opening media through command line
+
+  [ Yingbo Pan ]
+  * Fix a bug in enginee management
+
+  [ Cathy Shen ]
+  * Cut a gaston release
+
+ -- Cathy Shen <cathy.shen@intel.com>  Tue,  6 Nov 2007 08:25:26 +0800
+
+moblin-media (0.16) gaston; urgency=low
+
+  [ Jack Zhu ]
+  *Create empty internetRadioList when it doesn't exist in MusicManag.py __init__ function,
+  fix a bug in ToolBarView.py open_media_file function
+
+  [ Jack Zhu ]
+  *add a button of "add radio" on playlist view, user can add internet radio stations as he likes.
+
+  [ Donald Wei ]
+  * Fixing a bug when run moblin media application twice without the sample
+    content package.
+
+  [ Rusty Lynch ]
+  * Adjusting the desktop file to correctly set the WM class, register
+    for startup notifications, and add a better English comment.
+
+  [ Cathy Shen ]
+  * Fix bug #153467 #153469 #156584
+  * put getting songs' information to background thread
+  * change some UI
+  * put getting thumbnail to background thread
+  * change space to tab in Makefile
+  * fix bug #153515 for "file://" support in midbrowser calling
+  * fix bug #153831 for getting 3gp mov thumbnail
+  * fix bug #155728, modify toolbar in UI
+  * add save feature for internet radio
+
+ -- Cathy Shen <cathy.shen@intel.com>  Mon, 29 Oct 2007 19:44:30 +0800
+
+moblin-media (0.15) gaston; urgency=low
+
+  * Fixing a bug in the logic for copying over sample content
+  * Fixing a bug where the sample plugin was being hard coded for
+    a user called 'ume'.
+  * Fixing a security bug where plugin files were being install that 
+    gave all users read-write-execute permissions
+  * Cutting a gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Sun, 21 Oct 2007 12:23:19 -0700
+
+moblin-media (0.14) gaston; urgency=low
+
+  * Fixing a bug where attempting to run the media player for the first
+    time without the sample content package will result in running the
+    player without a ~/media directory.  This will result in various
+    fatal errors in various locations.
+  * Cutting gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 19 Oct 2007 16:24:20 -0700
+
+moblin-media (0.13) gaston; urgency=low
+
+  [Cathy Shen <cathy.shen@intel.com>]
+  * modify makefile
+  * modify changelog
+  * change moblin-media.install for debian package
+  * fix bug #146020 in internet radio, add two gnome depend packages
+  * fix bug #153824 for ASF format show in browse area
+  * fix bug for supporting ram in helix mode
+  * modify sample content and sample plugin to
+    /usr/share/moblin-media/sample-media folder in *.install files
+  * fix a bug in music view go back from fullscreen
+  * fix a bug in MoblinMedia.py for geting theme directory
+
+  [ Rusty Lynch ]
+  * Cutting a gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 19 Oct 2007 14:08:25 -0700
+
+moblin-media (0.12) gaston; urgency=low
+
+  [Jack Zhu <jack.zhu@intel.com>]
+  * fix a bug in MoblinMedia.py, make sure the open location dialogure 
+    always can be closed
+
+  [Donald Wei <donald.wei@intel.com>]
+  * fix a bug in ToolBarView.py for plugin
+
+  [Yingbo Pan <yingbo.pan@intel.com>]
+  * Fix bug 146027 about backgroud thread issue
+  * thumbnail for fake image
+
+  [Jian Han <jian.han@intel.com>]
+  * Add Moblin Media Sample Content package
+  * Add Moblin Media Sample Plugin package
+
+  [Zhao Halley <halley.zhao@intel.com>]
+  * Add helix engine support
+  * fix engine management issues, for example switch between engines
+  * playback *.gif by helix engine
+
+  [Cathy Shen <cathy.shen@intel.com>]
+  * Fix a fullscreen bug
+  * Fix bug #152895 for play/pause issue
+  * Fix a bug in music playlist for Prev/Next selection
+
+  [Rusty Lynch <rusty.lynch@intel.com>]
+  * Adding appropriate copyrights for the recently added derived gesture
+    implementation (src/Gesture.py)
+  * Cutting gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 17 Oct 2007 14:07:36 -0700
+
+moblin-media (0.11) gaston; urgency=low
+
+  * Adding support for pulling images from the configured theme
+    directory.  This is still not a proper use of themes, but at least
+    we are no longer hard coding the path to the themed images.
+  * Cutting a release for gaston
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 12 Oct 2007 16:08:29 -0700
+
+moblin-media (0.10) gaston; urgency=low
+
+  [Cathy Shen <cathy.shen@intel.com>]
+  * modify Makefile again
+  * modify Makefile
+  * sort thumbnail, gesutre mode for photo, music thumbnail
+
+  [Bob]
+  * Changed a few file names around to match new graphics.  (This is not
+    the correct change to get all button states
+  * Changed menu contents: Exit->Quit, No "Unfull screen", "Open->Open File..."
+    and "Open URI" -> "Open Location...".  Also removed some separators
+  * Fixed a simple bug created in previous checkin
+
+  [ Rusty Lynch ]
+  * Removed the theme images since they are now part of the theme, and
+    you can not have two packages install the same file
+  * fixed a bug where the wrong image was used for the play button
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 12 Oct 2007 10:54:23 -0700
+
+moblin-media (0.9) gaston; urgency=low
+
+  * Cutting a new gaston release to test the build system
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 11 Oct 2007 21:10:39 -0700
+
+moblin-media (0.8) gaston; urgency=low
+
+  * Adding singleton application support
+  * Cutting another gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 11 Oct 2007 20:27:38 -0700
+
+moblin-media (0.7) gaston; urgency=low
+
+  * Removing file browsing in thumbnail views by only creating 
+    thumbnails for media files (i.e. skipping over directories)
+  * Cutting a release for the gaston repository
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 11 Oct 2007 17:58:08 -0700
+
+moblin-media (0.6) UNRELEASED; urgency=low
+
+  [ Rusty Lynch <rusty.lynch@intel.com> ]
+  * Fixed the changelog
+  * Fixed a bug where new PNG files would magically appear in the video
+    folder as a side effect of our thumbnail generation.  We now use
+    proper temporary files (in the /tmp directory) and delete the files
+    as soon as we are done with it.
+  * Fixed the permissions for the debian/rules file
+  * Changed the fullscreen video mode so that it hides the progress bar
+	
+  [ Donald Wei <donald.wei@intel.com> ]
+  * Change "mobile player" to "moblin media" in source code files.  This
+    both changes the name of the launch script (i.e. requiring the
+    application launcher to start moblin-media instead of mobile-player)
+    and also changes the name of various implementation files.
+
+  [ Cathy Shen <cathy.shen@intel.com> ]
+  * move AlbumArtMissing.png to /usr/share/moblin-media/images/
+  * change plugin folder in Constant.py
+  * set hildon menu constant to True in Constant.py
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 10 Oct 2007 11:30:35 -0700
+
+moblin-media (0.5) gutsy; urgency=low
+
+  [ Rusty Lynch ]
+  * Changed the name of the gstreamer media service
+  * Removed the gstreamer specific config file
+  * Changed the name of the directory where the media service config
+    files are located
+  * Moved the content directory to ~/media/
+  * removed gst.conf install
+  * Fixed a bug where the namespace was not added to a constant ref
+  * Fixed the way that the home directory is found
+
+  [ Matthew Garrett ]
+  * Remove sample content from the binary package
+  * Upload to Ubuntu
+
+ -- Matthew Garrett <mjg59@srcf.ucam.org>  Tue, 09 Oct 2007 13:30:29 +0100
+
+mobile-player (0.4ubuntu22) feisty; urgency=low
+
+  *fix .playlist direction bug  
+
+ -- Cathy <cathy@cathy-desktop>  Thu,  4 Oct 2007 23:18:03 +0800
+
+mobile-player (0.4ubuntu21) feisty; urgency=low
+
+  *add internet radio playlist 
+
+ -- Cathy <cathy@cathy-desktop>  Mon,  1 Oct 2007 20:53:16 +0800
+
+mobile-player (0.4ubuntu20) feisty; urgency=low
+
+  *remove osso part, need add python-osso later 
+
+ -- Cathy <cathy@cathy-desktop>  Mon,  1 Oct 2007 18:39:37 +0800
+
+mobile-player (0.4ubuntu19) feisty; urgency=low
+
+  *add two image for thumbnail 
+
+ -- Cathy <cathy@cathy-desktop>  Mon,  1 Oct 2007 16:55:50 +0800
+
+mobile-player (0.4ubuntu18) feisty; urgency=low
+
+  *add music management, change thumbnail 
+
+ -- Cathy <cathy@cathy-desktop>  Mon,  1 Oct 2007 16:34:47 +0800
+
+mobile-player (0.4ubuntu17) UNRELEASED; urgency=low
+
+  * fix bug 162, 147, 163, 149 *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Thu,  14 Sep 2007 15:47:49 +0800
+
+mobile-player (0.4ubuntu16) UNRELEASED; urgency=low
+
+  * fix bug 45, 143, 148, 149 *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Thu,  13 Sep 2007 13:47:49 +0800
+
+mobile-player (0.4ubuntu15) UNRELEASED; urgency=low
+
+  * fix bug 110, 122, 124, 115 *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Thu,  6 Sep 2007 16:47:49 +0800
+
+mobile-player (0.4ubuntu14) UNRELEASED; urgency=low
+
+  * Add ASF capability check *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Thu,  6 Sep 2007 16:47:49 +0800
+
+mobile-player (0.4ubuntu13) UNRELEASED; urgency=low
+
+  * Not get engine capability from D-Bus when play every media stream *
+  * To improve performance *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Thur, 07 Sep 2007 16:30:18 +0800
+
+mobile-player (0.4ubuntu12) UNRELEASED; urgency=low
+
+  * add fast forward and fast rewind functionality *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Fri, 31 Aug 2007 18:00:18 +0800
+
+mobile-player (0.4ubuntu11) UNRELEASED; urgency=low
+
+  * fix moblin bug #92 *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Fri, 30 Aug 2007 18:00:18 +0800
+
+mobile-player (0.4ubuntu10) UNRELEASED; urgency=low
+
+  * update Makefile and changelog *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Fri, 30 Aug 2007 11:30:18 +0800
+
+mobile-player (0.4ubuntu9) UNRELEASED; urgency=low
+
+  * fix some bugs in plugin management and engine management *
+  * add double-click event to both video playback and photo playback to fullscreen and unfullscreen *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Fri, 30 Aug 2007 11:20:18 +0800
+
+mobile-player (0.4ubuntu8) UNRELEASED; urgency=low
+
+  * add engine management by Cathy *
+
+ -- Shen Cathy <cathy@cathy-desktop>  Fri, 24 Aug 2007 18:00:18 +0800
+
+mobile-player (0.4ubuntu7) UNRELEASED; urgency=low
+
+  * modify the plugin parser by Rusty, update version* 
+
+ -- Xu Bo <xubo@xubo-desktop>  Tue, 22 Aug 2007 10:20:18 +0800
+
+mobile-player (0.4ubuntu6) UNRELEASED; urgency=low
+
+  * fix a bug when exit with Ctrl+C, add autoplay function for photothumbnail * 
+  * change default photo view to thumbnail view* 
+
+ -- Xu Bo <xubo@xubo-desktop>  Tue, 21 Aug 2007 15:20:18 +0800
+
+mobile-player (0.4ubuntu5) UNRELEASED; urgency=low
+
+  * modify the glade file * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Mon, 20 Aug 2007 17:10:48 +0800
+
+mobile-player (0.4ubuntu4) UNRELEASED; urgency=low
+
+  * add a empty plugin config file  * 
+  * modify playback ground color  * 
+  * auto detect corresponding media type matching plugins * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Mon, 20 Aug 2007 16:10:48 +0800
+
+mobile-player (0.4ubuntu3) UNRELEASED; urgency=low
+
+  * add auto adjustment for photothumbnail  * 
+
+ -- Yingbo, Pan <ypan@ypan-laptop>  Mon, 20 Aug 2007 10:10:48 +0800
+
+mobile-player (0.4ubuntu2) UNRELEASED; urgency=low
+
+  * add python-imaging dependency  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Fri, 17 Aug 2007 17:10:48 +0800
+
+mobile-player (0.4ubuntu1) UNRELEASED; urgency=low
+
+  * add photo thumbnail and plugin management  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Fri, 17 Aug 2007 16:59:48 +0800
+
+mobile-player (0.4) gutsy; urgency=low
+
+  [ Rusty Lynch ]
+  * Fixed a typo from two releases ago that causes the player
+    to crash on startup due to an uncaught exception.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 17 Aug 2007 09:12:21 +0200
+
+mobile-player (0.3ubuntu13) UNRELEASED; urgency=low
+
+  * fix a indentation bug  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Mon, 15 Aug 2007 12:33:55 +0800
+
+mobile-player (0.3ubuntu12) UNRELEASED; urgency=low
+
+  * a small fix  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Mon, 15 Aug 2007 10:33:55 +0800
+
+mobile-player (0.3ubuntu11) UNRELEASED; urgency=low
+
+  * update changelog  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Mon, 13 Aug 2007 17:33:55 +0800
+
+mobile-player (0.3ubuntu10) UNRELEASED; urgency=low
+
+  * modify indentation, and merge latest features  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Mon, 13 Aug 2007 17:19:29 +0800
+
+mobile-player (0.3ubuntu9) UNRELEASED; urgency=low
+
+  * fix URL open bug 
+
+ -- jzhu31 <jzhu31@jzhu31-desktop>  Fri, 10 Aug 2007 09:20:13 -0700
+
+mobile-player (0.3ubuntu8) UNRELEASED; urgency=low
+
+  * add Full Screen feature
+
+ -- Wei, Donald <donald.wei@intel.com>  Thu,  9 Aug 2007 14:46:01 +0800
+
+mobile-player (0.3ubuntu7) UNRELEASED; urgency=low
+
+  * change HildonSupport to True  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Thu,  2 Aug 2007 17:21:45 +0800
+
+mobile-player (0.3ubuntu6) UNRELEASED; urgency=low
+
+  * add hildon debug info and change some backgroud  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Thu,  2 Aug 2007 17:21:45 +0800
+
+mobile-player (0.3ubuntu5) UNRELEASED; urgency=low
+
+  * small fix
+
+ -- Xu Bo <xubo@xubo-desktop>  Wed,  1 Aug 2007 15:15:54 +0800
+
+mobile-player (0.3ubuntu4) UNRELEASED; urgency=low
+
+  * trigger  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Wed,  1 Aug 2007 13:55:36 +0800
+
+mobile-player (0.3ubuntu3) UNRELEASED; urgency=low
+
+  * trigger  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Wed,  1 Aug 2007 13:52:36 +0800
+
+mobile-player (0.3ubuntu2) UNRELEASED; urgency=low
+
+  * trigger  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Wed,  1 Aug 2007 13:07:36 +0800
+
+mobile-player (0.3ubuntu1) UNRELEASED; urgency=low
+
+  * remove some png picture which will be installed by other program  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Wed,  1 Aug 2007 13:07:36 +0800
+
+mobile-player (0.3) UNRELEASED; urgency=low
+
+  * udgrade version to 0.3  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Wed,  1 Aug 2007 12:42:21 +0800
+
+mobile-player (0.1) UNRELEASED; urgency=low
+
+  * first build  * 
+
+ -- Xu Bo <xubo@xubo-desktop>  Tue, 31 Jul 2007 17:35:40 +0800

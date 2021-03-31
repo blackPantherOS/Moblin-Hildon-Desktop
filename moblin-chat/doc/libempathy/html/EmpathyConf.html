@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyConf</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="libempathy-empathy-avatar.html" title="empathy-avatar">
+<link rel="next" href="EmpathyMessage.html" title="EmpathyMessage">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-empathy-avatar.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyMessage.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2557721" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2576799" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2576775" class="shortcut">Object Hierarchy</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyConf"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2557721"></a><span class="refentrytitle">EmpathyConf</span>
+</h2>
+<p>EmpathyConf</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyConf.html#EmpathyConf-struct">EmpathyConf</a>;
+void                (<a href="EmpathyConf.html#EmpathyConfNotifyFunc">*EmpathyConfNotifyFunc</a>)            (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gpointer user_data);
+<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a>*        <a href="EmpathyConf.html#empathy-conf-get">empathy_conf_get</a>                    (void);
+void                <a href="EmpathyConf.html#empathy-conf-shutdown">empathy_conf_shutdown</a>               (void);
+guint               <a href="EmpathyConf.html#empathy-conf-notify-add">empathy_conf_notify_add</a>             (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         <a href="EmpathyConf.html#EmpathyConfNotifyFunc">EmpathyConfNotifyFunc</a> func,
+                                                         gpointer data);
+gboolean            <a href="EmpathyConf.html#empathy-conf-notify-remove">empathy_conf_notify_remove</a>          (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         guint id);
+gboolean            <a href="EmpathyConf.html#empathy-conf-set-int">empathy_conf_set_int</a>                (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gint value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-get-int">empathy_conf_get_int</a>                (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gint *value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-set-bool">empathy_conf_set_bool</a>               (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gboolean value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-get-bool">empathy_conf_get_bool</a>               (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gboolean *value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-set-string">empathy_conf_set_string</a>             (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         const gchar *value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-get-string">empathy_conf_get_string</a>             (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gchar **value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-set-string-list">empathy_conf_set_string_list</a>        (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         GSList *value);
+gboolean            <a href="EmpathyConf.html#empathy-conf-get-string-list">empathy_conf_get_string_list</a>        (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         GSList **value);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2576775"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyConf
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2576799"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2576815"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2576826"></a><h3>
+<a name="EmpathyConf-struct"></a>EmpathyConf</h3>
+<a class="indexterm" name="id2576838"></a><pre class="programlisting">typedef struct _EmpathyConf EmpathyConf;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2576853"></a><h3>
+<a name="EmpathyConfNotifyFunc"></a>EmpathyConfNotifyFunc ()</h3>
+<a class="indexterm" name="id2576864"></a><pre class="programlisting">void                (*EmpathyConfNotifyFunc)            (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gpointer user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2576953"></a><h3>
+<a name="empathy-conf-get"></a>empathy_conf_get ()</h3>
+<a class="indexterm" name="id2576965"></a><pre class="programlisting"><a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a>*        empathy_conf_get                    (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602067"></a><h3>
+<a name="empathy-conf-shutdown"></a>empathy_conf_shutdown ()</h3>
+<a class="indexterm" name="id2602078"></a><pre class="programlisting">void                empathy_conf_shutdown               (void);</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602099"></a><h3>
+<a name="empathy-conf-notify-add"></a>empathy_conf_notify_add ()</h3>
+<a class="indexterm" name="id2602110"></a><pre class="programlisting">guint               empathy_conf_notify_add             (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         <a href="EmpathyConf.html#EmpathyConfNotifyFunc">EmpathyConfNotifyFunc</a> func,
+                                                         gpointer data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>func</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602230"></a><h3>
+<a name="empathy-conf-notify-remove"></a>empathy_conf_notify_remove ()</h3>
+<a class="indexterm" name="id2602241"></a><pre class="programlisting">gboolean            empathy_conf_notify_remove          (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         guint id);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602318"></a><h3>
+<a name="empathy-conf-set-int"></a>empathy_conf_set_int ()</h3>
+<a class="indexterm" name="id2605858"></a><pre class="programlisting">gboolean            empathy_conf_set_int                (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gint value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2601820"></a><h3>
+<a name="empathy-conf-get-int"></a>empathy_conf_get_int ()</h3>
+<a class="indexterm" name="id2598378"></a><pre class="programlisting">gboolean            empathy_conf_get_int                (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gint *value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606018"></a><h3>
+<a name="empathy-conf-set-bool"></a>empathy_conf_set_bool ()</h3>
+<a class="indexterm" name="id2606029"></a><pre class="programlisting">gboolean            empathy_conf_set_bool               (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gboolean value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606117"></a><h3>
+<a name="empathy-conf-get-bool"></a>empathy_conf_get_bool ()</h3>
+<a class="indexterm" name="id2606128"></a><pre class="programlisting">gboolean            empathy_conf_get_bool               (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gboolean *value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606216"></a><h3>
+<a name="empathy-conf-set-string"></a>empathy_conf_set_string ()</h3>
+<a class="indexterm" name="id2606227"></a><pre class="programlisting">gboolean            empathy_conf_set_string             (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         const gchar *value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606315"></a><h3>
+<a name="empathy-conf-get-string"></a>empathy_conf_get_string ()</h3>
+<a class="indexterm" name="id2606326"></a><pre class="programlisting">gboolean            empathy_conf_get_string             (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         gchar **value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606414"></a><h3>
+<a name="empathy-conf-set-string-list"></a>empathy_conf_set_string_list ()</h3>
+<a class="indexterm" name="id2606425"></a><pre class="programlisting">gboolean            empathy_conf_set_string_list        (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         GSList *value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606513"></a><h3>
+<a name="empathy-conf-get-string-list"></a>empathy_conf_get_string_list ()</h3>
+<a class="indexterm" name="id2606524"></a><pre class="programlisting">gboolean            empathy_conf_get_string_list        (<a href="EmpathyConf.html" title="EmpathyConf">EmpathyConf</a> *conf,
+                                                         const gchar *key,
+                                                         GSList **value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>conf</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-chatrooms-window">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-chatrooms-window</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-chatrooms-window</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>                <link linkend="empathy-chatrooms-window-show">empathy_chatrooms_window_show</link>       (<link linkend="GtkWindow">GtkWindow</link> *parent);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="empathy-chatrooms-window-show" role="function"/>empathy_chatrooms_window_show ()</title>
+<indexterm><primary>empathy_chatrooms_window_show</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatrooms_window_show       (<link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

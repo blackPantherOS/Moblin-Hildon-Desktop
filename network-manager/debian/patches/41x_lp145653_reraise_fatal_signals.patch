@@ -1,0 +1,28 @@
+---
+ src/nm-logging.c |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Index: network-manager.debian/src/nm-logging.c
+===================================================================
+--- network-manager.debian.orig/src/nm-logging.c
++++ network-manager.debian/src/nm-logging.c
+@@ -159,17 +159,18 @@
+ 	switch (signo)
+ 	{
+ 		case SIGSEGV:
+ 		case SIGBUS:
+ 		case SIGILL:
+ 		case SIGABRT:
+ 			nm_warning ("Caught signal %d.  Generating backtrace...", signo);
+ 			nm_logging_backtrace ();
+-			exit (1);
++			sigaction (signo, SIG_DFL, NULL);
++			raise(signo);
+ 			break;
+ 
+ 		case SIGFPE:
+ 		case SIGPIPE:
+ 			/* let the fatal signals interrupt us */
+ 			--in_fatal;
+ 
+ 			nm_warning ("Caught signal %d, shutting down abnormally.  Generating backtrace...", signo);

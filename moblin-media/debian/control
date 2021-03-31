@@ -1,0 +1,27 @@
+Source: moblin-media
+Section: graphics
+Priority: optional
+Maintainer: Shen Cathy <cathy.shen@intel.com>
+Build-Depends: debhelper (>= 5), python-support (>= 0.3)
+Standards-Version: 0.3 
+
+Package: moblin-media
+Architecture: all
+Depends: ${python:Depends}, python-gst0.10, python-dbus, python-glade2, python-gtk2, python-hildon, python-imaging, libgnomevfs2-0, python-gnome2, python-mutagen, gstreamer-dbus-media-service (>= 0.1.16), libgnomevfs2-extra, moko (>=0.1-14), python-sqlite, sqlite3, hildon-theme-mobile-basic (>= 0.29), python-imaging, python-paste, moblin-media-browser-plugin
+Recommends:
+Description: Moblin media for Ubuntu Mobile and Embedded
+ This is the moblin media application used by default in Ubuntu Mobile.
+
+Package: moblin-media-sample-content
+Architecture: all
+Depends: moblin-media
+Recommends: 
+Description: sample content for Moblin media 
+ This is the media content sample(video, audio, photo, playlist) for Moblin media .
+
+Package: moblin-media-import
+Architecture: all
+Depends: ${python:Depends}, python-dbus, python-glade2, python-gtk2, libgnomevfs2-0, hildon-theme-mobile-basic (>= 0.27), gnome-volume-manager
+Recommends: 
+Description: Moblin media import for Ubuntu Mobile and Embedded
+ This is the moblin media import application used by default in Ubuntu Mobile.

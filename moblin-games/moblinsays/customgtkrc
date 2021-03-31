@@ -1,0 +1,32 @@
+style "simon-button"
+{
+   GtkButton::child_displacement_x = 0
+   GtkButton::child_displacement_y = 0
+
+	engine "sapwood" {
+		image {
+			function = BOX
+			state = NORMAL
+		}
+		image {
+			function = BOX
+			state = PRELIGHT
+		}
+		image {
+			function = BOX
+			state = INSENSITIVE
+		}
+		image {
+			function = BOX
+			state = ACTIVE
+		}
+		image {
+			function = BOX
+			state = SELECTED
+		}
+		image {
+		        function = FOCUS
+                }
+	}
+ }
+widget "*.nobutton" style: highest "simon-button"

@@ -1,0 +1,3 @@
+flags = invisible
+10_lowpower
+events = ppm.battery

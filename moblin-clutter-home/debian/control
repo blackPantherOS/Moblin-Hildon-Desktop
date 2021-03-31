@@ -1,0 +1,15 @@
+Source: moblin-clutter-home
+Section: x11
+Priority: optional
+Maintainer: Horace Li <horace.li@intel.com>
+Build-Depends: debhelper (>= 5), libtool, automake, autoconf, libgtk2.0-dev, libclutter-0.4-dev, libgconf2-dev, libgnome-menu-dev, libstartup-notification0-dev
+Standards-Version: 3.7.2
+
+Package: moblin-clutter-home
+Section: x11
+Architecture: any
+Depends: libgtk2.0-0, libclutter-0.4-0, libgconf2-4, libstartup-notification0, ${shlibs:Depends}, ${misc:Depends}
+Description:
+ This a Clutter (www.clutter-project.org) based  desktop launcher which provides
+ a way to view and launch applications from a UMPC's 'home' screen.
+

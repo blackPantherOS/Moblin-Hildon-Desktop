@@ -1,0 +1,127 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+
+CFLAGS = -Wall -g
+
+# we don't have maemo-launcher in UME yet
+#ifeq (,$(findstring nolauncher,$(DEB_BUILD_OPTIONS)))
+#   LAUNCHER = yes
+#   LAUNCHER_DEPENDS = -Vlauncher:Depends="maemo-launcher"
+#   LAUNCHER_CFLAGS = $(shell pkg-config --cflags maemo-launcher-app)
+#   LAUNCHER_LDFLAGS = $(shell pkg-config --libs maemo-launcher-app)
+#endif
+
+# Use soft-float and thumb mode if it enabled.
+ifneq (,$(findstring thumb,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -mthumb -fPIC
+endif
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	INSTALL_PROGRAM += -s
+endif
+
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -ggdb -DDEBUG
+endif
+
+config.status: configure
+	dh_testdir
+# Add here commands to configure the package.
+	CFLAGS="$(CFLAGS)" ./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --sysconfdir=/etc --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info --disable-dependency-tracking
+
+
+build: build-stamp
+build-stamp:  config.status
+	dh_testdir
+
+# Add here commands to compile the package.
+	$(MAKE) LAUNCHER_CFLAGS="$(LAUNCHER_CFLAGS)" LAUNCHER_LDFLAGS="$(LAUNCHER_LDFLAGS)"
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp 
+
+# Add here commands to clean up after the build process.
+	-$(MAKE) distclean
+
+
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+#	dh_clean -k 
+	dh_installdirs
+
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
+	install -m644 $(CURDIR)/debian/config/*.conf $(CURDIR)/debian/tmp/etc/xdg/hildon-desktop
+	install -D -m644 $(CURDIR)/debian/config/*.menu $(CURDIR)/debian/tmp/etc/xdg/menus
+
+ifeq "$(strip $(LAUNCHER))" "yes"
+	mv debian/tmp/usr/bin/hildon-desktop debian/tmp/usr/bin/hildon-desktop.launch
+	ln -s maemo-invoker debian/tmp/usr/bin/hildon-desktop
+endif
+
+configure:
+	dh_testdir
+	./autogen.sh
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+#	dh_installexamples
+	dh_installdocs
+	dh_install --sourcedir=debian/tmp
+	install -m0755 debian/start-hildon debian/hildon-desktop/usr/bin/start-hildon
+#	dh_installmenu
+#	dh_installdebconf	
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+	dh_installmime
+#	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+	dh_installman
+	dh_link
+	dh_strip --dbg-package="hildon-desktop" --dbg-package="libhildondesktop0" --dbg-package="libhildonwm0"
+	dh_compress
+	dh_fixperms
+#	dh_installinit -- start 51 2 3 4 . stop 20 0 1 5 6 .
+#	dh_perl
+#	dh_python
+	dh_makeshlibs -V
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol -- $(LAUNCHER_DEPENDS)
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install 

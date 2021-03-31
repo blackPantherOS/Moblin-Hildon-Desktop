@@ -1,0 +1,25 @@
+/.cvsignore/1.1/Wed May 26 17:50:43 1999//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.64/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsCategoryManager.cpp/1.53/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsCategoryManager.h/3.5/Mon Sep 19 17:13:32 2005//TFIREFOX_3_0b2_RELEASE
+/nsCategoryManagerUtils.h/1.6/Wed Apr 13 23:56:54 2005//TFIREFOX_3_0b2_RELEASE
+/nsComponentManager.cpp/1.284/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsComponentManager.h/1.105/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsICategoryManager.idl/3.21/Sun Apr 18 14:18:13 2004//TFIREFOX_3_0b2_RELEASE
+/nsIClassInfo.idl/1.13/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIComponentManager.idl/3.21/Wed Apr  6 03:35:22 2005//TFIREFOX_3_0b2_RELEASE
+/nsIComponentManagerObsolete.idl/3.2/Sun Apr 18 14:18:13 2004//TFIREFOX_3_0b2_RELEASE
+/nsIComponentRegistrar.idl/1.9/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIFactory.idl/1.12/Sun Apr 18 14:18:13 2004//TFIREFOX_3_0b2_RELEASE
+/nsIModule.idl/1.17/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIModuleLoader.idl/3.3/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIServiceManager.idl/3.6/Tue Jun  7 19:35:20 2005//TFIREFOX_3_0b2_RELEASE
+/nsIServiceManagerObsolete.h/3.7/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsModule.h/1.2/Thu Jul 21 13:33:42 2005//TFIREFOX_3_0b2_RELEASE
+/nsNativeComponentLoader.cpp/1.120/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsNativeComponentLoader.h/1.27/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsObsoleteModuleLoading.h/3.1/Wed Dec 19 00:12:14 2001//TFIREFOX_3_0b2_RELEASE
+/nsServiceManagerObsolete.cpp/3.9/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsStaticComponentLoader.cpp/3.28/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsStaticComponentLoader.h/3.4/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+D

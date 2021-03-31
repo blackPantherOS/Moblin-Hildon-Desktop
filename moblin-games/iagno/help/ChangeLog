@@ -1,0 +1,23 @@
+2007-08-30  Claude Paroz  <claude@2xlibre.net>
+
+	* fr/*: Added French translation.
+	* Makefile.am: Added fr to DOC_LINGUAS.
+
+2007-08-01  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Updated Swedish translation.
+
+2007-07-16  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+
+2007-06-03  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Added initial Spanish translation
+	* es/figures/*.png: added screenshots
+	* Makefile.am: Added es to DOC_LINGUAS
+
+2007-04-30  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Added Swedish translation.
+	* Makefile.am: Added sv to DOC_LINGUAS.

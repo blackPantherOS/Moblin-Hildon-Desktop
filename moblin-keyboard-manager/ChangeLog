@@ -1,0 +1,112 @@
+moblin-keyboard-manager (0.51) gaston; urgency=low
+
+  [ Jian Han ]
+  * Create a configure file for each user
+  * fix the issue that /usr/share/moblin-keyboard-mannager/menu.xml can only be written by root
+    (using the copy in user's home)
+
+  [ Bob Spencer ]
+  * Added some size (52x52) for the button, but it doesn't seem to help
+  * Changed the icon to have transparent background so statusbar theme shows
+
+  [ Horace Li ]
+  * Implement a new method to spawn and terminate virutal keyboard.
+  * Remove menu.xml as we are attempting to store layout information as well
+    as others by gconf.
+  * Clean up code, fix warnings.
+  * Rename libkeyboard.png to mp_keyboard.png and install it to /usr/share/icons.
+  * Following freedesktop instructions on attaching icon to GtkButton.
+  * Update the icon png to our new one drawed by Jason, and rename the icon to vkeyboard,
+    installing to 24x24 to match GTK_ICON size.
+  * Read layout option from gconf path.
+  * Reset "layout" default value and set the auto_launch key as a boolean value.
+  * Cut a new release.
+
+ -- Horace Li <horace.li@intel.com>  Fri, 16 Nov 2007 16:15:10 +0800
+
+moblin-keyboard-manager (0.5) gaston; urgency=low
+
+  * Cutting a clean gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 18 Oct 2007 09:33:00 -0700
+
+moblin-keyboard-manager (0.4ubuntu6) gaston; urgency=low
+
+  * change mode of meun.xml to 666 that user can set his layout
+  * change the gconf key to fix the key conflict
+  * set auto-launch disable as default
+
+ -- Jian Han <jian.han@intel.com>  Thu, 11 Oct 2007 13:20:25 +0600
+
+moblin-keyboard-manager (0.4ubuntu5) gutsy; urgency=low
+
+  * fix a spell error
+
+ -- Jian Han <jian.han@intel.com>  Mon, 08 Oct 2007 10:10:55 +0600
+
+moblin-keyboard-manager (0.4ubuntu4) gutsy; urgency=low
+
+  * auto-launch feature can be configured by gconf interface 
+
+ -- Jian Han <jian.han@intel.com>  Sun, 30 Sep 2007 12:20:41 +0600
+
+moblin-keyboard-manager (0.4ubuntu3) gutsy; urgency=low
+
+  * add the support to the auto-launch feature in matchbox-keyboard 
+
+ -- Jian Han <jian.han@intel.com>  Wed, 26 Sep 2007 08:23:14 +0000
+
+moblin-keyboard-manager (0.4ubuntu2) UNRELEASED; urgency=low
+
+  [ Jian Han ]
+  * remove debug info
+
+  [ Bob Spencer ]
+  * Added README 
+
+ -- Bob Spencer <bob@bobuntu>  Wed, 29 Aug 2007 15:07:13 -0700
+
+moblin-keyboard-manager (0.4ubuntu1) feisty; urgency=low
+
+  *remove debug info 
+
+ -- Jian Han <jian.han@intel.com>  Tue, 31 Jul 2007 12:29:56 +0800
+
+moblin-keyboard-manager (0.4) gutsy; urgency=low
+
+  * It's moblin-keyboard-manager, not matchbox-keyboard-manager, rename
+    again.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 26 Jul 2007 20:47:11 +0200
+
+matchbox-keyboard-manager (0.3) gutsy; urgency=low
+
+  [ Jian Han ]
+  * add feature of menu configuration
+
+  [ Tollef Fog Heen ]
+  * Rename package to matchbox-keyboard-manager
+  * Add conflicts and replaces on matchbox-keyboard-toggler.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 26 Jul 2007 17:14:20 +0200
+
+matchbox-keyboard-toggler (0.2) gutsy; urgency=low
+
+  * Update rules for matchbox-keyboard-toggler package.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 20 Jul 2007 19:34:59 +0200
+
+matchbox-keyboard-toggler (0.1) gutsy; urgency=low
+
+  * Initial release.
+  * Get rid of useless configure target in rules file.
+  * Set section to utils.
+  * Add missing space in build-depends line.
+  * Update description.
+  * Set maintainer to be ubuntu-mobile.
+  * Add dependency on matchbox-keyboard
+  * Rename package to matchbox-keyboard-toggler
+  * Add missing -fPIC to compile flags.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 20 Jul 2007 10:46:12 +0200
+

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Showhome Plugin
+Type=default
+X-Path=libshowhomeplugin.so

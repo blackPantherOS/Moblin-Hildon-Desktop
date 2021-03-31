@@ -1,0 +1,25 @@
+D/beos////
+D/mac////
+D/os2////
+D/tests////
+D/unix////
+D/win////
+/.cvsignore/1.1/Tue Jun 20 20:43:54 2000//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.70/Wed Jan 16 23:03:32 2008//TFIREFOX_3_0b2_RELEASE
+/nsCExternalHandlerService.idl/1.9/Thu Dec 13 11:58:36 2007//TFIREFOX_3_0b2_RELEASE
+/nsExternalHelperAppService.cpp/1.358/Wed Jan 16 23:39:38 2008//TFIREFOX_3_0b2_RELEASE
+/nsExternalHelperAppService.h/1.89/Thu Dec 13 11:58:36 2007//TFIREFOX_3_0b2_RELEASE
+/nsExternalProtocolHandler.cpp/1.47/Wed Jan 16 23:39:38 2008//TFIREFOX_3_0b2_RELEASE
+/nsExternalProtocolHandler.h/1.9/Wed Jan 16 23:39:38 2008//TFIREFOX_3_0b2_RELEASE
+/nsHandlerService.js/1.17/Wed Jan 16 23:39:38 2008//TFIREFOX_3_0b2_RELEASE
+/nsIContentDispatchChooser.idl/1.1/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIExternalHelperAppService.idl/1.25/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIExternalProtocolService.idl/1.14/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIHandlerService.idl/1.6/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsIHelperAppLauncherDialog.idl/1.10/Sun Mar 13 17:03:44 2005//TFIREFOX_3_0b2_RELEASE
+/nsIInternetConfigService.idl/1.11/Sat Apr 17 16:52:02 2004//TFIREFOX_3_0b2_RELEASE
+/nsLocalHandlerApp.cpp/1.3/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsLocalHandlerApp.h/1.2/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsMIMEInfoImpl.cpp/1.69/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsMIMEInfoImpl.h/1.39/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE
+/nsWebHandlerApp.js/1.4/Thu Dec 13 11:58:37 2007//TFIREFOX_3_0b2_RELEASE

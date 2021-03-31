@@ -1,0 +1,45 @@
+---
+ src/wpa_ctrl.c |    3 +++
+ 1 file changed, 3 insertions(+)
+
+Index: network-manager.debian/src/wpa_ctrl.c
+===================================================================
+--- network-manager.debian.orig/src/wpa_ctrl.c
++++ network-manager.debian/src/wpa_ctrl.c
+@@ -12,16 +12,18 @@
+  * See README and COPYING for more details.
+  */
+ 
+ /* WHACK #include "includes.h" */
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+ #include <sys/socket.h>
++#include <sys/ioctl.h>
++#include <sys/fcntl.h>
+ 
+ #define CONFIG_CTRL_IFACE
+ #ifdef CONFIG_CTRL_IFACE
+ 
+ #ifndef CONFIG_CTRL_IFACE_UDP
+ #include <sys/un.h>
+ #endif /* CONFIG_CTRL_IFACE_UDP */
+ 
+@@ -103,16 +105,17 @@
+ 		return NULL;
+ 	}
+ #else /* CONFIG_CTRL_IFACE_UDP */
+ 	ctrl->s = socket(PF_UNIX, SOCK_DGRAM, 0);
+ 	if (ctrl->s < 0) {
+ 		free(ctrl);
+ 		return NULL;
+ 	}
++	fcntl(ctrl->s, F_SETFD, fcntl(ctrl->s, F_GETFD) | O_NONBLOCK);
+ 
+ 	ctrl->local.sun_family = AF_UNIX;
+ 	snprintf(ctrl->local.sun_path, sizeof(ctrl->local.sun_path),
+ 		 "%s/wpa_ctrl_%d-%d", local_path_dir, getpid(), counter++);
+ 	if (bind(ctrl->s, (struct sockaddr *) &ctrl->local,
+ 		    sizeof(ctrl->local)) < 0) {
+ 		close(ctrl->s);
+ 		free(ctrl);

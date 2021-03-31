@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=keyboard
+Category=permanent
+X-status-bar-plugin=libkeyboard.so

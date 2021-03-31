@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-images">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-images</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-images</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="EMPATHY-IMAGE-OFFLINE:CAPS">EMPATHY_IMAGE_OFFLINE</link>
+#define             <link linkend="EMPATHY-IMAGE-HIDDEN:CAPS">EMPATHY_IMAGE_HIDDEN</link>
+#define             <link linkend="EMPATHY-IMAGE-AVAILABLE:CAPS">EMPATHY_IMAGE_AVAILABLE</link>
+#define             <link linkend="EMPATHY-IMAGE-BUSY:CAPS">EMPATHY_IMAGE_BUSY</link>
+#define             <link linkend="EMPATHY-IMAGE-AWAY:CAPS">EMPATHY_IMAGE_AWAY</link>
+#define             <link linkend="EMPATHY-IMAGE-EXT-AWAY:CAPS">EMPATHY_IMAGE_EXT_AWAY</link>
+#define             <link linkend="EMPATHY-IMAGE-PENDING:CAPS">EMPATHY_IMAGE_PENDING</link>
+#define             <link linkend="EMPATHY-IMAGE-MESSAGE:CAPS">EMPATHY_IMAGE_MESSAGE</link>
+#define             <link linkend="EMPATHY-IMAGE-NEW-MESSAGE:CAPS">EMPATHY_IMAGE_NEW_MESSAGE</link>
+#define             <link linkend="EMPATHY-IMAGE-TYPING:CAPS">EMPATHY_IMAGE_TYPING</link>
+#define             <link linkend="EMPATHY-IMAGE-CONTACT-INFORMATION:CAPS">EMPATHY_IMAGE_CONTACT_INFORMATION</link>
+#define             <link linkend="EMPATHY-IMAGE-GROUP-MESSAGE:CAPS">EMPATHY_IMAGE_GROUP_MESSAGE</link>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-OFFLINE:CAPS" role="macro"/>EMPATHY_IMAGE_OFFLINE</title>
+<indexterm><primary>EMPATHY_IMAGE_OFFLINE</primary></indexterm><programlisting>#define EMPATHY_IMAGE_OFFLINE             "empathy-offline"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-HIDDEN:CAPS" role="macro"/>EMPATHY_IMAGE_HIDDEN</title>
+<indexterm><primary>EMPATHY_IMAGE_HIDDEN</primary></indexterm><programlisting>#define EMPATHY_IMAGE_HIDDEN              "empathy-offline"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-AVAILABLE:CAPS" role="macro"/>EMPATHY_IMAGE_AVAILABLE</title>
+<indexterm><primary>EMPATHY_IMAGE_AVAILABLE</primary></indexterm><programlisting>#define EMPATHY_IMAGE_AVAILABLE           "empathy-available"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-BUSY:CAPS" role="macro"/>EMPATHY_IMAGE_BUSY</title>
+<indexterm><primary>EMPATHY_IMAGE_BUSY</primary></indexterm><programlisting>#define EMPATHY_IMAGE_BUSY                "empathy-busy"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-AWAY:CAPS" role="macro"/>EMPATHY_IMAGE_AWAY</title>
+<indexterm><primary>EMPATHY_IMAGE_AWAY</primary></indexterm><programlisting>#define EMPATHY_IMAGE_AWAY                "empathy-away"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-EXT-AWAY:CAPS" role="macro"/>EMPATHY_IMAGE_EXT_AWAY</title>
+<indexterm><primary>EMPATHY_IMAGE_EXT_AWAY</primary></indexterm><programlisting>#define EMPATHY_IMAGE_EXT_AWAY            "empathy-extended-away"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-PENDING:CAPS" role="macro"/>EMPATHY_IMAGE_PENDING</title>
+<indexterm><primary>EMPATHY_IMAGE_PENDING</primary></indexterm><programlisting>#define EMPATHY_IMAGE_PENDING             "empathy-pending"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-MESSAGE:CAPS" role="macro"/>EMPATHY_IMAGE_MESSAGE</title>
+<indexterm><primary>EMPATHY_IMAGE_MESSAGE</primary></indexterm><programlisting>#define EMPATHY_IMAGE_MESSAGE             "empathy-message"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-NEW-MESSAGE:CAPS" role="macro"/>EMPATHY_IMAGE_NEW_MESSAGE</title>
+<indexterm><primary>EMPATHY_IMAGE_NEW_MESSAGE</primary></indexterm><programlisting>#define EMPATHY_IMAGE_NEW_MESSAGE         "empathy-new-message"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-TYPING:CAPS" role="macro"/>EMPATHY_IMAGE_TYPING</title>
+<indexterm><primary>EMPATHY_IMAGE_TYPING</primary></indexterm><programlisting>#define EMPATHY_IMAGE_TYPING              "empathy-typing"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-CONTACT-INFORMATION:CAPS" role="macro"/>EMPATHY_IMAGE_CONTACT_INFORMATION</title>
+<indexterm><primary>EMPATHY_IMAGE_CONTACT_INFORMATION</primary></indexterm><programlisting>#define EMPATHY_IMAGE_CONTACT_INFORMATION "gtk-info"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-IMAGE-GROUP-MESSAGE:CAPS" role="macro"/>EMPATHY_IMAGE_GROUP_MESSAGE</title>
+<indexterm><primary>EMPATHY_IMAGE_GROUP_MESSAGE</primary></indexterm><programlisting>#define EMPATHY_IMAGE_GROUP_MESSAGE       "empathy-group-message"
+</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

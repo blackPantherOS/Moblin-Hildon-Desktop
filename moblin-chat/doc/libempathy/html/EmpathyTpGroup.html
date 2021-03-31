@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyTpGroup</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="ch01.html" title="libempathy API reference">
+<link rel="next" href="EmpathyTpContactList.html" title="EmpathyTpContactList">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyTpContactList.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2583902" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2575094" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2575023" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2575047" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyTpGroup"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2583902"></a><span class="refentrytitle">EmpathyTpGroup</span>
+</h2>
+<p>EmpathyTpGroup</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyTpGroup.html#EmpathyTpGroupPriv">EmpathyTpGroupPriv</a>;
+                    <a href="EmpathyTpGroup.html#EmpathyTpGroup-struct">EmpathyTpGroup</a>;
+                    <a href="EmpathyTpGroup.html#EmpathyTpGroupInfo">EmpathyTpGroupInfo</a>;
+<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a>*     <a href="EmpathyTpGroup.html#empathy-tp-group-new">empathy_tp_group_new</a>                (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         TpChan *tp_chan);
+void                <a href="EmpathyTpGroup.html#empathy-tp-group-add-members">empathy_tp_group_add_members</a>        (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         GArray *handles,
+                                                         const gchar *message);
+void                <a href="EmpathyTpGroup.html#empathy-tp-group-add-member">empathy_tp_group_add_member</a>         (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         guint handle,
+                                                         const gchar *message);
+void                <a href="EmpathyTpGroup.html#empathy-tp-group-remove-members">empathy_tp_group_remove_members</a>     (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         GArray *handle,
+                                                         const gchar *message);
+void                <a href="EmpathyTpGroup.html#empathy-tp-group-remove-member">empathy_tp_group_remove_member</a>      (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         guint handle,
+                                                         const gchar *message);
+GArray*             <a href="EmpathyTpGroup.html#empathy-tp-group-get-members">empathy_tp_group_get_members</a>        (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);
+void                <a href="EmpathyTpGroup.html#empathy-tp-group-get-all-members">empathy_tp_group_get_all_members</a>    (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         GArray **members,
+                                                         GArray **local_pending,
+                                                         GArray **remote_pending);
+GList*              <a href="EmpathyTpGroup.html#empathy-tp-group-get-local-pending-members-with-info">empathy_tp_group_get_local_pending_members_with_info</a>
+                                                        (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);
+void                <a href="EmpathyTpGroup.html#empathy-tp-group-info-list-free">empathy_tp_group_info_list_free</a>     (GList *infos);
+const gchar*        <a href="EmpathyTpGroup.html#empathy-tp-group-get-name">empathy_tp_group_get_name</a>           (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);
+guint               <a href="EmpathyTpGroup.html#empathy-tp-group-get-self-handle">empathy_tp_group_get_self_handle</a>    (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);
+const gchar*        <a href="EmpathyTpGroup.html#empathy-tp-group-get-object-path">empathy_tp_group_get_object_path</a>    (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);
+gboolean            <a href="EmpathyTpGroup.html#empathy-tp-group-is-member">empathy_tp_group_is_member</a>          (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         guint handle);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2575023"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyTpGroup
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2575047"></a><h2>Signals</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyTpGroup.html#EmpathyTpGroup-local-pending">local-pending</a>"                                  : Run Last
+  "<a href="EmpathyTpGroup.html#EmpathyTpGroup-members-added">members-added</a>"                                  : Run Last
+  "<a href="EmpathyTpGroup.html#EmpathyTpGroup-members-removed">members-removed</a>"                                : Run Last
+  "<a href="EmpathyTpGroup.html#EmpathyTpGroup-remote-pending">remote-pending</a>"                                 : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2575094"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2575110"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2575121"></a><h3>
+<a name="EmpathyTpGroupPriv"></a>EmpathyTpGroupPriv</h3>
+<a class="indexterm" name="id2575133"></a><pre class="programlisting">typedef struct _EmpathyTpGroupPriv EmpathyTpGroupPriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2575150"></a><h3>
+<a name="EmpathyTpGroup-struct"></a>EmpathyTpGroup</h3>
+<a class="indexterm" name="id2575161"></a><pre class="programlisting">typedef struct _EmpathyTpGroup EmpathyTpGroup;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2575178"></a><h3>
+<a name="EmpathyTpGroupInfo"></a>EmpathyTpGroupInfo</h3>
+<a class="indexterm" name="id2575190"></a><pre class="programlisting">typedef struct {
+	guint  member;
+	guint  actor;
+	guint  reason;
+	gchar *message;
+} EmpathyTpGroupInfo;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2575207"></a><h3>
+<a name="empathy-tp-group-new"></a>empathy_tp_group_new ()</h3>
+<a class="indexterm" name="id2575219"></a><pre class="programlisting"><a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a>*     empathy_tp_group_new                (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         TpChan *tp_chan);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>tp_chan</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2510539"></a><h3>
+<a name="empathy-tp-group-add-members"></a>empathy_tp_group_add_members ()</h3>
+<a class="indexterm" name="id2510552"></a><pre class="programlisting">void                empathy_tp_group_add_members        (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         GArray *handles,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handles</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2510641"></a><h3>
+<a name="empathy-tp-group-add-member"></a>empathy_tp_group_add_member ()</h3>
+<a class="indexterm" name="id2510653"></a><pre class="programlisting">void                empathy_tp_group_add_member         (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         guint handle,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2510742"></a><h3>
+<a name="empathy-tp-group-remove-members"></a>empathy_tp_group_remove_members ()</h3>
+<a class="indexterm" name="id2510755"></a><pre class="programlisting">void                empathy_tp_group_remove_members     (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         GArray *handle,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599122"></a><h3>
+<a name="empathy-tp-group-remove-member"></a>empathy_tp_group_remove_member ()</h3>
+<a class="indexterm" name="id2599132"></a><pre class="programlisting">void                empathy_tp_group_remove_member      (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         guint handle,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599197"></a><h3>
+<a name="empathy-tp-group-get-members"></a>empathy_tp_group_get_members ()</h3>
+<a class="indexterm" name="id2599207"></a><pre class="programlisting">GArray*             empathy_tp_group_get_members        (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599258"></a><h3>
+<a name="empathy-tp-group-get-all-members"></a>empathy_tp_group_get_all_members ()</h3>
+<a class="indexterm" name="id2599270"></a><pre class="programlisting">void                empathy_tp_group_get_all_members    (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         GArray **members,
+                                                         GArray **local_pending,
+                                                         GArray **remote_pending);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>members</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>local_pending</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>remote_pending</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599369"></a><h3>
+<a name="empathy-tp-group-get-local-pending-members-with-info"></a>empathy_tp_group_get_local_pending_members_with_info ()</h3>
+<a class="indexterm" name="id2599383"></a><pre class="programlisting">GList*              empathy_tp_group_get_local_pending_members_with_info
+                                                        (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599435"></a><h3>
+<a name="empathy-tp-group-info-list-free"></a>empathy_tp_group_info_list_free ()</h3>
+<a class="indexterm" name="id2599448"></a><pre class="programlisting">void                empathy_tp_group_info_list_free     (GList *infos);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>infos</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599489"></a><h3>
+<a name="empathy-tp-group-get-name"></a>empathy_tp_group_get_name ()</h3>
+<a class="indexterm" name="id2599500"></a><pre class="programlisting">const gchar*        empathy_tp_group_get_name           (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599552"></a><h3>
+<a name="empathy-tp-group-get-self-handle"></a>empathy_tp_group_get_self_handle ()</h3>
+<a class="indexterm" name="id2599564"></a><pre class="programlisting">guint               empathy_tp_group_get_self_handle    (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599615"></a><h3>
+<a name="empathy-tp-group-get-object-path"></a>empathy_tp_group_get_object_path ()</h3>
+<a class="indexterm" name="id2599627"></a><pre class="programlisting">const gchar*        empathy_tp_group_get_object_path    (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599679"></a><h3>
+<a name="empathy-tp-group-is-member"></a>empathy_tp_group_is_member ()</h3>
+<a class="indexterm" name="id2599690"></a><pre class="programlisting">gboolean            empathy_tp_group_is_member          (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *group,
+                                                         guint handle);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2599761"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2599770"></a><h3>
+<a name="EmpathyTpGroup-local-pending"></a>The "local-pending" signal</h3>
+<a class="indexterm" name="id2599780"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *empathytpgroup,
+                                                        gpointer        arg1,
+                                                        guint           arg2,
+                                                        guint           arg3,
+                                                        gchar          *arg4,
+                                                        gpointer        user_data)           : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathytpgroup</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg3</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg4</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599917"></a><h3>
+<a name="EmpathyTpGroup-members-added"></a>The "members-added" signal</h3>
+<a class="indexterm" name="id2599926"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *empathytpgroup,
+                                                        gpointer        arg1,
+                                                        guint           arg2,
+                                                        guint           arg3,
+                                                        gchar          *arg4,
+                                                        gpointer        user_data)           : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathytpgroup</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg3</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg4</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600065"></a><h3>
+<a name="EmpathyTpGroup-members-removed"></a>The "members-removed" signal</h3>
+<a class="indexterm" name="id2600074"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *empathytpgroup,
+                                                        gpointer        arg1,
+                                                        guint           arg2,
+                                                        guint           arg3,
+                                                        gchar          *arg4,
+                                                        gpointer        user_data)           : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathytpgroup</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg3</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg4</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600213"></a><h3>
+<a name="EmpathyTpGroup-remote-pending"></a>The "remote-pending" signal</h3>
+<a class="indexterm" name="id2600223"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyTpGroup.html" title="EmpathyTpGroup">EmpathyTpGroup</a> *empathytpgroup,
+                                                        gpointer        arg1,
+                                                        guint           arg2,
+                                                        guint           arg3,
+                                                        gchar          *arg4,
+                                                        gpointer        user_data)           : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathytpgroup</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg3</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg4</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

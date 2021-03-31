@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/simple-patchsys.mk
+include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/class/gnome.mk
+
+DEB_CONFIGURE_EXTRA_FLAGS := --enable-aspell --enable-hildon
+
+makebuilddir/moblin-chat::
+	./autogen.sh
+
+binary-post-install/moblin-chat::
+	rm -rf debian/moblin-chat/usr/include
+	rm -rf debian/moblin-chat/usr/share/gtk-doc
+	rm -rf debian/moblin-chat/usr/lib/pkgconfig
+	rm -rf debian/moblin-chat/usr/lib/lib*.la
+	rm -rf debian/moblin-chat/usr/lib/lib*.a
+	rm -rf debian/moblin-chat/usr/lib/*.so

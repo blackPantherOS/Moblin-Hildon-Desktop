@@ -1,0 +1,11 @@
+diff -Nur bzr.debian.0.9.5/man/nm-tool.1.in bzr.debian.0.9.5.new/man/nm-tool.1.in
+--- bzr.debian.0.9.5/man/nm-tool.1.in	2007-06-25 17:14:46.000000000 +0200
++++ bzr.debian.0.9.5.new/man/nm-tool.1.in	2007-06-25 17:31:51.000000000 +0200
+@@ -3,6 +3,7 @@
+ .\" Copyright (C) 2005 Robert Love
+ .\"
+ .TH NM-TOOL "1"
++.SH NAME
+ nm-tool \- utility to report NetworkManager state 
+ .SH SYNOPSIS
+ .B nm-tool

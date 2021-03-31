@@ -1,0 +1,179 @@
+#!/bin/bash
+#modify grub memu.list
+S2DFILE="/s2d.img"
+S2DDEV="/dev/hda2"
+S2DMNT="/mnt/hibernate"
+
+ROOT="(hd0,0)"
+DEVICEMAP="/boot/grub/device.map"
+check_resume_kernel()
+{
+    case $(uname -m) in
+	i?86|x86_64|athlon)
+	    ;;
+	*) # this is only valid for x86 and x86_64
+	echo "this is only valid for x86 and x86_64"
+	    return 1
+    esac
+
+    [ -x /sbin/grubby -a -x /sbin/grub ] || return 1
+    [ -e /boot/vmlinuz-$(uname -r) ] || return 1
+
+    out=$(/sbin/grubby --info /boot/vmlinuz-$(uname -r) |grep index)
+    [ -n "${out}" ] || return 1
+    current=${out#index=}
+    echo "savedefault --default=${current} --once" | /sbin/grub --batch --no-floppy --device-map=/boot/grub/device.map --no-curses >/dev/null
+
+    return 0
+}
+get_root()
+{
+	KERNEL=${S2DMNT}${S2DFILE};
+	if [ -e "$DEVICEMAP" ]
+	then 
+
+	
+		if [ -e "$KERNEL" ]
+		then
+			RK=$(df $KERNEL)
+			RK=$(expr match "$RK" "\(.*/dev/....\)" )
+			start=$(expr index "$RK" "/")
+			RK=${RK:$start:10}
+			echo $RK ${RK:0:7} 
+			
+			MAP=$(cat $DEVICEMAP)
+			RT=$(expr match "$MAP" "\(.*${RK:0:7}\)" )
+			echo $RT    
+			start=$(expr index "$RT" "\(");
+			RT=${RT:start:3}
+			echo $RT	#hd0
+			
+			let "SUB=${RK:7:1}-1" #
+			ROOT=$(echo "($RT,$SUB)")
+			echo $ROOT
+		else
+			echo "$DEVICEMAP don't exist"
+			return 1
+		fi
+	else
+		echo "$KERNEL don't exist"
+		return 1
+	fi
+	return 0
+}
+update_grub_menu_list()
+{
+	MEMNUFILE="/boot/grub/menu.lst"
+
+	FSTART="####Fast_RESUME_PART_BEGIN####"
+	FEND="####Fast_RESUME_PART_END####"
+	
+	get_root
+	if [ $? != 0 ]
+	then
+		return 1;
+	fi
+
+	if (test -e $MEMNUFILE )
+	then
+		cp $MEMNUFILE $MEMNUFILE".bk"
+		GRUBMENU=$(cat $MEMNUFILE)
+	
+		FPATTERN=$(expr match "$GRUBMENU" "\(.*${FSTART}.*${FEND}\)" )
+
+		VR=$(expr match "$FPATTERN" "\(.*resume_file $ROOT\)" )
+		if [ "$FPATTERN" ] 	
+		then
+			if [ "$VR" ]
+			then
+				echo "Root no change"
+			else
+				echo "Find Pattern"
+				sed -e "s/\(^resume_file (hd[0-9],[0-9])\)/resume_file ${ROOT}/g" "${MEMNUFILE}" >"${MEMNUFILE}.1"
+				mv "${MEMNUFILE}.1" "${MEMNUFILE}"		
+			sync	
+			fi
+		else
+			
+			echo "modify grub menu.lst"
+
+
+		
+			echo "${FSTART}"   	>  $MEMNUFILE
+			echo "resume_file ${ROOT}${S2DFILE}">> $MEMNUFILE
+			echo "${FEND}" 		>> $MEMNUFILE
+			cat $MEMNUFILE".bk"     >> $MEMNUFILE
+					
+		fi
+
+
+#		printf "%s" ${GRUBMENU:${#FPATTERN}:${#GRUBMENU}} >>$MEMNUFILE
+
+	
+	else
+		echo $MEMNUFILE" don't exist" 
+		return 1
+	fi
+	return 0
+}
+
+
+hibernate()
+{
+	if [ -e $S2DMNT ]
+	then	
+		echo "$S2DMNT have exist"
+	else
+		mkdir -p $S2DMNT
+	fi
+	
+	umount $S2DMNT
+	if (mount $S2DDEV $S2DMNT)
+	then
+		echo "Mount success" 
+	else
+		return 1
+	fi
+
+	if (test -e $S2DMNT$S2DFILE )
+	then 
+	  echo "Hibernate File exist"
+	  echo "Skip create File"
+	else
+	  echo "Hibernate File Does Not Exist"
+	  echo "Create Hibernate File ... "
+	  echo "SWS4">$S2DMNT$S2DFILE
+	  if (dd if=/dev/zero bs=1M count=520 >>$S2DMNT$S2DFILE )
+#	  if ( pm-create $S2DMNT$S2DFILE 520 )
+	  then
+	      echo "Create Hibernate File Success"
+	  else
+	      echo "Create Hibernate File $S2DFILE Fail"
+	      echo "Your boot partition is too small, 		Hiberante file need at 520M diskspace at least"
+	      return 1
+	  fi
+	fi
+
+#	grub can looking for (hd0,[0,4])/s2d.img to resume system
+#	update_grub_menu_list  
+	if [  $? != 0 ]
+	then
+		return 1
+	fi
+
+	echo -n "${S2DMNT}${S2DFILE}" >/sys/power/resume_file
+	return 0;
+}
+
+RETVAL=0
+case "$1" in
+	hibernate)
+		hibernate
+		RETVAL=$?
+		;;
+	*)
+	umount	$S2DMNT	
+	;;
+esac
+
+exit $RETVAL

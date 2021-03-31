@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyTpContactList">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyTpContactList</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyTpContactList</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyTpContactListPriv">EmpathyTpContactListPriv</link>;
+                    <link linkend="EmpathyTpContactList-struct">EmpathyTpContactList</link>;
+<link linkend="EmpathyTpContactList">EmpathyTpContactList</link>* <link linkend="empathy-tp-contact-list-new">empathy_tp_contact_list_new</link>       (<link linkend="McAccount">McAccount</link> *account);
+<link linkend="McAccount">McAccount</link>*          <link linkend="empathy-tp-contact-list-get-account">empathy_tp_contact_list_get_account</link> (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-tp-contact-list-get-user">empathy_tp_contact_list_get_user</link>    (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-tp-contact-list-get-from-id">empathy_tp_contact_list_get_from_id</link> (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         const <link linkend="gchar">gchar</link> *id);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-tp-contact-list-get-from-handle">empathy_tp_contact_list_get_from_handle</link>
+                                                        (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         <link linkend="guint">guint</link> handle);
+<link linkend="GList">GList</link>*              <link linkend="empathy-tp-contact-list-get-from-handles">empathy_tp_contact_list_get_from_handles</link>
+                                                        (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         <link linkend="GArray">GArray</link> *handles);
+<link linkend="void">void</link>                <link linkend="empathy-tp-contact-list-rename-group">empathy_tp_contact_list_rename_group</link>
+                                                        (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         const <link linkend="gchar">gchar</link> *old_group,
+                                                         const <link linkend="gchar">gchar</link> *new_group);
+<link linkend="GList">GList</link>*              <link linkend="empathy-tp-contact-list-get-groups">empathy_tp_contact_list_get_groups</link>  (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyTpContactList
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EmpathyTpContactList implements
+ <link linkend="EmpathyContactList">EmpathyContactList</link>.</para>
+
+</refsect1>
+
+
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyTpContactList-destroy">destroy</link>&quot;                                        : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyTpContactListPriv" role="struct"/>EmpathyTpContactListPriv</title>
+<indexterm><primary>EmpathyTpContactListPriv</primary></indexterm><programlisting>typedef struct _EmpathyTpContactListPriv EmpathyTpContactListPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyTpContactList-struct" role="struct"/>EmpathyTpContactList</title>
+<indexterm><primary>EmpathyTpContactList</primary></indexterm><programlisting>typedef struct _EmpathyTpContactList EmpathyTpContactList;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-new" role="function"/>empathy_tp_contact_list_new ()</title>
+<indexterm><primary>empathy_tp_contact_list_new</primary></indexterm><programlisting><link linkend="EmpathyTpContactList">EmpathyTpContactList</link>* empathy_tp_contact_list_new       (<link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-get-account" role="function"/>empathy_tp_contact_list_get_account ()</title>
+<indexterm><primary>empathy_tp_contact_list_get_account</primary></indexterm><programlisting><link linkend="McAccount">McAccount</link>*          empathy_tp_contact_list_get_account (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-get-user" role="function"/>empathy_tp_contact_list_get_user ()</title>
+<indexterm><primary>empathy_tp_contact_list_get_user</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_tp_contact_list_get_user    (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-get-from-id" role="function"/>empathy_tp_contact_list_get_from_id ()</title>
+<indexterm><primary>empathy_tp_contact_list_get_from_id</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_tp_contact_list_get_from_id (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         const <link linkend="gchar">gchar</link> *id);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-get-from-handle" role="function"/>empathy_tp_contact_list_get_from_handle ()</title>
+<indexterm><primary>empathy_tp_contact_list_get_from_handle</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_tp_contact_list_get_from_handle
+                                                        (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         <link linkend="guint">guint</link> handle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-get-from-handles" role="function"/>empathy_tp_contact_list_get_from_handles ()</title>
+<indexterm><primary>empathy_tp_contact_list_get_from_handles</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_tp_contact_list_get_from_handles
+                                                        (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         <link linkend="GArray">GArray</link> *handles);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handles</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-rename-group" role="function"/>empathy_tp_contact_list_rename_group ()</title>
+<indexterm><primary>empathy_tp_contact_list_rename_group</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_contact_list_rename_group
+                                                        (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list,
+                                                         const <link linkend="gchar">gchar</link> *old_group,
+                                                         const <link linkend="gchar">gchar</link> *new_group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>old_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-contact-list-get-groups" role="function"/>empathy_tp_contact_list_get_groups ()</title>
+<indexterm><primary>empathy_tp_contact_list_get_groups</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_tp_contact_list_get_groups  (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyTpContactList-destroy"/>The &quot;destroy&quot; signal</title>
+<indexterm><primary>EmpathyTpContactList::destroy</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpContactList">EmpathyTpContactList</link> *empathytpcontactlist,
+                                                        <link linkend="gpointer">gpointer</link>              user_data)                 : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpcontactlist</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

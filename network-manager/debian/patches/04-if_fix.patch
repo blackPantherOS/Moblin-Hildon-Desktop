@@ -1,0 +1,13 @@
+diff -Nur bzr.debian.0.9.4.patchupdate/src/nm-device-802-3-ethernet.c bzr.debian.0.9.4.patchupdate.new/src/nm-device-802-3-ethernet.c
+--- bzr.debian.0.9.4.patchupdate/src/nm-device-802-3-ethernet.c	2007-06-25 17:14:46.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/nm-device-802-3-ethernet.c	2007-06-25 17:15:54.000000000 +0200
+@@ -376,7 +376,9 @@
+ /**************************************/
+ /*    MII capability detection        */
+ /**************************************/
++#define _LINUX_IF_H
+ #include <linux/mii.h>
++#undef _LINUX_IF_H
+ 
+ static int
+ mdio_read (NMDevice8023Ethernet *self, NMSock *sk, struct ifreq *ifr, int location)

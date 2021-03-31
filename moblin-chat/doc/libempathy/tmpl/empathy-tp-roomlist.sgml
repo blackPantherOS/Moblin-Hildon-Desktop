@@ -1,0 +1,68 @@
+<!-- ##### SECTION Title ##### -->
+EmpathyTpRoomlist
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT EmpathyTpRoomlistPriv ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT EmpathyTpRoomlist ##### -->
+<para>
+
+</para>
+
+@parent: 
+
+<!-- ##### FUNCTION empathy_tp_roomlist_new ##### -->
+<para>
+
+</para>
+
+@account: 
+@Returns: 
+
+
+<!-- ##### FUNCTION empathy_tp_roomlist_is_listing ##### -->
+<para>
+
+</para>
+
+@list: 
+@Returns: 
+
+
+<!-- ##### FUNCTION empathy_tp_roomlist_start ##### -->
+<para>
+
+</para>
+
+@list: 
+
+
+<!-- ##### FUNCTION empathy_tp_roomlist_stop ##### -->
+<para>
+
+</para>
+
+@list: 
+
+

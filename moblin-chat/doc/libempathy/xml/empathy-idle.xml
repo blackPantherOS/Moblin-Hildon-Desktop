@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyIdle">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyIdle</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyIdle</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyIdlePriv">EmpathyIdlePriv</link>;
+                    <link linkend="EmpathyIdle-struct">EmpathyIdle</link>;
+<link linkend="EmpathyIdle">EmpathyIdle</link>*        <link linkend="empathy-idle-new">empathy_idle_new</link>                    (void);
+<link linkend="McPresence">McPresence</link>          <link linkend="empathy-idle-get-state">empathy_idle_get_state</link>              (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle);
+<link linkend="void">void</link>                <link linkend="empathy-idle-set-state">empathy_idle_set_state</link>              (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         <link linkend="McPresence">McPresence</link> state);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-idle-get-status">empathy_idle_get_status</link>             (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle);
+<link linkend="void">void</link>                <link linkend="empathy-idle-set-status">empathy_idle_set_status</link>             (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         const <link linkend="gchar">gchar</link> *status);
+<link linkend="McPresence">McPresence</link>          <link linkend="empathy-idle-get-flash-state">empathy_idle_get_flash_state</link>        (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle);
+<link linkend="void">void</link>                <link linkend="empathy-idle-set-flash-state">empathy_idle_set_flash_state</link>        (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         <link linkend="McPresence">McPresence</link> state);
+<link linkend="void">void</link>                <link linkend="empathy-idle-set-presence">empathy_idle_set_presence</link>           (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         <link linkend="McPresence">McPresence</link> state,
+                                                         const <link linkend="gchar">gchar</link> *status);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyIdle
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyIdle--flash-state">flash-state</link>&quot;              <link linkend="McPresence">McPresence</link>            : Read / Write
+  &quot;<link linkend="EmpathyIdle--state">state</link>&quot;                    <link linkend="McPresence">McPresence</link>            : Read / Write
+  &quot;<link linkend="EmpathyIdle--status">status</link>&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyIdlePriv" role="struct"/>EmpathyIdlePriv</title>
+<indexterm><primary>EmpathyIdlePriv</primary></indexterm><programlisting>typedef struct _EmpathyIdlePriv EmpathyIdlePriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyIdle-struct" role="struct"/>EmpathyIdle</title>
+<indexterm><primary>EmpathyIdle</primary></indexterm><programlisting>typedef struct _EmpathyIdle EmpathyIdle;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-new" role="function"/>empathy_idle_new ()</title>
+<indexterm><primary>empathy_idle_new</primary></indexterm><programlisting><link linkend="EmpathyIdle">EmpathyIdle</link>*        empathy_idle_new                    (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-get-state" role="function"/>empathy_idle_get_state ()</title>
+<indexterm><primary>empathy_idle_get_state</primary></indexterm><programlisting><link linkend="McPresence">McPresence</link>          empathy_idle_get_state              (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-set-state" role="function"/>empathy_idle_set_state ()</title>
+<indexterm><primary>empathy_idle_set_state</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_idle_set_state              (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         <link linkend="McPresence">McPresence</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-get-status" role="function"/>empathy_idle_get_status ()</title>
+<indexterm><primary>empathy_idle_get_status</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_idle_get_status             (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-set-status" role="function"/>empathy_idle_set_status ()</title>
+<indexterm><primary>empathy_idle_set_status</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_idle_set_status             (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         const <link linkend="gchar">gchar</link> *status);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-get-flash-state" role="function"/>empathy_idle_get_flash_state ()</title>
+<indexterm><primary>empathy_idle_get_flash_state</primary></indexterm><programlisting><link linkend="McPresence">McPresence</link>          empathy_idle_get_flash_state        (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-set-flash-state" role="function"/>empathy_idle_set_flash_state ()</title>
+<indexterm><primary>empathy_idle_set_flash_state</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_idle_set_flash_state        (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         <link linkend="McPresence">McPresence</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-idle-set-presence" role="function"/>empathy_idle_set_presence ()</title>
+<indexterm><primary>empathy_idle_set_presence</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_idle_set_presence           (<link linkend="EmpathyIdle">EmpathyIdle</link> *idle,
+                                                         <link linkend="McPresence">McPresence</link> state,
+                                                         const <link linkend="gchar">gchar</link> *status);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>idle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyIdle--flash-state"/>The &quot;<literal>flash-state</literal>&quot; property</title>
+<indexterm><primary>EmpathyIdle:flash-state</primary></indexterm><programlisting>  &quot;flash-state&quot;              <link linkend="McPresence">McPresence</link>            : Read / Write</programlisting>
+<para>flash-state.</para><para>Default value: MC_PRESENCE_UNSET</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyIdle--state"/>The &quot;<literal>state</literal>&quot; property</title>
+<indexterm><primary>EmpathyIdle:state</primary></indexterm><programlisting>  &quot;state&quot;                    <link linkend="McPresence">McPresence</link>            : Read / Write</programlisting>
+<para>state.</para><para>Default value: MC_PRESENCE_AVAILABLE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyIdle--status"/>The &quot;<literal>status</literal>&quot; property</title>
+<indexterm><primary>EmpathyIdle:status</primary></indexterm><programlisting>  &quot;status&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>status.</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

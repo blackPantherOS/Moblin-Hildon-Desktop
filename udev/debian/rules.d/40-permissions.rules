@@ -1,0 +1,98 @@
+# This file establishes permissions and ownership of devices according
+# to Ubuntu policy.  See udev(7) for syntax.
+#
+# The names of the devices must not be set here, but in 20-names.rules;
+# user-friendly symlinks (which need no permissions or ownership) should
+# be set in 60-symlinks.rules.
+
+# Block devices
+SUBSYSTEM!="block", GOTO="block_end"
+ATTRS{removable}!="1",			GROUP="disk"
+ATTRS{removable}=="1",			GROUP="floppy"
+SUBSYSTEMS=="usb",			GROUP="plugdev"
+SUBSYSTEMS=="ieee1394",			GROUP="plugdev"
+SUBSYSTEMS=="mmc",			GROUP="plugdev"
+SUBSYSTEMS=="pcmcia",			GROUP="plugdev"
+LABEL="block_end"
+
+# IDE devices
+ENV{ID_CDROM}=="?*",			GROUP="cdrom"
+KERNEL=="ht[0-9]*",			GROUP="tape"
+KERNEL=="nht[0-9]*",			GROUP="tape"
+
+# IEEE1394 (firewire) devices
+# Please note that raw1394 gives unrestricted, raw access to every single
+# device on the bus and those devices may do anything as root on your system.
+# Yes, I know it also happens to be the only way to rewind your video camera,
+# but it's not going to be group "video", okay?
+KERNEL=="raw1394",			GROUP="disk"
+KERNEL=="dv1394*",			GROUP="video"
+KERNEL=="video1394*",			GROUP="video"
+
+# Packet CD devices, group under /dev/pktcdvd
+KERNEL=="pktcdvd",			MODE="0644"
+KERNEL=="pktcdvd[0-9]*",		GROUP="cdrom"
+
+# Printers and Parallel devices
+SUBSYSTEM=="printer",			GROUP="lp"
+SUBSYSTEM=="ppdev",			GROUP="lp"
+SUBSYSTEM=="usb", KERNEL=="lp[0-9]*",	GROUP="lp"
+KERNEL=="pt[0-9]*",			GROUP="tape"
+KERNEL=="pht[0-9]*",			GROUP="tape"
+
+# SCSI devices
+SUBSYSTEMS=="scsi", GOTO="scsi_start"
+GOTO="scsi_end"
+LABEL="scsi_start"
+ATTRS{type}=="1",			GROUP="tape"
+ATTRS{type}=="5",			GROUP="cdrom"
+ATTRS{type}=="6",			GROUP="scanner"
+ATTRS{type}=="8",			GROUP="tape"
+ATTRS{type}=="3", ATTRS{vendor}=="HP",	GROUP="scanner"
+ATTRS{type}=="3", ATTRS{vendor}=="Epson", GROUP="scanner"
+ATTRS{type}=="3", ATTRS{vendor}=="EPSON", GROUP="scanner"
+LABEL="scsi_end"
+
+# Serial devices
+SUBSYSTEM=="tty",			GROUP="dialout"
+SUBSYSTEM=="capi",			GROUP="dialout"
+SUBSYSTEM=="slamr",			GROUP="dialout"
+SUBSYSTEM=="zaptel",			GROUP="dialout"
+KERNEL=="ttyLTM[0-9]*",			GROUP="dialout", MODE="0660"
+
+# Sound devices
+SUBSYSTEM=="sound",			GROUP="audio"
+
+# USB devices (usbfs replacement)
+SUBSYSTEM=="usb_device",		MODE="0664"
+
+# vc (virtual console) devices
+SUBSYSTEM!="tty", GOTO="vc_end"
+KERNEL=="console",			GROUP="root", MODE="0600"
+KERNEL=="ptmx",				GROUP="root", MODE="0666"
+KERNEL=="pty*",				GROUP="tty", MODE="0666"
+KERNEL=="tty",				GROUP="root", MODE="0666"
+KERNEL=="tty[0-9]*",			GROUP="root"
+LABEL="vc_end"
+
+# Video devices
+SUBSYSTEM=="drm",			GROUP="video"
+SUBSYSTEM=="dvb",			GROUP="video"
+SUBSYSTEM=="graphics",			GROUP="video"
+SUBSYSTEM=="video4linux",		GROUP="video"
+KERNEL=="agpgart",			GROUP="video"
+KERNEL=="nvidia*",			GROUP="video"
+
+# Other devices, by name
+KERNEL=="null",				MODE="0666"
+KERNEL=="zero",				MODE="0666"
+KERNEL=="full",				MODE="0666"
+KERNEL=="random",			MODE="0666"
+KERNEL=="urandom",			MODE="0666"
+KERNEL=="mem",				GROUP="kmem", MODE="0640"
+KERNEL=="kmem",				GROUP="kmem", MODE="0640"
+KERNEL=="port",				GROUP="kmem", MODE="0640"
+KERNEL=="nvram",			GROUP="kmem"
+KERNEL=="rtc",				GROUP="audio"
+KERNEL=="inotify",			MODE="0666"
+KERNEL=="js[0-9]*",			GROUP="plugdev"

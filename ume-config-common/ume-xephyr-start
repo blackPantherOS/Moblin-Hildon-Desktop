@@ -1,0 +1,66 @@
+#!/bin/bash
+
+function checkPkg {
+  # verify that xephyr is installed, if not install
+  dpkg --status $1 &> /dev/null
+  if [ "$?" -ne "0" ]; then
+  	echo "Required package $1 not installed."
+  	echo "Attempting to install..."
+        # verify running as root
+  	if [ "$UID" -ne "0" ]; then
+  		echo "[ERROR] Can't install $1 package. No root priveleges"
+  		exit 1
+  	fi
+  	apt-get install $1 
+  	if [ "$?" -ne "0" ]; then
+  		echo "[ERROR] Failed to run: apt-get install $1"
+  		exit 1
+  	else
+  		echo "Successfully installed $1"
+  	fi
+  fi;
+}
+
+# check parameters
+RES="1024x600"
+if [ "$#" -ne "0" ]; then
+	# verify format of parameter
+	if [ $1 == "1024x600" ] || [ $1 == "800x480" ]; then
+		RES="$1x32"
+	else 
+		echo ""
+		echo "Usage: ume-xephyr-start [WxH]"
+		echo "  Supported resolutions: 1024x600 (default) and 800x480 "
+		exit 1
+	fi
+fi
+echo "Setting screen resolution to $RES"
+if [ -f ~/.osso/hildon-desktop/home-layout.conf ]; then
+	echo "Removing cached layout in ~/.osso..."
+	rm ~/.osso/hildon-desktop/home-layout.conf
+fi
+
+checkPkg "xserver-xephyr"
+checkPkg "xinit"
+if [ -z $DISPLAY ]; then
+	echo "Setting DISPLAY=:0"
+	export DISPLAY=:0
+else
+	echo "DISPLAY already set to " $DISPLAY
+fi
+echo "Starting dbus"
+/etc/init.d/dbus start
+
+echo "Starting UI in Xephyr"
+xinit /etc/X11/xinit/xinitrc -- /usr/bin/Xephyr :2 -host-cursor -screen $RES -dpi 96 -ac
+
+if [ "$?" -ne "0" ]; then
+	echo ""
+	echo "It appears that the UI or Xephyr did not start"
+	echo "Note 1: Make sure that dbus is started successfully"
+	echo "Note 2: Make sure you have enabled control access on DISPLAY :0"
+	echo " Example (run on workstation terminal):  xhost +SI:localuser:root"
+	echo ""
+fi
+
+

@@ -1,0 +1,26 @@
+
+Rev: 2591
+Comment:
+* src/nm-device.c
+	- (real_act_stage3_ip_config_start): sometimes the device gets downed
+		during the wpa_supplicant association.  Ensure the device is up
+		before it's used for IP configuration.
+
+--
+Index: bzr.debian.0.9.5/src/nm-device.c
+===================================================================
+--- bzr.debian.0.9.5/src/nm-device.c	(revision 2590)
++++ bzr.debian.0.9.5/src/nm-device.c	(revision 2591)
+@@ -856,6 +856,12 @@
+ 	data = nm_act_request_get_data (req);
+ 	g_assert (data);
+ 
++	/* Sometimes the device gets downed by wpa_supplicant; in any case, make
++	 * sure it's up before anything tries to use it.
++	 */
++	if (!nm_device_is_up (self))
++		nm_device_bring_up (self);
++
+ 	/* DHCP devices try DHCP, non-DHCP default to SUCCESS */
+ 	if (nm_device_get_use_dhcp (self))
+ 	{

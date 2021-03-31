@@ -1,0 +1,32 @@
+diff -Nur bzr.debian.0.9.4.patchupdate/src/backends/NetworkManagerDebian.c bzr.debian.0.9.4.patchupdate.new/src/backends/NetworkManagerDebian.c
+--- bzr.debian.0.9.4.patchupdate/src/backends/NetworkManagerDebian.c	2007-06-25 17:16:32.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/backends/NetworkManagerDebian.c	2007-06-25 17:16:33.000000000 +0200
+@@ -556,6 +556,28 @@
+ 			blacklist = FALSE;
+ 			}
+ 
++	/* handle some ipv6 situations */
++
++	curr_b = curr_device;
++
++	/* NM does not know how to handle ipv6 interfaces */
++	if (ifparser_getkey(curr_b, "inet6")) {
++		blacklist = TRUE;
++		goto out;
++	}
++
++	/* if we have a have an inet dhcp interface and later an inet6 stanza
++	 * we blacklist it.
++	 */
++	if (ifparser_getkey(curr_b, "inet") && strcmp (ifparser_getkey(curr_b, "inet"),"dhcp") == 0) {
++		while (curr_b->nextsame != 0) {
++			curr_b = curr_b->nextsame;
++			if (ifparser_getkey(curr_b, "inet6")) {
++				blacklist = TRUE;
++			}
++		}
++	}
++
+ 	/* If the interface has no options other than just "inet dhcp"
+ 	 * it's probably ok to fiddle with it.
+ 	 */

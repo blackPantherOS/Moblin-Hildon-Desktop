@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<RDF:RDF
+     xmlns:NC="http://home.netscape.com/NC-rdf#"
+     xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="chrome://midbrowser/content/midbrowser.xul#toggle_taskbar"
+                   checked="false" />
+  <RDF:Description RDF:about="chrome://midbrowser/content/midbrowser.xul#status-bar"
+                   hidden="true" />
+  <RDF:Description RDF:about="chrome://midbrowser/content/midbrowser.xul">
+    <NC:persist RDF:resource="chrome://midbrowser/content/midbrowser.xul#status-bar"/>
+    <NC:persist RDF:resource="chrome://midbrowser/content/midbrowser.xul#toggle_taskbar"/>
+  </RDF:Description>
+</RDF:RDF>

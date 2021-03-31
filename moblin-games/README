@@ -1,0 +1,205 @@
+===============================================================================
+                             Moblin-Games
+===============================================================================
+
+Contents
+--------
+
+- Overview
+- The Games
+- Website
+- License
+- Mailing List
+- Maintainers
+- Bug Reports
+- Requirements
+- Building Moblin-Games
+- The Future
+
+Overview
+--------
+
+Moblin-games is based off of gnome-games, a collection of simple, 
+but addictive, games from the GNOME desktop.  Moblin games extends these
+games to be finger friendly and optimized for mobile internet devices.  
+They are meant to be the sort of game that can be played in five minutes or so. They are
+also meant to be fun enough that you will play them again and
+again. Of course we can't be held responsible for the time and
+productivity lost while playing them.
+
+The Games
+---------
+
+Here is a list of the games in this compilation along with a brief
+description. The names in brackets are the program names you use from the
+command line.
+
+AisleRiot       A compilation of seventy different solitaire card games.
+                (sol)
+
+MoblinSays	A memory game where you attempt to remember the sequence of
+		flashing lights (moblinsays)
+
+Website
+-------
+
+Further information can be found at:
+
+http://www.moblin.org/
+
+
+License
+-------
+
+This is Free Software and there are no restrictions on your use and
+enjoyment of it. In most countries copyright law would prevent you
+from sharing these programs, either as is or in a modified
+form. However we provide a license to allow you to modify and
+redistribute this code. This is the GNU General Public License v2.0 and it
+can be found in the file COPYING. This allows you to do almost
+anything you would like with this software, including selling
+it. There are only two catches, firstly you can't restrict anyone else
+from copying the code, you have to give them the same freedoms you
+received (including access to the source code). Secondly, because the
+code may have been modified and we have no idea what state it will be
+in when it reaches you, we cannot provide a warranty. All the details
+can be found in the file COPYING which should have accompanied this
+software. If it didn't you can find a copy at
+
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.html 
+
+or write to the Free Software Foundation, Inc., 59 Temple Place, Suite
+330, Boston, MA 02111-1307 USA
+
+Some parts of this software, notably some of the artwork, are licensed
+under different terms or have been placed in the public domain. None
+of these terms are more restrictive than what has been described
+above. Please check the artwork files for full details. If there is no
+information embedded within the file or alongside it then it is licensed
+under the GPL.
+
+Mailing List
+------------
+
+moblin-games has a mailing list at <dev@moblin.org>. You can
+subscribe to the list at:
+
+ https://www.moblin.org/mailman/listinfo/dev
+
+and browse the archives at:
+
+The mailing list is for announcements and discussion about moblin 
+development.
+
+Maintainers
+-----------
+
+The current maintainers for moblin-games are:
+
+ Danny Varner <danny.varner@intel.com>
+ Bob Spencer <bob.spencer@intel.com>
+
+While you can email them with suggestions and bug reports it is better
+to use either the bug tracking system (see below) or the mailing
+list. Even for suggestions the bug tracking system is better because
+it ensures that there is an archive of the discussion and it is harder
+for the maintainer to loose suggestions. For more general discussion,
+policy issues and issues that many people will be interested in, the
+mailing list is the best place.
+
+Reporting Bugs
+--------------
+
+If you find any bugs in moblin-games, or even just have a suggestion
+for an improvement to the games then please submit a bug report.
+
+https://bugs.launchpad.net/moblin
+
+Contributing
+------------
+
+See the file HACKING and the webpages mentioned within for details
+about contributing to moblin-games.
+
+
+Requirements
+------------
+
+This is the list of required software packages for moblin-games:
+
+ - Hildon
+ - GTK+ 2.8.0
+ - GNOME Doc Utils - gnome-doc-utils 0.10.0
+ - GNOME Python Desktop - gnome-python-desktop 2.17.3  (python-gnome2)
+ - gnome-python2-gnomeprint
+ - RSVG 2.14.0
+ - Guile 1.8.0
+ - GStreamer 0.10.11
+ - Python 2.4 
+ - PyGTK - python-gtk2-dev 2.10.0 
+ - libxml 2.4.0
+
+These packages are optional, but highly recommended:
+
+ - gtkglext 1.2.0 , pygtkglext 1.1.0 and pyopengl 2.0
+
+GStreamer 0.10 is required by moblin-games, and is used to play sounds.
+
+CVS checkouts will require the latest intltool.
+
+In addition it is useful to have a working C++ compiler (e.g. g++,
+part of the gcc suite) and the guile implementation of the Scheme
+programming language version 1.6 or later
+(http://www.gnu.org/software/guile/guile.html). If either of these is
+missing then the games that rely on them will simply not be built.
+
+
+Building Moblin-Games
+--------------------
+
+Moblin-games uses the GNU automake system and installation may be as
+easy as:
+
+$ ./configure
+$ make install
+
+Generic, but detailed, instructions can be found in the file INSTALL.
+
+There are several moblin-games specific options you can pass to
+configure. These security related options are:
+
+--disable-setgid                Do not set the setgid bit on the
+                                installed binaries.
+--with-scores-group=group       If you are using setgid binaries, set
+                                the group for the programs. The
+                                default is games.
+--with-scores-user=user         If you are using setgid binaries, set
+                                the user for the programs. The default
+                                is games.
+
+For a discussion of the details behind these options and why you might
+want to change them see the "Security" section. In general you will
+not need to change any of them.
+
+To select which games to compile use --enable-omitgames and
+--enable-games. Each option takes a comma separated list of directory
+names (not the screen-names of the games). "all" is also a valid
+name. For example:
+
+./configure  --enable-omitgames=aisleriot
+
+would compile all the games except aisleriot.
+
+./configure --enable-games=aisleriot
+
+would compile just aisleriot
+
+Use './configure --help' for a complete list of currently supported
+options and environment variables.
+
+
+The Future
+----------
+We are always looking for more games to be ported/created for a MID.  
+Visit the How-tos on http://www.moblin.org for more information on 
+how to optimize a game for moblin.

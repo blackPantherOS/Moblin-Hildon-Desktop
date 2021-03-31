@@ -1,0 +1,8 @@
+usr/bin/hildon-desktop*
+usr/bin/hd-hung-app-handler*
+usr/bin/hildon-background-manager*
+etc/xdg/hildon-desktop
+usr/share/dbus-1
+usr/share/applications
+usr/lib/hildon-desktop/*.so
+usr/lib/hildon-desktop/policies/*.so

@@ -1,0 +1,12 @@
+diff -Nur network-manager-applet-0.6.5/nm-applet.desktop network-manager-applet-0.6.5.new/nm-applet.desktop
+--- network-manager-applet-0.6.5/nm-applet.desktop	2007-04-19 20:01:22.000000000 +0200
++++ network-manager-applet-0.6.5.new/nm-applet.desktop	2007-09-18 15:19:31.000000000 +0200
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ Categories=
+-OnlyShowIn=GNOME;
++OnlyShowIn=GNOME;XFCE;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=NetworkManager
+ X-GNOME-Bugzilla-Component=general

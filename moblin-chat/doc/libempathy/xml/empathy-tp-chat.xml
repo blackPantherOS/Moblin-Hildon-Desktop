@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyTpChat">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyTpChat</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyTpChat</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyTpChatPriv">EmpathyTpChatPriv</link>;
+                    <link linkend="EmpathyTpChat-struct">EmpathyTpChat</link>;
+<link linkend="EmpathyTpChat">EmpathyTpChat</link>*      <link linkend="empathy-tp-chat-new">empathy_tp_chat_new</link>                 (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);
+<link linkend="EmpathyTpChat">EmpathyTpChat</link>*      <link linkend="empathy-tp-chat-new-with-contact">empathy_tp_chat_new_with_contact</link>    (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-tp-chat-get-acknowledge">empathy_tp_chat_get_acknowledge</link>     (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-tp-chat-set-acknowledge">empathy_tp_chat_set_acknowledge</link>     (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat,
+                                                         <link linkend="gboolean">gboolean</link> acknowledge);
+<link linkend="TpChan">TpChan</link>*             <link linkend="empathy-tp-chat-get-channel">empathy_tp_chat_get_channel</link>         (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);
+<link linkend="GList">GList</link>*              <link linkend="empathy-tp-chat-get-pendings">empathy_tp_chat_get_pendings</link>        (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-tp-chat-send">empathy_tp_chat_send</link>                (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat,
+                                                         <link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-tp-chat-set-state">empathy_tp_chat_set_state</link>           (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat,
+                                                         <link linkend="TelepathyChannelChatState">TelepathyChannelChatState</link> state);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-tp-chat-get-id">empathy_tp_chat_get_id</link>              (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyTpChat
+         +----<link linkend="EmpathyTpChatroom">EmpathyTpChatroom</link>
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyTpChat--account">account</link>&quot;                  <link linkend="McAccount">McAccount</link>             : Read / Write / Construct Only
+  &quot;<link linkend="EmpathyTpChat--acknowledge">acknowledge</link>&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--anonymous">anonymous</link>&quot;                <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--description">description</link>&quot;              <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyTpChat--invite-only">invite-only</link>&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--limit">limit</link>&quot;                    <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="EmpathyTpChat--limited">limited</link>&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--moderated">moderated</link>&quot;                <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--name">name</link>&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyTpChat--password">password</link>&quot;                 <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyTpChat--password-required">password-required</link>&quot;        <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--persistent">persistent</link>&quot;               <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--private">private</link>&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyTpChat--subject">subject</link>&quot;                  <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyTpChat--subject-contact">subject-contact</link>&quot;          <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="EmpathyTpChat--subject-timestamp">subject-timestamp</link>&quot;        <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="EmpathyTpChat--tp-chan">tp-chan</link>&quot;                  <link linkend="TpChan">TpChan</link>                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyTpChat-chat-state-changed">chat-state-changed</link>&quot;                             : Run Last
+  &quot;<link linkend="EmpathyTpChat-destroy">destroy</link>&quot;                                        : Run Last
+  &quot;<link linkend="EmpathyTpChat-message-received">message-received</link>&quot;                               : Run Last
+  &quot;<link linkend="EmpathyTpChat-send-error">send-error</link>&quot;                                     : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyTpChatPriv" role="struct"/>EmpathyTpChatPriv</title>
+<indexterm><primary>EmpathyTpChatPriv</primary></indexterm><programlisting>typedef struct _EmpathyTpChatPriv EmpathyTpChatPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyTpChat-struct" role="struct"/>EmpathyTpChat</title>
+<indexterm><primary>EmpathyTpChat</primary></indexterm><programlisting>typedef struct _EmpathyTpChat EmpathyTpChat;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-new" role="function"/>empathy_tp_chat_new ()</title>
+<indexterm><primary>empathy_tp_chat_new</primary></indexterm><programlisting><link linkend="EmpathyTpChat">EmpathyTpChat</link>*      empathy_tp_chat_new                 (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tp_chan</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-new-with-contact" role="function"/>empathy_tp_chat_new_with_contact ()</title>
+<indexterm><primary>empathy_tp_chat_new_with_contact</primary></indexterm><programlisting><link linkend="EmpathyTpChat">EmpathyTpChat</link>*      empathy_tp_chat_new_with_contact    (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-get-acknowledge" role="function"/>empathy_tp_chat_get_acknowledge ()</title>
+<indexterm><primary>empathy_tp_chat_get_acknowledge</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_tp_chat_get_acknowledge     (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-set-acknowledge" role="function"/>empathy_tp_chat_set_acknowledge ()</title>
+<indexterm><primary>empathy_tp_chat_set_acknowledge</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_chat_set_acknowledge     (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat,
+                                                         <link linkend="gboolean">gboolean</link> acknowledge);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>acknowledge</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-get-channel" role="function"/>empathy_tp_chat_get_channel ()</title>
+<indexterm><primary>empathy_tp_chat_get_channel</primary></indexterm><programlisting><link linkend="TpChan">TpChan</link>*             empathy_tp_chat_get_channel         (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-get-pendings" role="function"/>empathy_tp_chat_get_pendings ()</title>
+<indexterm><primary>empathy_tp_chat_get_pendings</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_tp_chat_get_pendings        (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-send" role="function"/>empathy_tp_chat_send ()</title>
+<indexterm><primary>empathy_tp_chat_send</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_chat_send                (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat,
+                                                         <link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-set-state" role="function"/>empathy_tp_chat_set_state ()</title>
+<indexterm><primary>empathy_tp_chat_set_state</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_chat_set_state           (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat,
+                                                         <link linkend="TelepathyChannelChatState">TelepathyChannelChatState</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-chat-get-id" role="function"/>empathy_tp_chat_get_id ()</title>
+<indexterm><primary>empathy_tp_chat_get_id</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_tp_chat_get_id              (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyTpChat--account"/>The &quot;<literal>account</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:account</primary></indexterm><programlisting>  &quot;account&quot;                  <link linkend="McAccount">McAccount</link>             : Read / Write / Construct Only</programlisting>
+<para>The account associated with the channel.</para></refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--acknowledge"/>The &quot;<literal>acknowledge</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:acknowledge</primary></indexterm><programlisting>  &quot;acknowledge&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>acknowledge.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--anonymous"/>The &quot;<literal>anonymous</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:anonymous</primary></indexterm><programlisting>  &quot;anonymous&quot;                <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>anonymous.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--description"/>The &quot;<literal>description</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:description</primary></indexterm><programlisting>  &quot;description&quot;              <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>description.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--invite-only"/>The &quot;<literal>invite-only</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:invite-only</primary></indexterm><programlisting>  &quot;invite-only&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>invite-only.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--limit"/>The &quot;<literal>limit</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:limit</primary></indexterm><programlisting>  &quot;limit&quot;                    <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>limit.</para><para>Default value: 0</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--limited"/>The &quot;<literal>limited</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:limited</primary></indexterm><programlisting>  &quot;limited&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>limited.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--moderated"/>The &quot;<literal>moderated</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:moderated</primary></indexterm><programlisting>  &quot;moderated&quot;                <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>moderated.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--name"/>The &quot;<literal>name</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:name</primary></indexterm><programlisting>  &quot;name&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>name.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--password"/>The &quot;<literal>password</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:password</primary></indexterm><programlisting>  &quot;password&quot;                 <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>password.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--password-required"/>The &quot;<literal>password-required</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:password-required</primary></indexterm><programlisting>  &quot;password-required&quot;        <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>password-required.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--persistent"/>The &quot;<literal>persistent</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:persistent</primary></indexterm><programlisting>  &quot;persistent&quot;               <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>persistent.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--private"/>The &quot;<literal>private</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:private</primary></indexterm><programlisting>  &quot;private&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>privateprivate.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--subject"/>The &quot;<literal>subject</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:subject</primary></indexterm><programlisting>  &quot;subject&quot;                  <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>subject.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--subject-contact"/>The &quot;<literal>subject-contact</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:subject-contact</primary></indexterm><programlisting>  &quot;subject-contact&quot;          <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>subject-contact.</para><para>Default value: 0</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--subject-timestamp"/>The &quot;<literal>subject-timestamp</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:subject-timestamp</primary></indexterm><programlisting>  &quot;subject-timestamp&quot;        <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>subject-timestamp.</para><para>Default value: 0</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyTpChat--tp-chan"/>The &quot;<literal>tp-chan</literal>&quot; property</title>
+<indexterm><primary>EmpathyTpChat:tp-chan</primary></indexterm><programlisting>  &quot;tp-chan&quot;                  <link linkend="TpChan">TpChan</link>                : Read / Write / Construct Only</programlisting>
+<para>The text channel for the chat.</para></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyTpChat-chat-state-changed"/>The &quot;chat-state-changed&quot; signal</title>
+<indexterm><primary>EmpathyTpChat::chat-state-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpChat">EmpathyTpChat</link>  *empathytpchat,
+                                                        <link linkend="EmpathyContact">EmpathyContact</link> *arg1,
+                                                        <link linkend="guint">guint</link>           arg2,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)          : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpchat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyTpChat-destroy"/>The &quot;destroy&quot; signal</title>
+<indexterm><primary>EmpathyTpChat::destroy</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpChat">EmpathyTpChat</link> *empathytpchat,
+                                                        <link linkend="gpointer">gpointer</link>       user_data)          : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpchat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyTpChat-message-received"/>The &quot;message-received&quot; signal</title>
+<indexterm><primary>EmpathyTpChat::message-received</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpChat">EmpathyTpChat</link>  *empathytpchat,
+                                                        <link linkend="EmpathyMessage">EmpathyMessage</link> *arg1,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)          : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpchat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyTpChat-send-error"/>The &quot;send-error&quot; signal</title>
+<indexterm><primary>EmpathyTpChat::send-error</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyTpChat">EmpathyTpChat</link>  *empathytpchat,
+                                                        <link linkend="EmpathyMessage">EmpathyMessage</link> *arg1,
+                                                        <link linkend="guint">guint</link>           arg2,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)          : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathytpchat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

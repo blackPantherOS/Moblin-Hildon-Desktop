@@ -1,0 +1,58 @@
+Source: udev
+Section: admin
+Priority: important
+Maintainer: Scott James Remnant <scott@ubuntu.com>
+Standards-Version: 3.6.2.1
+Build-Depends: debhelper (>= 5.0), libselinux1-dev (>= 1.28-1), libsepol1-dev, libnettle-dev
+
+Package: udev
+Architecture: any
+Depends: ${shlibs:Depends}, volumeid (= ${Source-Version}), module-init-tools (>= 3.2.1-0ubuntu3), initramfs-tools (>= 0.40ubuntu30), procps, adduser
+Conflicts: hotplug, ifrename
+Replaces: hotplug, initramfs-tools (<< 0.040ubuntu1), ifrename
+Breaks: libdevmapper1.02 (<< 2:1.02.08-1ubuntu7)
+Description: rule-based device node and kernel event manager
+ udev is a collection of tools and a daemon to manage events received from
+ the kernel and deal with them in user-space.  Primarily this involves
+ creating and removing device nodes in /dev when hardware is discovered or
+ removed from the system.
+ .
+ Events are received via kernel netlink messaged and processed according to
+ rules in /etc/udev/rules.d, altering the name of the device node, creating
+ additional symlinks or calling other tools and programs including those to
+ load kernel modules and initialise the device.
+
+Package: udev-udeb
+XC-Package-Type: udeb
+Section: debian-installer
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: rule-based device node and kernel event manager
+
+Package: volumeid
+Architecture: any
+Depends: ${shlibs:Depends}, e2fsprogs (>= 1.38+1.39-WIP-2005.12.10-2), initramfs-tools (>= 0.40ubuntu30)
+Replaces: libvolumeid0 (<< 093-0ubuntu7)
+Description: volume identification tool
+ vol_id is a tool that uses a standard set of algorithms for identifying
+ the filesystem type of a volume and information about it.
+
+Package: libvolume-id0
+Architecture: any
+Depends: ${shlibs:Depends}
+Conflicts: libvolumeid0
+Replaces: libvolumeid0
+Description: volume identification library
+ libvolume_id provides a standard set of algorithms for identifying
+ the filesystem type of a volume and information about it.
+
+Package: libvolume-id-dev
+Architecture: any
+Depends: libvolume-id0 (= ${Source-Version})
+Conflicts: libvolumeid-dev
+Replaces: libvolumeid-dev
+Description: volume identification library (development files)
+ libvolume_id provides a standard set of algorithms for identifying
+ the filesystem type of a volume and information about it.
+ .
+ This package provides a static library and C header files.

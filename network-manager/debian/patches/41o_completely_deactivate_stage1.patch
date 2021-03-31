@@ -1,0 +1,27 @@
+---
+ src/nm-device-802-11-wireless.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: network-manager.debian/src/nm-device-802-11-wireless.c
+===================================================================
+--- network-manager.debian.orig/src/nm-device-802-11-wireless.c	2007-08-06 16:56:31.000000000 +0200
++++ network-manager.debian/src/nm-device-802-11-wireless.c	2007-08-06 17:03:11.000000000 +0200
+@@ -3026,17 +3026,17 @@
+        const char *            driver;
+        const char *            iface;
+        NMSock *                sk;
+        int                     err;
+ 
+        driver = nm_device_get_driver (dev);
+        iface = nm_device_get_iface (dev);
+        supplicant_cleanup (dev);
+-       real_deactivate(dev);
++       nm_device_deactivate(dev);
+        sleep(1);
+        return NM_ACT_STAGE_RETURN_SUCCESS;
+ }
+ 
+ 
+ /****************************************************************************/
+ 
+ static NMActStageReturn

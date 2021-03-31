@@ -1,0 +1,65 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#grabanddrag-button {
+  -moz-image-region: rect(48px 48px 96px 0px);
+  list-style-image: url(chrome://grabanddrag/skin/grabanddragtb.png);
+}
+#grabanddrag-button[gadOn="false"] {
+  -moz-image-region: rect(0px 96px 48px 48px);
+}
+#grabanddrag-button[gadOn="false"]:hover {
+  -moz-image-region: rect(48px 96px 96px 48px);
+}
+#grabanddrag-button[gadOn="false"]:hover:active {
+  -moz-image-region: rect(96px 96px 144px 48px);
+}
+#grabanddrag-button[gadOn="true"] {
+  -moz-image-region: rect(0px 144px 48px 96px);
+}
+#grabanddrag-button[gadOn="true"]:hover {
+  -moz-image-region: rect(48px 144px 96px 96px);
+}
+#grabanddrag-button[gadOn="true"]:hover:active {
+  -moz-image-region: rect(96px 144px 144px 96px);
+}
+#grabanddrag-button[gadOn="QT"] {
+  -moz-image-region: rect(0px 192px 48px 144px);
+}
+#grabanddrag-button[gadOn="QT"]:hover {
+  -moz-image-region: rect(48px 192px 96px 144px);
+}
+#grabanddrag-button[gadOn="QT"]:hover:active {
+  -moz-image-region: rect(96px 192px 144px 144px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button {
+  -moz-image-region: rect(16px 16px 16px 0px);
+  list-style-image: url(chrome://grabanddrag/skin/grabanddragtbsmall.png);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="false"]  {
+  -moz-image-region: rect(0px 32px 16px 16px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="false"]:hover  {
+  -moz-image-region: rect(16px 32px 32px 16px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="false"]:hover:active  {
+  -moz-image-region: rect(32px 32px 48px 16px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="true"] {
+  -moz-image-region: rect(0px 48px 16px 32px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="true"]:hover {
+  -moz-image-region: rect(16px 48px 32px 32px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="true"]:hover:active {
+  -moz-image-region: rect(32px 48px 48px 32px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="QT"] {
+  -moz-image-region: rect(0px 64px 16px 48px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="QT"]:hover {
+  -moz-image-region: rect(16px 64px 32px 48px);
+}
+toolbar[iconsize="small"] > #grabanddrag-button[gadOn="QT"]:hover:active {
+  -moz-image-region: rect(32px 64px 48px 48px);
+}
+

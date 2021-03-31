@@ -1,0 +1,47 @@
+---
+ src/nm-device-802-11-wireless.c |    5 +++++
+ 1 file changed, 5 insertions(+)
+
+Index: network-manager.debian/src/nm-device-802-11-wireless.c
+===================================================================
+--- network-manager.debian.orig/src/nm-device-802-11-wireless.c
++++ network-manager.debian/src/nm-device-802-11-wireless.c
+@@ -2427,16 +2427,20 @@
+ supplicant_cleanup (NMDevice80211Wireless *self)
+ {
+ 	char * sock_path;
+ 
+ 	g_return_if_fail (self != NULL);
+ 
+ 	if (self->priv->supplicant.pid > 0)
+ 	{
++		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++                        "DISABLE_NETWORK 0"))
++			nm_warning("couldn't disable network in supplicant_cleanup");
++
+ 		kill (self->priv->supplicant.pid, SIGTERM);
+ 		self->priv->supplicant.pid = -1;
+ 	}
+ 	if (self->priv->supplicant.watch)
+ 	{
+ 		g_source_destroy (self->priv->supplicant.watch);
+ 		self->priv->supplicant.watch = NULL;
+ 	}
+@@ -3044,16 +3048,17 @@
+ 
+ 	iface = nm_device_get_iface (dev);
+ 	if (!supplicant_exec (self))
+ 	{
+ 		nm_warning ("Activation (%s/wireless): couldn't start the supplicant.",
+ 			iface);
+ 		goto out;
+ 	}
++
+ 	if (!supplicant_interface_init (self))
+ 	{
+ 		nm_warning ("Activation (%s/wireless): couldn't connect to the supplicant.",
+ 			iface);
+ 		goto out;
+ 	}
+ 	if (!supplicant_monitor_start (self))
+ 	{

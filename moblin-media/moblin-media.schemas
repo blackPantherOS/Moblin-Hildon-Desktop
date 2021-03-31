@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<gconfschemafile>
+  <schemalist>
+
+    <!-- Photo Settings  -->
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_name_label</key>
+      <applyto>/apps/moblin-media/photo/show_name_label</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_ext_label</key>
+      <applyto>/apps/moblin-media/photo/show_ext_label</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_size_label</key>
+      <applyto>/apps/moblin-media/photo/show_size_label</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_slideshow_button</key>
+      <applyto>/apps/moblin-media/photo/show_slideshow_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_properties_button</key>
+      <applyto>/apps/moblin-media/photo/show_properties_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_delete_button</key>
+      <applyto>/apps/moblin-media/photo/show_delete_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_rotate_buttons</key>
+      <applyto>/apps/moblin-media/photo/show_rotate_buttons</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_sort_button</key>
+      <applyto>/apps/moblin-media/photo/show_sort_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/show_resizethumbs_slider</key>
+      <applyto>/apps/moblin-media/photo/show_resizethumbs_slider</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/slideshow_interval</key>
+      <applyto>/apps/moblin-media/photo/slideshow_interval</applyto>
+      <type>int</type>
+      <default>3</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/photo/thumbnail_level</key>
+      <applyto>/apps/moblin-media/photo/thumbnail_level</applyto>
+      <type>float</type>
+      <default>7.5</default>
+      <locale name="C"/>
+    </schema>
+
+    <!-- Video Settings  -->
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_name_label</key>
+      <applyto>/apps/moblin-media/video/show_name_label</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_ext_label</key>
+      <applyto>/apps/moblin-media/video/show_ext_label</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_size_label</key>
+      <applyto>/apps/moblin-media/video/show_size_label</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_properties_button</key>
+      <applyto>/apps/moblin-media/video/show_properties_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_delete_button</key>
+      <applyto>/apps/moblin-media/video/show_delete_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_sort_button</key>
+      <applyto>/apps/moblin-media/video/show_sort_button</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/show_resizethumbs_slider</key>
+      <applyto>/apps/moblin-media/video/show_resizethumbs_slider</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/enable_video_thumbnails</key>
+      <applyto>/apps/moblin-media/video/enable_video_thumbnails</applyto>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/apps/moblin-media/video/thumbnail_level</key>
+      <applyto>/apps/moblin-media/video/thumbnail_level</applyto>
+      <type>float</type>
+      <default>7.5</default>
+      <locale name="C"/>
+    </schema>
+
+  </schemalist>
+</gconfschemafile>

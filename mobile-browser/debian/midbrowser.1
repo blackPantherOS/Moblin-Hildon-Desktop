@@ -1,0 +1,167 @@
+.TH FIREFOX 1 "November 4, 2004" midbrowser "Linux User's Manual"
+.SH NAME
+midbrowser - a Web browser for X11 derived from the Mozilla browser
+
+.SH SYNOPSIS
+.B midbrowser
+[\fIOPTIONS\fR] [\fIURL\fR]
+
+.B /usr/lib/midbrowser/midbrowser\-bin
+[\fIOPTIONS\fR] [\fIURL\fR]
+
+.SH DESCRIPTION
+\fBMidbrowser\fR is an open-source web browser, designed for
+standards compliance, performance and portability.
+
+.SH USAGE
+\fBmidbrowser\fR is a simple shell script that will set up the
+environment for the actual executable, \fBmidbrowser\-bin\fR.
+If there is a Midbrowser browser already running, \fBmidbrowser\fR will
+arrange for it to create a new browser window; otherwise it will start
+the Midbrowser application.
+
+.SH OPTIONS
+A summary of the options supported by \fBmidbrowser\fR is included below.
+
+.SS "GTK options"
+\fB\-\-gdk\-debug=\fR\fIFLAGS\fR
+Gdk debugging flags to set
+.TP
+\fB\-\-gdk\-no\-debug=\fR\fIFLAGS\fR
+Gdk debugging flags to unset
+.TP
+\fB\-\-gtk\-debug=\fR\fIFLAGS\fR
+Gtk+ debugging flags to set
+.TP
+\fB\-\-gtk\-no\-debug=\fR\fIFLAGS\fR
+Gtk+ debugging flags to unset
+.TP
+\fB\-\-gtk\-module=\fR\fIMODULE\fR
+Load an additional Gtk module
+
+.SS "X11 options"
+.TP
+.BI \-\-display= DISPLAY
+X display to use
+.TP
+.B \-\-sync
+Make X calls synchronous
+.TP
+.B \-\-no\-xshm
+Don't use X shared memory extension
+.TP
+.BI \-\-xim\-preedit= STYLE
+.TP
+.BI \-\-xim\-status= STYLE
+.TP
+.B \-\-g\-fatal\-warnings
+Make all warnings fatal
+
+.SS "Mozilla options"
+.TP
+\fB\-height\fR \fIvalue\fR
+Set height of startup window to \fIvalue\fR pixels.
+.TP
+.B \-h, \-help
+Show summary of options.
+.TP
+.B \-installer
+Start with Mozilla 4.x migration window.
+.TP
+\fB\-width\fR \fIvalue\fR
+Set width of startup window to \fIvalue\fR pixels.
+.TP
+.B \-v, \-version
+Print Midbrowser version.
+.TP
+.B \-no\-remote
+Don't connect to a running midbrowser instance.
+.TP
+\fB\-a\fR \fIapplication\-id\fR
+Check for a running Midbrowser started with the specified
+\fIapplication\-id\fR.  When \fBmidbrowser\fR is invoked for
+the first time with a particular \fIapplication\-id\fR, a new Midbrowser
+application is started; subsequent invocations of \fBmidbrowser\fR
+with the same \fIapplication\-id\fR will cause the already-running
+Midbrowser to bring up a new window.
+
+The default is \fB\-a midbrowser\fR.
+.TP
+\fB\-CreateProfile\fR \fIprofile\fR
+Create \fIprofile\fR.
+Implies \fB\-a midbrowser\-\-\fR\fIprofile\fR, or \fB\-a default\fR
+if \fIprofile\fR is \fBdefault\fR.
+.TP
+\fB\-P\fR \fIprofile\fR
+Start with \fIprofile\fR.
+Implies \fB\-a midbrowser\-\-\fR\fIprofile\fR, or \fB\-a default\fR
+if \fIprofile\fR is \fBdefault\fR.
+.TP
+.B \-ProfileManager
+Start with profile manager.
+Implies \fB\-a\fR with a fresh unique \fIapplication\-id\fR.
+.TP
+\fB\-UILocale\fR \fIlocale\fR
+Start with \fIlocale\fR resources as User Interface locale. By default, it is
+guessed from environment and available locales for Midbrowser.
+.TP
+\fB\-contentLocale\fR \fIlocale\fR
+Start with \fIlocale\fR resources as content locale. By default, it is
+guessed from environment and available locales for Midbrowser.
+.TP
+\fB\-new-window\fR \fIURL\fR
+Open \fIURL\fR in a new window in an already running Midbrowser process.
+\fB\-new-tab\fR \fIURL\fR
+Open \fIURL\fR in a new tab in an already running Midbrowser process.
+
+.TP
+.B \-jsconsole
+Start with Javascript Console
+.TP
+\fB\-chrome\fR \fIurl\fR
+Load the specified chrome.
+.TP
+.B \-safe\-mode
+Starts Midbrowser in safe mode, that is disabling all extensions and
+showing a bit more debugging messages.
+
+.SS "Debugger options"
+.TP
+.B \-g, \-debug
+Starts Midbrowser through a debugger (gdb by default).
+.TP
+\fB\-\-debugger\fR \fIprogram\fR
+Use \fIprogram\fR as a debugger for Midbrowser. Implies \fB\-debug\fR.
+
+.SH ENVIRONMENT
+\fIFIREFOX_DSP\fR - configures the /dev/dsp wrapper to use. Accepted values
+are "auto", "arts", "esd" or "none" (default).  Do not use this
+feature to select "auto" or "esd" as this will involve using "esddsp"
+which is known to be buggy and to make Midbrowser unstable.
+
+.SH FILES
+\fI/usr/bin/midbrowser\fR - shell script wrapping
+\fBmidbrowser\-bin\fR
+.br
+
+\fI/usr/lib/midbrowser/midbrowser\-bin\fR - \fBmidbrowser\fR
+executable
+.br
+
+\fI/etc/midbrowser/midbrowserrc\fR - file containing environment
+variables to be passed to Midbrowser.
+.br
+
+\fI${HOME}/.mozilla/midbrowser/rc\fR - file containing environment variables to
+be passed to Midbrowser. Overrides \fI/etc/midbrowser/midbrowserrc\fR
+
+.SH BUGS
+To report a bug, please visit \fIhttp://bugzilla.mozilla.org/\fR
+
+.SH "SEE ALSO"
+.BR mozilla(1)
+
+.SH AUTHORS
+.TP
+.B The Mozilla Organization
+.I http://www.mozilla.org/about.html

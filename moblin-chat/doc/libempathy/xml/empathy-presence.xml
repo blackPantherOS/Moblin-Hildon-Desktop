@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyPresence">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyPresence</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyPresence</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyPresence-struct">EmpathyPresence</link>;
+<link linkend="EmpathyPresence">EmpathyPresence</link>*    <link linkend="empathy-presence-new">empathy_presence_new</link>                (void);
+<link linkend="EmpathyPresence">EmpathyPresence</link>*    <link linkend="empathy-presence-new-full">empathy_presence_new_full</link>           (<link linkend="McPresence">McPresence</link> state,
+                                                         const <link linkend="gchar">gchar</link> *status);
+<link linkend="McPresence">McPresence</link>          <link linkend="empathy-presence-get-state">empathy_presence_get_state</link>          (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-presence-get-status">empathy_presence_get_status</link>         (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence);
+<link linkend="void">void</link>                <link linkend="empathy-presence-set-state">empathy_presence_set_state</link>          (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence,
+                                                         <link linkend="McPresence">McPresence</link> state);
+<link linkend="void">void</link>                <link linkend="empathy-presence-set-status">empathy_presence_set_status</link>         (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence,
+                                                         const <link linkend="gchar">gchar</link> *status);
+<link linkend="gint">gint</link>                <link linkend="empathy-presence-sort-func">empathy_presence_sort_func</link>          (<link linkend="gconstpointer">gconstpointer</link> a,
+                                                         <link linkend="gconstpointer">gconstpointer</link> b);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-presence-state-get-default-status">empathy_presence_state_get_default_status</link>
+                                                        (<link linkend="McPresence">McPresence</link> state);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-presence-state-to-str">empathy_presence_state_to_str</link>       (<link linkend="McPresence">McPresence</link> state);
+<link linkend="McPresence">McPresence</link>          <link linkend="empathy-presence-state-from-str">empathy_presence_state_from_str</link>     (const <link linkend="gchar">gchar</link> *str);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyPresence
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyPresence--state">state</link>&quot;                    <link linkend="McPresence">McPresence</link>            : Read / Write
+  &quot;<link linkend="EmpathyPresence--status">status</link>&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyPresence-struct" role="struct"/>EmpathyPresence</title>
+<indexterm><primary>EmpathyPresence</primary></indexterm><programlisting>typedef struct _EmpathyPresence EmpathyPresence;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-new" role="function"/>empathy_presence_new ()</title>
+<indexterm><primary>empathy_presence_new</primary></indexterm><programlisting><link linkend="EmpathyPresence">EmpathyPresence</link>*    empathy_presence_new                (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-new-full" role="function"/>empathy_presence_new_full ()</title>
+<indexterm><primary>empathy_presence_new_full</primary></indexterm><programlisting><link linkend="EmpathyPresence">EmpathyPresence</link>*    empathy_presence_new_full           (<link linkend="McPresence">McPresence</link> state,
+                                                         const <link linkend="gchar">gchar</link> *status);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-get-state" role="function"/>empathy_presence_get_state ()</title>
+<indexterm><primary>empathy_presence_get_state</primary></indexterm><programlisting><link linkend="McPresence">McPresence</link>          empathy_presence_get_state          (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>presence</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-get-status" role="function"/>empathy_presence_get_status ()</title>
+<indexterm><primary>empathy_presence_get_status</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_presence_get_status         (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>presence</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-set-state" role="function"/>empathy_presence_set_state ()</title>
+<indexterm><primary>empathy_presence_set_state</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_presence_set_state          (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence,
+                                                         <link linkend="McPresence">McPresence</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>presence</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-set-status" role="function"/>empathy_presence_set_status ()</title>
+<indexterm><primary>empathy_presence_set_status</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_presence_set_status         (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence,
+                                                         const <link linkend="gchar">gchar</link> *status);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>presence</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-sort-func" role="function"/>empathy_presence_sort_func ()</title>
+<indexterm><primary>empathy_presence_sort_func</primary></indexterm><programlisting><link linkend="gint">gint</link>                empathy_presence_sort_func          (<link linkend="gconstpointer">gconstpointer</link> a,
+                                                         <link linkend="gconstpointer">gconstpointer</link> b);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>a</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>b</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-state-get-default-status" role="function"/>empathy_presence_state_get_default_status ()</title>
+<indexterm><primary>empathy_presence_state_get_default_status</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_presence_state_get_default_status
+                                                        (<link linkend="McPresence">McPresence</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-state-to-str" role="function"/>empathy_presence_state_to_str ()</title>
+<indexterm><primary>empathy_presence_state_to_str</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_presence_state_to_str       (<link linkend="McPresence">McPresence</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-presence-state-from-str" role="function"/>empathy_presence_state_from_str ()</title>
+<indexterm><primary>empathy_presence_state_from_str</primary></indexterm><programlisting><link linkend="McPresence">McPresence</link>          empathy_presence_state_from_str     (const <link linkend="gchar">gchar</link> *str);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyPresence--state"/>The &quot;<literal>state</literal>&quot; property</title>
+<indexterm><primary>EmpathyPresence:state</primary></indexterm><programlisting>  &quot;state&quot;                    <link linkend="McPresence">McPresence</link>            : Read / Write</programlisting>
+<para>The current state of the presence.</para><para>Default value: MC_PRESENCE_AVAILABLE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyPresence--status"/>The &quot;<literal>status</literal>&quot; property</title>
+<indexterm><primary>EmpathyPresence:status</primary></indexterm><programlisting>  &quot;status&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>Status string set on presence.</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

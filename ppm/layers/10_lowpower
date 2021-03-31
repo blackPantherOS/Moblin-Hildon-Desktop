@@ -1,0 +1,5 @@
+cpu	performance	maxbattery
+wifi	performance	powersave
+display	brightness	20
+display	screensaver	60
+sata	performance	powersave

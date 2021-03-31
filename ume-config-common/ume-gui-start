@@ -1,0 +1,23 @@
+#!/bin/bash
+
+runcompiz=`gconftool-2 -g /app/compiz/autorun`
+if [ $runcompiz == "1" ]; then
+	compiz gconf matchbox &
+else
+	/usr/bin/matchbox-window-manager \
+	    -theme /usr/share/themes/mobilebasic/matchbox/theme.xml \
+	    -use_titlebar no \
+	    -use_desktop_mode plain \
+	    -use_lowlight no \
+	    -use_cursor yes \
+	    -use_dialog_mode static \
+	    -use_super_modal yes &
+fi
+/usr/lib/sapwood/sapwood-server &
+
+for START in $(find /etc/xdg/autostart /usr/share/autostart /usr/share/gnome/autostart -name \*.desktop); do
+    EXE=$(grep ^Exec ${START} | cut -d= -f2)
+    ${EXE} &
+done
+
+exec /usr/bin/hildon-desktop 

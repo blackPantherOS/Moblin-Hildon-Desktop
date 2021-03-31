@@ -1,0 +1,13 @@
+Source: moblin-image-creator
+Section: devel
+Priority: extra
+Maintainer: John L. Villalovos <john.l.villalovos@intel.com>
+Build-Depends: debhelper (>= 5), python-support (>= 0.3)
+Standards-Version: 3.7.2
+
+Package: moblin-image-creator
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python-gnome2, python-glade2, debootstrap, dosfstools, bzip2
+Description: Mobile-Linux Image Creator
+ The moblin-image-creator utility enables developers to build full mobile 
+ or single purposed Linux stacks using a mainstream distribution.

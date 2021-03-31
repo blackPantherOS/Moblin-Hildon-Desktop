@@ -1,0 +1,26 @@
+example messages
+
+
+class		command		option
+------------------------------------------------------
+cpu		performance	max
+cpu		performance	balanced
+cpu		performance	maxbattery
+cpu		performance	cool
+
+radio		radio		off
+radio		radio		allowed
+
+wifi		radio		on
+wifi		radio		off
+wifi		performance	max
+wifi		performance	powersave
+wifi		performance	balanced
+wifi		performance	cool
+
+
+
+
+
+
+

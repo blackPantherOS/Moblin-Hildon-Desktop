@@ -1,0 +1,55 @@
+#!/bin/sh
+
+manufacturer=`dmidecode --string system-manufacturer | tr ' ' '\n' | head -1`
+name=`dmidecode --string system-product-name`
+version=`dmidecode --string system-version`
+
+[ $manufacturer = "SAMSUNG" ] || exit 0
+[ $name = "SQ1US" ] || exit 0
+
+# Get lsb functions
+. /lib/lsb/init-functions
+. /etc/default/rcS
+
+case "$1" in
+  start)
+    # Map 'MENU' key to standard menu keycode
+    setkeycodes e054 127
+
+    ########################################################################
+    # NOTE: Although the Samsung Q1 Ultra contains a joystick to the left
+    #       of the touchscreen that (when in mouse mode) will map to the
+    #       standard up, down, left, and right keys, we are still mapping
+    #       these to redundant up, down, left, and right arrows.
+    #########################################################################
+
+    # Map up arrow to F1 keycode
+    setkeycodes e058 103
+
+    # Map right pointering arrow to F10 keycode
+    setkeycodes e059 106
+
+    # Map down pointing arrow key to F3 keycode
+    setkeycodes e056 108
+
+    # Map left pointing arrow key to F9 keycode
+    setkeycodes e057 105 
+
+    # Map the 'Shutter' key to F5 keycode
+    setkeycodes e064 63 
+
+    # Map the 'UDF' key to F11 keycode
+    setkeycodes e06e 64
+
+    ;;
+  stop)
+    ;;
+  restart|reload|force-reload)
+    $0 start
+    ;;
+  *)
+    log_success_msg "Usage: /etc/init.d/samsung-q1-ultra-keycode-setup {start|stop|restart|reload|force-reload}"
+    exit 1
+esac
+
+exit 0

@@ -1,0 +1,33 @@
+How to port a gnome-games package into moblin-games:
+
+1.Download latest gnome-game package: http://download.gnome.org/sources/gnome-games/
+2.Edit configure.in to allow the new game to be built for Hildon
+  - Find the following code:
+     case $game in
+        aisleriot) ;;
+        *) disallow_hildon=yes ;;
+     esac
+  - Add in the new game after aisleriot
+3.Hildonize the game you wish to port using the “HAVE_HILDON” directive.
+4. Invoke configure with these parameters:
+   ./configure --with-platform=hildon --with-platform-variant=mid
+5. Build the package on the target and test.
+6. Submit a patch upstream by contacting the game maintainer (find in the help file).  
+  - diff -U originaldirectory/ updateddirectory/ > patchfile.patch
+7. Use git to grab moblin-games
+   -export http_proxy=http://<proxy>:<port>
+   -git-clone ssh://<username>@moblin.org/home/repos/projects/moblin-games.git
+   -cd moblin-games-<latest version>  
+8. Apply patch to moblin-games
+9. Open configure.in and add the game here:
+      moblingames="aisleriot moblinsays"
+10. build moblin-games on target using ./autogen.sh
+11. Test 
+12. Update debian/changelog
+13. Commit changes
+
+
+
+
+  
+

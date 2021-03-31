@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-empathy-chandler-glue">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-chandler-glue</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-chandler-glue</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="g-marshal-value-peek-boolean">g_marshal_value_peek_boolean</link>        (v)
+#define             <link linkend="g-marshal-value-peek-char">g_marshal_value_peek_char</link>           (v)
+#define             <link linkend="g-marshal-value-peek-uchar">g_marshal_value_peek_uchar</link>          (v)
+#define             <link linkend="g-marshal-value-peek-int">g_marshal_value_peek_int</link>            (v)
+#define             <link linkend="g-marshal-value-peek-uint">g_marshal_value_peek_uint</link>           (v)
+#define             <link linkend="g-marshal-value-peek-long">g_marshal_value_peek_long</link>           (v)
+#define             <link linkend="g-marshal-value-peek-ulong">g_marshal_value_peek_ulong</link>          (v)
+#define             <link linkend="g-marshal-value-peek-int64">g_marshal_value_peek_int64</link>          (v)
+#define             <link linkend="g-marshal-value-peek-uint64">g_marshal_value_peek_uint64</link>         (v)
+#define             <link linkend="g-marshal-value-peek-enum">g_marshal_value_peek_enum</link>           (v)
+#define             <link linkend="g-marshal-value-peek-flags">g_marshal_value_peek_flags</link>          (v)
+#define             <link linkend="g-marshal-value-peek-float">g_marshal_value_peek_float</link>          (v)
+#define             <link linkend="g-marshal-value-peek-double">g_marshal_value_peek_double</link>         (v)
+#define             <link linkend="g-marshal-value-peek-string">g_marshal_value_peek_string</link>         (v)
+#define             <link linkend="g-marshal-value-peek-param">g_marshal_value_peek_param</link>          (v)
+#define             <link linkend="g-marshal-value-peek-boxed">g_marshal_value_peek_boxed</link>          (v)
+#define             <link linkend="g-marshal-value-peek-pointer">g_marshal_value_peek_pointer</link>        (v)
+#define             <link linkend="g-marshal-value-peek-object">g_marshal_value_peek_object</link>         (v)
+<link linkend="void">void</link>                <link linkend="dbus-glib-marshal-empathy-chandler-BOOLEAN--STRING-BOXED-STRING-BOXED-UINT-UINT-POINTER">dbus_glib_marshal_empathy_chandler_BOOLEAN__STRING_BOXED_STRING_BOXED_UINT_UINT_POINTER</link>
+                                                        (<link linkend="GClosure">GClosure</link> *closure,
+                                                         <link linkend="GValue">GValue</link> *return_value,
+                                                         <link linkend="guint">guint</link> n_param_values,
+                                                         const <link linkend="GValue">GValue</link> *param_values,
+                                                         <link linkend="gpointer">gpointer</link> invocation_hint,
+                                                         <link linkend="gpointer">gpointer</link> marshal_data);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-boolean" role="macro"/>g_marshal_value_peek_boolean()</title>
+<indexterm><primary>g_marshal_value_peek_boolean</primary></indexterm><programlisting>#define             g_marshal_value_peek_boolean(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-char" role="macro"/>g_marshal_value_peek_char()</title>
+<indexterm><primary>g_marshal_value_peek_char</primary></indexterm><programlisting>#define             g_marshal_value_peek_char(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-uchar" role="macro"/>g_marshal_value_peek_uchar()</title>
+<indexterm><primary>g_marshal_value_peek_uchar</primary></indexterm><programlisting>#define             g_marshal_value_peek_uchar(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-int" role="macro"/>g_marshal_value_peek_int()</title>
+<indexterm><primary>g_marshal_value_peek_int</primary></indexterm><programlisting>#define             g_marshal_value_peek_int(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-uint" role="macro"/>g_marshal_value_peek_uint()</title>
+<indexterm><primary>g_marshal_value_peek_uint</primary></indexterm><programlisting>#define             g_marshal_value_peek_uint(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-long" role="macro"/>g_marshal_value_peek_long()</title>
+<indexterm><primary>g_marshal_value_peek_long</primary></indexterm><programlisting>#define             g_marshal_value_peek_long(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-ulong" role="macro"/>g_marshal_value_peek_ulong()</title>
+<indexterm><primary>g_marshal_value_peek_ulong</primary></indexterm><programlisting>#define             g_marshal_value_peek_ulong(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-int64" role="macro"/>g_marshal_value_peek_int64()</title>
+<indexterm><primary>g_marshal_value_peek_int64</primary></indexterm><programlisting>#define             g_marshal_value_peek_int64(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-uint64" role="macro"/>g_marshal_value_peek_uint64()</title>
+<indexterm><primary>g_marshal_value_peek_uint64</primary></indexterm><programlisting>#define             g_marshal_value_peek_uint64(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-enum" role="macro"/>g_marshal_value_peek_enum()</title>
+<indexterm><primary>g_marshal_value_peek_enum</primary></indexterm><programlisting>#define             g_marshal_value_peek_enum(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-flags" role="macro"/>g_marshal_value_peek_flags()</title>
+<indexterm><primary>g_marshal_value_peek_flags</primary></indexterm><programlisting>#define             g_marshal_value_peek_flags(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-float" role="macro"/>g_marshal_value_peek_float()</title>
+<indexterm><primary>g_marshal_value_peek_float</primary></indexterm><programlisting>#define             g_marshal_value_peek_float(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-double" role="macro"/>g_marshal_value_peek_double()</title>
+<indexterm><primary>g_marshal_value_peek_double</primary></indexterm><programlisting>#define             g_marshal_value_peek_double(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-string" role="macro"/>g_marshal_value_peek_string()</title>
+<indexterm><primary>g_marshal_value_peek_string</primary></indexterm><programlisting>#define             g_marshal_value_peek_string(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-param" role="macro"/>g_marshal_value_peek_param()</title>
+<indexterm><primary>g_marshal_value_peek_param</primary></indexterm><programlisting>#define             g_marshal_value_peek_param(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-boxed" role="macro"/>g_marshal_value_peek_boxed()</title>
+<indexterm><primary>g_marshal_value_peek_boxed</primary></indexterm><programlisting>#define             g_marshal_value_peek_boxed(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-pointer" role="macro"/>g_marshal_value_peek_pointer()</title>
+<indexterm><primary>g_marshal_value_peek_pointer</primary></indexterm><programlisting>#define             g_marshal_value_peek_pointer(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="g-marshal-value-peek-object" role="macro"/>g_marshal_value_peek_object()</title>
+<indexterm><primary>g_marshal_value_peek_object</primary></indexterm><programlisting>#define             g_marshal_value_peek_object(v)</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="dbus-glib-marshal-empathy-chandler-BOOLEAN--STRING-BOXED-STRING-BOXED-UINT-UINT-POINTER" role="function"/>dbus_glib_marshal_empathy_chandler_BOOLEAN__STRING_BOXED_STRING_BOXED_UINT_UINT_POINTER ()</title>
+<indexterm><primary>dbus_glib_marshal_empathy_chandler_BOOLEAN__STRING_BOXED_STRING_BOXED_UINT_UINT_POINTER</primary></indexterm><programlisting><link linkend="void">void</link>                dbus_glib_marshal_empathy_chandler_BOOLEAN__STRING_BOXED_STRING_BOXED_UINT_UINT_POINTER
+                                                        (<link linkend="GClosure">GClosure</link> *closure,
+                                                         <link linkend="GValue">GValue</link> *return_value,
+                                                         <link linkend="guint">guint</link> n_param_values,
+                                                         const <link linkend="GValue">GValue</link> *param_values,
+                                                         <link linkend="gpointer">gpointer</link> invocation_hint,
+                                                         <link linkend="gpointer">gpointer</link> marshal_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>closure</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>return_value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_param_values</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>param_values</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>invocation_hint</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>marshal_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,30 @@
+moblin-games (0.2) gaston; urgency=low
+
+  * cut release to gaston. 
+  * updated TODO/HACKING files
+
+ -- Danny Varner <danny.varner@intel.com>  Wed, 12 Dec 2007 15:07:57 -0800
+
+moblin-games (0.1) UNRELEASED; urgency=low
+
+  [ Danny Varner ]
+  * Added moblin-says package
+  * Added prerendered cards for aisleriot.
+  * Changed configure.in to build for MID by default
+  * Added mobile desktop file for aisleriot
+
+  [ Danny Varner <danny.varner@intel.com> ]
+  * Added dialog titles to moblin-says
+  * Added libosso calls into aisleriot
+  * Cleaned file directory. Updated outdated configure file.
+  * Added Makefile.in files
+  * debian/control: Changed platform from lpia to all
+
+ -- Danny Varner <danny.varner@intel.com>  Tue, 11 Dec 2007 17:05:14 -0800
+
+moblin-games (0.1) UNRELEASED; urgency=low
+
+  * Initial release - gnome-games-2.21.3
+
+ -- Danny Varner <danny.varner@intel.com>  Thu, 06 Dec 2007 12:27:34 -0800
+

@@ -1,0 +1,12 @@
+# session
+#
+# This service is started automatically by init to kick off X 
+
+description	"session starting daemon"
+author		"Rusty Lynch <rusty.lynch@intel.com>"
+
+start on runlevel 2
+stop on runlevel [!2]
+
+exec su -l ume -c "/usr/bin/startx -- -dpi 96 -config xorg-crownbeach.conf"
+respawn

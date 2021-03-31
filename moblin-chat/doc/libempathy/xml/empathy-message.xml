@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyMessage">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyMessage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyMessage</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyMessage-struct">EmpathyMessage</link>;
+enum                <link linkend="EmpathyMessageType">EmpathyMessageType</link>;
+<link linkend="GType">GType</link>               <link linkend="empathy-message-get-gtype">empathy_message_get_gtype</link>           (void);
+<link linkend="EmpathyMessage">EmpathyMessage</link>*     <link linkend="empathy-message-new">empathy_message_new</link>                 (const <link linkend="gchar">gchar</link> *body);
+<link linkend="void">void</link>                <link linkend="empathy-message-set-type">empathy_message_set_type</link>            (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyMessageType">EmpathyMessageType</link> type);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-message-get-sender">empathy_message_get_sender</link>          (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-message-set-sender">empathy_message_set_sender</link>          (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-message-get-receiver">empathy_message_get_receiver</link>        (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-message-set-receiver">empathy_message_set_receiver</link>        (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-message-get-body">empathy_message_get_body</link>            (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-message-set-body">empathy_message_set_body</link>            (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *body);
+<link linkend="EmpathyTime">EmpathyTime</link>         <link linkend="empathy-message-get-timestamp">empathy_message_get_timestamp</link>       (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+<link linkend="void">void</link>                <link linkend="empathy-message-set-timestamp">empathy_message_set_timestamp</link>       (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyTime">EmpathyTime</link> timestamp);
+<link linkend="EmpathyMessageType">EmpathyMessageType</link>  <link linkend="empathy-message-type-from-str">empathy_message_type_from_str</link>       (const <link linkend="gchar">gchar</link> *type_str);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-message-type-to-str">empathy_message_type_to_str</link>         (<link linkend="EmpathyMessageType">EmpathyMessageType</link> type);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyMessage
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyMessage--body">body</link>&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyMessage--receiver">receiver</link>&quot;                 <link linkend="EmpathyContact">EmpathyContact</link>        : Read / Write
+  &quot;<link linkend="EmpathyMessage--sender">sender</link>&quot;                   <link linkend="EmpathyContact">EmpathyContact</link>        : Read / Write
+  &quot;<link linkend="EmpathyMessage--timestamp">timestamp</link>&quot;                <link linkend="glong">glong</link>                 : Read / Write
+  &quot;<link linkend="EmpathyMessage--type">type</link>&quot;                     <link linkend="EmpathyMessageType">EmpathyMessageType</link>    : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyMessage-struct" role="struct"/>EmpathyMessage</title>
+<indexterm><primary>EmpathyMessage</primary></indexterm><programlisting>typedef struct _EmpathyMessage EmpathyMessage;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyMessageType" role="enum"/>enum EmpathyMessageType</title>
+<indexterm><primary>EmpathyMessageType</primary></indexterm><programlisting>typedef enum {
+	EMPATHY_MESSAGE_TYPE_NORMAL,
+	EMPATHY_MESSAGE_TYPE_ACTION,
+	EMPATHY_MESSAGE_TYPE_NOTICE,
+	EMPATHY_MESSAGE_TYPE_AUTO_REPLY,
+	EMPATHY_MESSAGE_TYPE_LAST
+} EmpathyMessageType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-get-gtype" role="function"/>empathy_message_get_gtype ()</title>
+<indexterm><primary>empathy_message_get_gtype</primary></indexterm><programlisting><link linkend="GType">GType</link>               empathy_message_get_gtype           (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-new" role="function"/>empathy_message_new ()</title>
+<indexterm><primary>empathy_message_new</primary></indexterm><programlisting><link linkend="EmpathyMessage">EmpathyMessage</link>*     empathy_message_new                 (const <link linkend="gchar">gchar</link> *body);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>body</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-set-type" role="function"/>empathy_message_set_type ()</title>
+<indexterm><primary>empathy_message_set_type</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_message_set_type            (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyMessageType">EmpathyMessageType</link> type);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-get-sender" role="function"/>empathy_message_get_sender ()</title>
+<indexterm><primary>empathy_message_get_sender</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_message_get_sender          (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-set-sender" role="function"/>empathy_message_set_sender ()</title>
+<indexterm><primary>empathy_message_set_sender</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_message_set_sender          (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-get-receiver" role="function"/>empathy_message_get_receiver ()</title>
+<indexterm><primary>empathy_message_get_receiver</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_message_get_receiver        (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-set-receiver" role="function"/>empathy_message_set_receiver ()</title>
+<indexterm><primary>empathy_message_set_receiver</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_message_set_receiver        (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-get-body" role="function"/>empathy_message_get_body ()</title>
+<indexterm><primary>empathy_message_get_body</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_message_get_body            (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-set-body" role="function"/>empathy_message_set_body ()</title>
+<indexterm><primary>empathy_message_set_body</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_message_set_body            (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         const <link linkend="gchar">gchar</link> *body);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>body</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-get-timestamp" role="function"/>empathy_message_get_timestamp ()</title>
+<indexterm><primary>empathy_message_get_timestamp</primary></indexterm><programlisting><link linkend="EmpathyTime">EmpathyTime</link>         empathy_message_get_timestamp       (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-set-timestamp" role="function"/>empathy_message_set_timestamp ()</title>
+<indexterm><primary>empathy_message_set_timestamp</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_message_set_timestamp       (<link linkend="EmpathyMessage">EmpathyMessage</link> *message,
+                                                         <link linkend="EmpathyTime">EmpathyTime</link> timestamp);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timestamp</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-type-from-str" role="function"/>empathy_message_type_from_str ()</title>
+<indexterm><primary>empathy_message_type_from_str</primary></indexterm><programlisting><link linkend="EmpathyMessageType">EmpathyMessageType</link>  empathy_message_type_from_str       (const <link linkend="gchar">gchar</link> *type_str);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type_str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-type-to-str" role="function"/>empathy_message_type_to_str ()</title>
+<indexterm><primary>empathy_message_type_to_str</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_message_type_to_str         (<link linkend="EmpathyMessageType">EmpathyMessageType</link> type);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyMessage--body"/>The &quot;<literal>body</literal>&quot; property</title>
+<indexterm><primary>EmpathyMessage:body</primary></indexterm><programlisting>  &quot;body&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>The content of the message.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyMessage--receiver"/>The &quot;<literal>receiver</literal>&quot; property</title>
+<indexterm><primary>EmpathyMessage:receiver</primary></indexterm><programlisting>  &quot;receiver&quot;                 <link linkend="EmpathyContact">EmpathyContact</link>        : Read / Write</programlisting>
+<para>The receiver of the message.</para></refsect2>
+<refsect2><title><anchor id="EmpathyMessage--sender"/>The &quot;<literal>sender</literal>&quot; property</title>
+<indexterm><primary>EmpathyMessage:sender</primary></indexterm><programlisting>  &quot;sender&quot;                   <link linkend="EmpathyContact">EmpathyContact</link>        : Read / Write</programlisting>
+<para>The sender of the message.</para></refsect2>
+<refsect2><title><anchor id="EmpathyMessage--timestamp"/>The &quot;<literal>timestamp</literal>&quot; property</title>
+<indexterm><primary>EmpathyMessage:timestamp</primary></indexterm><programlisting>  &quot;timestamp&quot;                <link linkend="glong">glong</link>                 : Read / Write</programlisting>
+<para>timestamp.</para><para>Allowed values: &gt;= -1</para>
+<para>Default value: -1</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyMessage--type"/>The &quot;<literal>type</literal>&quot; property</title>
+<indexterm><primary>EmpathyMessage:type</primary></indexterm><programlisting>  &quot;type&quot;                     <link linkend="EmpathyMessageType">EmpathyMessageType</link>    : Read / Write</programlisting>
+<para>The type of message.</para><para>Default value: EMPATHY_MESSAGE_TYPE_NORMAL</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

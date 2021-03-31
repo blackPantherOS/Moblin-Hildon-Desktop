@@ -1,0 +1,217 @@
+#!/usr/bin/make -f
+# debian/rules for the udev package.
+# Copyright © 2006 Canonical Ltd.
+# Author: Scott James Remnant <scott@ubuntu.com>
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DH_OPTIONS
+
+# Disable optimisations if noopt found in $DEB_BUILD_OPTIONS
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	OPTFLAGS=-O0
+else
+	OPTFLAGS=-Os
+endif
+
+# Extra tools that come with udev that we want to build
+EXTRAS = extras/ata_id extras/cdrom_id extras/edd_id \
+	 extras/path_id extras/scsi_id extras/usb_id extras/volume_id \
+	 extras/dvb_device_name extras/usb_device_name extras/ide_media \
+	 extras/vio_type extras/pnp_modules extras/firmware extras/floppy \
+	 extras/rule_generator extras/watershed
+
+
+# Apply patches to the package
+patch: patch-stamp
+patch-stamp:
+	dh_testdir
+	@patches=debian/patches/*.patch; for patch in $$patches; do \
+		test -f $$patch || continue; \
+		echo "Applying $$patch"; \
+		patch -stuN -p1 < $$patch || exit 1; \
+	done
+	touch $@
+
+# Remove patches from the package
+unpatch:
+	dh_testdir
+	@if test -f patch-stamp; then \
+		patches=debian/patches/*.patch; \
+		for patch in $$patches; do \
+			reversepatches="$$patch $$reversepatches"; \
+		done; \
+		for patch in $$reversepatches; do \
+			test -f $$patch || continue; \
+			echo "Reversing $$patch"; \
+			patch -suRf -p1 < $$patch || exit 1; \
+		done; \
+		rm -f patch-stamp; \
+	fi
+
+
+# Build the package
+build: patch-stamp build-stamp
+build-stamp:
+	dh_testdir
+
+	test -d udeb || mkdir udeb
+	find -print0 | cpio -pdm0l udeb
+
+	$(MAKE) V=true USE_SELINUX=true EXTRAS="$(EXTRAS)" \
+		OPTFLAGS="$(OPTFLAGS)"
+
+	$(MAKE) -C udeb V=true USE_SELINUX=false EXTRAS="$(EXTRAS)" \
+		OPTFLAGS="$(OPTFLAGS)" VOLUME_ID_STATIC=true
+
+	touch $@
+
+# Install files into the deb
+install-deb: DH_OPTIONS=-pudev -plibvolume-id0 -plibvolume-id-dev -pvolumeid
+install-deb: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+	dh_install
+
+	$(MAKE) install V=true EXTRAS="$(EXTRAS)" DESTDIR=$(CURDIR)/debian/udev
+
+	# Shipped in separate packages
+	rm -rf debian/udev/usr/lib 
+	rm -rf debian/udev/usr/include
+	rm -f debian/udev/lib/libvolume_id*
+	rm -f debian/udev/lib/udev/vol_id
+	ln -s /sbin/vol_id debian/udev/lib/udev/vol_id
+
+	# Shipped in examples
+	rm -f debian/udev/etc/scsi_id.config
+
+	# Hook into initramfs-tools
+	install -m 755 -o root -g root debian/udev.initramfs-hook \
+		debian/udev/usr/share/initramfs-tools/hooks/udev
+	install -m 755 -o root -g root debian/udev.initramfs-premount \
+		debian/udev/usr/share/initramfs-tools/scripts/init-premount/udev
+	install -m 755 -o root -g root debian/udev.initramfs-nfs \
+		debian/udev/usr/share/initramfs-tools/scripts/nfs-top/udev
+	install -m 755 -o root -g root debian/udev.initramfs-bottom \
+		debian/udev/usr/share/initramfs-tools/scripts/init-bottom/udev
+
+	# Copy across all of our rules
+	@rules=debian/rules.d/*.rules; set -x; for rule in $$rules; do \
+		install -m 644 -o root -g root $$rule \
+			debian/udev/etc/udev/rules.d || exit 1; \
+	done
+	install -m 644 -o root -g root debian/rules.d/README \
+		debian/udev/etc/udev/rules.d
+
+	# Also copy across suggested rules
+	install -m 644 -o root -g root etc/udev/rules.d/05-udev-early.rules \
+		debian/udev/etc/udev/rules.d/00-init.rules
+	install -m 644 -o root -g root etc/udev/rules.d/60-persistent-input.rules \
+		debian/udev/etc/udev/rules.d/65-persistent-input.rules
+	install -m 644 -o root -g root etc/udev/rules.d/60-persistent-storage.rules \
+		debian/udev/etc/udev/rules.d/65-persistent-storage.rules
+	install -m 644 -o root -g root etc/udev/rules.d/95-udev-late.rules \
+		debian/udev/etc/udev/rules.d/99-udevmonitor.rules
+
+	# Rename installed config files
+	mv debian/udev/etc/udev/rules.d/60-cdrom_id.rules \
+		debian/udev/etc/udev/rules.d/30-cdrom_id.rules
+
+# Install files into the udeb
+install-udeb: DH_OPTIONS=-pudev-udeb
+install-udeb: install-deb
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	# Copy binaries that we want
+	cp -a udeb/udevd debian/udev-udeb/sbin
+	cp -a udeb/udevtrigger debian/udev-udeb/sbin
+	cp -a udeb/udevsettle debian/udev-udeb/sbin
+	cp -a udeb/udevinfo debian/udev-udeb/usr/bin
+	cp -a udeb/udevmonitor debian/udev-udeb/usr/sbin
+
+	# Copy helpers that we want
+	cp -a udeb/extras/usb_device_name/usb_device_name debian/udev-udeb/lib/udev
+	cp -a udeb/extras/dvb_device_name/dvb_device_name debian/udev-udeb/lib/udev
+	cp -a udeb/extras/pnp_modules/pnp_modules debian/udev-udeb/lib/udev
+	cp -a udeb/extras/ide_media/ide_media debian/udev-udeb/lib/udev
+	cp -a udeb/extras/vio_type/vio_type debian/udev-udeb/lib/udev
+	cp -a udeb/extras/firmware/firmware_helper debian/udev-udeb/lib/udev
+	cp -a udeb/extras/ata_id/ata_id debian/udev-udeb/lib/udev
+	cp -a udeb/extras/edd_id/edd_id debian/udev-udeb/lib/udev
+	cp -a udeb/extras/usb_id/usb_id debian/udev-udeb/lib/udev
+	cp -a udeb/extras/volume_id/vol_id debian/udev-udeb/lib/udev
+	cp -a udeb/extras/scsi_id/scsi_id debian/udev-udeb/lib/udev
+	cp -a udeb/extras/rule_generator/rule_generator.functions debian/udev-udeb/lib/udev
+	cp -a udeb/extras/rule_generator/write_net_rules debian/udev-udeb/lib/udev
+
+	install -m 755 -o root -g root udeb/extras/path_id/path_id \
+		debian/udev-udeb/lib/udev
+
+	# Copy all of the default devices from the deb
+	cp -a debian/udev/lib/udev/devices debian/udev-udeb/lib/udev
+
+	# Copy across the configuration file from the deb
+	cp -a debian/udev/etc/udev/udev.conf debian/udev-udeb/etc/udev
+
+	# Copy across standard rules we want
+	set -x; for rule in 00-init.rules 05-options.rules 20-names.rules \
+			    65-persistent-storage.rules \
+			    75-persistent-net-generator.rules \
+			    80-programs.rules \
+			    90-modprobe.rules; do \
+		install -m 644 -o root -g root debian/udev/etc/udev/rules.d/$$rule \
+			debian/udev-udeb/etc/udev/rules.d || exit 1; \
+	done
+
+	# Startup script
+	install -m 755 -o root -g root debian/udev.installer-startup \
+		debian/udev-udeb/lib/debian-installer-startup.d/S02udev
+
+binary: binary-indep binary-arch
+
+# Build architecture-independent files here.
+binary-indep:
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: DH_OPTIONS=-a
+binary-arch: build install-deb install-udeb
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs
+	dh_installexamples
+	dh_installinit --no-start -- start 10 S .
+	dh_installinit --name=finish --no-start -- start 23 S .
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms -X/lib/udev/devices/
+	dh_installdeb
+	dh_makeshlibs -V 'libvolume-id0 (>= 093-0ubuntu11)'
+	dh_shlibdeps -Llibvolume-id0 -ldebian/libvolume-id0/lib
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+
+# Clean up the mess we made
+clean: clean-source unpatch
+clean-source:
+	dh_testdir
+	rm -f build-stamp
+
+	rm -rf udeb
+	-$(MAKE) clean V=true EXTRAS="$(EXTRAS)"
+
+	dh_clean 
+
+
+.PHONY: patch unpatch build install-deb install-udeb \
+	binary-indep binary-arch binary clean clean-source

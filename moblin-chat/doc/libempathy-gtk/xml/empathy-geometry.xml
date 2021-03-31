@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-geometry">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-geometry</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-geometry</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>                <link linkend="empathy-geometry-save">empathy_geometry_save</link>               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> w,
+                                                         <link linkend="gint">gint</link> h);
+<link linkend="void">void</link>                <link linkend="empathy-geometry-load">empathy_geometry_load</link>               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *x,
+                                                         <link linkend="gint">gint</link> *y,
+                                                         <link linkend="gint">gint</link> *w,
+                                                         <link linkend="gint">gint</link> *h);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="empathy-geometry-save" role="function"/>empathy_geometry_save ()</title>
+<indexterm><primary>empathy_geometry_save</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_geometry_save               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> w,
+                                                         <link linkend="gint">gint</link> h);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>w</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>h</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-geometry-load" role="function"/>empathy_geometry_load ()</title>
+<indexterm><primary>empathy_geometry_load</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_geometry_load               (const <link linkend="gchar">gchar</link> *name,
+                                                         <link linkend="gint">gint</link> *x,
+                                                         <link linkend="gint">gint</link> *y,
+                                                         <link linkend="gint">gint</link> *w,
+                                                         <link linkend="gint">gint</link> *h);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>w</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>h</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

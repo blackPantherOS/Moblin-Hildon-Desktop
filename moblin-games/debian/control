@@ -1,0 +1,17 @@
+Source: moblin-games
+Section: games
+Priority: extra
+Maintainer: Danny Varner <danny.varner@intel.com>
+Build-Depends: debhelper (>= 5), autotools-dev, gnome-common, gnome-doc-utils, libglib2.0-dev, libgconf2-dev, libgtk2.0-dev, libosso-dev, libhildon-1-dev, guile-1.8-dev
+Standards-Version: 3.7.2
+
+Package: moblin-games
+Architecture: all 
+Depends: ${shlibs:Depends}, ${misc:Depends}, guile-1.8
+Description: Collection of games for Moblie Internet Devices (MIDs)
+ Moblin-games is based off of gnome-games, a collection of simple,
+ but addictive, games from the GNOME desktop.  Moblin games extends these
+ games to be finger friendly and optimized for mobile internet devices.
+ They are meant to be the sort of game that can be played in five minutes
+ or so. They are also meant to be fun enough that you will play them 
+ again and again.

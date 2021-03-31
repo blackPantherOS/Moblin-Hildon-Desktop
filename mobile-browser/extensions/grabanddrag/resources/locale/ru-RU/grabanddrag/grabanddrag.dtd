@@ -1,0 +1,98 @@
+<!ENTITY toggle.label "Переключить режим Grab&apos;n&apos;Drag...">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Переключение режима Grab and Drag">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Настройки Grab and Drag">
+<!ENTITY options.apply "Применить">
+<!ENTITY options.wizard "Мастер запуска">
+<!ENTITY options.reset "Сбросить все настройки">
+<!ENTITY options.tab.general "Основные">
+<!ENTITY options.tab.behavior "Поведение">
+<!ENTITY options.tab.mom "Импульс">
+<!ENTITY options.tab.gestures "Жесты">
+<!ENTITY options.tab.advanced "Дополнительно">
+<!ENTITY options.features "Возможности">
+<!ENTITY enabled.label "Использовать расширение">
+<!ENTITY mousecursor.label "Курсор мыши">
+<!ENTITY grabcursor.label "Курсор для прокрутки">
+<!ENTITY openhand.label "Ладонь">
+<!ENTITY closedhand.label "Кулак">
+<!ENTITY altopenhand.label "Ладонь #2">
+<!ENTITY altclosedhand.label "Кулак #2">
+<!ENTITY fourway.label "4-ёх конечная стрелка">
+<!ENTITY stdarrow.label "Стандартная стрелка">
+<!ENTITY defcur.label "Курсор по умолчанию">
+<!ENTITY options.cursors "Курсоры">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Горячая клавиша">
+<!ENTITY options.togKey "Клавиша">
+<!ENTITY options.dragInc "Величина смещения">
+<!ENTITY options.dragInc.min "плавно">
+<!ENTITY options.dragInc.max "отзывчиво">
+<!ENTITY options.mult "Коэффициент смещения">
+<!ENTITY options.mult.min "стандартно">
+<!ENTITY options.mult.max "быстро">
+<!ENTITY options.sbmode "Режим полосы прокрутки">
+<!ENTITY options.samecur "Не изменять">
+<!ENTITY options.reverse "Инвертировать направление">
+<!ENTITY options.behavior "Поведение">
+<!ENTITY options.behavior.drag "Поведение смещения">
+<!ENTITY options.behavior.scrolling "Поведение прокрутки">
+<!ENTITY options.flicks "Жесты Flick">
+<!ENTITY options.flickon "Использовать жесты Flick">
+<!ENTITY options.flickspeed "Скорость жестов Flick">
+<!ENTITY options.flickspeed.min "медленно">
+<!ENTITY options.flickspeed.max "быстро">
+<!ENTITY options.flicktimelimit "Временное ограничение">
+<!ENTITY options.flicktimelimit.min "быстро">
+<!ENTITY options.flicktimelimit.max "долго">
+<!ENTITY options.mom "Импульс прокрутки">
+<!ENTITY options.momOn "Использовать Импульс">
+<!ENTITY options.momExtent "Чувствительность ко времени">
+<!ENTITY options.momExtent.min "коротко">
+<!ENTITY options.momExtent.max "долго">
+<!ENTITY options.momVariation "Чувствительность к замедлению">
+<!ENTITY options.momVariation.min "маленькая">
+<!ENTITY options.momVariation.max "большая">
+<!ENTITY options.smoothStop "плавная остановка прокрутки">
+<!ENTITY options.button1 "Использовать ">
+<!ENTITY left "левую">
+<!ENTITY middle "среднюю">
+<!ENTITY right "правую">
+<!ENTITY options.button2 " кнопку мыши для режима grab and drag">
+<!ENTITY one "1">
+<!ENTITY two "2">
+<!ENTITY three "3">
+<!ENTITY options.QT "Переключение на тексте">
+<!ENTITY qt.clicking "Клик ">
+<!ENTITY qt.enable " раз(а) на тексте веб-страницы переключает на режим выделения текста">
+<!ENTITY qt.disable " раз(а) на области без текста возобновляет режим захвата и смещения">
+<!ENTITY qt.qtOffCopy "Копировать выделенный текст в буфер обмена, когда возобновлён захват">
+<!ENTITY options.preLevel1 "Захват ">
+<!ENTITY preLevel.0 "в области без текста/без ссылок">
+<!ENTITY preLevel.1 "в области без ссылок">
+<!ENTITY preLevel.2 "везде на экране">
+<!ENTITY options.preLevel2 " будет смещать страницу">
+<!ENTITY prefs.cursorwarning "Для отображение курсора в виде руки требуется Firefox/Thunderbird 1.5+. Некоторые операционные системы могут ненадлежащим образом показывать первый набор курсоров в виде руки.">
+<!ENTITY prefs.dragIncInfo "Прокрутка происходит только при смещении курсора мыши на указанное количество пикселей. Большое число может сделать работу более удобной, но менее плавной.">
+<!ENTITY prefs.multInfo "Величина скорости прокрутки умножается на значение коэффициента, что делает прокрутку более быстрой, чем обычное движение курсора мыши. Вы можете устанавливать отрицательное значение коэффициента, чтобы прокручивать документ в обратном направлении. Выберите &apos;Режим полосы прокрутки&apos;, чтобы прокручивать документ со скоростью полосы прокрутки.">
+<!ENTITY prefs.momInfo "Если Импульс включён, отпускание страницы во время смещения с постоянной скоростью приведёт к тому, что смещение продолжится, пока Вы не кликните. Это позволяет быстро и плавно перемещаться по длинным страницам.">
+<!ENTITY prefs.momParamInfo "Чувствительность ко времени регулирует количество времени, в течение которого страница должна смещаться с почти постоянной скоростью, чтобы Импульс был инициирован. Чувствительность к замедлению регулирует чувствительность Импульса к изменениями скорости смещения непосредственно перед тем, как отпустить кнопку. В обоих случаях, чем меньшее значение, тем проще вызывается Импульс.">
+<!ENTITY prefs.flicksInfo "&apos;Flick&apos; — это жест мышью, выполняемый с помощью резкого движения пера/мыши, в определённом направлении. Grab and Drag позволяет Вам использовать жесты Flick для прокрутки вверх, вниз, влево или вправо по экрану за раз. Жесты Flick наиболее полезны для компьютеров с пером.">
+<!ENTITY prefs.flickTimeLimitInfo "Этот параметр определяет как быстро жест Flick должен быть выполнен, чтобы он был определён. Измеряется в миллисекундах.">
+<!ENTITY wiz.title "Мастер запуска Grab and Drag">
+<!ENTITY wiz.go "Закончить">
+<!ENTITY wiz.config "Я использую режим Grab and Drag с помощью...">
+<!ENTITY wiz.3button "3-ёх кнопочной мыши (используется средняя кнопка)">
+<!ENTITY wiz.2buttonR "2-ух кнопочной мыши (используется правая кнопка)">
+<!ENTITY wiz.2buttonL "1- или 2-ух кнопочной мыши (используется левая кнопка)">
+<!ENTITY wiz.pen "компьютера с пером (левая кнопка + жесты)">
+<!ENTITY wiz.addTB "Добавить кнопку переключения режима Grab and Drag на панель навигации">
+<!ENTITY wiz.openprefs "Открыть окно настроек расширения по завершении работы мастера запуска">
+<!ENTITY wiz.notes "Добро пожаловать в мастер запуска Grab and Drag. Он позволит Вам быстро настроить расширение для работы на Вашем компьютере. В главном окне настроек расширения, которое будет доступно после завершения работы мастера запуска, Вы сможете найти большое количество дополнительных настроек, которые позволяют изменять внешний вид и работу расширения.">
+<!ENTITY wiz.please "Обратите внимание:">
+<!ENTITY wiz.notes2 "Наиболее часто встречающийся вопрос от новых пользователей расширения Grab and Drag — как отключить захват, чтобы выделить текст. Существует три способа: горячая клавиша, кнопка на панели инструментов и функция &apos;Переключение на тексте&apos;, которая позволяет переключать режимы с помощью простого нажатия на тексте. Смотрите настройки расширения, чтобы узнать больше об этом режиме.">
+<!ENTITY wiz.notes3 "то обратите внимание, что функция &apos;Быстрое пареключение&apos; заменена функцией &apos;Переключение на тексте&apos;, описание которой дано выше.">
+<!ENTITY wiz.ifprev "Если Вы использовали предыдущие версии Grab and Drag, ">

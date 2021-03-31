@@ -1,0 +1,29 @@
+Source: network-manager-applet
+Section: gnome
+Priority: optional
+Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Anthony Mercatante <tonio@ubuntu.com>
+Build-Depends: debhelper (>= 5.0.37), cdbs, libgnome-keyring-dev, libgnomeui-dev, libpanel-applet2-dev, libglade2-dev, libgconf2-dev, network-manager-dev (>= 0.6.5-0ubuntu3), libnm-util-dev (>= 0.6.5), libnm-glib-dev (>= 0.6.5), libiw-dev, libxml-parser-perl, docbook-to-man, intltool
+Standards-Version: 3.7.2
+XS-Vcs-Bzr: https://code.launchpad.net/~ubuntu-core-dev/network-manager/gnome.ubuntu.0.6.x
+
+Package: network-manager-gnome
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, network-manager (>= 0.6.5), gksu
+Recommends: notification-daemon
+Description: network management framework (GNOME frontend)
+ NetworkManager attempts to keep an active network connection available at all
+ times. It is intended only for the desktop use-case, and is not intended for
+ usage on servers. The point of NetworkManager is to make networking
+ configuration and setup as painless and automatic as possible.  If using DHCP,
+ NetworkManager is _intended_ to replace default routes, obtain IP addresses
+ from a DHCP server, and change nameservers whenever it sees fit.
+ .
+ This package contains a systray applet for GNOME's notification area but it
+ also works for other desktop environments which provide a systray like KDE
+ or XFCE.
+ It displays the available networks and allows to easily switch between them.
+ For encrypted networks it will prompt the user for the key/passphrase and it
+ can optionally store them in the gnome-keyring.
+ .
+  Homepage: http://www.gnome.org/projects/NetworkManager/

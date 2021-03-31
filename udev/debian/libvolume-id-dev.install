@@ -1,0 +1,3 @@
+extras/volume_id/lib/libvolume_id.h usr/include
+extras/volume_id/lib/libvolume_id.a usr/lib
+extras/volume_id/lib/libvolume_id.pc usr/lib/pkgconfig

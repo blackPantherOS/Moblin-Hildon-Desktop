@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+
+build:
+	dh_testdir
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	install -m644 -D xorg.conf $(CURDIR)/debian/ume-config-zi9/etc/X11/xorg-zi9.conf
+	install -m644 -D 60-touchscreen.rules $(CURDIR)/debian/ume-config-zi9/etc/udev/rules.d/60-touchscreen.rules
+
+	install -m644 -D session $(CURDIR)/debian/ume-config-zi9/etc/event.d/session
+	install -m644 -D menu.lst $(CURDIR)/debian/ume-config-zi9/boot/grub/menu.lst
+
+	install -m755 -D hostname.sh $(CURDIR)/debian/ume-config-zi9/etc/init.d/hostname.sh
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# Build architecture-dependent files here.
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

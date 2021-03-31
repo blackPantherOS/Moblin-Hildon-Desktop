@@ -1,0 +1,54 @@
+[Samsung-Full-Mobile-Stack-with-Proprietary]
+DESC=The full samsung stack, including proprietary (non-redistributable bits) (EMPTY)
+PKGS=
+DEBUG_PKGS=
+DEPS=samsung-full-mobile-stack
+
+[Samsung-Full-Mobile-Stack]
+DESC=Virtual Fset that installs the standard mobile stack
+PKGS=
+DEBUG_PKGS=
+DEPS=core samsung-q1-ultra-config ubuntu-mobile
+
+[Zi9-Full-Mobile-Stack]
+DESC=Virtual Fset that installs the standard mobile stack (EMPTY)
+PKGS=
+DEBUG_PKGS=
+DEPS=core zi9-config ubuntu-mobile
+
+[Core]
+DESC=Fundamental fset that provide a basic console based system
+PKGS=grub passwd
+DEBUG_PKGS=gdb yum vim-enhanced tickless-utils oprofile
+DEPS=
+
+[Zi9-Config]
+DESC=Packages needed for the Zi9 (EMPTY)
+PKGS=
+DEBUG_PKGS=
+DEPS=core
+
+[Samsung-Q1-Ultra-Config]
+DESC=Packages needed for the Samsung Q1 Ultra (EMPTY)
+PKGS=
+DEBUG_PKGS=
+DEPS=core
+
+[GNOME-Mobile]
+DESC=Subset of GNOME components for building mobile Linux stacks
+PKGS=xorg xserver-xorg-input-evtouch libgl1-mesa-dri matchbox-window-manager libglib2.0-0 dbus libdbus-1-3 libdbus-glib-1-2 gconf2 libgnomevfs2-0 libgstreamer0.10-0 libbluetooth2 libtelepathy-glib0 libavahi-glib1 libgtk2.0-0 libpango1.0-0 libcairo2 libatk1.0-0 python python-dbus python-cairo python-gconf python-gst0.10 telepathy-core telepathy-mission-control gnome-icon-theme gnome-menus
+DEBUG_PKGS=xrestop
+DEPS=samsung-q1-ultra-config|zi9-config
+
+[Developer-Tools]
+DESC=Tools for building source in the target (gcc, make, etc.)
+PKGS=libtool autoconf automake man curl
+DEBUG_PKGS=
+DEPS=core
+
+[Asian-Fonts]
+DESC=Fonts for viewing websites in Chinese, Japanese, and Korean (EMPTY)
+PKGS=
+DEBUG_PKGS=
+DEPS=core
+

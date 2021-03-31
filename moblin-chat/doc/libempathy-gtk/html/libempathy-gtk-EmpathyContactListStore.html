@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyContactListStore</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="EmpathyCellRendererText.html" title="EmpathyCellRendererText">
+<link rel="next" href="libempathy-gtk-empathy-main-window.html" title="empathy-main-window">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyCellRendererText.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="libempathy-gtk-empathy-main-window.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2596154" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2575894" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-gtk-EmpathyContactListStore"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2596154"></a><span class="refentrytitle">EmpathyContactListStore</span>
+</h2>
+<p>EmpathyContactListStore</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+enum                <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStoreSort">EmpathyContactListStoreSort</a>;
+                    <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStorePriv">EmpathyContactListStorePriv</a>;
+                    <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a>;
+GList*              (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactGroupsFunc">*EmpathyContactGroupsFunc</a>)         (<a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a> *contact,
+                                                         gpointer user_data);
+<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a>* <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-new">empathy_contact_list_store_new</a> (<a
+href="../libempathy/libempathy-empathy-contact-list.html#EmpathyContactList"
+>EmpathyContactList</a> *list_iface);
+<a
+href="../libempathy/libempathy-empathy-contact-list.html#EmpathyContactList"
+>EmpathyContactList</a>* <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-get-list-iface">empathy_contact_list_store_get_list_iface</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);
+gboolean            <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-get-show-offline">empathy_contact_list_store_get_show_offline</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);
+void                <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-set-show-offline">empathy_contact_list_store_set_show_offline</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         gboolean show_offline);
+gboolean            <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-get-show-avatars">empathy_contact_list_store_get_show_avatars</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);
+void                <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-set-show-avatars">empathy_contact_list_store_set_show_avatars</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         gboolean show_avatars);
+gboolean            <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-get-is-compact">empathy_contact_list_store_get_is_compact</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);
+void                <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-set-is-compact">empathy_contact_list_store_set_is_compact</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         gboolean is_compact);
+<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStoreSort">EmpathyContactListStoreSort</a> <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-get-sort-criterium">empathy_contact_list_store_get_sort_criterium</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);
+void                <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-set-sort-criterium">empathy_contact_list_store_set_sort_criterium</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStoreSort">EmpathyContactListStoreSort</a> sort_criterium);
+gboolean            <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-row-separator-func">empathy_contact_list_store_row_separator_func</a>
+                                                        (GtkTreeModel *model,
+                                                         GtkTreeIter *iter,
+                                                         gpointer data);
+gchar*              <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-get-parent-group">empathy_contact_list_store_get_parent_group</a>
+                                                        (GtkTreeModel *model,
+                                                         GtkTreePath *path,
+                                                         gboolean *path_is_group);
+gboolean            <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-search-equal-func">empathy_contact_list_store_search_equal_func</a>
+                                                        (GtkTreeModel *model,
+                                                         gint column,
+                                                         const gchar *key,
+                                                         GtkTreeIter *iter,
+                                                         gpointer search_data);
+void                <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-set-contact-groups-func">empathy_contact_list_store_set_contact_groups_func</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactGroupsFunc">EmpathyContactGroupsFunc</a> func,
+                                                         gpointer user_data);
+void                <a href="libempathy-gtk-EmpathyContactListStore.html#empathy-contact-list-store-update-contact-groups">empathy_contact_list_store_update_contact_groups</a>
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         <a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a> *contact);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2575894"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2575910"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2575921"></a><h3>
+<a name="EmpathyContactListStoreSort"></a>enum EmpathyContactListStoreSort</h3>
+<a class="indexterm" name="id2575932"></a><pre class="programlisting">typedef enum {
+	EMPATHY_CONTACT_LIST_STORE_SORT_STATE,
+	EMPATHY_CONTACT_LIST_STORE_SORT_NAME
+} EmpathyContactListStoreSort;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2575949"></a><h3>
+<a name="EmpathyContactListStorePriv"></a>EmpathyContactListStorePriv</h3>
+<a class="indexterm" name="id2575961"></a><pre class="programlisting">typedef struct _EmpathyContactListStorePriv EmpathyContactListStorePriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2575977"></a><h3>
+<a name="EmpathyContactListStore"></a>EmpathyContactListStore</h3>
+<a class="indexterm" name="id2575988"></a><pre class="programlisting">typedef struct {
+	GtkTreeStore            parent;
+} EmpathyContactListStore;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2576005"></a><h3>
+<a name="EmpathyContactGroupsFunc"></a>EmpathyContactGroupsFunc ()</h3>
+<a class="indexterm" name="id2576016"></a><pre class="programlisting">GList*              (*EmpathyContactGroupsFunc)         (<a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a> *contact,
+                                                         gpointer user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2515095"></a><h3>
+<a name="empathy-contact-list-store-new"></a>empathy_contact_list_store_new ()</h3>
+<a class="indexterm" name="id2515106"></a><pre class="programlisting"><a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a>* empathy_contact_list_store_new (<a
+href="../libempathy/libempathy-empathy-contact-list.html#EmpathyContactList"
+>EmpathyContactList</a> *list_iface);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list_iface</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2515161"></a><h3>
+<a name="empathy-contact-list-store-get-list-iface"></a>empathy_contact_list_store_get_list_iface ()</h3>
+<a class="indexterm" name="id2515176"></a><pre class="programlisting"><a
+href="../libempathy/libempathy-empathy-contact-list.html#EmpathyContactList"
+>EmpathyContactList</a>* empathy_contact_list_store_get_list_iface
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2515233"></a><h3>
+<a name="empathy-contact-list-store-get-show-offline"></a>empathy_contact_list_store_get_show_offline ()</h3>
+<a class="indexterm" name="id2515247"></a><pre class="programlisting">gboolean            empathy_contact_list_store_get_show_offline
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2515304"></a><h3>
+<a name="empathy-contact-list-store-set-show-offline"></a>empathy_contact_list_store_set_show_offline ()</h3>
+<a class="indexterm" name="id2599497"></a><pre class="programlisting">void                empathy_contact_list_store_set_show_offline
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         gboolean show_offline);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>show_offline</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599558"></a><h3>
+<a name="empathy-contact-list-store-get-show-avatars"></a>empathy_contact_list_store_get_show_avatars ()</h3>
+<a class="indexterm" name="id2599571"></a><pre class="programlisting">gboolean            empathy_contact_list_store_get_show_avatars
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599623"></a><h3>
+<a name="empathy-contact-list-store-set-show-avatars"></a>empathy_contact_list_store_set_show_avatars ()</h3>
+<a class="indexterm" name="id2599636"></a><pre class="programlisting">void                empathy_contact_list_store_set_show_avatars
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         gboolean show_avatars);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>show_avatars</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599699"></a><h3>
+<a name="empathy-contact-list-store-get-is-compact"></a>empathy_contact_list_store_get_is_compact ()</h3>
+<a class="indexterm" name="id2599714"></a><pre class="programlisting">gboolean            empathy_contact_list_store_get_is_compact
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599771"></a><h3>
+<a name="empathy-contact-list-store-set-is-compact"></a>empathy_contact_list_store_set_is_compact ()</h3>
+<a class="indexterm" name="id2599785"></a><pre class="programlisting">void                empathy_contact_list_store_set_is_compact
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         gboolean is_compact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>is_compact</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599853"></a><h3>
+<a name="empathy-contact-list-store-get-sort-criterium"></a>empathy_contact_list_store_get_sort_criterium ()</h3>
+<a class="indexterm" name="id2599867"></a><pre class="programlisting"><a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStoreSort">EmpathyContactListStoreSort</a> empathy_contact_list_store_get_sort_criterium
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2599924"></a><h3>
+<a name="empathy-contact-list-store-set-sort-criterium"></a>empathy_contact_list_store_set_sort_criterium ()</h3>
+<a class="indexterm" name="id2599938"></a><pre class="programlisting">void                empathy_contact_list_store_set_sort_criterium
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStoreSort">EmpathyContactListStoreSort</a> sort_criterium);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>sort_criterium</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600006"></a><h3>
+<a name="empathy-contact-list-store-row-separator-func"></a>empathy_contact_list_store_row_separator_func ()</h3>
+<a class="indexterm" name="id2600020"></a><pre class="programlisting">gboolean            empathy_contact_list_store_row_separator_func
+                                                        (GtkTreeModel *model,
+                                                         GtkTreeIter *iter,
+                                                         gpointer data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>model</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600121"></a><h3>
+<a name="empathy-contact-list-store-get-parent-group"></a>empathy_contact_list_store_get_parent_group ()</h3>
+<a class="indexterm" name="id2600135"></a><pre class="programlisting">gchar*              empathy_contact_list_store_get_parent_group
+                                                        (GtkTreeModel *model,
+                                                         GtkTreePath *path,
+                                                         gboolean *path_is_group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>model</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>path</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>path_is_group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600236"></a><h3>
+<a name="empathy-contact-list-store-search-equal-func"></a>empathy_contact_list_store_search_equal_func ()</h3>
+<a class="indexterm" name="id2600250"></a><pre class="programlisting">gboolean            empathy_contact_list_store_search_equal_func
+                                                        (GtkTreeModel *model,
+                                                         gint column,
+                                                         const gchar *key,
+                                                         GtkTreeIter *iter,
+                                                         gpointer search_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>model</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>column</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>iter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>search_data</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600393"></a><h3>
+<a name="empathy-contact-list-store-set-contact-groups-func"></a>empathy_contact_list_store_set_contact_groups_func ()</h3>
+<a class="indexterm" name="id2600407"></a><pre class="programlisting">void                empathy_contact_list_store_set_contact_groups_func
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         <a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactGroupsFunc">EmpathyContactGroupsFunc</a> func,
+                                                         gpointer user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>func</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600497"></a><h3>
+<a name="empathy-contact-list-store-update-contact-groups"></a>empathy_contact_list_store_update_contact_groups ()</h3>
+<a class="indexterm" name="id2600511"></a><pre class="programlisting">void                empathy_contact_list_store_update_contact_groups
+                                                        (<a href="libempathy-gtk-EmpathyContactListStore.html#EmpathyContactListStore">EmpathyContactListStore</a> *store,
+                                                         <a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>store</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

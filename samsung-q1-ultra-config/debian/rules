@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+
+build:
+	dh_testdir
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	install -m644 -D xorg.conf $(CURDIR)/debian/ume-config-samsung-q1-ultra/etc/X11/xorg-samsungq1ultra.conf
+	install -m644 -D 60-touchscreen.rules $(CURDIR)/debian/ume-config-samsung-q1-ultra/etc/udev/rules.d/60-touchscreen.rules
+
+	install -m644 -D session $(CURDIR)/debian/ume-config-samsung-q1-ultra/etc/event.d/session
+	install -m755 -D samsung-q1-ultra-keycode-setup $(CURDIR)/debian/ume-config-samsung-q1-ultra/etc/init.d/samsung-q1-ultra-keycode-setup
+	
+	install -m755 -D ume-hibernate $(CURDIR)/debian/ume-config-samsung-q1-ultra/usr/sbin/ume-hibernate
+	install -m755 -D ume-shutdown $(CURDIR)/debian/ume-config-samsung-q1-ultra/usr/sbin/ume-shutdown
+	install -m755 -D powerbtn.sh.ume $(CURDIR)/debian/ume-config-samsung-q1-ultra/etc/acpi/powerbtn.sh.ume
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# Build architecture-dependent files here.
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

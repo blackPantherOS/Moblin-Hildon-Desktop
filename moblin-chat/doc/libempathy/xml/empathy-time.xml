@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-empathy-time">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-time</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-time</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="EMPATHY-TIME-FORMAT-DISPLAY-SHORT:CAPS">EMPATHY_TIME_FORMAT_DISPLAY_SHORT</link>
+#define             <link linkend="EMPATHY-TIME-FORMAT-DISPLAY-LONG:CAPS">EMPATHY_TIME_FORMAT_DISPLAY_LONG</link>
+typedef             <link linkend="EmpathyTime">EmpathyTime</link>;
+<link linkend="EmpathyTime">EmpathyTime</link>         <link linkend="empathy-time-get-current">empathy_time_get_current</link>            (void);
+<link linkend="time-t">time_t</link>              <link linkend="empathy-time-get-local-time">empathy_time_get_local_time</link>         (<link linkend="struct-tm">struct tm</link> *tm);
+<link linkend="EmpathyTime">EmpathyTime</link>         <link linkend="empathy-time-parse">empathy_time_parse</link>                  (const <link linkend="gchar">gchar</link> *str);
+<link linkend="EmpathyTime">EmpathyTime</link>         <link linkend="empathy-time-parse-format">empathy_time_parse_format</link>           (const <link linkend="gchar">gchar</link> *str,
+                                                         const <link linkend="gchar">gchar</link> *format);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-time-to-string-utc">empathy_time_to_string_utc</link>          (<link linkend="EmpathyTime">EmpathyTime</link> t,
+                                                         const <link linkend="gchar">gchar</link> *format);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-time-to-string-local">empathy_time_to_string_local</link>        (<link linkend="EmpathyTime">EmpathyTime</link> t,
+                                                         const <link linkend="gchar">gchar</link> *format);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EMPATHY-TIME-FORMAT-DISPLAY-SHORT:CAPS" role="macro"/>EMPATHY_TIME_FORMAT_DISPLAY_SHORT</title>
+<indexterm><primary>EMPATHY_TIME_FORMAT_DISPLAY_SHORT</primary></indexterm><programlisting>#define EMPATHY_TIME_FORMAT_DISPLAY_SHORT "%H:%M"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-TIME-FORMAT-DISPLAY-LONG:CAPS" role="macro"/>EMPATHY_TIME_FORMAT_DISPLAY_LONG</title>
+<indexterm><primary>EMPATHY_TIME_FORMAT_DISPLAY_LONG</primary></indexterm><programlisting>#define EMPATHY_TIME_FORMAT_DISPLAY_LONG  "%a %d %b %Y"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyTime" role="typedef"/>EmpathyTime</title>
+<indexterm><primary>EmpathyTime</primary></indexterm><programlisting>typedef long EmpathyTime;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-time-get-current" role="function"/>empathy_time_get_current ()</title>
+<indexterm><primary>empathy_time_get_current</primary></indexterm><programlisting><link linkend="EmpathyTime">EmpathyTime</link>         empathy_time_get_current            (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-time-get-local-time" role="function"/>empathy_time_get_local_time ()</title>
+<indexterm><primary>empathy_time_get_local_time</primary></indexterm><programlisting><link linkend="time-t">time_t</link>              empathy_time_get_local_time         (<link linkend="struct-tm">struct tm</link> *tm);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>tm</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-time-parse" role="function"/>empathy_time_parse ()</title>
+<indexterm><primary>empathy_time_parse</primary></indexterm><programlisting><link linkend="EmpathyTime">EmpathyTime</link>         empathy_time_parse                  (const <link linkend="gchar">gchar</link> *str);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-time-parse-format" role="function"/>empathy_time_parse_format ()</title>
+<indexterm><primary>empathy_time_parse_format</primary></indexterm><programlisting><link linkend="EmpathyTime">EmpathyTime</link>         empathy_time_parse_format           (const <link linkend="gchar">gchar</link> *str,
+                                                         const <link linkend="gchar">gchar</link> *format);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-time-to-string-utc" role="function"/>empathy_time_to_string_utc ()</title>
+<indexterm><primary>empathy_time_to_string_utc</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_time_to_string_utc          (<link linkend="EmpathyTime">EmpathyTime</link> t,
+                                                         const <link linkend="gchar">gchar</link> *format);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>t</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-time-to-string-local" role="function"/>empathy_time_to_string_local ()</title>
+<indexterm><primary>empathy_time_to_string_local</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_time_to_string_local        (<link linkend="EmpathyTime">EmpathyTime</link> t,
+                                                         const <link linkend="gchar">gchar</link> *format);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>t</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

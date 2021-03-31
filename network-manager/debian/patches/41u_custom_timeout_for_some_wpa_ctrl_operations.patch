@@ -1,0 +1,90 @@
+---
+ src/nm-device-802-11-wireless.c |   11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+Index: network-manager.debian/src/nm-device-802-11-wireless.c
+===================================================================
+--- network-manager.debian.orig/src/nm-device-802-11-wireless.c
++++ network-manager.debian/src/nm-device-802-11-wireless.c
+@@ -2437,32 +2437,35 @@
+ supplicant_cleanup (NMDevice80211Wireless *self)
+ {
+ 	char * sock_path;
+ 
+ 	g_return_if_fail (self != NULL);
+ 
+ 	if (self->priv->supplicant.pid > 0)
+ 	{
++	  	wpa_ctrl_set_custom_timeout(self->priv->supplicant.ctrl, 12);
+ 		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+                         "DISABLE_NETWORK 0"))
+ 			nm_warning("supplicant_cleanup - couldn't disable network in supplicant_cleanup");
+ 
+ 		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+                         "AP_SCAN 0"))
+ 			nm_warning("supplicant_cleanup - couldn't set AP_SCAN 0");
+ 
+ 		//		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+ 		//                        "interface_remove %s", iface))
+ 		//			nm_warning("supplicant_cleanup - couldn't remove device interface %s", iface);
+ 
+ 		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+                         "TERMINATE"))
+ 			nm_warning("supplicant_cleanup - couldn't terminate wpasupplicant cleanly.");
+ 
++		wpa_ctrl_unset_custom_timeout(self->priv->supplicant.ctrl);
++
+ 		kill (self->priv->supplicant.pid, SIGTERM);
+ 		self->priv->supplicant.pid = -1;
+ 	}
+ 	if (self->priv->supplicant.watch)
+ 	{
+ 		g_source_destroy (self->priv->supplicant.watch);
+ 		self->priv->supplicant.watch = NULL;
+ 	}
+@@ -2795,17 +2798,17 @@
+ 	gboolean		success = FALSE;
+ 	int			global_connect_attempts = 0;
+ 	int			connect_attempts = 0;
+ 	const char *            wpa_driver;
+ 	const char *            kernel_driver;
+ 
+ 
+ 	/* Try to open wpa_supplicant's global control socket */
+-	for (global_connect_attempts = 0; global_connect_attempts < WPA_SUPPLICANT_NUM_RETRIES && !ctrl; global_connect_attempts++)
++	for (global_connect_attempts = 0; global_connect_attempts < WPA_SUPPLICANT_MAX_GLOBAL_CONNECT_ATTEMPTS && !ctrl; global_connect_attempts++)
+ 	{
+ 		ctrl = wpa_ctrl_open (supplicant_get_global_device_socket_path(self), NM_RUN_DIR);
+ 		nm_info ("supplicant_interface_init() - connect to global ctrl socket (%d/10).", global_connect_attempts);
+ 		g_usleep (WPA_SUPPLICANT_RETRY_TIME_US);
+ 	}
+ 
+ 	if (!ctrl)
+ 	{
+@@ -2823,22 +2826,24 @@
+ 	if (!strcmp (kernel_driver, "ath_pci"))
+                wpa_driver = "madwifi";
+         else if (!strcmp (kernel_driver, "hostap_pci") || !strcmp (kernel_driver, "hostap_cs") || !strcmp (kernel_driver, "hostap_plx"))
+                wpa_driver = "hostap";
+ 	else
+                wpa_driver = "wext";
+ 
+ 	/* wpa_cli -g/var/run/wpa_supplicant-global interface_add eth1 "" wext /var/run/wpa_supplicant */
++	wpa_ctrl_set_custom_timeout(ctrl, 12);
+ 	if (!nm_utils_supplicant_request_with_check (ctrl, "OK", __func__, NULL,
+ 						     "INTERFACE_ADD %s\t\t%s\t" WPA_SUPPLICANT_CONTROL_SOCKET "%d\t", iface, wpa_driver, self->priv->run_count)) {
+-                wpa_ctrl_close (ctrl);
++		wpa_ctrl_unset_custom_timeout(ctrl);
++		wpa_ctrl_close (ctrl);
+ 		goto exit;
+ 	}
+-
++	wpa_ctrl_unset_custom_timeout(ctrl);
+         wpa_ctrl_close (ctrl);
+ 
+ 	/* Get a control socket to wpa_supplicant for this interface.
+ 	 * Try a couple times to work around naive socket naming
+ 	 * in wpa_ctrl that sometimes collides with stale ones.
+ 	 */
+ 	socket_path = supplicant_get_device_socket_path (self);
+ 	connect_attempts = 0;

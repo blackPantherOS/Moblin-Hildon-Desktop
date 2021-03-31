@@ -1,0 +1,10 @@
+# hibernate- when hibernate event 
+#
+# This task is run whenever the hibernate event take place.  
+# Usually used to shut down the machine.
+
+description	"System hibernate event handler"
+author		"Martin Xu <martin.xu@intel.com>"
+
+start on hibernate
+exec /usr/sbin/ume-hibernate

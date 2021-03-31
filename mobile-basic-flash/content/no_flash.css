@@ -1,0 +1,33 @@
+
+        body {
+          margin: 0; 
+	  background-color: black;
+	  color: white;
+        }
+
+	.title {
+	  font-weight: bold;
+	  font-size: 26px;
+	  color: #0a56a4;
+	}
+	.caption {
+	  font-size: 20px;
+	  font-weight: bold;
+	  color: #FF0000;
+	}
+
+        div.main {
+	  background-position:center center;
+	  background-color: black;
+	  color: white;
+	  font-family: Verdana, Arial, Helvetica, sans-serif;
+	  font-size: 18px;
+	  width: 700px;
+	  height: 400px;
+	  margin: 0 auto;
+        }
+	.code {
+	  font-size: 16px;
+	}
+
+

@@ -1,0 +1,12 @@
+/.cvsignore/1.1/Sat Dec  5 09:04:13 1998//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.20/Sat Dec 31 12:14:37 2005//TFIREFOX_3_0b2_RELEASE
+/nsIPref.idl/3.47/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIPrefBranch.idl/1.20/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIPrefBranch2.idl/1.5/Wed Jan 16 23:38:41 2008//TFIREFOX_3_0b2_RELEASE
+/nsIPrefBranchInternal.idl/1.12/Wed Feb 23 13:59:16 2005//TFIREFOX_3_0b2_RELEASE
+/nsIPrefLocalizedString.idl/1.8/Sat Dec 31 12:14:37 2005//TFIREFOX_3_0b2_RELEASE
+/nsIPrefService.idl/1.17/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIRelativeFilePref.idl/1.1/Tue Apr  9 14:15:01 2002//TFIREFOX_3_0b2_RELEASE
+/nsISecurityPref.idl/3.8/Sat Dec 31 12:14:37 2005//TFIREFOX_3_0b2_RELEASE
+/nsPrefsCID.h/3.3/Sun Feb  6 12:59:37 2005//TFIREFOX_3_0b2_RELEASE
+D

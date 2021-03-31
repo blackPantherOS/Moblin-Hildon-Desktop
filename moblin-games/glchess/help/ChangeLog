@@ -1,0 +1,50 @@
+2007-11-26  Kosras Papadimas  <pkst@gnome.org>
+
+	* el/el.po: Added Greek translation by Τα πάντα ρει <ta_panta_rei@flashmail.com>.
+	* Makefile.am: Added el to DOC_LINGUAS.
+
+2007-11-21  Gil Forcada  <gforcada@svn.gnome.org>
+
+	* ca/ca.po: Fixed the fuzzy string.
+
+2007-11-21  Gil Forcada  <gforcada@svn.gnome.org>
+
+	* ca/ca.po: Added Catalan translation by Joan Duran.
+	* Makefile.am: Added ca to DOC_LINGUAS.
+
+2007-11-18  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+
+007-11-18  Andreas Røsdal  <andreasr@gnome.org>
+
+	* C/glchess.xml: Resolve bug #497508, where the term Iagno was listed
+	 as an index term.
+
+2007-09-11  Jonh Wendell  <jwendell@gnome.org>
+
+	* Makefile.am: Added pt_BR to DOC_LINGUAS
+	* pt_BR/pt_BR.po: Added Brazilian Portuguese translation, by Vladimir Melo
+
+2007-05-16  Claude Paroz  <claude@2xlibre.net>
+
+	* Makefile.am: Added fr to DOC_LINGUAS
+	* fr/fr.po: Added French translation
+
+2007-05-10  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+
+2007-05-07  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation 
+
+2007-05-05  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Added spanish translation
+        * Makefile.am: Added es to DOC_LINGUAS
+
+2007-04-30  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Added Swedish translation.
+	* Makefile.am: Added sv to DOC_LINGUAS

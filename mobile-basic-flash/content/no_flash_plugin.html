@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+  <title>Mobile MozEmbed Home</title>
+
+  <link href="no_flash.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="caption">Error:  No flash plugin detected</div>
+
+<br>Currently the Adobe Flash Player (v8+) is required to display the home screen user interface.  Follow the steps below to install the flash player.<br>  
+<br>
+Note: If you are running on a mobile device, you can access a terminal via the top-left corner drop-down menu.  After completing the steps, you can restart the user interface by pressing Ctl+Alt+Backspace.<br>
+<br>
+
+<pre class="code">
+  (if behind a firewall)
+# export http_proxy="http://&lt;proxy:port&gt;"
+  (all users)
+# echo `cat /etc/apt/sources.list` "restricted" > /etc/apt/sources.list
+# apt-get update
+# apt-get install flashplugin-nonfree
+# mkdir -p /root/.mozilla/plugins
+# ln -s /usr/lib/flashplugin-nonfree/libflashplayer.so \
+  /root/.mozilla/plugins/libflashplayer.so
+</pre>
+
+</body>
+</html>

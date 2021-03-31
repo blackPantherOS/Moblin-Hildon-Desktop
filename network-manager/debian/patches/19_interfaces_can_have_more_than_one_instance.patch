@@ -1,0 +1,74 @@
+diff -Nur bzr.debian.0.9.4.patchupdate/src/backends/interface_parser.c bzr.debian.0.9.4.patchupdate.new/src/backends/interface_parser.c
+--- bzr.debian.0.9.4.patchupdate/src/backends/interface_parser.c	2007-06-25 17:16:30.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/backends/interface_parser.c	2007-06-25 17:16:31.000000000 +0200
+@@ -32,7 +32,7 @@
+ 
+ if_data* last_data; 
+ 
+-void add_block(const char *type, const char* name)
++if_block *add_block(const char *type, const char* name)
+ {
+ 	if_block *ret = (if_block*)calloc(1,sizeof(struct _if_block));
+ 	ret->name = g_strdup(name);
+@@ -46,6 +46,7 @@
+ 	}
+ 	last_data = NULL;
+ 	//printf("added block '%s' with type '%s'\n",name,type);
++	return ret;
+ }
+ 
+ void add_data(const char *key,const char *data)
+@@ -132,6 +133,7 @@
+ 		if (strcmp(key, "iface") == 0)
+ 		{
+ 			char *key2;
++			if_block *old, *new;
+ 
+ 			while (!strchr(WS, line[pos]) && pos < len ) pos++;
+ 
+@@ -144,8 +146,23 @@
+ 				continue;
+ 			}
+ 			key2 = &line[pos];
+-			
+-			add_block(key, data);
++
++			// check if we already have an instance of iface foo.
++			old = ifparser_getif(data);
++
++			new = add_block(key, data);
++
++			// if we do have an instance of iface foo, make sure the new
++			// is linked from the old one.
++
++			if ((old) && (old != new))
++			{
++				while (old->nextsame != 0)
++				{
++					old=old->nextsame;
++				}
++				old->nextsame=new;
++			}		
+ 
+ 			if (pos < len)
+ 			{
+diff -Nur bzr.debian.0.9.4.patchupdate/src/backends/interface_parser.h bzr.debian.0.9.4.patchupdate.new/src/backends/interface_parser.h
+--- bzr.debian.0.9.4.patchupdate/src/backends/interface_parser.h	2007-06-25 17:16:30.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/backends/interface_parser.h	2007-06-25 17:16:31.000000000 +0200
+@@ -38,6 +38,7 @@
+ 	char *name;
+ 	if_data *info;
+ 	struct _if_block *next;
++	struct _if_block *nextsame;
+ } if_block;
+ 
+ void ifparser_init(void);
+@@ -48,7 +49,7 @@
+ if_block *ifparser_getfirst(void);
+ const char *ifparser_getkey(if_block* iface, const char *key);
+ 
+-void add_block(const char *type, const char* name);
++if_block *add_block(const char *type, const char* name);
+ void add_data(const char *key,const char *data);
+ void _destroy_data(if_data *ifd);
+ void _destroy_block(if_block* ifb);

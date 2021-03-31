@@ -1,0 +1,17 @@
+Source: pm-utils
+Section: unknown
+Priority: extra
+Maintainer: lizhi <frank.li@intel.com>
+Build-Depends: debhelper (>= 5), autotools-dev
+Standards-Version: 3.7.2
+
+Package: pm-utils
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+
+Package: pm-utils-doc
+Architecture: all
+Description: Documentation for pm-utils
+ <insert long description, indented with spaces>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE window SYSTEM "chrome://grabanddrag/locale/grabanddrag.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?> 
+<?xml-stylesheet href="chrome://grabanddrag/skin/" type="text/css"?>
+
+<overlay id="grabanddrag"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="grabanddrag.js"/>
+	<script type="application/x-javascript"><![CDATA[
+		window.addEventListener("load", gadInit, false);
+		window.addEventListener("keydown", gadToggleKeyHandler, false); 
+		window.addEventListener("unload", gadClose, false);
+	]]></script>
+
+	<menupopup id="menu_ToolsPopup">
+		<menuitem id="gad-options" oncommand="gadShowOptions(false);"
+					class="menuitem-iconic" image="chrome://grabanddrag/skin/grabanddragsmall.png"
+					label="&options.title;" hidden="false" insertbefore="devToolsSeparator"/>
+	</menupopup>
+
+	<menupopup id="taskPopup">
+		<menuitem id="gad-toggle-option" oncommand="gadShowOptions(false);"
+					class="menuitem-iconic" image="chrome://grabanddrag/skin/grabanddragsmall.png"
+					label="&options.title;" hidden="false" insertbefore="devToolsSeparator"/>
+	</menupopup>
+
+<!--
+	<keyset id="mainKeyset">
+		<key id="key_gadToggle" key="d" modifiers="alt,shift" oncommand="gadToggle();" />
+	</keyset>
+	<keyset id="mailKeys">
+		<key id="key_gadToggle" key="d" modifiers="alt,shift" oncommand="gadToggle();" />
+	</keyset>
+-->
+
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton  class="toolbarbutton-1"		
+						id="grabanddrag-button"
+						label="&grabanddrag.label;"
+						oncommand="gadToggle();"
+						tooltiptext="&grabanddrag.tooltip;"	/>
+	</toolbarpalette>
+
+	<toolbarpalette id="MailToolbarPalette">
+		<toolbarbutton	class="toolbarbutton-1"
+						id="grabanddrag-button"
+						label="&grabanddrag.shortlabel;"
+						oncommand="gadToggle();"
+						tooltiptext="&grabanddrag.tooltip;"/>
+	</toolbarpalette>
+
+</overlay>

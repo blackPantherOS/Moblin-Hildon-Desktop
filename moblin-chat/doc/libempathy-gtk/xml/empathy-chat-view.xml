@@ -1,0 +1,504 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyChatView">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyChatView</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyChatView</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyChatViewPriv">EmpathyChatViewPriv</link>;
+                    <link linkend="EmpathyChatView-struct">EmpathyChatView</link>;
+enum                <link linkend="EmpathySmiley">EmpathySmiley</link>;
+<link linkend="EmpathyChatView">EmpathyChatView</link>*    <link linkend="empathy-chat-view-new">empathy_chat_view_new</link>               (void);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-append-message">empathy_chat_view_append_message</link>    (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="EmpathyMessage">EmpathyMessage</link> *msg);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-append-event">empathy_chat_view_append_event</link>      (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *str);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-append-button">empathy_chat_view_append_button</link>     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *button1,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *button2);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-set-margin">empathy_chat_view_set_margin</link>        (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gint">gint</link> margin);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-scroll">empathy_chat_view_scroll</link>            (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> allow_scrolling);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-scroll-down">empathy_chat_view_scroll_down</link>       (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-view-get-selection-bounds">empathy_chat_view_get_selection_bounds</link>
+                                                        (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *end);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-clear">empathy_chat_view_clear</link>             (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-view-find-previous">empathy_chat_view_find_previous</link>     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *search_criteria,
+                                                         <link linkend="gboolean">gboolean</link> new_search);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-view-find-next">empathy_chat_view_find_next</link>         (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *search_criteria,
+                                                         <link linkend="gboolean">gboolean</link> new_search);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-find-abilities">empathy_chat_view_find_abilities</link>    (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *search_criteria,
+                                                         <link linkend="gboolean">gboolean</link> *can_do_previous,
+                                                         <link linkend="gboolean">gboolean</link> *can_do_next);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-highlight">empathy_chat_view_highlight</link>         (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *text);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-copy-clipboard">empathy_chat_view_copy_clipboard</link>    (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-view-get-irc-style">empathy_chat_view_get_irc_style</link>     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-set-irc-style">empathy_chat_view_set_irc_style</link>     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> irc_style);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="empathy-chat-view-get-smiley-image">empathy_chat_view_get_smiley_image</link>  (<link linkend="EmpathySmiley">EmpathySmiley</link> smiley);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-chat-view-get-smiley-text">empathy_chat_view_get_smiley_text</link>   (<link linkend="EmpathySmiley">EmpathySmiley</link> smiley);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-chat-view-get-smiley-menu">empathy_chat_view_get_smiley_menu</link>   (<link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="GtkTooltips">GtkTooltips</link> *tooltips);
+<link linkend="void">void</link>                <link linkend="empathy-chat-view-set-is-group-chat">empathy_chat_view_set_is_group_chat</link> (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> is_group_chat);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkTextView">GtkTextView</link>
+                                 +----EmpathyChatView
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EmpathyChatView implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyChatViewPriv" role="struct"/>EmpathyChatViewPriv</title>
+<indexterm><primary>EmpathyChatViewPriv</primary></indexterm><programlisting>typedef struct _EmpathyChatViewPriv EmpathyChatViewPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyChatView-struct" role="struct"/>EmpathyChatView</title>
+<indexterm><primary>EmpathyChatView</primary></indexterm><programlisting>typedef struct _EmpathyChatView EmpathyChatView;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathySmiley" role="enum"/>enum EmpathySmiley</title>
+<indexterm><primary>EmpathySmiley</primary></indexterm><programlisting>typedef enum {
+	EMPATHY_SMILEY_NORMAL,       /*  :)   */
+	EMPATHY_SMILEY_WINK,         /*  ;)   */
+	EMPATHY_SMILEY_BIGEYE,       /*  =)   */
+	EMPATHY_SMILEY_NOSE,         /*  :-)  */
+	EMPATHY_SMILEY_CRY,          /*  :'(  */
+	EMPATHY_SMILEY_SAD,          /*  :(   */
+	EMPATHY_SMILEY_SCEPTICAL,    /*  :/   */
+	EMPATHY_SMILEY_BIGSMILE,     /*  :D   */
+	EMPATHY_SMILEY_INDIFFERENT,  /*  :|   */
+	EMPATHY_SMILEY_TOUNGE,       /*  :p   */
+	EMPATHY_SMILEY_SHOCKED,      /*  :o   */
+	EMPATHY_SMILEY_COOL,         /*  8)   */
+	EMPATHY_SMILEY_SORRY,        /*  *|   */
+	EMPATHY_SMILEY_KISS,         /*  :*   */
+	EMPATHY_SMILEY_SHUTUP,       /*  :#   */
+	EMPATHY_SMILEY_YAWN,         /*  |O   */
+	EMPATHY_SMILEY_CONFUSED,     /*  :$   */
+	EMPATHY_SMILEY_ANGEL,        /*  &lt;)   */
+	EMPATHY_SMILEY_OOOH,         /*  :x   */
+	EMPATHY_SMILEY_LOOKAWAY,     /*  *)   */
+	EMPATHY_SMILEY_BLUSH,        /*  *S   */
+	EMPATHY_SMILEY_COOLBIGSMILE, /*  8D   */
+	EMPATHY_SMILEY_ANGRY,        /*  :@   */
+	EMPATHY_SMILEY_BOSS,         /*  @)   */
+	EMPATHY_SMILEY_MONKEY,       /*  #)   */
+	EMPATHY_SMILEY_SILLY,        /*  O)   */
+	EMPATHY_SMILEY_SICK,         /*  +o(  */
+
+	EMPATHY_SMILEY_COUNT
+} EmpathySmiley;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-new" role="function"/>empathy_chat_view_new ()</title>
+<indexterm><primary>empathy_chat_view_new</primary></indexterm><programlisting><link linkend="EmpathyChatView">EmpathyChatView</link>*    empathy_chat_view_new               (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-append-message" role="function"/>empathy_chat_view_append_message ()</title>
+<indexterm><primary>empathy_chat_view_append_message</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_append_message    (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="EmpathyMessage">EmpathyMessage</link> *msg);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-append-event" role="function"/>empathy_chat_view_append_event ()</title>
+<indexterm><primary>empathy_chat_view_append_event</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_append_event      (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *str);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-append-button" role="function"/>empathy_chat_view_append_button ()</title>
+<indexterm><primary>empathy_chat_view_append_button</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_append_button     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *message,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *button1,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *button2);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>button1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>button2</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-set-margin" role="function"/>empathy_chat_view_set_margin ()</title>
+<indexterm><primary>empathy_chat_view_set_margin</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_set_margin        (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gint">gint</link> margin);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>margin</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-scroll" role="function"/>empathy_chat_view_scroll ()</title>
+<indexterm><primary>empathy_chat_view_scroll</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_scroll            (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> allow_scrolling);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>allow_scrolling</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-scroll-down" role="function"/>empathy_chat_view_scroll_down ()</title>
+<indexterm><primary>empathy_chat_view_scroll_down</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_scroll_down       (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-get-selection-bounds" role="function"/>empathy_chat_view_get_selection_bounds ()</title>
+<indexterm><primary>empathy_chat_view_get_selection_bounds</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_view_get_selection_bounds
+                                                        (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *end);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>start</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>end</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-clear" role="function"/>empathy_chat_view_clear ()</title>
+<indexterm><primary>empathy_chat_view_clear</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_clear             (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-find-previous" role="function"/>empathy_chat_view_find_previous ()</title>
+<indexterm><primary>empathy_chat_view_find_previous</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_view_find_previous     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *search_criteria,
+                                                         <link linkend="gboolean">gboolean</link> new_search);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>search_criteria</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_search</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-find-next" role="function"/>empathy_chat_view_find_next ()</title>
+<indexterm><primary>empathy_chat_view_find_next</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_view_find_next         (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *search_criteria,
+                                                         <link linkend="gboolean">gboolean</link> new_search);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>search_criteria</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_search</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-find-abilities" role="function"/>empathy_chat_view_find_abilities ()</title>
+<indexterm><primary>empathy_chat_view_find_abilities</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_find_abilities    (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *search_criteria,
+                                                         <link linkend="gboolean">gboolean</link> *can_do_previous,
+                                                         <link linkend="gboolean">gboolean</link> *can_do_next);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>search_criteria</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>can_do_previous</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>can_do_next</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-highlight" role="function"/>empathy_chat_view_highlight ()</title>
+<indexterm><primary>empathy_chat_view_highlight</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_highlight         (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *text);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-copy-clipboard" role="function"/>empathy_chat_view_copy_clipboard ()</title>
+<indexterm><primary>empathy_chat_view_copy_clipboard</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_copy_clipboard    (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-get-irc-style" role="function"/>empathy_chat_view_get_irc_style ()</title>
+<indexterm><primary>empathy_chat_view_get_irc_style</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_view_get_irc_style     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-set-irc-style" role="function"/>empathy_chat_view_set_irc_style ()</title>
+<indexterm><primary>empathy_chat_view_set_irc_style</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_set_irc_style     (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> irc_style);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>irc_style</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-get-smiley-image" role="function"/>empathy_chat_view_get_smiley_image ()</title>
+<indexterm><primary>empathy_chat_view_get_smiley_image</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          empathy_chat_view_get_smiley_image  (<link linkend="EmpathySmiley">EmpathySmiley</link> smiley);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>smiley</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-get-smiley-text" role="function"/>empathy_chat_view_get_smiley_text ()</title>
+<indexterm><primary>empathy_chat_view_get_smiley_text</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_chat_view_get_smiley_text   (<link linkend="EmpathySmiley">EmpathySmiley</link> smiley);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>smiley</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-get-smiley-menu" role="function"/>empathy_chat_view_get_smiley_menu ()</title>
+<indexterm><primary>empathy_chat_view_get_smiley_menu</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_chat_view_get_smiley_menu   (<link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="GtkTooltips">GtkTooltips</link> *tooltips);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tooltips</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-view-set-is-group-chat" role="function"/>empathy_chat_view_set_is_group_chat ()</title>
+<indexterm><primary>empathy_chat_view_set_is_group_chat</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_view_set_is_group_chat (<link linkend="EmpathyChatView">EmpathyChatView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> is_group_chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_group_chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

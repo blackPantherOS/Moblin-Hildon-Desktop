@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyStatusIcon">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyStatusIcon</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyStatusIcon</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyStatusIconPriv">EmpathyStatusIconPriv</link>;
+                    <link linkend="EmpathyStatusIcon-struct">EmpathyStatusIcon</link>;
+<link linkend="EmpathyStatusIcon">EmpathyStatusIcon</link>*  <link linkend="empathy-status-icon-new">empathy_status_icon_new</link>             (<link linkend="GtkWindow">GtkWindow</link> *window);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyStatusIcon
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyStatusIconPriv" role="struct"/>EmpathyStatusIconPriv</title>
+<indexterm><primary>EmpathyStatusIconPriv</primary></indexterm><programlisting>typedef struct _EmpathyStatusIconPriv EmpathyStatusIconPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyStatusIcon-struct" role="struct"/>EmpathyStatusIcon</title>
+<indexterm><primary>EmpathyStatusIcon</primary></indexterm><programlisting>typedef struct _EmpathyStatusIcon EmpathyStatusIcon;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-status-icon-new" role="function"/>empathy_status_icon_new ()</title>
+<indexterm><primary>empathy_status_icon_new</primary></indexterm><programlisting><link linkend="EmpathyStatusIcon">EmpathyStatusIcon</link>*  empathy_status_icon_new             (<link linkend="GtkWindow">GtkWindow</link> *window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

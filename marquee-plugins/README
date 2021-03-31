@@ -1,0 +1,29 @@
+Overview of Marquee Plugins
+----------------------------
+This package contains all of the plugins for the marquee (bar at the top of 
+the UI).  It includes the following:
+  Application menu, navigation buttons, clock, close button
+These are Hildon TaskNavigatorItem-derived plugins.  For each plugin in this 
+package a library and .desktop file are created.  The 
+/etc/hildon-desktop/marquee.conf file contains the list of plugins in the 
+order they are displayed on the screen.  Unfortunately right now the Marquee 
+uses a GtkHBox to contain the plugins, so everything is packed left.  This 
+means that each plugin has to be correctly sized so that they all layout in 
+the rigth position.  A nice change would be to add support for a 
+GtkFixed-derived class for the Marquee so that the location and size of each 
+plugin would be independent.
+
+We would love help creating new, useful, and innovative plugins for the 
+marquee.  Things such as quick-launch or such have been discussed but not 
+planned.  The existing plugins could also use plenty of love.  We also need to create a plugin for the statusbar.  The existing statusbar plugin is just a 
+space holder for now.  The real statusbar is implemented elsewhere (hack).  
+Finally, none of the plugins do a good job of showing user interaction yet 
+(the buttons don't change image when clicked, for example).
+
+Build / Install
+------------
+./autogen.sh
+./configure --prefix=/usr
+make
+sudo make install
+

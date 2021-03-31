@@ -1,0 +1,16 @@
+usr/bin/moblin-media
+usr/share/applications/*
+usr/share/dbus-1/services/org.moblin.media.music.service
+usr/share/dbus-1/services/org.moblin.media.photo.service
+usr/share/dbus-1/services/org.moblin.media.service
+usr/share/dbus-1/services/org.moblin.media.video.service
+usr/share/gconf/schemas/*
+usr/share/icons/*
+usr/share/moblin-media/*.py
+usr/share/moblin-media/config
+usr/share/moblin-media/dialogs.glade
+usr/share/moblin-media/images/*
+usr/share/moblin-media/moblin_media.glade
+usr/share/moblin-media/settings_dialog.glade
+usr/share/moblin-media/version
+usr/share/themes/*

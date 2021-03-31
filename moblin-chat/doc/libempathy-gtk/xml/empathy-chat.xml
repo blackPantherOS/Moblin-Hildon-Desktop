@@ -1,0 +1,542 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyChat">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyChat</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyChat</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyChatPriv">EmpathyChatPriv</link>;
+                    <link linkend="EmpathyChat-struct">EmpathyChat</link>;
+<link linkend="EmpathyChatView">EmpathyChatView</link>*    <link linkend="empathy-chat-get-view">empathy_chat_get_view</link>               (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="EmpathyChatWindow">EmpathyChatWindow</link>*  <link linkend="empathy-chat-get-window">empathy_chat_get_window</link>             (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-set-window">empathy_chat_set_window</link>             (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="empathy-chat-present">empathy_chat_present</link>                (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-clear">empathy_chat_clear</link>                  (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-scroll-down">empathy_chat_scroll_down</link>            (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-cut">empathy_chat_cut</link>                    (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-copy">empathy_chat_copy</link>                   (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-paste">empathy_chat_paste</link>                  (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-chat-get-name">empathy_chat_get_name</link>               (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-chat-get-tooltip">empathy_chat_get_tooltip</link>            (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-chat-get-status-icon-name">empathy_chat_get_status_icon_name</link>   (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-chat-get-widget">empathy_chat_get_widget</link>             (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-is-group-chat">empathy_chat_is_group_chat</link>          (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-is-connected">empathy_chat_is_connected</link>           (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-chat-save-geometry">empathy_chat_save_geometry</link>          (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> w,
+                                                         <link linkend="gint">gint</link> h);
+<link linkend="void">void</link>                <link linkend="empathy-chat-load-geometry">empathy_chat_load_geometry</link>          (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="gint">gint</link> *x,
+                                                         <link linkend="gint">gint</link> *y,
+                                                         <link linkend="gint">gint</link> *w,
+                                                         <link linkend="gint">gint</link> *h);
+<link linkend="void">void</link>                <link linkend="empathy-chat-set-tp-chat">empathy_chat_set_tp_chat</link>            (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="EmpathyTpChat">EmpathyTpChat</link> *tp_chat);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-chat-get-id">empathy_chat_get_id</link>                 (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-get-is-command">empathy_chat_get_is_command</link>         (const <link linkend="gchar">gchar</link> *str);
+<link linkend="void">void</link>                <link linkend="empathy-chat-correct-word">empathy_chat_correct_word</link>           (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> end,
+                                                         const <link linkend="gchar">gchar</link> *new_word);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-should-play-sound">empathy_chat_should_play_sound</link>      (<link linkend="EmpathyChat">EmpathyChat</link> *chat);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chat-should-highlight-nick">empathy_chat_should_highlight_nick</link>  (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyChat
+         +----<link linkend="EmpathyGroupChat">EmpathyGroupChat</link>
+         +----<link linkend="EmpathyPrivateChat">EmpathyPrivateChat</link>
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyChat-composing">composing</link>&quot;                                      : Run Last
+  &quot;<link linkend="EmpathyChat-name-changed">name-changed</link>&quot;                                   : Run Last
+  &quot;<link linkend="EmpathyChat-new-message">new-message</link>&quot;                                    : Run Last
+  &quot;<link linkend="EmpathyChat-status-changed">status-changed</link>&quot;                                 : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyChatPriv" role="struct"/>EmpathyChatPriv</title>
+<indexterm><primary>EmpathyChatPriv</primary></indexterm><programlisting>typedef struct _EmpathyChatPriv EmpathyChatPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyChat-struct" role="struct"/>EmpathyChat</title>
+<indexterm><primary>EmpathyChat</primary></indexterm><programlisting>typedef struct _EmpathyChat EmpathyChat;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-view" role="function"/>empathy_chat_get_view ()</title>
+<indexterm><primary>empathy_chat_get_view</primary></indexterm><programlisting><link linkend="EmpathyChatView">EmpathyChatView</link>*    empathy_chat_get_view               (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-window" role="function"/>empathy_chat_get_window ()</title>
+<indexterm><primary>empathy_chat_get_window</primary></indexterm><programlisting><link linkend="EmpathyChatWindow">EmpathyChatWindow</link>*  empathy_chat_get_window             (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-set-window" role="function"/>empathy_chat_set_window ()</title>
+<indexterm><primary>empathy_chat_set_window</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_set_window             (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="EmpathyChatWindow">EmpathyChatWindow</link> *window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-present" role="function"/>empathy_chat_present ()</title>
+<indexterm><primary>empathy_chat_present</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_present                (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-clear" role="function"/>empathy_chat_clear ()</title>
+<indexterm><primary>empathy_chat_clear</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_clear                  (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-scroll-down" role="function"/>empathy_chat_scroll_down ()</title>
+<indexterm><primary>empathy_chat_scroll_down</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_scroll_down            (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-cut" role="function"/>empathy_chat_cut ()</title>
+<indexterm><primary>empathy_chat_cut</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_cut                    (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-copy" role="function"/>empathy_chat_copy ()</title>
+<indexterm><primary>empathy_chat_copy</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_copy                   (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-paste" role="function"/>empathy_chat_paste ()</title>
+<indexterm><primary>empathy_chat_paste</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_paste                  (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-name" role="function"/>empathy_chat_get_name ()</title>
+<indexterm><primary>empathy_chat_get_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_chat_get_name               (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-tooltip" role="function"/>empathy_chat_get_tooltip ()</title>
+<indexterm><primary>empathy_chat_get_tooltip</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_chat_get_tooltip            (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-status-icon-name" role="function"/>empathy_chat_get_status_icon_name ()</title>
+<indexterm><primary>empathy_chat_get_status_icon_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_chat_get_status_icon_name   (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-widget" role="function"/>empathy_chat_get_widget ()</title>
+<indexterm><primary>empathy_chat_get_widget</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_chat_get_widget             (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-is-group-chat" role="function"/>empathy_chat_is_group_chat ()</title>
+<indexterm><primary>empathy_chat_is_group_chat</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_is_group_chat          (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-is-connected" role="function"/>empathy_chat_is_connected ()</title>
+<indexterm><primary>empathy_chat_is_connected</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_is_connected           (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-save-geometry" role="function"/>empathy_chat_save_geometry ()</title>
+<indexterm><primary>empathy_chat_save_geometry</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_save_geometry          (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="gint">gint</link> x,
+                                                         <link linkend="gint">gint</link> y,
+                                                         <link linkend="gint">gint</link> w,
+                                                         <link linkend="gint">gint</link> h);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>w</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>h</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-load-geometry" role="function"/>empathy_chat_load_geometry ()</title>
+<indexterm><primary>empathy_chat_load_geometry</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_load_geometry          (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="gint">gint</link> *x,
+                                                         <link linkend="gint">gint</link> *y,
+                                                         <link linkend="gint">gint</link> *w,
+                                                         <link linkend="gint">gint</link> *h);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>w</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>h</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-set-tp-chat" role="function"/>empathy_chat_set_tp_chat ()</title>
+<indexterm><primary>empathy_chat_set_tp_chat</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_set_tp_chat            (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="EmpathyTpChat">EmpathyTpChat</link> *tp_chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tp_chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-id" role="function"/>empathy_chat_get_id ()</title>
+<indexterm><primary>empathy_chat_get_id</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_chat_get_id                 (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-get-is-command" role="function"/>empathy_chat_get_is_command ()</title>
+<indexterm><primary>empathy_chat_get_is_command</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_get_is_command         (const <link linkend="gchar">gchar</link> *str);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-correct-word" role="function"/>empathy_chat_correct_word ()</title>
+<indexterm><primary>empathy_chat_correct_word</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chat_correct_word           (<link linkend="EmpathyChat">EmpathyChat</link> *chat,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> end,
+                                                         const <link linkend="gchar">gchar</link> *new_word);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>start</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>end</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_word</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-should-play-sound" role="function"/>empathy_chat_should_play_sound ()</title>
+<indexterm><primary>empathy_chat_should_play_sound</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_should_play_sound      (<link linkend="EmpathyChat">EmpathyChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chat-should-highlight-nick" role="function"/>empathy_chat_should_highlight_nick ()</title>
+<indexterm><primary>empathy_chat_should_highlight_nick</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chat_should_highlight_nick  (<link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyChat-composing"/>The &quot;composing&quot; signal</title>
+<indexterm><primary>EmpathyChat::composing</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChat">EmpathyChat</link> *empathychat,
+                                                        <link linkend="gboolean">gboolean</link>     arg1,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)        : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyChat-name-changed"/>The &quot;name-changed&quot; signal</title>
+<indexterm><primary>EmpathyChat::name-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChat">EmpathyChat</link> *empathychat,
+                                                        <link linkend="gpointer">gpointer</link>     arg1,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)        : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyChat-new-message"/>The &quot;new-message&quot; signal</title>
+<indexterm><primary>EmpathyChat::new-message</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChat">EmpathyChat</link>    *empathychat,
+                                                        <link linkend="EmpathyMessage">EmpathyMessage</link> *arg1,
+                                                        <link linkend="gboolean">gboolean</link>        arg2,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)        : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyChat-status-changed"/>The &quot;status-changed&quot; signal</title>
+<indexterm><primary>EmpathyChat::status-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChat">EmpathyChat</link> *empathychat,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)        : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychat</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

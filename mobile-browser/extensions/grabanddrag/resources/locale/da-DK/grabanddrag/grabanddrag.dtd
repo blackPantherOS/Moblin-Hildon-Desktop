@@ -1,0 +1,75 @@
+<!ENTITY toggle.label "Slå Grab &amp; Drag til og fra">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Skift mellem Grab and Drag modi">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Grab &amp; Drag indstillinger">
+<!ENTITY options.reset "Nulstil alle indstillinger til standard">
+<!ENTITY options.tab.general "Generelt">
+<!ENTITY options.tab.behavior "Opførsel">
+<!ENTITY options.tab.mom "Moment">
+<!ENTITY options.tab.gestures "Bevægelser">
+<!ENTITY options.tab.advanced "Avanceret">
+<!ENTITY options.features "Funktioner">
+<!ENTITY enabled.label "Udvidelse slået til">
+<!ENTITY qt.label "Hurtig-skift-tast">
+<!ENTITY mousecursor.label "Musemarkør">
+<!ENTITY grabcursor.label "Tage-markør">
+<!ENTITY openhand.label "Åben hånd">
+<!ENTITY closedhand.label "Lukket hånd">
+<!ENTITY altopenhand.label "Åben hånd #2">
+<!ENTITY altclosedhand.label "Lukket hånd #2">
+<!ENTITY fourway.label "4-vejs-pil">
+<!ENTITY stdarrow.label "Standard pil">
+<!ENTITY defcur.label "Standard markør">
+<!ENTITY options.cursors "Markører">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Normal skifte-tastegenvej">
+<!ENTITY options.togKey "Tast">
+<!ENTITY options.dragInc "Træk forøgelse">
+<!ENTITY options.dragInc.min "glat">
+<!ENTITY options.dragInc.max "responsivt">
+<!ENTITY options.mult "Træk multiplikator">
+<!ENTITY options.mult.min "standard">
+<!ENTITY options.mult.max "hurtig">
+<!ENTITY options.sbmode "Rullebar træk modus">
+<!ENTITY options.samecur "Skift ikke">
+<!ENTITY options.reverse "Modsat retning">
+<!ENTITY options.behavior "Træk-opførsel">
+<!ENTITY options.behavior.scrolling "Rulle-opførsel">
+<!ENTITY options.flicks "Flick bevægelser">
+<!ENTITY options.flickon "Slå Flicks til">
+<!ENTITY options.flickspeed "Rullehastighed">
+<!ENTITY options.flickspeed.min "langsom">
+<!ENTITY options.flickspeed.max "hurtig">
+<!ENTITY options.flicktimelimit "Tidsbegrænsning">
+<!ENTITY options.flicktimelimit.min "kort">
+<!ENTITY options.flicktimelimit.max "lang">
+<!ENTITY options.mom "Trække-moment">
+<!ENTITY options.momOn "Slå moment til">
+<!ENTITY options.momExtent "Tidssensitivitet">
+<!ENTITY options.momExtent.min "kort">
+<!ENTITY options.momExtent.max "lang">
+<!ENTITY options.momVariation "Decelerationssensitivitet">
+<!ENTITY options.momVariation.min "lille">
+<!ENTITY options.momVariation.max "stor">
+<!ENTITY options.smoothStop "Udglattede rullestop">
+<!ENTITY notes "Noter">
+<!ENTITY prefs.rollForInfo "Flyt musen hen over en indstilling for yderligere information.">
+<!ENTITY prefs.enabledInfo "Grab and Drag kan også slås til og fra med en genvejstast og en værktøjslinie-knap.">
+<!ENTITY prefs.cursorwarning "Nogle operativsystemer kan muligvis ikke vise nogle markører korrekt.">
+<!ENTITY prefs.cursorwarning2 "Ved at lade markøren være uforandret kan ydelsen forøges drastisk på komplekse websider. Nogle operativsystemer kan muligvis ikke vise nogle markører korrekt.">
+<!ENTITY prefs.toolbarInfo "En værktøjslinieknap til at slå til og fra er også til rådighed (brug Vis &gt; Værktøjslinier &gt; Tilpas...)">
+<!ENTITY prefs.qtInfo "Hold 'Hurtig-skift'-tasten nede for at slå Grab &amp; Drag fra midlertidigt indtil tasten slippes. Dette tillader let markering af tekst etc.">
+<!ENTITY prefs.dragIncInfo "Forøgelse af dette parameter tvinger rulning til at foregå i større spring i antal pixel. Dette koster i forhold til glathed på rulningen, men giver bedre ydelse på nogle maskiner.">
+<!ENTITY prefs.multInfo "Forøgelse af dette parameter får skærmen til at rulle hurtigere end musemarkørens faktiske hastighed.">
+<!ENTITY prefs.reverseInfo "Vælg denne indstilling for at omvende retningen dokumentet rulles i forhold til musemarkørens bevægelse.">
+<!ENTITY prefs.sbmodeInfo "Vælg denne indstilling for at trække som om scrollbaren er under musemarkøren.">
+<!ENTITY prefs.flicksInfo "'Flicks' er musebevægelser lavet ved at man hurtigt fører pennen/musen hen over skærmen i en bestemt retning. Grab &amp; Drag tillader dig at bruge flicks til at rulle op, ned, til venstre eller til højre en skærm ad gangen. Flicks er mest anvendelige på pen-baserede computere.">
+<!ENTITY prefs.flickSpeedInfo "Dette fastsætter hvor hurtigt en flick ruller skærmen.">
+<!ENTITY prefs.flickTimeLimitInfo "Dette fastsætter hvor hurtigt flicken skal være udført for at være genkendt.">
+<!ENTITY prefs.momInfo "Hvis Moment er slået til, vil en side du slipper mens du er ved at trække den fortsætte med at rulle indtil klikket til at stoppe. Dette muliggør glidende og hurtig navigation gennem store sider.">
+<!ENTITY prefs.momExtentInfo "Dette fastsætter hvor lang tid en side skal trækkes ved næsten-konstant hastighed for at udløse moment. Generelt, jo mindre værdi, jo nemmere er det at udløse moment.">
+<!ENTITY prefs.momVariationInfo "Dette fastsætter hvor sensitiv moment er i forhold til deceleration. Generelt, jo mindre værdi, jo nemmere er det at udløse moment.">
+<!ENTITY prefs.smoothStopInfo "Vælg denne indstilling for at få et glat stop ved slutningen af en rulning genereret af moment eller Flicks.">

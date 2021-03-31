@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/gnome.mk
+
+build/network-manager-gnome::
+	/usr/bin/docbook-to-man debian/nm-applet.sgml > debian/nm-applet.1
+
+binary-install/network-manager-gnome::
+	mkdir -p debian/network-manager-gnome/etc/xdg/autostart
+	mv  debian/network-manager-gnome/usr/share/gnome/autostart/nm-applet.desktop \
+		debian/network-manager-gnome/etc/xdg/autostart/
+
+clean::
+	rm -f po/*.gmo
+	rm -f debian/*.1

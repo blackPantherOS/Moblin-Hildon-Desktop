@@ -1,0 +1,75 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          ppm 
+# Required-Start:    $local_fs dbus
+# Required-Stop:     $local_fs dbus
+# Default-Start:     2 3 4 5
+# Default-Stop:      S 0 1 6
+# Short-Description: Power-Profile-Manager (PPM) Daemon
+# Description:       The ppmd manages various power profiles that are tuned 
+#                    to maximize the life of your particular device
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=`which ppmd`
+PIDDIR=/var/run/ppmd
+PIDFILE=$PIDDIR/ppmd.pid
+NAME=ppmd
+DAEMONUSER=root
+DESC="Power-Profile-Manager"
+
+. /lib/lsb/init-functions
+
+test -x $DAEMON || exit 0
+
+set -e
+
+do_start() {
+	if [ ! -d $PIDDIR ]; then
+		mkdir -p $PIDDIR
+		chown $DAEMONUSER:$DAEMONUSER $PIDDIR
+	fi
+	start-stop-daemon --start --oknodo --pidfile $PIDFILE \
+		--exec $DAEMON -- $DAEMON_OPTS
+}
+
+do_stop() {
+	start-stop-daemon --stop --oknodo --quiet --pidfile $PIDFILE \
+		--exec $DAEMON 
+}
+
+case "$1" in
+  start)
+	if [ ! -e /var/run/dbus/system_bus_socket ]; then
+		log_failure_msg "Can't start $DESC - please ensure dbus is running"
+		exit 0
+	fi
+	
+	if [ "$(stat -c %d/%i /)" != "$(stat -Lc %d/%i /proc/1/root 2>/dev/null)" ]; then
+		log_failure_msg "Can't start $DESC - detected chrooted session"
+		exit 0
+	fi
+	
+	log_daemon_msg "Starting $DESC" "$NAME"
+	do_start
+	log_end_msg $?
+	;;
+  stop)
+	log_daemon_msg "Stopping $DESC" "$NAME"
+	do_stop
+	log_end_msg $?
+	;;
+  restart|force-reload)
+	log_daemon_msg "Restarting $DESC" "$NAME"
+	do_stop
+	sleep 1
+	do_start
+	log_end_msg $?
+	;;
+  *)
+	log_success_msg "Usage: $0 {start|stop|restart|force-reload}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

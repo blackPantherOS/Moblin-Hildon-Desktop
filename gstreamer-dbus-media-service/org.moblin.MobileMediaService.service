@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.moblin.MobileMediaService
+Exec=/usr/bin/gst-media-service

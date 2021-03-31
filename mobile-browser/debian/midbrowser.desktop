@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Web Browser
+Comment=Browse the Web
+GenericName=Web Browser
+Exec=midbrowser
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=midbrowser
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png
+StartupWMClass=Navigator
+StartupNotify=true
+Name[sv]=Webbläsaren Midbrowser
+Comment[sv]=Surfa på webben
+GenericName[sv]=Webbläsare
+OnlyShowIn=GNOME;Mobile
+Categories=GTK;Application;Network
+#X-Osso-Service=org.moblin.browser

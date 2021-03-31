@@ -1,0 +1,72 @@
+
+box[anonid="scaleBox"] {
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+}
+slider[anonid="scaleSlider"] {
+	background-image: url("chrome://grabanddrag/skin/sliderBack.png") !important;
+	-moz-appearance: none !important;
+	background-repeat: repeat-x;
+	min-width: 16px;
+	height: 20px !important;
+}
+slider[anonid="scaleSlider"]:hover {
+	background-image: url("chrome://grabanddrag/skin/sliderBack2.png") !important;
+}
+slider[anonid="scaleSlider"][disabled="true"] {
+	background-image: url("chrome://grabanddrag/skin/sliderBack.png") !important;
+}
+spacer[anonid="scaleSpacer"] { min-width: 5em; }
+thumb[anonid="scaleThumb"] {
+	-moz-appearance: none !important;
+	width: 14px; 
+	height: 20px !important;
+	background: none;
+	background-color: rgb(220,220,220);
+	-moz-border-bottom-colors: rgb(113, 111, 100) rgb(172, 168, 153);
+	-moz-border-left-colors: rgb(241, 239, 226) rgb(255, 255, 255);
+	-moz-border-right-colors: rgb(113, 111, 100) rgb(172, 168, 153);
+	-moz-border-top-colors: rgb(241, 239, 226) rgb(255, 255, 255);
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-right-width: 2px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+	
+	min-height: 8px !important;
+	min-width: 0px !important;
+}
+thumb[anonid="scaleThumb"]:hover {
+	background-color: rgb(236,236,236);
+	-moz-border-bottom-colors: rgb(123, 121, 110) rgb(182, 178, 163);
+	-moz-border-left-colors: rgb(251, 249, 236) rgb(255, 255, 255);
+	-moz-border-right-colors: rgb(123, 121, 110) rgb(182, 178, 163);
+	-moz-border-top-colors: rgb(251, 249, 236) rgb(255, 255, 255);
+}
+thumb[anonid="scaleThumb"]:active {
+	background-color: rgb(200,200,200);
+	-moz-border-bottom-colors: rgb(103, 101, 90) rgb(162, 158, 143);
+	-moz-border-left-colors: rgb(231, 229, 216) rgb(245, 245, 245);
+	-moz-border-right-colors: rgb(103, 101, 90) rgb(162, 158, 143);
+	-moz-border-top-colors: rgb(231, 229, 216) rgb(245, 245, 245);
+}
+thumb[anonid="scaleThumb"][disabled="true"] {
+	opacity: 0 !important;
+}
+thumb[anonid="scaleThumb"] > gripper {    
+	-moz-appearance: none !important;
+	background-color: #EFF5FB;
+	border: none;
+}
+box.zeroWidth { 
+	overflow: visible;
+	-moz-box-pack: center;
+	font-size: 0.85em; 
+}
+box.zeroWidth[orient="horizontal"] {max-width: 0.1px;}
+box.zeroWidth[orient="vertical"] {max-height: 0.1px;}
+box.zeroWidth[disabled="true"] { color: graytext; }
+label[disabled="true"] { color: graytext; }

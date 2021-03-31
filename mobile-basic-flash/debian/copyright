@@ -1,0 +1,32 @@
+Author: Bob Spencer <bob.spencer@intel.com>
+/*
+ * This plugin based on the example dummy plugin from the Maemo
+ * maemo-af-desktop repository.  Original copyright declaration:
+ * Lucas Rocha <lucas.rocha@nokia.com>
+ * Copyright 2006 Nokia Corporation.
+ *
+ * Modifcations transform the example to an embedded mozilla home applet:
+ * Bob Spencer <bob.spencer@intel.com>
+ * Copyright 2007 Intel Corporation
+ *
+ * Contributors:
+ * Rusty Lynch <rusty.lynch@intel.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License
+ * version 2.1 as published by the Free Software Foundation.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA
+ */
+
+On Ubuntu and Debian systems, the complete text of the GNU Lesser
+General Public License version 2.1 can be found in
+`/usr/share/common-licenses/LGPL-2.1'.

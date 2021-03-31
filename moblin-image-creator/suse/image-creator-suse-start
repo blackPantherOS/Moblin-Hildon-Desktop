@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo cp ~/.Xauthority ~/proot$HOME
+cd ~/proot
+/usr/sbin/image-creator-suse-umount
+/usr/sbin/image-creator-suse-mount
+sudo chroot . <<EOF
+export http_proxy=""
+export PATH=/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:$PATH
+export LANG=en_US.UTF-8
+/usr/sbin/image-creator
+EOF
+

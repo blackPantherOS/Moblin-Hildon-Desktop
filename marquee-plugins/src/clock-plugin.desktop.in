@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Clock Plugin
+Type=default
+X-Path=libclockplugin.so
+

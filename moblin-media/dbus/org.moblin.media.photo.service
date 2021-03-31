@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.moblin.media.photo
+Exec=/usr/bin/moblin-media --mode photo 
+

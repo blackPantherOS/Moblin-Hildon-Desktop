@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyChatroomManager</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="libempathy-empathy-utils.html" title="empathy-utils">
+<link rel="next" href="EmpathyContact.html" title="EmpathyContact">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-empathy-utils.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyContact.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2588777" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2612233" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2612179" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2612203" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyChatroomManager"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2588777"></a><span class="refentrytitle">EmpathyChatroomManager</span>
+</h2>
+<p>EmpathyChatroomManager</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyChatroomManager.html#EmpathyChatroomManagerPriv">EmpathyChatroomManagerPriv</a>;
+                    <a href="EmpathyChatroomManager.html#EmpathyChatroomManager-struct">EmpathyChatroomManager</a>;
+<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a>* <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-new">empathy_chatroom_manager_new</a>    (void);
+gboolean            <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-add">empathy_chatroom_manager_add</a>        (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);
+void                <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-remove">empathy_chatroom_manager_remove</a>     (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);
+<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>*    <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-find">empathy_chatroom_manager_find</a>       (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *room);
+GList*              <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-get-chatrooms">empathy_chatroom_manager_get_chatrooms</a>
+                                                        (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+guint               <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-get-count">empathy_chatroom_manager_get_count</a>  (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+void                <a href="EmpathyChatroomManager.html#empathy-chatroom-manager-store">empathy_chatroom_manager_store</a>      (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2612179"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyChatroomManager
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2612203"></a><h2>Signals</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyChatroomManager.html#EmpathyChatroomManager-chatroom-added">chatroom-added</a>"                                 : Run Last
+  "<a href="EmpathyChatroomManager.html#EmpathyChatroomManager-chatroom-removed">chatroom-removed</a>"                               : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2612233"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2612249"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2612260"></a><h3>
+<a name="EmpathyChatroomManagerPriv"></a>EmpathyChatroomManagerPriv</h3>
+<a class="indexterm" name="id2612271"></a><pre class="programlisting">typedef struct _EmpathyChatroomManagerPriv EmpathyChatroomManagerPriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2612287"></a><h3>
+<a name="EmpathyChatroomManager-struct"></a>EmpathyChatroomManager</h3>
+<a class="indexterm" name="id2612299"></a><pre class="programlisting">typedef struct _EmpathyChatroomManager EmpathyChatroomManager;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2612314"></a><h3>
+<a name="empathy-chatroom-manager-new"></a>empathy_chatroom_manager_new ()</h3>
+<a class="indexterm" name="id2612325"></a><pre class="programlisting"><a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a>* empathy_chatroom_manager_new    (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616267"></a><h3>
+<a name="empathy-chatroom-manager-add"></a>empathy_chatroom_manager_add ()</h3>
+<a class="indexterm" name="id2616280"></a><pre class="programlisting">gboolean            empathy_chatroom_manager_add        (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616358"></a><h3>
+<a name="empathy-chatroom-manager-remove"></a>empathy_chatroom_manager_remove ()</h3>
+<a class="indexterm" name="id2616371"></a><pre class="programlisting">void                empathy_chatroom_manager_remove     (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616439"></a><h3>
+<a name="empathy-chatroom-manager-find"></a>empathy_chatroom_manager_find ()</h3>
+<a class="indexterm" name="id2616452"></a><pre class="programlisting"><a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>*    empathy_chatroom_manager_find       (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *room);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>room</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2615435"></a><h3>
+<a name="empathy-chatroom-manager-get-chatrooms"></a>empathy_chatroom_manager_get_chatrooms ()</h3>
+<a class="indexterm" name="id2615448"></a><pre class="programlisting">GList*              empathy_chatroom_manager_get_chatrooms
+                                                        (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2615527"></a><h3>
+<a name="empathy-chatroom-manager-get-count"></a>empathy_chatroom_manager_get_count ()</h3>
+<a class="indexterm" name="id2615541"></a><pre class="programlisting">guint               empathy_chatroom_manager_get_count  (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2615619"></a><h3>
+<a name="empathy-chatroom-manager-store"></a>empathy_chatroom_manager_store ()</h3>
+<a class="indexterm" name="id2615632"></a><pre class="programlisting">void                empathy_chatroom_manager_store      (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *manager);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2615679"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2615690"></a><h3>
+<a name="EmpathyChatroomManager-chatroom-added"></a>The "chatroom-added" signal</h3>
+<a class="indexterm" name="id2615700"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *empathychatroommanager,
+                                                        <a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>        *arg1,
+                                                        gpointer                user_data)                   : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathychatroommanager</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2615789"></a><h3>
+<a name="EmpathyChatroomManager-chatroom-removed"></a>The "chatroom-removed" signal</h3>
+<a class="indexterm" name="id2615799"></a><pre class="programlisting">void                user_function                      (<a href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">EmpathyChatroomManager</a> *empathychatroommanager,
+                                                        <a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>        *arg1,
+                                                        gpointer                user_data)                   : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathychatroommanager</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

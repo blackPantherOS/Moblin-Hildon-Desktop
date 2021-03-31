@@ -1,0 +1,71 @@
+2007-03-21  Pema Geyleg <pema.geyleg@gmail.com>
+
+	* configure.ac: Added 'dz' to ALL_LINGUAS
+
+2007-03-12  Baris Cicek <baris@teamforce.name.tr>
+
+	* configure.ac: Added 'tr' to ALL_LINGUAS.
+
+2007-03-07  Dan Williams  <dcbw@redhat.com>
+
+	Patch from Sertaç Ö. Yıldız <sertacyildiz@gmail.com>
+
+	* src/applet.c
+		- (nma_get_instance) Initialize widgets earlier (Gnome.org #413245)
+
+2007-03-05  Abel Cheung  <abelcheung@gmail.com>
+
+	* configure.ac: Added 'ru' 'zh_HK' to ALL_LINGUAS.
+
+2007-03-05  Ignacio Casal Quinteiro  <nacho.resa@gmail.com>
+
+	* configure.ac: Added 'gl' to ALL_LINGUAS
+
+2007-03-04  Duarte Loreto <happyguy_pt@hotmail.com>
+
+	* configure.ac: Added Portuguese (pt) to ALL_LINGUAS.
+
+2007-03-04  Matic Zgur  <mr.zgur@gmail.com>
+
+	* configure.ac: Added 'sl' to ALL_LINGUAS.
+
+2007-02-23  Lorenzo Colitti  <lor@flyingsaucer.colitti.com>
+
+    * src/applet-dbus-info.c: (nmi_dbus_get_key_for_network):
+        - If a wireless network is using 802.1x authentication, return
+	  security information without looking in the keyring.
+	    (bug #411039)
+
+2007-02-09  Dan Williams  <dcbw@redhat.com>
+
+    * nm-applet.conf
+        - Raise D-Bus pending call limit to 512
+
+2007-02-08  Dan Williams  <dcbw@redhat.com>
+
+    Patch from Chris Aillon <caillon@redhat.com>
+
+    * src/applet-compat.c
+        - (convert_one_entry): Don't attempt to pass empty ESSID paths to GConf
+            (RH #216502)
+
+2007-02-03  Dan Williams  <dcbw@redhat.com>
+
+	Patch from:
+	Volker Braun <volker.braun@physik.hu-berlin.de>
+	Stefan Schmidt <stefan@datenfreihafen.org>
+
+	* src/wireless-security-option.c
+		- (wso_wpa_create_phase2_type_model): create model for phase2 type
+			menu
+
+	* src/nm-gconf-wso-wpa-eap.c
+		- handle phase2 type and read/write from GConf
+
+	* src/wso-wpa-eap.c
+		- Add phase2 type UI bits
+
+	* src/applet.glade
+		- Phase 2 dialog controls
+
+***** import from NetworkManager module *****

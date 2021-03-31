@@ -1,0 +1,17 @@
+#!/bin/sh -e
+# installer startup script for udev
+
+# Copy over default device tree
+cp -a -f /lib/udev/devices/* /dev
+
+# It's all over netlink now
+echo "" > /proc/sys/kernel/hotplug
+
+# Start udevd
+udevd --daemon
+
+# Create all device nodes, and fix up permissions and missing stuff for
+# those already created (by initramfs)
+/sbin/udevtrigger
+/sbin/udevsettle
+

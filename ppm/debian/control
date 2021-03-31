@@ -1,0 +1,12 @@
+Source: ppm
+Section: admin
+Priority: extra
+Maintainer: Mohamed Abbas <mohamed.abbas@intel.com>
+Build-Depends: debhelper (>= 5), libdbus-1-dev, libdbus-glib-1-dev, libhal-dev, x11proto-core-dev, libx11-dev, x11proto-xext-dev, libxext-dev, libgtk2.0-dev (>= 2.10), libatk1.0-dev
+Standards-Version: 3.7.2
+
+Package: ppm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxext6, xbacklight
+Description: Linux Power-Policy-Manager (PPM)
+ The Power Policy Manager (PPM) is a layered system-wide power policy manager.

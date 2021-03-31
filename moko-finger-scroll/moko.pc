@@ -1,0 +1,14 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+gtk_binary_version=0.1.0
+gtk_host=i486-pc-linux-gnu
+
+Name: Moko
+Description: Moko Finger Scroll lib
+Requires: 
+Version: 0.1.0
+Cflags: -I${includedir}/moko
+Libs: -L${libdir} -lmokofingerscroll

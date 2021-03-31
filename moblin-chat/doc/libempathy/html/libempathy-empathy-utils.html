@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>empathy-utils</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="libempathy-empathy-time.html" title="empathy-time">
+<link rel="next" href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-empathy-time.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyChatroomManager.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2560478" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2613186" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-empathy-utils"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2560478"></a><span class="refentrytitle">empathy-utils</span>
+</h2>
+<p>empathy-utils</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+#define             <a href="libempathy-empathy-utils.html#G-STR-EMPTY:CAPS">G_STR_EMPTY</a>                         (x)
+enum                <a href="libempathy-empathy-utils.html#EmpathyRegExType">EmpathyRegExType</a>;
+gchar*              <a href="libempathy-empathy-utils.html#empathy-substring">empathy_substring</a>                   (const gchar *str,
+                                                         gint start,
+                                                         gint end);
+gint                <a href="libempathy-empathy-utils.html#empathy-regex-match">empathy_regex_match</a>                 (<a href="libempathy-empathy-utils.html#EmpathyRegExType">EmpathyRegExType</a> type,
+                                                         const gchar *msg,
+                                                         GArray *start,
+                                                         GArray *end);
+gint                <a href="libempathy-empathy-utils.html#empathy-strcasecmp">empathy_strcasecmp</a>                  (const gchar *s1,
+                                                         const gchar *s2);
+gint                <a href="libempathy-empathy-utils.html#empathy-strncasecmp">empathy_strncasecmp</a>                 (const gchar *s1,
+                                                         const gchar *s2,
+                                                         gsize n);
+gboolean            <a href="libempathy-empathy-utils.html#empathy-xml-validate">empathy_xml_validate</a>                (xmlDoc *doc,
+                                                         const gchar *dtd_filename);
+xmlNodePtr          <a href="libempathy-empathy-utils.html#empathy-xml-node-get-child">empathy_xml_node_get_child</a>          (xmlNodePtr node,
+                                                         const gchar *child_name);
+xmlChar*            <a href="libempathy-empathy-utils.html#empathy-xml-node-get-child-content">empathy_xml_node_get_child_content</a>  (xmlNodePtr node,
+                                                         const gchar *child_name);
+xmlNodePtr          <a href="libempathy-empathy-utils.html#empathy-xml-node-find-child-prop-value">empathy_xml_node_find_child_prop_value</a>
+                                                        (xmlNodePtr node,
+                                                         const gchar *prop_name,
+                                                         const gchar *prop_value);
+guint               <a href="libempathy-empathy-utils.html#empathy-account-hash">empathy_account_hash</a>                (gconstpointer key);
+gboolean            <a href="libempathy-empathy-utils.html#empathy-account-equal">empathy_account_equal</a>               (gconstpointer a,
+                                                         gconstpointer b);
+<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#MissionControl"
+>MissionControl</a>*     <a href="libempathy-empathy-utils.html#empathy-mission-control-new">empathy_mission_control_new</a>         (void);
+gchar*              <a href="libempathy-empathy-utils.html#empathy-inspect-handle">empathy_inspect_handle</a>              (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         guint handle,
+                                                         guint handle_type);
+gchar*              <a href="libempathy-empathy-utils.html#empathy-inspect-channel">empathy_inspect_channel</a>             (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         TpChan *tp_chan);
+gboolean            <a href="libempathy-empathy-utils.html#empathy-strdiff">empathy_strdiff</a>                     (const gchar *left,
+                                                         const gchar *right);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2613186"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2613202"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2613213"></a><h3>
+<a name="G-STR-EMPTY:CAPS"></a>G_STR_EMPTY()</h3>
+<a class="indexterm" name="id2613225"></a><pre class="programlisting">#define G_STR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613260"></a><h3>
+<a name="EmpathyRegExType"></a>enum EmpathyRegExType</h3>
+<a class="indexterm" name="id2613273"></a><pre class="programlisting">typedef enum {
+	EMPATHY_REGEX_AS_IS,
+	EMPATHY_REGEX_BROWSER,
+	EMPATHY_REGEX_EMAIL,
+	EMPATHY_REGEX_OTHER,
+	EMPATHY_REGEX_ALL,
+} EmpathyRegExType;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613290"></a><h3>
+<a name="empathy-substring"></a>empathy_substring ()</h3>
+<a class="indexterm" name="id2613303"></a><pre class="programlisting">gchar*              empathy_substring                   (const gchar *str,
+                                                         gint start,
+                                                         gint end);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>start</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>end</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613402"></a><h3>
+<a name="empathy-regex-match"></a>empathy_regex_match ()</h3>
+<a class="indexterm" name="id2613414"></a><pre class="programlisting">gint                empathy_regex_match                 (<a href="libempathy-empathy-utils.html#EmpathyRegExType">EmpathyRegExType</a> type,
+                                                         const gchar *msg,
+                                                         GArray *start,
+                                                         GArray *end);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>start</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>end</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613534"></a><h3>
+<a name="empathy-strcasecmp"></a>empathy_strcasecmp ()</h3>
+<a class="indexterm" name="id2613547"></a><pre class="programlisting">gint                empathy_strcasecmp                  (const gchar *s1,
+                                                         const gchar *s2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>s1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>s2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2613624"></a><h3>
+<a name="empathy-strncasecmp"></a>empathy_strncasecmp ()</h3>
+<a class="indexterm" name="id2613637"></a><pre class="programlisting">gint                empathy_strncasecmp                 (const gchar *s1,
+                                                         const gchar *s2,
+                                                         gsize n);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>s1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>s2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>n</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616644"></a><h3>
+<a name="empathy-xml-validate"></a>empathy_xml_validate ()</h3>
+<a class="indexterm" name="id2616655"></a><pre class="programlisting">gboolean            empathy_xml_validate                (xmlDoc *doc,
+                                                         const gchar *dtd_filename);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>doc</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>dtd_filename</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616724"></a><h3>
+<a name="empathy-xml-node-get-child"></a>empathy_xml_node_get_child ()</h3>
+<a class="indexterm" name="id2616734"></a><pre class="programlisting">xmlNodePtr          empathy_xml_node_get_child          (xmlNodePtr node,
+                                                         const gchar *child_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>node</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>child_name</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616809"></a><h3>
+<a name="empathy-xml-node-get-child-content"></a>empathy_xml_node_get_child_content ()</h3>
+<a class="indexterm" name="id2616820"></a><pre class="programlisting">xmlChar*            empathy_xml_node_get_child_content  (xmlNodePtr node,
+                                                         const gchar *child_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>node</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>child_name</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616898"></a><h3>
+<a name="empathy-xml-node-find-child-prop-value"></a>empathy_xml_node_find_child_prop_value ()</h3>
+<a class="indexterm" name="id2616911"></a><pre class="programlisting">xmlNodePtr          empathy_xml_node_find_child_prop_value
+                                                        (xmlNodePtr node,
+                                                         const gchar *prop_name,
+                                                         const gchar *prop_value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>node</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>prop_name</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>prop_value</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617012"></a><h3>
+<a name="empathy-account-hash"></a>empathy_account_hash ()</h3>
+<a class="indexterm" name="id2617023"></a><pre class="programlisting">guint               empathy_account_hash                (gconstpointer key);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617080"></a><h3>
+<a name="empathy-account-equal"></a>empathy_account_equal ()</h3>
+<a class="indexterm" name="id2617091"></a><pre class="programlisting">gboolean            empathy_account_equal               (gconstpointer a,
+                                                         gconstpointer b);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>a</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>b</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617169"></a><h3>
+<a name="empathy-mission-control-new"></a>empathy_mission_control_new ()</h3>
+<a class="indexterm" name="id2617180"></a><pre class="programlisting"><a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#MissionControl"
+>MissionControl</a>*     empathy_mission_control_new         (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617216"></a><h3>
+<a name="empathy-inspect-handle"></a>empathy_inspect_handle ()</h3>
+<a class="indexterm" name="id2617227"></a><pre class="programlisting">gchar*              empathy_inspect_handle              (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         guint handle,
+                                                         guint handle_type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle_type</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617326"></a><h3>
+<a name="empathy-inspect-channel"></a>empathy_inspect_channel ()</h3>
+<a class="indexterm" name="id2617338"></a><pre class="programlisting">gchar*              empathy_inspect_channel             (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         TpChan *tp_chan);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>tp_chan</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2617415"></a><h3>
+<a name="empathy-strdiff"></a>empathy_strdiff ()</h3>
+<a class="indexterm" name="id2617428"></a><pre class="programlisting">gboolean            empathy_strdiff                     (const gchar *left,
+                                                         const gchar *right);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>left</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>right</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

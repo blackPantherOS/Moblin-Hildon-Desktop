@@ -1,0 +1,48 @@
+This is MozPlugger version 1.10.1
+Originally written by Fredrik Hübinette (c) 1997-2001
+Maintained by Louis Bavoil and Peter Leese (c) 2002-2008
+Homepage : http://mozplugger.mozdev.org
+
+This software is distributed under the General Public License.
+Absolutely no warranties. Use this software on your own risk.
+See the file COPYING for more information.
+
+To re-compile:
+	Edit Makefile to suit to your system.
+	Type 'make'.
+Notes:
+        * You will need xlibs-dev (Debian) or libxfree86-devel
+        (Mandrake), or equivalent headers to compile.
+        * For 64-bit architectures, use the flag -D__amd64__ and
+	set XLIBDIR to your lib64 directory in the Makefile.
+
+To install in your own directory: (for Mozilla/Firefox)
+	make localinstall_mozilla
+
+To install in your own directory: (for Netscape)
+	make localinstall_netscape
+
+To install in your own directory: (for Opera)
+	make localinstall_opera
+
+To install globally:
+	make install
+or:	
+	make install prefix=/usr/local
+
+Your global plugin directory is typically one of:
+   /usr/lib/netscape/plugins
+   /usr/lib/mozilla/plugins
+   $MOZILLA_HOME/plugins
+
+I you don't want to put mozpluggerrc in /etc/ you can put it in one of:
+   $MOZILLA_HOME
+   /usr/local/mozilla/
+   /usr/local/netscape/
+   /usr/etc/
+
+You might also want to customize your 'mozpluggerrc' file before installing it.
+
+In case of problem with this version, submit a bug report on
+http://mozplugger.mozdev.org describing your problem, your system and
+an URL which causes the problem if possible.

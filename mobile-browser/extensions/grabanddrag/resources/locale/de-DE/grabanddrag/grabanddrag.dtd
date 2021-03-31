@@ -1,0 +1,106 @@
+<!ENTITY toggle.label "Schalte &apos;Grab and Drag&apos; um">
+<!ENTITY grabanddrag.label "&apos;Grab and Drag&apos; [de]">
+<!ENTITY grabanddrag.tooltip "&apos;Grab and Drag&apos; de-/aktivieren">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Grab and Drag Einstellungen">
+<!ENTITY options.apply "Übernehmen">
+<!ENTITY options.wizard "Einrichtungsassistent">
+<!ENTITY options.reset "Alle Einstellungen auf Standard">
+<!ENTITY options.tab.general "Allgemein">
+<!ENTITY options.tab.behavior "Weitere Optionen">
+<!ENTITY options.tab.mom "Trägheit">
+<!ENTITY options.tab.gestures "Gesten">
+<!ENTITY options.tab.advanced "Darstellung">
+<!ENTITY options.features "Eigenschaften">
+<!ENTITY enabled.label "Erweiterung aktiv">
+<!ENTITY mousecursor.label "Mauszeiger">
+<!ENTITY grabcursor.label "Fassender Zeiger">
+<!ENTITY openhand.label "Offene Hand">
+<!ENTITY closedhand.label "Geschlossene Hand">
+<!ENTITY altopenhand.label "Offene Hand Nr.2">
+<!ENTITY altclosedhand.label "Geschlossene Hand Nr.2">
+<!ENTITY fourway.label "4-Wegepfeil">
+<!ENTITY stdarrow.label "Standardpfeil">
+<!ENTITY nocursor.label "Unsichtbar">
+<!ENTITY defcur.label "Standardzeiger">
+<!ENTITY options.cursors "Mauszeiger">
+<!ENTITY options.togUseCtrl "Strg">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Umsch">
+<!ENTITY options.togKeyCap "Aktivierungstaste">
+<!ENTITY options.togKey "Taste">
+<!ENTITY options.dragInc "Zieh-Abstufungen">
+<!ENTITY options.dragInc.min "glatt">
+<!ENTITY options.dragInc.max "schnell/interaktiv">
+<!ENTITY options.mult "Rollrate">
+<!ENTITY options.mult.min "synchron">
+<!ENTITY options.mult.max "x-fach">
+<!ENTITY options.sbmode "Emuliere Ziehen der Bildlaufleisten">
+<!ENTITY options.samecur "Nicht wechseln (schneller)">
+<!ENTITY options.reverse "Richtung umkehren">
+<!ENTITY options.behavior "Verhalten">
+<!ENTITY options.behavior.drag "Zieh-Verhalten">
+<!ENTITY options.behavior.scrolling "Bildlauf">
+<!ENTITY options.flicks "Schnips-Gesten">
+<!ENTITY options.flickon "Schnipsen einschalten">
+<!ENTITY options.flickExtent "Gesten verhalten sich wie">
+<!ENTITY options.flickOneScreen "Bildlauftasten (ein Bildschirm voll)">
+<!ENTITY options.flickWholePage "Pos1/Ende (zum Anfang/Ende der Seite)">
+<!ENTITY options.flickspeed "Schnips-Geschwindigkeit">
+<!ENTITY options.flickspeed.min "langsam">
+<!ENTITY options.flickspeed.max "schnell">
+<!ENTITY options.flicktimelimit "Zeit-Obergrenze">
+<!ENTITY options.flicktimelimit.min "kurz">
+<!ENTITY options.flicktimelimit.max "lang">
+<!ENTITY options.mom "Zieh-Trägheit">
+<!ENTITY options.momOn "Trägheit einschalten">
+<!ENTITY options.momExtent "Dauer der Bewegung">
+<!ENTITY options.momExtent.min "kurz">
+<!ENTITY options.momExtent.max "lang">
+<!ENTITY options.momVariation "Verzögerung gegen Ende">
+<!ENTITY options.momVariation.min "klein/sensibel">
+<!ENTITY options.momVariation.max "groß/robust">
+<!ENTITY options.momFriction "Reibung">
+<!ENTITY options.momFriction.min "freies Gleiten">
+<!ENTITY options.momFriction.max "stumpf">
+<!ENTITY options.smoothStop "Sanftes Anhalten aus Schnipsen und Trägheit">
+<!ENTITY options.button1 "Benutze die">
+<!ENTITY left "linke">
+<!ENTITY middle "mittlere">
+<!ENTITY right "rechte">
+<!ENTITY options.button2 "Maustaste zum Greifen und Ziehen">
+<!ENTITY one "1">
+<!ENTITY two "2">
+<!ENTITY three "3">
+<!ENTITY options.QT "Text Auswahl">
+<!ENTITY qt.clicking "Durch">
+<!ENTITY qt.enable "Mal Klicken auf Text den Auswahl-Modus aktivieren">
+<!ENTITY qt.disable "Mal Klicken neben Text zurück in Ziehen-Modus">
+<!ENTITY qt.qtOffCopy "In die Zwischenablage kopieren bei Verlassen des Auswahl-Modus">
+<!ENTITY options.preLevel1 "Greife">
+<!ENTITY preLevel.0 "Nicht-Text/Nicht-Verknüpfung">
+<!ENTITY preLevel.1 "Nicht-Verknüpfung">
+<!ENTITY preLevel.2 "Überall auf der Seite">
+<!ENTITY options.preLevel2 "zum Ziehen">
+<!ENTITY prefs.cursorwarning "Hinweis: Einige Betriebssysteme könnten Probleme haben, die Mauszeiger darzustellen.">
+<!ENTITY prefs.dragIncInfo "Der Bildlauf springt immer in Schritten. Je grösser die Zahl, desto schneller folgt der gezogene Inhalt der Mausbewegung, insbesondere auf älteren Rechnern. Kleinere Werte lassen die Seite glatter wandern und dämpfen wahrnehmbare Sprünge.">
+<!ENTITY prefs.multInfo "Eine Rollrate von 2 bewirkt, dass der Inhalt um die doppelte Distanz der Mausbewegung verschoben wird.">
+<!ENTITY prefs.momInfo "Mit Trägheit bewegt sich eine Seite selbständig weiter, wenn sie bei konstanter Maus-Geschwindigkeit losgelassen wird. Das &quot;Werfen&quot; erlaubt komfortabel ohne Nachfassen zum Anfang bzw. Ende zu gelangen. Abbruch durch Klicken.">
+<!ENTITY prefs.momParamInfo "Die Dauer gibt an, wie lange mit nahezu konstanter Geschwindigkeit gezogen werden muss, um die Trägheitsbewegung auszulösen. Die Verzögerung erlaubt ein Abfallen der Mausgeschwindigkeit kurz vor dem Loslassen und grenzt damit vom normalen Ziehen und Ablegen ab. Für beide Werte gilt: Je kleiner desto einfacher lässt sich die Trägheit auslösen.">
+<!ENTITY prefs.momParamInfo2 "Die Reibung stellt ein, wie stark eine &quot;geworfene&quot; Seite abbremst. Kleine Werte lassen die Seite bis zum Anfang/Ende gleiten; höhere Werte dämpfen die Trägheitsbewegung.">
+<!ENTITY prefs.flicksInfo "Schnipsen bedeutet, den Stift (die Maus) schnell über den Bildschirm zu führen, und ihn dabei kurz zu berühren (zu greifen), um je einen Bildschirm voll in die Richtung zu rollen. Da das mit der Maus recht schwer zu kontrollieren ist, eignet es sich insbesondere für Computer mit alternativen Eingabegeräten wie einem Stift (engl. Pen).">
+<!ENTITY prefs.flickTimeLimitInfo "Dies bestimmt, wie schnell der Schnipser gemacht werden muss, damit er erkannt wird. Der Wert ist in Millisekunden.">
+<!ENTITY wiz.title "&apos;Grab and Drag&apos; Einrichtungsassistent">
+<!ENTITY wiz.go "Fertig">
+<!ENTITY wiz.config "Ich benutze &apos;Grab and Drag&apos; mit ...">
+<!ENTITY wiz.3button "3-Tasten-Maus (benutze mittlere Taste)">
+<!ENTITY wiz.2buttonR "2-Tasten-Maus (benutze rechte Taste)">
+<!ENTITY wiz.2buttonL "1- oder 2-Tasten-Maus (benutze linke Taste)">
+<!ENTITY wiz.pen "Stift (engl. Pen, linke Taste + Gesten)">
+<!ENTITY wiz.addTB "Füge Schalter zum Aktivieren von &apos;Grab and Drag&apos; zur Symbolleiste hinzu.">
+<!ENTITY wiz.openprefs "Öffne die erweiterten Einstellung im Anschluss">
+<!ENTITY wiz.notes "Willkommen zum Einrichtungsassitenten von &apos;Grab and Drag&apos; (engl. Ziehen und Ablegen). Er erlaubt Ihnen die einfache Anpassung der Erweiterung an Ihren Computer. Viele zusätzliche Details finden sie in den erweiterten Einstellungen.">
+<!ENTITY wiz.please "Bitte beachten:">
+<!ENTITY wiz.notes2 "Die häufigste Frage neuer Benutzer von &apos;Grab and Drag&apos; ist, wie es deaktiviert wird, um Text auszuwählen. Es gibt drei Wege: Eine Tastenkombination, der Schalter in der Symbolleiste und der Auswahlmodus, der aktiviert wird durch Anklicken von Text. Mehr Information finden Sie in den erweiterten Einstellungen.">
+<!ENTITY wiz.notes3 "beachten Sie bitte, dass die Funktion &apos;Schnelles Abschalten&apos; durch den Text-Auswahlmodus ersetzt wurde.">
+<!ENTITY wiz.ifprev "Falls Sie eine ältere Version von &apos;Grab and Drag&apos; benutzt haben,">

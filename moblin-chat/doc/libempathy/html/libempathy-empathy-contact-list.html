@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>empathy-contact-list</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyMessage.html" title="EmpathyMessage">
+<link rel="next" href="EmpathyFilter.html" title="EmpathyFilter">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyMessage.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyFilter.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2559936" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2606692" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2565893" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2565917" class="shortcut">Known Implementations</a>
+                  &#160;|&#160;
+                  <a href="#id2565949" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-empathy-contact-list"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2559936"></a><span class="refentrytitle">empathy-contact-list</span>
+</h2>
+<p>empathy-contact-list</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<a name="EmpathyContactList"></a><pre class="synopsis">
+
+
+
+                    <a href="libempathy-empathy-contact-list.html#EmpathyContactList-struct">EmpathyContactList</a>;
+                    <a href="libempathy-empathy-contact-list.html#EmpathyContactListIface">EmpathyContactListIface</a>;
+                    <a href="libempathy-empathy-contact-list.html#EmpathyContactListInfo">EmpathyContactListInfo</a>;
+<a href="libempathy-empathy-contact-list.html#EmpathyContactListInfo">EmpathyContactListInfo</a>* <a href="libempathy-empathy-contact-list.html#empathy-contact-list-info-new">empathy_contact_list_info_new</a>   (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *message);
+void                <a href="libempathy-empathy-contact-list.html#empathy-contact-list-info-free">empathy_contact_list_info_free</a>      (<a href="libempathy-empathy-contact-list.html#EmpathyContactListInfo">EmpathyContactListInfo</a> *info);
+void                <a href="libempathy-empathy-contact-list.html#empathy-contact-list-setup">empathy_contact_list_setup</a>          (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list);
+<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     <a href="libempathy-empathy-contact-list.html#empathy-contact-list-find">empathy_contact_list_find</a>           (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         const gchar *id);
+void                <a href="libempathy-empathy-contact-list.html#empathy-contact-list-add">empathy_contact_list_add</a>            (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *message);
+void                <a href="libempathy-empathy-contact-list.html#empathy-contact-list-remove">empathy_contact_list_remove</a>         (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *message);
+GList*              <a href="libempathy-empathy-contact-list.html#empathy-contact-list-get-members">empathy_contact_list_get_members</a>    (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list);
+GList*              <a href="libempathy-empathy-contact-list.html#empathy-contact-list-get-local-pending">empathy_contact_list_get_local_pending</a>
+                                                        (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list);
+void                <a href="libempathy-empathy-contact-list.html#empathy-contact-list-process-pending">empathy_contact_list_process_pending</a>
+                                                        (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         gboolean accept);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2565893"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GInterface
+   +----EmpathyContactList
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2565917"></a><h2>Known Implementations</h2>
+<p>
+EmpathyContactList is implemented by
+ <a href="EmpathyContactManager.html" title="EmpathyContactManager">EmpathyContactManager</a>,  <a href="EmpathyTpContactList.html" title="EmpathyTpContactList">EmpathyTpContactList</a> and  <a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2565949"></a><h2>Signals</h2>
+<pre class="synopsis">
+
+  "<a href="libempathy-empathy-contact-list.html#EmpathyContactList-contact-added">contact-added</a>"                                  : Run Last
+  "<a href="libempathy-empathy-contact-list.html#EmpathyContactList-contact-removed">contact-removed</a>"                                : Run Last
+  "<a href="libempathy-empathy-contact-list.html#EmpathyContactList-local-pending">local-pending</a>"                                  : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2606692"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2606708"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2606718"></a><h3>
+<a name="EmpathyContactList-struct"></a>EmpathyContactList</h3>
+<a class="indexterm" name="id2606730"></a><pre class="programlisting">typedef struct _EmpathyContactList EmpathyContactList;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606746"></a><h3>
+<a name="EmpathyContactListIface"></a>EmpathyContactListIface</h3>
+<a class="indexterm" name="id2606758"></a><pre class="programlisting">typedef struct {
+	GTypeInterface   base_iface;
+
+	/* VTabled */
+	void            (*setup)             (EmpathyContactList *list);
+	EmpathyContact * (*find)              (EmpathyContactList *list,
+					      const gchar        *id);
+	void            (*add)               (EmpathyContactList *list,
+					      EmpathyContact      *contact,
+					      const gchar        *message);
+	void            (*remove)            (EmpathyContactList *list,
+					      EmpathyContact      *contact,
+					      const gchar        *message);
+	GList *         (*get_members)       (EmpathyContactList *list);
+	GList *         (*get_local_pending) (EmpathyContactList *list);
+	void            (*process_pending)   (EmpathyContactList *list,
+					      EmpathyContact      *contact,
+					      gboolean            accept);
+} EmpathyContactListIface;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2600584"></a><h3>
+<a name="EmpathyContactListInfo"></a>EmpathyContactListInfo</h3>
+<a class="indexterm" name="id2567824"></a><pre class="programlisting">typedef struct {
+	EmpathyContact *contact;
+	gchar         *message;
+} EmpathyContactListInfo;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561515"></a><h3>
+<a name="empathy-contact-list-info-new"></a>empathy_contact_list_info_new ()</h3>
+<a class="indexterm" name="id2606785"></a><pre class="programlisting"><a href="libempathy-empathy-contact-list.html#EmpathyContactListInfo">EmpathyContactListInfo</a>* empathy_contact_list_info_new   (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606862"></a><h3>
+<a name="empathy-contact-list-info-free"></a>empathy_contact_list_info_free ()</h3>
+<a class="indexterm" name="id2606876"></a><pre class="programlisting">void                empathy_contact_list_info_free      (<a href="libempathy-empathy-contact-list.html#EmpathyContactListInfo">EmpathyContactListInfo</a> *info);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>info</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606922"></a><h3>
+<a name="empathy-contact-list-setup"></a>empathy_contact_list_setup ()</h3>
+<a class="indexterm" name="id2606933"></a><pre class="programlisting">void                empathy_contact_list_setup          (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2604861"></a><h3>
+<a name="empathy-contact-list-find"></a>empathy_contact_list_find ()</h3>
+<a class="indexterm" name="id2604873"></a><pre class="programlisting"><a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     empathy_contact_list_find           (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         const gchar *id);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2604950"></a><h3>
+<a name="empathy-contact-list-add"></a>empathy_contact_list_add ()</h3>
+<a class="indexterm" name="id2604961"></a><pre class="programlisting">void                empathy_contact_list_add            (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605050"></a><h3>
+<a name="empathy-contact-list-remove"></a>empathy_contact_list_remove ()</h3>
+<a class="indexterm" name="id2605062"></a><pre class="programlisting">void                empathy_contact_list_remove         (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609298"></a><h3>
+<a name="empathy-contact-list-get-members"></a>empathy_contact_list_get_members ()</h3>
+<a class="indexterm" name="id2609309"></a><pre class="programlisting">GList*              empathy_contact_list_get_members    (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609360"></a><h3>
+<a name="empathy-contact-list-get-local-pending"></a>empathy_contact_list_get_local_pending ()</h3>
+<a class="indexterm" name="id2609372"></a><pre class="programlisting">GList*              empathy_contact_list_get_local_pending
+                                                        (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609424"></a><h3>
+<a name="empathy-contact-list-process-pending"></a>empathy_contact_list_process_pending ()</h3>
+<a class="indexterm" name="id2609437"></a><pre class="programlisting">void                empathy_contact_list_process_pending
+                                                        (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *list,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         gboolean accept);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>list</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>accept</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2609519"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2609528"></a><h3>
+<a name="EmpathyContactList-contact-added"></a>The "contact-added" signal</h3>
+<a class="indexterm" name="id2609538"></a><pre class="programlisting">void                user_function                      (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *empathycontactlist,
+                                                        <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>     *arg1,
+                                                        gpointer            user_data)               : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathycontactlist</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609619"></a><h3>
+<a name="EmpathyContactList-contact-removed"></a>The "contact-removed" signal</h3>
+<a class="indexterm" name="id2609628"></a><pre class="programlisting">void                user_function                      (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *empathycontactlist,
+                                                        <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>     *arg1,
+                                                        gpointer            user_data)               : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathycontactlist</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609710"></a><h3>
+<a name="EmpathyContactList-local-pending"></a>The "local-pending" signal</h3>
+<a class="indexterm" name="id2609719"></a><pre class="programlisting">void                user_function                      (<a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a> *empathycontactlist,
+                                                        <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>     *arg1,
+                                                        gchar              *arg2,
+                                                        gpointer            user_data)               : Run Last</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>empathycontactlist</code></em>&#160;:</span></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>arg2</code></em>&#160;:</span></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

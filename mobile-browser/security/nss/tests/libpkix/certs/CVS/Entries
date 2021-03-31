@@ -1,0 +1,22 @@
+D/extKeyUsage////
+D/generalName////
+D/keyIdentifier////
+D/keyUsage////
+D/publicKey////
+/CertificatePoliciesCritical.crt/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/GoodCACert.crt/1.1/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/TrustAnchorRootCertificate.crt/1.1/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/ValidCertificatePathTest1EE.crt/1.1/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/anchor2dsa/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/crldiff.crl/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/crlgood.crl/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/hanfeiyu2hanfeiyu/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/hy2hc-bc/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/hy2hy-bc0/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/issuer-hanfei.crl/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/issuer-none.crl/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/noExtensionsCert/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/nss2alice/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/sun2sun/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/yassir2bcn/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE
+/yassir2yassir/1.2/Thu Dec 13 11:58:34 2007/-kb/TFIREFOX_3_0b2_RELEASE

@@ -1,0 +1,1685 @@
+diff --git a/stage2/asm.S b/stage2/asm.S
+index ef804ac..061d4e7 100644
+--- a/stage2/asm.S
++++ b/stage2/asm.S
+@@ -937,6 +937,32 @@ realcseg:
+ 
+ 	.code32
+ 
++ENTRY(grub_inb)
++	pushl	%ebp
++	movl	%esp, %ebp
++
++	pushl	%edx
++        movl    12(%esp), %edx
++        inb     %dx, %al 
++
++	popl	%edx
++	popl	%ebp
++
++	ret
++
++ENTRY(grub_outb)
++	pushl	%ebp
++	movl	%esp, %ebp
++
++	pushl	%edx
++        movl    12(%esp), %edx
++        movl    16(%esp), %eax
++        outb    %al, %dx 
++
++	popl	%edx
++	popl	%ebp
++	
++        ret
+ 
+ /*
+  *   int biosdisk_int13_extensions (int ax, int drive, void *dap)
+@@ -2694,3 +2720,401 @@ gdt:
+ gdtdesc:
+ 	.word	0x27			/* limit */
+ 	.long	gdt			/* addr */
++
++/* restore kernel image */
++#define GDT_ENTRY_BOOT_CS           2
++#define GDT_ENTRY_BOOT_DS           (GDT_ENTRY_BOOT_CS + 1)
++#define __BOOT_DS   (GDT_ENTRY_BOOT_DS * 8)
++#define __BOOT_CS   (GDT_ENTRY_BOOT_CS * 8)
++
++#define GDT_ENTRY_KERNEL_BASE       12
++#define GDT_ENTRY_KERNEL_CS         (GDT_ENTRY_KERNEL_BASE + 0)
++#define GDT_ENTRY_KERNEL_DS         (GDT_ENTRY_KERNEL_BASE + 1)
++
++#define __KERNEL_CS (GDT_ENTRY_KERNEL_CS * 8)
++#define __KERNEL_DS (GDT_ENTRY_KERNEL_DS * 8)
++
++#define GDT_ENTRY_DEFAULT_USER_DS   15
++#define __USER_DS (GDT_ENTRY_DEFAULT_USER_DS * 8 + 3)
++
++#define L1_CACHE_BYTES        (1 << 7)
++
++#define __PAGE_OFFSET 0xC0000000
++#define INIT_MAP_BEYOND_END	(1*1024*1024)
++#define STACK_SIZE     (8 * 1024) 
++#define GDT_ENTRIES 32 
++
++.global reloc_start
++.global reloc_end
++.global reloc_point_start
++.global reloc_point_end
++.global restore_image
++.global reloc_saved_1M
++.global reloc_add_delta
++.global reloc_saved_cr0
++.global reloc_saved_cr3
++.global reloc_saved_cr4
++.global reloc_saved_esp
++.global reloc_saved_ebp
++.global reloc_saved_ebx
++.global reloc_saved_esi
++.global reloc_saved_edi
++.global reloc_saved_eflags
++.global low_1M_bits_map
++
++
++/*eax is new location address*/
++	.align 32
++	.code32
++reloc_start:
++ ENTRY(restore_image)
++	cli 
++	/* setup BOOT gdt */	
++	cld
++	mov %eax, %ebx;				/*ebx is new location address*/
++	mov $(boot_gdt_descr-reloc_start), %eax
++	add %ebx, %eax;
++
++	mov $(reloc_jmp_boot_gdt-reloc_start), %ecx
++	add %ebx, %ecx;
++	lgdtl (%eax)
++
++	ljmp *(%ecx)
++
++jmp_boot_gdt:
++	movl $(__BOOT_DS),%eax
++	movl %eax,%ds
++	movl %eax,%es
++	movl %eax,%fs
++	movl %eax,%gs
++
++/* recover low 1M memory */
++
++    /*save source base address into %esp*/
++	movl $(reloc_saved_1M-reloc_start),%eax
++	add %ebx, %eax
++	movl (%eax), %esp
++
++    /*save bits map base address into %ebp*/
++        movl $(low_1M_bits_map-reloc_start), %eax
++        add %ebx, %eax
++        movl %eax, %ebp
++
++    /*%eax is used to save the bit map index*/
++        xor %eax, %eax
++
++12:     
++        cmpl $160, %eax
++        je 13f 
++
++    /*get 32 bits map*/
++        movl %eax, %ecx
++        shrl $5, %ecx
++        shll $2, %ecx
++        add %ebp, %ecx
++        movl (%ecx), %edx
++
++    /*get bit value of the 32 bits map*/
++        movl %eax, %ecx
++        addl $1, %eax
++        andl $31, %ecx
++
++15:
++        cmpl $0, %ecx
++        je 14f
++        shrl $1, %edx
++        subl $1, %ecx
++        jg 15b
++
++14:
++        andl $1, %edx
++        cmpl $1, %edx
++        jne 12b
++
++    /*restore 4K memory*/
++	movl %eax, %edi
++        subl $1, %edi
++        shll $12, %edi
++        movl %edi, %esi
++        addl %esp, %esi 
++        movl $0x400, %ecx /* 4k byte */
++	cld
++	rep
++	movsl
++        loop 12b 
++13:
++
++/* setup tempary page table*/
++
++/* set up boot page. 
++   First 4K for Page Dir
++   After that, page
++*/
++	page_pde_offset = (__PAGE_OFFSET >> 20);
++
++	/*movl $(pg0 - __PAGE_OFFSET), %edi*/
++	movl %esp, %edi
++	addl $0x1000, %edi
++
++	/*movl $(swapper_pg_dir - __PAGE_OFFSET), %edx*/
++	movl %esp,%edx
++
++	movl $0x007, %eax			/* 0x007 = PRESENT+RW+USER */
++10:
++	leal 0x007(%edi),%ecx			/* Create PDE entry */
++	movl %ecx,(%edx)			/* Store identity PDE entry */
++	movl %ecx,page_pde_offset(%edx)		/* Store kernel PDE entry */
++	addl $4,%edx
++	movl $1024, %ecx
++11:
++	stosl
++	addl $0x1000,%eax
++	loop 11b
++	/* End condition: we must map up to and including INIT_MAP_BEYOND_END */
++	/* bytes beyond the end of our own page tables; the +0x007 is the attribute bits */
++	leal (INIT_MAP_BEYOND_END)(%esp),%ebp
++	cmpl %ebp,%edi
++	jb 10b
++
++
++	movl $(reloc_jmp_early_page_enable-reloc_start), %ecx
++	add %ebx, %ecx
++
++	movl %esp,%eax
++	movl %eax,%cr3		/* set the page table pointer.. */
++	movl %cr0,%eax
++	orl $0x80000000,%eax
++	movl %eax,%cr0		/* ..and set paging (PG) bit */
++	
++	ljmp *(%ecx)	/* Clear prefetch and normalize %eip */
++
++early_page_enable:
++	add  $(__PAGE_OFFSET), %ebx	#relocate to 0xC000 0000
++	xor %eax, %eax
++	xor %eax, %eax
++	xor %eax, %eax
++
++/* set up stack */
++	movl %esp, %eax
++	addl $(INIT_MAP_BEYOND_END), %esp
++        addl $(STACK_SIZE), %esp
++	movl %esp, %ebp
++
++
++/* recover gs, cs*/
++	movl $(reloc_jmp_early_gdt-reloc_start), %ecx
++	add %ebx, %ecx
++	movl $(early_gdt_descr_for_sws4 - reloc_start), %eax;
++	add %ebx, %eax
++	lgdt (%eax)
++#	lidt idt_descr
++	ljmp *(%ecx)
++
++jmp_early_gdt:	
++	
++	movl $(__KERNEL_DS),%eax	# reload all the segment registers
++	movl %eax,%ss			# after changing gdt.
++
++	movl $(__USER_DS),%eax		# DS/ES contains default USER segment
++	movl %eax,%ds
++	movl %eax,%es
++
++	xorl %eax,%eax			# Clear FS/GS and LDT
++	movl %eax,%fs
++	movl %eax,%gs
++#	lldt %ax/*recover page table*/
++
++
++# recover cr3
++	movl $(reloc_saved_cr4-reloc_start), %ecx
++	add %ebx, %ecx
++	movl (%ecx),%eax
++	movl %eax, %cr4
++
++	movl $(reloc_jmp_cr3-reloc_start), %edx
++	add %ebx, %edx
++
++	movl $(reloc_saved_cr3-reloc_start), %ecx
++	add %ebx, %ecx
++	movl (%ecx),%eax
++	movl %eax, %cr3
++	ljmp *(%edx)
++
++jmp_cr3:
++	/* Flush TLB, including "global" things (vmalloc) */
++	movl	%cr4, %eax
++	movl	%eax, %edx
++	andl	$~(1<<7), %edx;  # PGE
++	movl	%edx, %cr4;  # turn off PGE
++	movl	%cr3, %ecx;  # flush TLB
++	movl	%ecx, %cr3
++	movl	%eax, %cr4;  # turn PGE back on
++
++	mov %ebx, %edx
++
++	movl $(reloc_saved_esp-reloc_start), %ecx
++	add %edx, %ecx
++	movl (%ecx),%esp
++
++	movl $(reloc_saved_ebp-reloc_start), %ecx
++	add %edx, %ecx
++	movl (%ecx),%ebp
++	
++	movl $(reloc_saved_ebx-reloc_start), %ecx
++	add %edx, %ecx
++	movl (%ecx),%ebx
++
++	movl $(reloc_saved_esi-reloc_start), %ecx
++	add %edx, %ecx
++	movl (%ecx),%esi
++
++	movl $(reloc_saved_edi-reloc_start), %ecx
++	add %edx, %ecx
++	movl (%ecx),%edi
++
++
++	movl $(reloc_saved_eflags-reloc_start), %ecx
++	add %edx, %ecx
++	pushl (%ecx)
++	popfl
++
++	xorl	%eax, %eax
++
++	ret
++
++reloc_jmp_boot_gdt:
++	
++reloc_jmp_boot_gdt_addr:
++	.long jmp_boot_gdt
++	.word __BOOT_CS
++reloc_jmp_early_page_enable:
++	.long early_page_enable+__PAGE_OFFSET
++	.word __BOOT_CS
++reloc_jmp_early_gdt:
++	.long jmp_early_gdt+__PAGE_OFFSET
++	.word __KERNEL_CS
++
++reloc_jmp_cr3:
++	.long jmp_cr3+__PAGE_OFFSET
++	.word __KERNEL_CS
++reloc_add_delta:
++	.long 0
++
++/* recover low 1M memory */
++reloc_saved_1M:
++	.long 0
++
++	.align 32
++boot_gdt_descr:
++	.word __BOOT_DS+7
++reloc_boot_gdt:
++	.long boot_gdt
++	.word 0				# 32-bit align idt_desc.address
++
++.align L1_CACHE_BYTES
++ENTRY(boot_gdt)
++	.fill GDT_ENTRY_BOOT_CS,8,0
++	.quad 0x00cf9a000000ffff	/* kernel 4GB code at 0x00000000 */
++	.quad 0x00cf92000000ffff	/* kernel 4GB data at 0x00000000 */
++
++reloc_point_start:
++	.long 	reloc_boot_gdt
++	.long 	reloc_jmp_boot_gdt_addr
++	.long   reloc_jmp_early_gdt
++	.long 	reloc_early_gdt_descr
++	.long 	reloc_jmp_early_page_enable
++	.long   reloc_jmp_cr3
++reloc_point_end:
++
++low_1M_bits_map:
++        .long   0
++        .long   0
++        .long   0
++        .long   0
++        .long   0
++        .long   0
++        .long   0
++        .long   0
++reloc_saved_cr0:
++	.long 0
++reloc_saved_cr3:
++	.long 0
++reloc_saved_cr4:
++	.long 0
++reloc_saved_esp:
++	.long 0
++reloc_saved_ebp:
++	.long 0
++reloc_saved_ebx:
++	.long 0
++reloc_saved_esi:
++	.long 0
++reloc_saved_edi:
++	.long 0
++reloc_saved_eflags:
++	.long 0
++
++	.align 32
++
++# boot GDT descriptor (later on used by CPU#0):
++	.word 0				# 32 bit align gdt_desc.address
++ENTRY(early_gdt_descr_for_sws4)
++	.word GDT_ENTRIES*8-1
++reloc_early_gdt_descr:
++	.long cpu_gdt_table+__PAGE_OFFSET
++
++
++/*
++ * The Global Descriptor Table contains 28 quadwords, per-CPU.
++ */
++	.align L1_CACHE_BYTES
++ENTRY(cpu_gdt_table)
++	.quad 0x0000000000000000	/* NULL descriptor */
++	.quad 0x0000000000000000	/* 0x0b reserved */
++	.quad 0x0000000000000000	/* 0x13 reserved */
++	.quad 0x0000000000000000	/* 0x1b reserved */
++	.quad 0x0000000000000000	/* 0x20 unused */
++	.quad 0x0000000000000000	/* 0x28 unused */
++	.quad 0x0000000000000000	/* 0x33 TLS entry 1 */
++	.quad 0x0000000000000000	/* 0x3b TLS entry 2 */
++	.quad 0x0000000000000000	/* 0x43 TLS entry 3 */
++	.quad 0x0000000000000000	/* 0x4b reserved */
++	.quad 0x0000000000000000	/* 0x53 reserved */
++	.quad 0x0000000000000000	/* 0x5b reserved */
++
++	.quad 0x00cf9a000000ffff	/* 0x60 kernel 4GB code at 0x00000000 */
++	.quad 0x00cf92000000ffff	/* 0x68 kernel 4GB data at 0x00000000 */
++	.quad 0x00cffa000000ffff	/* 0x73 user 4GB code at 0x00000000 */
++	.quad 0x00cff2000000ffff	/* 0x7b user 4GB data at 0x00000000 */
++
++	.quad 0x0000000000000000	/* 0x80 TSS descriptor */
++	.quad 0x0000000000000000	/* 0x88 LDT descriptor */
++
++	/*
++	 * Segments used for calling PnP BIOS have byte granularity.
++	 * They code segments and data segments have fixed 64k limits,
++	 * the transfer segment sizes are set at run time.
++	 */
++	.quad 0x00409a000000ffff	/* 0x90 32-bit code */
++	.quad 0x00009a000000ffff	/* 0x98 16-bit code */
++	.quad 0x000092000000ffff	/* 0xa0 16-bit data */
++	.quad 0x0000920000000000	/* 0xa8 16-bit data */
++	.quad 0x0000920000000000	/* 0xb0 16-bit data */
++
++	/*
++	 * The APM segments have byte granularity and their bases
++	 * are set at run time.  All have 64k limits.
++	 */
++	.quad 0x00409a000000ffff	/* 0xb8 APM CS    code */
++	.quad 0x00009a000000ffff	/* 0xc0 APM CS 16 code (16 bit) */
++	.quad 0x004092000000ffff	/* 0xc8 APM DS    data */
++
++	.quad 0x00c0920000000000	/* 0xd0 - ESPFIX SS */
++	.quad 0x00cf92000000ffff	/* 0xd8 - PDA */
++	.quad 0x0000000000000000	/* 0xe0 - unused */
++	.quad 0x0000000000000000	/* 0xe8 - unused */
++	.quad 0x0000000000000000	/* 0xf0 - unused */
++	.quad 0x0000000000000000	/* 0xf8 - GDT entry 31: double-fault TSS */
++
++
++reloc_end:
+diff --git a/stage2/builtins.c b/stage2/builtins.c
+index 31fc3a3..6269c07 100644
+--- a/stage2/builtins.c
++++ b/stage2/builtins.c
+@@ -5238,7 +5238,1004 @@ static struct builtin builtin_vbeprobe =
+   "Probe VBE information. If the mode number MODE is specified, show only"
+   " the information about only the mode."
+ };
+-  
++
++#ifndef GRUB_UTIL
++
++struct swap_map_page   var_map_page; 
++struct swap_map_page   var_map_page_data;
++struct swsusp_header   sw_header;
++struct swsusp_info     sw_info;
++char    rdsw_buffer[PAGE_SIZE];
++
++struct  swap_map_handle sw_map_handle;
++struct  swap_map_handle sw_map_handle_data;
++
++/*It is the page number of the restored image*/
++unsigned long nr_copy_pages;
++
++/*
++ * It is the page number of the memory map table. 
++ * unsigned long buf[i] saves the pgfn value need to be resored
++ */
++unsigned long nr_meta_pages;
++
++/*
++ *Low 1M is used by grub and bios, we must find some place 
++ *that is not used by resotred image memory and put the resotred
++ *low 1M data, as well as some code to move the data back to
++ *low 1M area. 
++ * */
++unsigned long save_low_1M_offset = 0;
++
++static void grub_printf_pg_64(void * buff)
++{
++    unsigned long long * tem = (unsigned long long *) buff;
++    int i = 0;
++    
++    for(i = 0 ; i < PAGE_SIZE / sizeof(unsigned long long); i++){
++        grub_printf(" 0x%qx----", tem[i]);
++        if (i%8 == 0) grub_printf("\n");
++    }
++
++}
++
++static void grub_printf_pg_32(void * buff)
++{
++    unsigned long * tem = (unsigned long *) buff;
++    int i = 0;
++    
++    for(i = 0 ; i < PAGE_SIZE / sizeof(unsigned long); i++){
++        grub_printf("0x%x---", tem[i]);
++        if (i%5 == 0) grub_printf("\n");
++    }
++
++}
++
++static void grub_printf_pg_8(void * buff)
++{
++    unsigned char * tem = (unsigned char *) buff;
++    int i = 0;
++    
++    for(i = 0 ; i < PAGE_SIZE ; i++){
++        if (tem[i] <= 0xf ) grub_printf("0");
++        grub_printf("%x", tem[i]);
++        if (i%4 == 3 ) grub_printf(" ");
++        if (i%16 == 15) grub_printf("\n");
++    }
++
++}
++/*
++ *blow is the debug part
++ *dbg_level:0 no debug
++ *dbg_level:1 used to debug the ASM part
++ *dbg_level:2 used to debug the symbol part
++ *dbg_level:3 used to debug the image rescover part
++ */
++unsigned long dbg_level = 0;
++#define grub_printf_dbg(a, f, arg...) (dbg_level >= a? grub_printf( f, ## arg) : NULL)
++
++static void grub_printf_pg_64_dbg(void * buff)
++{
++    unsigned long long * tem = (unsigned long long *) buff;
++    int i = 0;
++    if (dbg_level < 3) return;
++    
++    for(i = 0 ; i < PAGE_SIZE / sizeof(unsigned long long); i++){
++        grub_printf("0x%qx----", tem[i]);
++        if (i%8 == 0) grub_printf("\n");
++    }
++
++}
++
++static void grub_printf_pg_32_dbg(void * buff)
++{
++    unsigned long * tem = (unsigned long *) buff;
++    int i = 0;
++    if (dbg_level < 3) return;
++    
++    for(i = 0 ; i < PAGE_SIZE / sizeof(unsigned long); i++){
++        grub_printf("0x%x----", tem[i]);
++        if (i%8 == 0) grub_printf("\n");
++    }
++
++}
++
++static int inb_func(char *arg, int flag)
++{
++    unsigned long addr = 0;
++    unsigned char data = 0;
++
++    if ( grub_hex_str_to_ul( arg, &addr) ){
++        grub_printf("port 0x%x:", addr);
++        data =  grub_inb(addr);
++        grub_printf("data:0x%x", data);
++    }
++    return 1;
++}
++
++static struct builtin builtin_inb =
++{
++  "inb",
++  inb_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST,
++  "inb 0xXX",
++  "read the port"
++  " "
++};
++
++unsigned char out_data = 0;
++static int outd_func(char *arg, int flag)
++{
++
++    if ( grub_hex_str_to_ul( arg, (unsigned long *)(&out_data)) ){
++        grub_printf_dbg(1,"data:0x%x", out_data);
++    }
++    return 1;
++}
++
++static struct builtin builtin_outd =
++{
++  "outd",
++  outd_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST,
++  "outd 0xXX",
++  "set data to write to port"
++  " "
++};
++
++unsigned long out_addr = 0;
++static int outp_func(char *arg, int flag)
++{
++    if ( grub_hex_str_to_ul( arg, &out_addr) ){
++        grub_printf_dbg(1,"port:0x%x", out_addr);
++        grub_outb(out_addr, out_data);
++    }
++    return 1;
++}
++
++static struct builtin builtin_outp =
++{
++  "outp",
++  outp_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST,
++  "outp 0xXXXX",
++  "set port addr to write data"
++  " "
++};
++
++static void resume_pause(int level)
++{
++    if (dbg_level < level) return; 
++    
++    grub_printf("Press 'c' to continue...\n");
++    while(1){
++                char c = 0;
++	        c = ASCII_CHAR (getkey ()) ;
++                if (c == 'c') break;
++        }
++    return;
++}
++/*kernel_version*/
++int kernel_version = K2_6_24;
++
++int pg_idx_type =  PG_IDX_64;
++unsigned long map_page_entries;
++
++unsigned long local_ebx;
++unsigned long local_esp; 
++unsigned long local_ebp; 
++unsigned long local_esi;
++unsigned long local_edi; 
++unsigned long local_context; 
++unsigned long local_eflags; 
++unsigned long local_nosave_begin;
++unsigned long local_nosave_end;
++
++static struct swsusp_symbl_info sym_info[] =
++{
++    {"saved_context_ebx",       &local_ebx,             0},
++    {"saved_context_esp",       &local_esp,             0},
++    {"saved_context_ebp",       &local_ebp,             0},
++    {"saved_context_esi",       &local_esi,             0},
++    {"saved_context_edi",       &local_edi,             0},
++    {"saved_context",           &local_context,         0},
++    {"saved_context_eflags",    &local_eflags,          0},
++    {"__nosave_begin",          &local_nosave_begin,    0},
++    {"__nosave_end",            &local_nosave_end,      0},
++    {"\0", 0, 0},
++};
++
++static char symbl_release[100];
++static char symbl_version[100];
++
++static int get_symbl_info()
++{
++    char c;
++    int i = 0;
++    
++    /*first line*/
++    /*remove the space before the line*/
++    do { 
++        if ( ! grub_read(&c, 1) ) return 0;
++    }while( c == ' ' );
++    
++    i = 0;
++    while( c != '\n' ) {
++        symbl_release[i++] = c;
++        if ( ! grub_read(&c, 1) ) return 0;
++    } 
++    
++    while( symbl_release[--i] == ' ' )
++    symbl_release[++i] = 0;
++
++    /*second line*/
++    /*remove the space before the line*/
++    do { 
++        if ( ! grub_read(&c, 1) ) return 0;
++    }while( c == ' ' );
++    
++    i = 0;
++    while( c != '\n' ) {
++        symbl_version[i++] = c;
++        if ( ! grub_read(&c, 1) ) return 0;
++    } 
++    
++    while( symbl_release[--i] == ' ' )
++    symbl_version[++i] = 0;
++    return 1;
++}
++
++static int  match_symbl(unsigned long address, char * symbl_name)
++{
++    int i = 0; 
++    
++    while(sym_info[i].symbl_name[0] != 0){
++        if ( grub_strcmp(sym_info[i].symbl_name, symbl_name) == 0 ){
++            *(sym_info[i].value) = address;
++            sym_info[i].matched = 1;
++            return 1;
++        }
++        i++;
++    }
++    grub_printf("Can not match Symbol: %s\n", symbl_name);
++    return 0;
++}
++
++static void enable_acpi()
++{
++    char c;
++    do { 
++        if ( ! grub_read(&c, 1) ) return;
++    }while( c == ' ' );
++    
++    if(c == 'm'){
++        outd_func("0xf0", 0);
++        outp_func("0xb2", 0);
++        return ;
++    }
++    
++    if(c == 'M' ){
++        outd_func("0xe1", 0);
++        outp_func("0xb2", 0);
++        return ;
++    }
++    return ;
++}
++
++/*read one line and get one Symbol address*/
++static int get_kernel_symbl()
++{
++    char tem[10], c, tem_symbl_name[50];
++    unsigned long address = 0;
++    int i = 0;
++    
++    tem[0] = '0';
++    tem[1] = 'x';
++    tem[2] = '0';
++    
++    do { 
++        if ( ! grub_read(&c, 1) ) return 0;
++    }while( c == ' ' );
++
++    if( c != 'c' ){
++        grub_printf("The Symbol file style is not right\n");
++        grub_printf("The Symbol address should start from 'c'\n");
++        return 0;
++    }
++    
++    /*get adress value*/
++    i = 3;
++    while( i < 10 ) {
++        if ( ! grub_read(&c, 1) ) return 0;
++        tem[i++] = c;
++    }
++    if ( ! grub_read(&c, 1) ) return 0;
++    
++    if (c != ' '){
++        grub_printf("Symbol file style is not ringht\n");
++        grub_printf("The style should be 'c2345678 X Symbol_name'\n");
++        return 0;
++    }
++    tem[i]=0;
++    grub_hex_str_to_ul(tem, &address);
++    
++    if ( ! grub_read(&c, 1)) return 0;
++    if ( ! grub_read(&c, 1)) return 0;
++    
++    if( c != ' ' ){
++        grub_printf("Symbol file style is not right\n");
++        grub_printf("The style should be 'c2345678 X Symbol_name'\n");
++        return 0;
++    }
++    
++    if ( ! grub_read(&c, 1)) return 0;
++    
++    i = 0;
++    while( c != '\n' ){
++        tem_symbl_name[i++] = c;
++        if (i >= 49 ){
++            grub_printf("Symbol name is longer than 49 chars\n");
++            return 0;
++        }
++        if ( ! grub_read(&c, 1)) return 0;
++    }
++
++    tem_symbl_name[i] = 0;
++    if ( ! match_symbl(address, tem_symbl_name)){
++        return 0; 
++    }
++    return 1;
++}
++
++static void init_symbl_table()
++{
++    int i = 0;
++    while( sym_info[i].symbl_name[0] != 0){
++        sym_info[i++].matched = 0;
++    }
++    return;
++}
++
++/*return 1 if all the Symbol has been matched*/
++static int parase_symbl_table(){
++    int i = 0;
++    int res = 1;
++    
++    while( sym_info[i].symbl_name[0] != 0  ){
++        if (sym_info[i].matched == 0){
++            res = 0;
++            break;
++        }
++        i++;
++    }
++    return res;
++}
++
++static int resume_sym(char *arg)
++{
++    int res;    
++    if (! grub_open (arg)){
++        grub_printf("Can not open Symbol file: %s\n", arg);
++        return 0;
++    }
++    
++    res = get_symbl_info();
++    if( !res ){
++        return 0;
++    }
++    
++    if (grub_strstr(symbl_release,"2.6.22")) {
++	kernel_version = K2_6_22; 
++    }else if (grub_strstr(symbl_release,"2.6.24")) {
++	kernel_version = K2_6_24;
++    }
++ 
++    init_symbl_table();
++    
++    while( ! parase_symbl_table()){
++        if( ! get_kernel_symbl() ) return 0;
++    }
++    enable_acpi(); 
++    return 1;
++}
++
++/*
++ *When CONFIG_LBD is defined by kernel, the image page index is 64 bit size.
++ *When it is not defined, the image page index is 32 bit size.
++ *The swsusp_info page is the second page after swsusp_header page. 
++ *When using swap partition, the page index number is 1.
++ *When using swap file, the page index can not greater than 4G
++ *So the high 32 bit can be used to decide the image page index size 
++ *
++ */
++#define pg_idx_size(a) ((a >> 32)?PG_IDX_32:PG_IDX_64)
++
++#define get_idx(a) ((pg_idx_type == PG_IDX_32)?((unsigned long) ((a)>>32)):((unsigned long)(a)))
++
++static int rdswsusp_map_page(unsigned long start_pg, struct swap_map_page * map_page)
++{
++    int res = 0;
++    grub_printf_dbg(3,"Read map_page At Physical Page: 0x%qx\n", start_pg);    
++    grub_printf_dbg(3,"sector: 0x%qx; offset: 0x%x; size: 0x%x \n", 
++                    PAGE_TO_SECTOR(start_pg), 
++                    0,
++                    sizeof(struct swap_map_page));
++    
++    res = devread (PAGE_TO_SECTOR(start_pg), 
++                    0, 
++                    sizeof(struct swap_map_page), 
++                    (char *)map_page);
++    if(! res ){
++        grub_printf("Error: Can not read Image Map Page\n");
++        return 0;
++    }
++    
++    grub_printf_pg_64_dbg( map_page );
++    
++    return 1;
++}
++
++unsigned long long sw_header_image;
++
++static int rdswsusp_header()
++{
++    char tem_sig[11];
++    int i = 0, res = 0;
++    unsigned long * image_p;
++
++    res = devread (0, 0, sizeof(struct swsusp_header), (char *)&sw_header);
++    if ( ! res) {
++        grub_printf("Error: Can not read Image Header Page\n");
++        return 0;
++    }
++    
++    if(kernel_version == K2_6_22){
++	image_p = sw_header.image + 1;
++    }else if(kernel_version == K2_6_24){
++	image_p = sw_header.image; 
++    }
++    sw_header_image = *((unsigned long long *)(image_p));
++    
++    for( i = 0; i < 10; i++  ){
++        tem_sig[i] = sw_header.sig[i];
++    }
++    tem_sig[10] = 0;
++    
++    grub_printf_dbg(2,"Image Signature is: %s\n", tem_sig);
++    grub_printf_dbg(2,"SWSUSP_SIG is     : %s\n", SWSUSP_SIG);
++    if( grub_strcmp(tem_sig, SWSUSP_SIG) != 0) 
++    {
++        grub_printf("Normal Booting...\n");
++        /*
++         * if in the debug mode, the saved image can be recovered several times.
++         * So, it is not necessary to go through a whole hibernate process.
++         */
++        if(dbg_level == 0) return 0;
++    }
++    
++    for (i=0; i< 10; i++){
++        sw_header.sig[i] = sw_header.orig_sig[i];
++    }
++    
++    devwrite (0, (sizeof(struct swsusp_header)/SECTOR_SIZE), (char *)&sw_header);
++    
++    return 1;
++}
++static int rdswsusp_info(unsigned long start_pg, struct swsusp_info * local_sw_info)
++{
++    int res = 0;
++
++    grub_printf_dbg(3,"\n Read swsusp_info At Physical Page: 0x%qx\n", start_pg);
++    grub_printf_dbg(3,"sector: 0x%qx; offset: 0x%x; size: 0x%x \n", 
++                    PAGE_TO_SECTOR(start_pg), 
++                    0,
++                    sizeof(struct swsusp_info));
++    
++    res = devread (PAGE_TO_SECTOR(start_pg), 
++                0, 
++                sizeof(struct swsusp_info), 
++                (char *)local_sw_info);
++    
++    if( !res ){
++        grub_printf("Error: Can not read Image Info Page\n");
++        return 0;
++    }
++
++    if (grub_strcmp(symbl_version, local_sw_info->uts.version) != 0){
++        grub_printf("Error: Symbol Version does not match\n");
++        grub_printf("Symbol Version: %s\n", symbl_version);
++        grub_printf("Image Version:  %s\n", local_sw_info->uts.version);
++        return 0;
++    }
++    
++    if (grub_strcmp(symbl_release, local_sw_info->uts.release) != 0){
++        grub_printf("Error: Symbol Release does not match\n");
++        grub_printf("Symbol Release: %s\n", symbl_release);
++        grub_printf("Image Release:  %s\n", local_sw_info->uts.release);
++        return 0;
++    }
++
++    grub_printf_dbg(2, "version_code: 0x%x\n",local_sw_info->version_code);
++    grub_printf_dbg(2, "num_physpages:0x%x\n",local_sw_info->num_physpages);
++    grub_printf_dbg(2, "cpus:         0x%x\n", local_sw_info->cpus);
++    grub_printf_dbg(2, "image_pages:  0x%x\n", local_sw_info->image_pages);
++    grub_printf_dbg(2, "pages:        0x%x\n", local_sw_info->pages);
++    grub_printf_dbg(1, "size:         0x%x\n", local_sw_info->size);
++    
++    return 1;
++}
++
++static int init_swap_map_handle( struct swap_map_handle * map_handle, 
++                                 struct swap_map_page * map_page, 
++                                 int    k, 
++                                 int    cur_swap)
++{
++    if ( k >= MAP_PAGE_ENTRIES ) return 0;  
++    
++    map_handle->cur = map_page;
++    map_handle->k = k;
++    map_handle->cur_swap = cur_swap;
++    
++    return 1;
++}
++
++static int rdswsusp_pg( struct swap_map_handle * map_handle, char * buff )
++{
++    unsigned long start_pg = 0;
++    int res = 0;
++    unsigned long * local_entries;
++    unsigned long f = (pg_idx_type == PG_IDX_32)?1:2;
++    grub_printf_dbg(3, "\n Read One page At:");
++    grub_printf_dbg(3, "\n swap_map_position:(0x%qx)\nk:(0x%x)\nread page position:(0x%qx)\n", 
++                    map_handle->cur_swap, 
++                    map_handle->k,
++                    map_handle->cur->entries[map_handle->k]);
++    local_entries = (unsigned long *)  map_handle->cur->entries;
++    start_pg = local_entries[map_handle->k * f]; 
++    
++    res = devread ((PAGE_TO_SECTOR(start_pg)), 
++                0, 
++                PAGE_SIZE, 
++                buff);
++    if( !res ){
++        grub_printf("Error: Can not read page\n");
++        return 0;
++    }
++    map_handle->k++;
++    
++    if (map_handle->k == map_page_entries){
++        start_pg = local_entries[map_handle->k * f];
++        rdswsusp_map_page(start_pg, map_handle->cur);
++        init_swap_map_handle(map_handle, map_handle->cur, 0, start_pg);
++    }
++
++    grub_printf_pg_32_dbg(buff); 
++    return 1;
++}
++
++static int _find_low_1M_offset(unsigned long *begin,unsigned long *buf)
++{
++    unsigned long a = *begin, b = 0, i = 0;
++    
++    for ( i=0; i < PAGE_SIZE/sizeof(unsigned long); i++){
++        b = buf[i];
++        if( (b - a ) >= ((2ul << 20)/PAGE_SIZE + 2) ) return a+1;
++        a = b;
++    }
++    *begin = b;
++    return -1;
++}
++
++static int find_low_1M_buff()
++{
++    unsigned long res = -1, last = 0, i = 0;
++    
++    init_swap_map_handle( &sw_map_handle , 
++                            &var_map_page, 
++                            1, 
++                            sw_header_image) ;
++    
++    for ( i = 0; i < nr_meta_pages; i++ ) { 
++        rdswsusp_pg(&sw_map_handle ,rdsw_buffer);
++        res = _find_low_1M_offset( &last, (unsigned long *)rdsw_buffer );
++        if ( res != -1 ) break;
++    }
++
++    return res;
++}
++
++#define get_mp_pg_entry(a) ((a == PG_IDX_64)?MAP_PAGE_ENTRIES:(MAP_PAGE_ENTRIES*2 +1))
++
++/*
++ *initialize the sw_map_handle to read the meta pages
++ *initialize the sw_map_handle_data to read the image pages
++ */
++static void prepare_load_image()
++{
++    unsigned long meta_swp_pg_num = (nr_meta_pages + 1) / map_page_entries;
++    unsigned long offset = (nr_meta_pages + 1) % map_page_entries;
++    int i = 0;
++    unsigned long next_swap = get_idx(sw_header_image);
++    unsigned long cur_swap = 0;
++    
++    if ( offset == 0 ) meta_swp_pg_num++;
++    
++    do {
++        rdswsusp_map_page(next_swap, &var_map_page_data);
++        cur_swap = next_swap;
++        next_swap = get_idx(var_map_page_data.next_swap);
++        i++;
++    }while( i < meta_swp_pg_num );
++
++
++    init_swap_map_handle( &sw_map_handle_data, 
++                            &var_map_page_data, 
++                            offset, cur_swap);
++    
++    rdswsusp_map_page(get_idx(sw_header_image), &var_map_page);
++    init_swap_map_handle( &sw_map_handle,
++                            &var_map_page,
++                            1,
++                            sw_header_image);
++    
++    grub_printf_dbg(3, "\nsw_map_handle_data:\n");
++    grub_printf_dbg(3, "cur_swap       :0x%qx\n", sw_map_handle_data.cur_swap);
++    grub_printf_dbg(3, "k              :0x%x \n", sw_map_handle_data.k);
++    grub_printf_dbg(3, "cur            :0x%x \n", sw_map_handle_data.cur);
++    grub_printf_dbg(3, "sw_map_handle  :     \n");
++    grub_printf_dbg(3, "cur_swap is    :0x%qx\n", sw_map_handle.cur_swap);
++    grub_printf_dbg(3, "k is           :0x%x \n", sw_map_handle.k);
++    grub_printf_dbg(3, "cur is         :0x%x \n", sw_map_handle.cur);
++
++}
++
++static int resume_giveup(void)
++{
++    if (checkkey () != -1 && ASCII_CHAR (getkey ()) == '\e'){
++        return 1;
++    }
++    return 0;
++}
++
++extern unsigned long low_1M_bits_map;
++int progress_bar_x = 0;
++int progress_bar_y = 29;
++static void resume_splash(void)
++{
++    struct builtin * rs_builtin = NULL;
++    if (grub_strcmp (current_term->name, "graphics") == 0){
++        if (current_term->startup() == 0){
++            current_term =  term_table; 
++        }
++    }else{
++        rs_builtin = find_command ("splashimage");
++        if (rs_builtin != NULL) {
++            rs_builtin->func("(hd0,0)/grub/moblin.xpm.gz",BUILTIN_MENU);
++            if (current_term->startup() == 0){
++                current_term = term_table;
++                progress_bar_x = 0 ;
++                progress_bar_y = 24;
++            }
++        }
++    }
++    current_term->cls();
++    setcursor(0);
++}
++
++static int swsusp_load_image()
++{
++    unsigned long i = 0, j = 0;
++    unsigned long * meta_buff = 0; 
++    unsigned long dest_addr = 0;
++    unsigned long meta_pgfn = 0;
++    unsigned long scale = nr_copy_pages / 78;
++    unsigned long *p_low_1M_bits_map =  &low_1M_bits_map;
++    rdswsusp_pg( &sw_map_handle, rdsw_buffer);
++    meta_buff = (unsigned long *)rdsw_buffer;
++    current_term->cls();
++    gotoxy(progress_bar_x , progress_bar_y );
++    for ( i = 0; i < nr_copy_pages; i++ ){
++        
++        if( j == PAGE_SIZE/sizeof(unsigned long) ){
++            rdswsusp_pg( &sw_map_handle, rdsw_buffer);
++            j = 0 ;
++            meta_buff = (unsigned long *)rdsw_buffer;
++        }
++        
++        if ( (meta_pgfn = meta_buff[j++]) < 0x100 ){
++            unsigned short b_i = 0 , b_j = 0;
++            b_i = meta_pgfn / 32;
++            b_j = meta_pgfn % 32;
++            *(p_low_1M_bits_map + b_i) |= (1 << b_j);
++            dest_addr = ( meta_pgfn + save_low_1M_offset ) << PAGE_SHIFT;
++        }else{
++            dest_addr = meta_pgfn << PAGE_SHIFT;
++        }
++        rdswsusp_pg( &sw_map_handle_data, (char *)(dest_addr) );
++        if (i % scale == 0) grub_putchar(219);
++        if(resume_giveup()){
++            return 0 ;
++        }
++    }
++    return 1;
++}
++
++extern int      reloc_start;
++extern int      reloc_end;
++extern int      reloc_point_start, reloc_point_end;
++extern void     restore_image(void *relc) ;
++extern long     reloc_saved_1M;
++extern long     reloc_add_delta;
++typedef void    (*VOID_FUN)(void * reloc) __attribute__((regparm(3))) ;	
++
++extern int reloc_saved_cr0 ;
++extern int reloc_saved_cr3 ;
++extern int reloc_saved_cr4 ;
++extern int reloc_saved_esp ;
++extern int reloc_saved_ebp ;
++extern int reloc_saved_ebx ;
++extern int reloc_saved_esi ;
++extern int reloc_saved_edi ;
++extern int reloc_saved_eflags ;
++unsigned long * p_low_1M_bits_map;
++
++struct Xgt_desc_struct {
++        unsigned short  size;
++        unsigned long   address __attribute__((packed));
++        unsigned short  pad;
++} __attribute__ ((packed));
++
++
++struct saved_context {
++        unsigned short  es, fs, gs, ss;
++        unsigned long   cr0, cr2, cr3, cr4;
++        struct          Xgt_desc_struct gdt;
++        struct          Xgt_desc_struct idt;
++        unsigned short  ldt;
++        unsigned short  tss;
++        unsigned long   tr;
++        unsigned long   safety;
++        unsigned long   return_address;
++} __attribute__((packed));
++
++static void relocate_restore_code()
++{
++	char * dest = (char *)(save_low_1M_offset*PAGE_SIZE+0x100000+0x80000);
++	char * new_dest=dest;
++	char * src = (char*) &reloc_start ;
++	long ** relc_start = (long **)&reloc_point_start;
++	long *p;
++	long delta=dest - src;
++	VOID_FUN relc_fun = (VOID_FUN)(restore_image + delta);
++	struct saved_context *p_context;
++
++	grub_printf_dbg(1, "\n save_low_IM_Offset 0x%x\n", save_low_1M_offset);
++	grub_printf_dbg(1, "dest 0x%x\n", dest);
++	grub_printf_dbg(1, "src 0x%x\n", src);
++	grub_printf_dbg(1, "relc_point_start 0x%x\n", relc_start);
++	grub_printf_dbg(1, "delta 0x%x\n", delta);	
++	grub_printf_dbg(1, "relc fun 0x%x, restore_image 0x%x, delta 0x%x\n",
++                        relc_fun, restore_image, delta);
++
++	reloc_saved_1M = save_low_1M_offset*PAGE_SIZE;
++	reloc_add_delta = delta;
++        
++        /*saved_context*/
++	p_context = (struct saved_context *)local_context ;
++	reloc_saved_cr0 = p_context->cr0;
++	reloc_saved_cr3 = p_context->cr3;
++	reloc_saved_cr4 = p_context->cr4;
++        /*saved_context_ebx*/
++	reloc_saved_ebx = *(int *)local_ebx;
++        reloc_saved_esp = *(int *)local_esp ;
++	reloc_saved_ebp = *(int *)local_ebp ;
++	reloc_saved_esi = *(int *)local_esi ;
++	reloc_saved_edi = *(int *)local_edi ;
++	reloc_saved_eflags = *(int *)local_eflags ;
++
++	grub_printf_dbg(1, "cr0: 0x%x\n", reloc_saved_cr0);
++	grub_printf_dbg(1, "cr3: 0x%x\n", reloc_saved_cr3);
++	grub_printf_dbg(1, "cr4: 0x%x\n", reloc_saved_cr4);
++	grub_printf_dbg(1, "esp: 0x%x\n", reloc_saved_esp);
++	grub_printf_dbg(1, "ebp: 0x%x\n", reloc_saved_ebp);
++	grub_printf_dbg(1, "ebx: 0x%x\n", reloc_saved_ebx);
++	grub_printf_dbg(1, "esi: 0x%x\n", reloc_saved_esi);
++	grub_printf_dbg(1, "edi: 0x%x\n", reloc_saved_edi);
++	grub_printf_dbg(1, "eflags: 0x%x\n", reloc_saved_eflags);
++        resume_pause(1);
++
++	while((unsigned long)(relc_start) != (unsigned long)(&reloc_point_end))
++	{
++		p=*relc_start;
++		*p = *p + delta;
++		relc_start++;
++	}
++	
++	while( (unsigned long)src <= (unsigned long)(&reloc_end) )
++	{
++		*dest++ = *src++;
++	}
++
++	relc_fun(new_dest);	  	
++}
++
++static int clear_nosave_area()
++{
++    unsigned long * start = (unsigned long *)local_nosave_begin;
++    unsigned long * end = (unsigned long *)local_nosave_end;
++    for( ; start < end; start++ ){
++        *start = (unsigned long) 0;    
++    }
++}
++
++static int resume_from_swp(char *arg)
++{
++    int res = 0;
++    if( ! parase_symbl_table() ){
++        grub_printf("Error: Symbol table is not initialized correctly\n");
++        return 0;
++    }
++
++    set_device(arg);
++    res = open_partition();
++    if( ! res ){
++        grub_printf("Error: Can not open partition %s\n", arg);
++    }
++    
++    res = rdswsusp_header();
++    if ( ! res  ){
++        return 0;
++    }
++    
++    pg_idx_type = pg_idx_size(sw_header_image);
++    map_page_entries = get_mp_pg_entry(pg_idx_type);
++    
++    res = rdswsusp_map_page(get_idx(sw_header_image), &var_map_page);
++    if ( !res ) {
++        return 0;
++    }
++
++    res = rdswsusp_info(var_map_page.entries[0], &sw_info);
++    if( !res ){
++        return 0;
++    }
++
++    nr_copy_pages = sw_info.image_pages;
++    nr_meta_pages = sw_info.pages - sw_info.image_pages -1;
++    
++    save_low_1M_offset = find_low_1M_buff();
++    if (save_low_1M_offset == -1 ) {
++        grub_printf("Error: Can't find enough mem to restore low 1M image\n");
++        return 0;
++    }
++    clear_nosave_area();
++    prepare_load_image();
++    res = swsusp_load_image();
++    if ( ! res ) {
++        return 0;
++    }
++    
++    relocate_restore_code();
++}
++
++char rs_sym_file[51] = "(hd0,1)/fast-resume-symbol";
++char rs_partition[51] = "(hd0,2)" ;
++
++static int resume_func(char *arg, int flag)
++{
++    grub_printf_dbg(2, "Resume symbol file is:%s\n", rs_sym_file);
++    grub_printf_dbg(2, "  Resume partition is:%s\n", rs_partition);
++    
++    resume_splash();
++    errnum = ERR_NONE;
++    
++    if( resume_sym(rs_sym_file)){
++        resume_from_swp(rs_partition);
++    }
++    return 1;
++}
++
++static struct builtin builtin_resume =
++{
++  "resume",
++  resume_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST,
++  "resume",
++  "Resume the image"
++  " "
++};
++
++static int rs_sym_func(char *arg, int flag)
++{
++    if(arg[0] != 0){
++        if(grub_strlen(rs_sym_file) > 50){
++            grub_printf("Err: Symbol file name length more than 50\n");
++            return 0;
++        }
++        grub_strcpy(rs_sym_file, arg);
++    }
++    return 1;
++}
++
++static struct builtin builtin_resume_symbol=
++{
++  "resume_symbol",
++  rs_sym_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST| BUILTIN_MENU,
++  "resume_symbol (hdX,X)/path/to/symbol-file",
++  "set the resume symbol file location"
++  " "
++};
++
++static int rs_partition_func(char *arg, int flag)
++{
++    if(arg[0] != 0){
++        if(grub_strlen(rs_sym_file) > 50){
++            grub_printf("Err: Partition name length more than 50\n");
++            return 0;
++        }
++        grub_strcpy(rs_partition, arg);
++    }
++    return 1;
++}
++
++static struct builtin builtin_resume_partition=
++{
++  "resume_partition",
++  rs_partition_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST| BUILTIN_MENU,
++  "resume_partition (hdX,X)",
++  "set the resume partitin where resotre image located"
++  " "
++};
++
++static int resume_debug_func(char *arg, int flag)
++{
++    unsigned long level = 0;
++    if (arg[0] == 0) {
++        level = 0;
++    }else{
++        grub_hex_str_to_ul(arg,&level); 
++    }
++    dbg_level = level;
++    grub_printf("Set debug mode:%d", level);
++    return 1;
++}
++
++static struct builtin builtin_resume_debug=
++{
++  "resume_debug",
++  resume_debug_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST| BUILTIN_MENU,
++  "resume_debug debug_level",
++  "Set resume debug level"
++  "debug_level=0x1:debug ASM; debug_level=0x2 debug symbol; debug_level=0x3 debug image recovery"
++};
++
++static int rdmm_func(char *arg, int flag)
++{
++    unsigned long addr = 0;
++
++    if ( grub_hex_str_to_ul( arg, &addr) ){
++        grub_printf("the address is 0x%x\n", addr);
++    }
++    grub_printf_pg_8( (void *)addr );    
++
++    return 1;
++}
++
++static struct builtin builtin_rdmm =
++{
++  "rdmm",
++  rdmm_func,
++  BUILTIN_CMDLINE | BUILTIN_HELP_LIST,
++  "rdsmm 0xXXXX",
++  "Read 4K memeory start from 0xXXXX and print them out"
++  "now test!"
++};
++
++#endif /*end of #ifndef GRUB_UTIL*/
++ 
+ 
+ /* The table of builtin commands. Sorted in dictionary order.  */
+ struct builtin *builtin_table[] =
+@@ -5289,6 +6286,9 @@ struct builtin *builtin_table[] =
+   &builtin_ifconfig,
+ #endif /* SUPPORT_NETBOOT */
+   &builtin_impsprobe,
++#ifndef GRUB_UTIL
++  &builtin_inb,
++#endif
+   &builtin_initrd,
+   &builtin_install,
+   &builtin_ioprobe,
+@@ -5301,6 +6301,10 @@ struct builtin *builtin_table[] =
+ #endif /* USE_MD5_PASSWORDS */
+   &builtin_module,
+   &builtin_modulenounzip,
++#ifndef GRUB_UTIL
++  &builtin_outd,
++  &builtin_outp,
++#endif
+   &builtin_pager,
+   &builtin_partnew,
+   &builtin_parttype,
+@@ -5314,8 +6318,17 @@ struct builtin *builtin_table[] =
+ #ifdef SUPPORT_NETBOOT
+   &builtin_rarp,
+ #endif /* SUPPORT_NETBOOT */
++#ifndef GRUB_UTIL
++  &builtin_rdmm,
++#endif/*NO GRUB_UTIL*/
+   &builtin_read,
+   &builtin_reboot,
++#ifndef GRUB_UTIL
++  &builtin_resume,
++  &builtin_resume_debug,
++  &builtin_resume_partition,
++  &builtin_resume_symbol,
++#endif
+   &builtin_root,
+   &builtin_rootnoverify,
+   &builtin_savedefault,
+diff --git a/stage2/char_io.c b/stage2/char_io.c
+index 7155a73..826f3e4 100644
+--- a/stage2/char_io.c
++++ b/stage2/char_io.c
+@@ -195,7 +195,36 @@ grub_printf (const char *format,...)
+ 	switch (c = *(format++))
+ 	  {
+ #ifndef STAGE1_5
+-	  case 'd':
++	    case 'q':
++            c = *(format++);
++            if (c == 'x' || c == 'X'){
++                    unsigned long * highptr =  (unsigned long *) dataptr + 1;
++                    unsigned long * lowptr = (unsigned long *) dataptr;
++                    int prezero_num=0, i=0, high_is_zero = 1;
++                    char prezero[8];
++                    
++                    dataptr += 2;
++                    *convert_to_ascii (str, c, *highptr ) = 0;
++                    if ( ! (str[0] == '0' && str[1] == 0) ) {
++                        high_is_zero = 0; 
++                        grub_putstr(str);
++                    }
++                    
++                    *convert_to_ascii (str, c, *lowptr ) = 0;
++                    if ( ! high_is_zero ){
++                        prezero_num = 8 - grub_strlen(str);
++                        for(i=0; i< prezero_num; i++){
++                            prezero[i] = '0';
++                        }
++                        prezero[i] = 0;
++                        grub_putstr(prezero);
++                    }
++                    grub_putstr(str);
++                
++            }/*end of "%qx" "%qX"*/
++            break;
++
++          case 'd':
+ 	  case 'x':
+ 	  case 'X':
+ #endif
+@@ -1225,6 +1254,31 @@ grub_strlen (const char *str)
+ 
+   return len;
+ }
++
++int grub_hex_str_to_ul( char* str, unsigned long * hex)
++{
++    int i = 0, len = 0;
++    unsigned long res = 0;
++    len = grub_strlen(str);
++    i = len;
++    if ( i == 0 ) return 0;
++    for(i--; i >= 0; i--){
++        if (str[i] >= '0' && str[i] <= '9'){ 
++            res += ((str[i] - '0') << ((len - i - 1) * 4));
++        } else if(str[i] >= 'A' && str[i] <= 'F'){
++            res += ((str[i] - 'A' + 10) << ((len - i - 1) * 4));
++        } else if(str[i] >= 'a' && str[i] <= 'f'){
++            res += ((str[i] - 'a' + 10) << ((len - i - 1) * 4));
++        } else if( (str[i] == 'x' || str[i] == 'X') && str[i-1] == '0'){
++            *hex = res;
++            return 1;
++        } else {
++            return 0;
++        }
++    }
++    return 1;
++}
++
+ #endif /* ! STAGE1_5 */
+ 
+ int
+diff --git a/stage2/shared.h b/stage2/shared.h
+index 156fe93..9990de9 100644
+--- a/stage2/shared.h
++++ b/stage2/shared.h
+@@ -924,6 +924,9 @@ int get_based_digit (int c, int base);
+ int safe_parse_maxint (char **str_ptr, int *myint_ptr);
+ int memcheck (unsigned long int start, unsigned long int len);
+ void grub_putstr (const char *str);
++int grub_hex_str_to_ul( char* str, unsigned long * hex);
++unsigned long grub_inb(unsigned long addr);
++void grub_outb(unsigned long out_addr, unsigned char out_data);
+ 
+ #ifndef NO_DECOMPRESSION
+ /* Compression support. */
+@@ -1003,6 +1006,69 @@ int check_password(char *entered, char* expected, password_t type);
+ #endif
+ 
+ void init_bios_info (void);
++/*kernel version*/
++#define K2_6_24		2624
++#define K2_6_22		2622
++
++#define SWSUSP_SIG      "S1SUSPEND"
++
++#define PAGE_SHIFT      12
++#define PAGE_SIZE       (1 << PAGE_SHIFT)
++#define PAGE_MASK       (~(PAGE_SIZE-1))
++
++#define SECTOR_SHIFT    9
++
++#define PG_IDX_32 0
++#define PG_IDX_64 1
++
++typedef unsigned long long  sector_t;
++
++#define PAGE_TO_SECTOR(pg)  (pg << (PAGE_SHIFT - SECTOR_SHIFT))
++
++struct swsusp_header {
++    char	    reserved[PAGE_SIZE - 20 - sizeof(sector_t) - sizeof(unsigned long)];
++    unsigned long   image[3];
++    char	    orig_sig[10];
++    char	    sig[10];
++} __attribute__((packed));
++
++#define MAP_PAGE_ENTRIES    (PAGE_SIZE / sizeof(sector_t) - 1)
++
++struct swap_map_page {
++        sector_t entries[MAP_PAGE_ENTRIES];
++        sector_t next_swap;
++};
++
++struct swap_map_handle{
++    struct swap_map_page    *cur;
++    sector_t                cur_swap;
++    unsigned long           k;
++};
++
++struct new_utsname {
++       char sysname[65];
++       char nodename[65];
++       char release[65];
++       char version[65];
++       char machine[65];
++       char domainname[65];
++};
++
++struct swsusp_info {
++        struct new_utsname      uts;
++        unsigned long           version_code;
++        unsigned long           num_physpages;
++        int                     cpus;
++        unsigned long           image_pages;
++        unsigned long           pages;
++        unsigned long           size;
++} __attribute__((aligned(PAGE_SIZE)));
++                                                       
++struct swsusp_symbl_info{
++        char            symbl_name[50];
++        unsigned long   *value;     
++        int             matched;
++};
+ 
+ #endif /* ASM_FILE */
+ 
+diff --git a/stage2/stage2.c b/stage2/stage2.c
+index 68adaf9..23df232 100644
+--- a/stage2/stage2.c
++++ b/stage2/stage2.c
+@@ -873,6 +873,17 @@ get_line_from_config (char *cmdline, int maxlen, int read_from_file)
+   return pos;
+ }
+ 
++static void fast_resume(void)
++{
++    struct builtin * rs_builtin = NULL;
++    rs_builtin = find_command ("resume");
++    if (rs_builtin == NULL) {
++        grub_printf("Can not find resume command!\n");
++        return;
++    }
++    rs_builtin->func(0,0);
++    return;
++}
+ 
+ /* This is the starting function in C.  */
+ void
+@@ -1111,6 +1122,7 @@ cmain (void)
+ 	  if (current_term->startup() == 0)
+ 		  {
+ 		      current_term = term_table;
++                      errnum = ERR_NONE;
+ 		  }
+ 	}
+ 
+@@ -1123,6 +1135,8 @@ cmain (void)
+ 	}
+       else
+ 	{
++          fast_resume();
++	   errnum = ERR_NONE;
+ 	  /* Run menu interface.  */
+ 	  run_menu (menu_entries, config_entries, num_entries,
+ 		    menu_entries + menu_len, default_entry);

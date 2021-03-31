@@ -1,0 +1,3 @@
+# udev rules for USB touchscreen devices
+
+KERNEL=="event[0-9]*", SYSFS{idVendor}=="0eef", SYSFS{idProduct}=="0001", SYMLINK+="input/touchscreen"

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.18">
+<!ENTITY manrevision "2.18">
+<!ENTITY date "December">
+<!ENTITY app "<application>glChess</application>">
+<!ENTITY appname "glChess">
+<!ENTITY version "2.18">
+]>
+<!-- 
+      (Do not remove this comment block.)
+  Maintained by the GNOME Documentation Project
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- 
+  This initial draft of documentation for glchess, so that
+  the game at least has *some* documentation. Feal free to rewrite 
+  this document, anyone! 
+
+  - Andreas R.
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="pt_BR">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+<articleinfo>
+ <title>Manual do <application>glChess</application> V2.18</title>
+ 
+ <abstract role="description">
+       <para>Manual do usuário para o glChess, um jogo de xadrez 2D/3D para GNOME.</para>
+ </abstract>
+ <copyright>
+  <year>2006</year>
+  <holder>Andreas Røsdal</holder>
+ </copyright><copyright><year>2007.</year><holder>Vladimir Melo (vladimirmelo@foresightlinux.org)</holder></copyright>
+<!-- translators: uncomment this:
+
+  <copyright>
+   <year>2002</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+   -->
+<!-- An address can be added to the publisher information.  If a role is 
+     not specified, the publisher/author is the same for all versions of the 
+     document.  -->
+    <publisher role="maintainer"> 
+      <publishername>Projeto de Documentação do GNOME</publishername> 
+    </publisher> 
+
+     <legalnotice id="legalnotice">
+	<para>Permissão concedida para copiar, distribuir e/ou modificar este documento dentro dos termos da GNU Free Documentation License (GFDL), Versão 1.1 ou qualquer versão superior publicada pela Free Software Foundation sem nenhuma Seção Imutável, Textos de Capa e Contra-Capa. Você pode achar uma cópia do GFDL neste <ulink type="help" url="ghelp:fdl">link</ulink> ou no arquivo COPYING-DOCS distribuido com este manual.</para>
+         <para>Este manual é parte de uma coleção dos manuais do GNOME distribuídos sob a GFDL. Se você quiser distribuir este manual separadamente da coleção, você pode fazê-lo ao adicionar uma cópia da licença ao manual, como descrito na seção 6 da licença.</para>
+
+	<para>Muitos dos nomes usados por empresas para distingüir seus produtos e serviços são marcas registradas. Onde esses nomes aparecerem em qualquer documentação do GNOME e os membros do Projeto de Documentação do GNOME estiverem cientes daquelas marcas registradas, os nomes aparecerão em letras maíusculas ou com iniciais em maíusculas.</para>
+
+	<para>DOCUMENTO E VERSÕES MODIFICADAS DO DOCUMENTO SÃO FORNECIDAS PELOS TERMOS DA GNU FREE DOCUMENTATION LICENSE COM O CONHECIMENTO ADICIONAL DE QUE: <orderedlist>
+		<listitem>
+		  <para>DOCUMENTO É FORNECIDO "NO ESTADO", SEM GARANTIA DE QUALQUER TIPO, TANTO EXPRESSA QUANTO IMPLÍCITA, INCLUINDO, SEM LIMITAÇÕES, GARANTIAS DE QUE O DOCUMENTO OU VERSÃO MODIFICADA DO MESMO É COMERCIALIZADO LIVRE DE DEFEITOS, PRÓPRIO PARA UM PROPÓSITO ESPECÍFICO OU QUE NÃO HÁ INFRAÇÕES. TODO RISCO DE QUALIDADE, PRECISÃO E PERFORMANCE DO DOCUMENTO OU VERSÃO MODIFICADA É COM VOCÊ. SE ALGUM DOCUMENTO OU VERSÃO MODIFICADA É PROVADO DEFEITUOSO EM QUALQUER ASPECTO, VOCÊ (NÃO O ESCRITOR INICIAL, AUTOR OU QUALQUER COLABORADOR) ASSUME O CUSTO DE QUALQUER SERVIÇO NECESSÁRIO, REPARO OU CORREÇÃO. ESTE AVISO DE GARANTIA CONSTITUI UMA PARTE ESSENCIAL DA LICENÇA. NENHUM USO DE QUALQUER DOCUMENTO OU VERSÃO MODIFICADA DO DOCUMENTO É AUTORIZADO EXCETO SOB ESTA CONDIÇÃO; E</para>
+		</listitem>
+		<listitem>
+		  <para>SOB NENHUMA CIRCUNSTÂNCIA E SOB NENHUMA TEORIA LEGAL, TANTO EM DANOS (INCLUINDO POR NEGLICÊNCIA), CONTRATO OU OUTROS, DEVE O AUTOR, ESCRITOR INICIAL OU COLABORADOR OU QUALQUER DISTRIBUIDOR DO DOCUMENTO, VERSÃO MODIFICADA OU QUALQUER FORNECEDOR DE QUALQUER DESSES GRUPOS, SER CONSIDERADO RESPONSÁVEL A QUALQUER PESSOA POR QUALQUER DANO DIRETO, INDIRETO, ESPECIAL, INCIDENTAL OU CONSEQÜENCIAL DE QUALQUER INDIVÍDUO, INCLUINDO, SEM LIMITAÇÕES, DANOS POR PERDA DE BOA VONTADE, PARADA DE TRABALHO, FALHA DE COMPUTADOR, MAL-FUNCIONAMENTO OU QUALQUER E TODOS OS OUTROS DANOS OU PERDAS RESULTANTES OU RELACIONADAS AO USO DO DOCUMENTO E VERSÕES MODIFICADAS, MESMO QUE ESSE GRUPO TENHA SIDO INFORMADO DA POSSIBILIDADE DE TAIS DANOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and 
+        other legal stuff such as "NO WARRANTY" statement. Please do not change 
+	any of this. -->
+
+    <authorgroup> 
+      <author> 
+	<firstname>Andreas</firstname> 
+	<surname>Røsdal</surname> 
+	<affiliation> 
+	  <address> <email>andrearo@pvv.ntnu.no</email> </address> 
+	</affiliation> 
+      </author> 
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+	<firstname>Latin</firstname> 
+	<surname>Translator 1</surname> 
+	<affiliation> 
+	  <orgname>Latin Translation Team</orgname> 
+	  <address> <email>translator@gnome.org</email> </address> 
+	</affiliation>
+	<contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+    
+<revhistory>
+      <revision> 
+	<revnumber>Manual do glChess V2.18</revnumber> 
+	<date>Dezembro</date> 
+	<revdescription> 
+	  <para role="author">Andreas Røsdal <email>andrearo@pvv.ntnu.no</email></para>
+	  <para role="publisher">Projeto de Documentação do GNOME</para>
+	</revdescription> 
+      </revision>
+  <revision>
+   <revnumber>1</revnumber>
+   <date>Dezembro 2006</date>
+   <authorinitials>AR</authorinitials>
+   <revremark>Primeiro rascunho completo.</revremark>
+  </revision>
+ </revhistory>
+
+    <releaseinfo>Este manual descreve a versão 2.18 do glChess.</releaseinfo>
+    <!-- The following feedback information only applies to appliactions
+    listed in bugzilla.gnome.org and bugzilla.ximian.com. For other
+    applications, please provide your own feedback info or remove thsi
+    section altogether -->
+    <legalnotice> 
+      <title>Feedback</title> 
+      <para>Para relatar um bug ou dar uma sugestão a respeito da aplicação <application>glChess</application> ou deste manual, siga as orientações na <ulink url="ghelp:gnome-feedback" type="help">Página de Feedback do GNOME</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+
+</articleinfo>
+
+  <indexterm zone="index"> 
+    <primary>glChess</primary> 
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<sect1 id="intro">
+ <title>Introdução</title>
+ <sect2 id="what">
+  <title>Visão Geral de Xadrez</title>
+  
+  <para>Xadrez é um jogo de tabuleiro de estratégia para dois jogadores. <application>glChess</application> é um jogo de xadrez 2D/3D, no qual jogos podem ser disputados entre jogadores humanos e computadores. glChess detecta motores de xadrez independentes conhecidos dos jogadores de computador. O jogo foi desenvolvido originalmente por Robert Ancell e agora está incluído no gnome-games.</para>
+
+  <para><application>glChess</application> é escrito em Python, e usa GTK+ e Cairo para renderizar o tabuleiro de xadrez. O suporte a 3D é disponibilizado opcionalmente com OpenGL, usando as bibliotecas OpenGl e GtkGLExt para Python. Recomenda-se usar aceleração 3D por hardware,como na maioria dos programas 3D modernos, mas deve ser aceitável usar apenas software. O glChess é distribuído usando o GNU Chess como inteligência artificial padrão.</para>
+  <para>Xadrez é jogado em um tabuleiro quadrado, que consiste de 64 casas de cores alternadas. Cada jogador começa o jogo com dezesseis peças: um rei, uma dama, duas torres, dois cavalos, dois bispos, e oito peões. Um jogador joga com as peças brancas e o outro joga com as peças pretas; o jogador de brancas é o primeiro a mover. Os jogadores alternam a vez movendo as peças; certos movimentos envolvem a "captura" de uma peça adversária, removendo-a do tabuleiro. O objetivo do jogo é aplicar um cheque-mate no rei do adversário. Isso ocorre quando o rei está sob ataque imediato (em cheque) e não existe saída para tirá-lo do ataque no movimento seguinte. Teóricos têm desenvolvido continuamente estratégias e táticas desde a criação do jogo.</para>
+<para>A forma atual do jogo emergiu no sul da Europa na segunda metade do século XV depois de evoluir de um jogo similar, um dos mais antigos da origem da Ásia. O xadrez é um dos jogos mais populares de tabuleiro. A tradição de xadrez competitivo começou no século XVI. O primeiro Campeão Mundial de Xadrez, Wilhelm Steinitz, reclamou seu título em 1886; seu equivalente moderno, Vladimir Kramnik, é o décimo quarto campeão na linhagem. Também existem eventos mundiais bienais chamados Olimpíadas de Xadrez. Desde o século XX, duas organizações internacionais, a Federação Mundial de Xadrez e a Federação Internacional de Xadrez por Correspondência têm organizado e supervisionado as principais competições de xadrez e os títulos internacionais.</para>
+<para>Um dos objetivos dos cientistas de computador mais antigos era criar uma máquina jogadora de xadrez, e o xadrez de hoje é profundamente influenciado pelas habilidades técnicas dos programas atuais. Em 1997, uma série de partidas entre Garry Kasparov, o então Campeão Mundial, e o programa de xadrez Deep Blue da IBM provou que computadores são capazes de vencer até mesmo os melhores jogadores de xadrez.</para>
+
+  <para>Para executar <application>glChess</application>, selecione <guimenuitem>Xadrez</guimenuitem> no submenu <guisubmenu>Jogos</guisubmenu> do <guimenu>Menu Principal</guimenu>, ou digite <command>glchess</command> na linha de comando.</para>
+ </sect2>
+
+</sect1>
+
+<sect1 id="chess-rules">
+ <title>Regras de Xadrez</title>
+ <sect2 id="rules-of-chess">
+  <title>As Regras de Xadrez</title>
+  <para>Xadrez é jogado em um tabuleiro de oito linhas horizontais (chamadas fileiras e descritas com números de 1 até 8) e oito linhas verticais (chamadas colunas e descritas com letras de a até h) de casas. As cores das sessenta e quatro casas alternam entre claras e escuras, e são denominadas "casas claras" e "casas escuras". O tabuleiro é posicionado de forma que a casa branca esteja próxima do canto direito, e as peças são colocadas como mostradas no diagrama, com cada dama na casa de cor correspondente.</para><para>Cada jogador começa o jogo com dezesseis peças: as peças de cada jogador são um rei, uma dama, duas torres, dois bispos, dois cavalos e oito peões. Um jogador, denominado de Brancas, joga com as peças brancas e o outro jogador, Pretas, joga com as peças pretas; Brancas é sempre o primeiro jogador a mover. As cores são escolhidas por um acordo amistoso, por um jogo de sorte ou pelo diretor do torneio. Os jogadores alternam o movimento de uma peça por vez (com a exceção do roque, quando duas peças são movidas ao mesmo tempo). Peças são movidas para uma casa desocupada, ou uma ocupada pela peça do adversário, efetuando sua captura e remoção do jogo. Com uma exceção (na passagem), todas as peças capturam as peças do adversário ao serem movidas para a casa que ocupa a peça do adversário.</para>
+ <sect3 id="rules-piece-king">
+  <title>Rei</title>
+<para>Quando o rei está sob ataque direto por uma (ou possivelmente duas) das peças do adversário, considera-se que o jogador está em cheque. Quando em cheque, apenas movimentos que livrem o rei do ataque são permitidos. O jogador não deve fazer qualquer movimento que coloque seu rei em cheque. O objetivo do jogo é o cheque-mate no adversário; isso corre quando o rei do adversário está em cheque, e não existe movimentos que possam livrá-lo do ataque.</para><para>O rei pode se mover apenas uma casa horizontalmente, verticalmente ou na diagonal. Um vez no jogo, é permitido a cada rei fazer um movimento duplo especial para o efetuar o roque. Roque consiste em movimentar o rei duas casas em relação à torre, e então mover a torre para a casa além daquelas que o rei atravessou. Roque só é possível se todas as seguintes condições forem atendidas:</para>
+<itemizedlist spacing="compact">
+  <listitem>
+   <para>O jogador deve nunca ter movimentado o rei e a torre envolvida no roque.</para>
+  </listitem>
+  <listitem>
+   <para>Não deve haver peças entre o rei e a torre.</para>
+  </listitem>
+  <listitem>
+   <para>O rei não pode estar em cheque, nem pode atravessar casas que estejam sob ataque de peças inimigas. Como em qualquer movimento, o roque é ilegal se colocar o rei em cheque.</para>
+ </listitem>
+  <listitem>
+   <para>O rei e a torre devem estar na mesma fileira (excluir roque com um peão promovido).</para>
+  </listitem>
+</itemizedlist>
+</sect3>
+ <sect3 id="rules-piece-rook">
+  <title>Torre</title>
+<para>A torre se move por qualquer número de casas vazias verticalmente ou horizontalmente (também incluído o movimento especial de roque do rei).</para>
+</sect3>
+ <sect3 id="rules-piece-bishop">
+  <title>Bispo</title>
+<para>O bispo se move por qualquer número de casas vazias em qualquer direção diagonal. Observe que um bispo nunca muda a cor da casa, portanto jogadores falam sobre bispos de "casas-claras" ou "casas-escuras".</para>
+</sect3>
+ <sect3 id="rules-piece-queen">
+  <title>Dama</title>
+<para>A dama pode se mover por qualquer número de casas vazias na diagonal, horizontal, ou vertical.</para>
+</sect3>
+ <sect3 id="rules-piece-knight">
+  <title>Cavalo</title>
+<para>O cavalo pode pular casas ocupadas e mover dois espaços horizontalmente e um espaço verticalmente ou vice-versa, na forma de "L". Um cavalo no meio do tabuleiro tem oito casas para onde pode mover. Observe que a qualquer hora que o cavalo é movido, muda a cor da casa.</para>
+</sect3>
+ <sect3 id="rules-piece-pawns">
+  <title>Peões</title>
+<para>Peões tem as regras mais complexas de movimento: Um peão pode mover uma casa para frente, se a casa estiver desocupada. Se ele não tiver sido movido ainda, há a opção de mover o peão duas casas para frente, se ambas as casas da frente estiverem desocupadas. Um peão não pode ser movido para trás. Quando um avanço inicial de duas casas é feito de forma que coloque o peão horizontalmente adjacente ao peão do adversário, o peão do adversário pode capturar o peão "na passagem" como se fosse movido para frente apenas uma casa em vez de duas, mas apenas no movimento seguinte. Peões são peças que capturam diferentemente de como se movem. Eles podem capturar uma peça do adversário nos dois espaços adjacentes aos espaços da sua frente (i.e., as duas casas da diagonal em frente a ele), mas não podem ser movidos para esses espaços se estiverem vazios. Se um peão avança todo o seu caminho até a oitava casa, é então promovido (convertido) em dama, torre, bispo, ou cavalo da mesma cor. Na prática, o peão é quase sempre promovido à dama.</para>
+</sect3>
+
+<sect3 id="rules-movement-others">
+<title>Regras de movimentos restantes</title>
+<para>Com exeção do cavalo, peças não podem pular umas as outras. As próprias peças ("peças amigas") não podem ser ultrapassadas se estiverem na linha de movimento, e uma peça amiga nunca pode substituir outra peça amiga. Peças adversárias não podem ser ultrapassadas, mas podem ser "capturadas". Quando uma peça é capturada (ou tomada), a peça que ataca substitui a peça adversária na sua casa (na passagem sendo a única exceção). A peça capturada é então removida do jogo e não pode ser retornada pelo restante do jogo. O rei não pode ser capturado, só posto em cheque. Se um jogador é incapaz de livrar o rei do cheque, o resultado é o cheque-mate, com a perda do jogo.</para><para>Jogos de xadrez não tem que terminar em cheque-mate — cada jogador pode desistir se a situação parecer sem saída. Jogos também podem terminar em empate. Um empate pode ocorrer em várias situações, incluindo empate por acordo, afogamento, repetição tripla de uma posição, regra dos cinqüenta movimentos, ou um empate pela impossibilidade de cheque-mate (usualmente por causa de peças insuficientes para cheque-mate).</para>
+</sect3>
+ </sect2>
+</sect1>
+
+
+<sect1 id="engines">
+ <title>Motores de Xadrez</title>
+
+     <para>glChess deve ser capaz de usar qualquer Protocolo de Comunicação de Motor de Xadrez ou Interface de Xadrez Universal compatível com motores de xadrez, incluindo estes motores de xadrez:</para>
+
+<itemizedlist spacing="compact">
+  <listitem>
+	<para>GNUChess</para>
+  </listitem>
+  <listitem>
+	<para>Sjeng</para>
+  </listitem>
+  <listitem>
+	<para>Amy</para>
+ </listitem>
+  <listitem>
+	<para>Crafty</para>
+  </listitem>
+  <listitem>
+	<para>Faile</para>
+  </listitem>
+  <listitem>
+	<para>Phalanx</para>
+  </listitem>
+  <listitem>
+	<para>Glaurung</para>
+  </listitem>
+  <listitem>
+	<para>HoiChess</para>
+  </listitem>
+  <listitem>
+	<para>Diablo</para>
+  </listitem>
+  <listitem>
+	<para>BBChess</para>
+  </listitem>
+  <listitem>
+	<para>Fruit</para>
+  </listitem>
+  <listitem>
+	<para>Amundsen</para>
+  </listitem>
+</itemizedlist>
+
+</sect1>
+
+
+<sect1 id="bugs">
+ <title>Bugs Conhecidos e Limitações</title>
+
+ <itemizedlist mark="opencircle">
+    <listitem>
+     <para>Não existem bugs documentados ou limitações no glChess.</para>
+    </listitem>
+ </itemizedlist>
+
+</sect1>
+
+<sect1 id="credits">
+ <title>Autores</title>
+  <para><application>glChess</application> foi escrito por Robert Ancell, e é agora mantido no gnome-games. Para relatar um bug ou dar uma sugestão a respeito desta aplicação ou deste manual, siga as orientações neste <ulink url="ghelp:gnome-feedback" type="help">documento</ulink>.</para>
+
+  <!-- For translations: uncomment this:
+
+  <para>
+   Latin translation was done by ME
+   (<email>MYNAME@MYADDRESS</email>). Please send all  comments  and
+   suggestions regarding this translation to SOMEWHERE.
+  </para>
+
+  -->
+
+ </sect1>
+
+
+ <!-- ============= Application License ============================= -->
+
+ <sect1 id="license">
+  <title>Licença</title>
+  <para>Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo sob os termos da <citetitle>GNU General Public License</citetitle> numa publicação da Free Software Foundation; em sua versão 2 da Licença, ou (em sua opção) sua versão superior.</para>
+  <para>Este programa é distribuido na esperança que será útil, mas SEM GARANTIA ALGUMA; nem mesmo a garantia implícita de COMERCIABILIDADE ou ADEQUAÇÃO A UMA FINALIDADE ESPECIFICA. Consulte a <citetitle>GNU General Public License</citetitle> para mais detalhes.</para>
+  <para>Uma cópia da <citetitle>Licença Pública Geral GNU</citetitle> é incluída como um apêndice do <citetitle>Guia do Usuário do GNOME</citetitle>. Você também pode obter uma cópia da <citetitle>Licença Pública Geral GNU</citetitle> na Free Software Foundation ao visitar <ulink type="http" url="http://www.fsf.org">o site deles</ulink> ou ao escrever para <address> Free Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</country></address></para>
+ </sect1>
+</article>

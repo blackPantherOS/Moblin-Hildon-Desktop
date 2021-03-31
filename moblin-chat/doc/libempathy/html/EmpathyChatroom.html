@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyChatroom</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyLogManager.html" title="EmpathyLogManager">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyLogManager.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td>&#160;</td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2604522" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2623894" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2617771" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2623830" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyChatroom"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2604522"></a><span class="refentrytitle">EmpathyChatroom</span>
+</h2>
+<p>EmpathyChatroom</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+#define             <a href="EmpathyChatroom.html#EMPATHY-TYPE-CHATROOM-INVITE:CAPS">EMPATHY_TYPE_CHATROOM_INVITE</a>
+                    <a href="EmpathyChatroom.html#EmpathyChatroomPriv">EmpathyChatroomPriv</a>;
+                    <a href="EmpathyChatroom.html#EmpathyChatroom-struct">EmpathyChatroom</a>;
+<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>*    <a href="EmpathyChatroom.html#empathy-chatroom-new">empathy_chatroom_new</a>                (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *room);
+<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>*    <a href="EmpathyChatroom.html#empathy-chatroom-new-full">empathy_chatroom_new_full</a>           (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *room,
+                                                         const gchar *name,
+                                                         gboolean auto_connect);
+<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>*          <a href="EmpathyChatroom.html#empathy-chatroom-get-account">empathy_chatroom_get_account</a>        (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);
+void                <a href="EmpathyChatroom.html#empathy-chatroom-set-account">empathy_chatroom_set_account</a>        (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+const gchar*        <a href="EmpathyChatroom.html#empathy-chatroom-get-room">empathy_chatroom_get_room</a>           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);
+void                <a href="EmpathyChatroom.html#empathy-chatroom-set-room">empathy_chatroom_set_room</a>           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         const gchar *room);
+const gchar*        <a href="EmpathyChatroom.html#empathy-chatroom-get-name">empathy_chatroom_get_name</a>           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);
+void                <a href="EmpathyChatroom.html#empathy-chatroom-set-name">empathy_chatroom_set_name</a>           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         const gchar *name);
+gboolean            <a href="EmpathyChatroom.html#empathy-chatroom-get-auto-connect">empathy_chatroom_get_auto_connect</a>   (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);
+void                <a href="EmpathyChatroom.html#empathy-chatroom-set-auto-connect">empathy_chatroom_set_auto_connect</a>   (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         gboolean auto_connect);
+gboolean            <a href="EmpathyChatroom.html#empathy-chatroom-equal">empathy_chatroom_equal</a>              (gconstpointer v1,
+                                                         gconstpointer v2);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2617771"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyChatroom
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2623830"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyChatroom.html#EmpathyChatroom--account">account</a>"                  <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>             : Read / Write
+  "<a href="EmpathyChatroom.html#EmpathyChatroom--auto-connect">auto-connect</a>"             gboolean              : Read / Write
+  "<a href="EmpathyChatroom.html#EmpathyChatroom--name">name</a>"                     gchararray            : Read / Write
+  "<a href="EmpathyChatroom.html#EmpathyChatroom--room">room</a>"                     gchararray            : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2623894"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2623910"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2623921"></a><h3>
+<a name="EMPATHY-TYPE-CHATROOM-INVITE:CAPS"></a>EMPATHY_TYPE_CHATROOM_INVITE</h3>
+<a class="indexterm" name="id2623932"></a><pre class="programlisting">#define EMPATHY_TYPE_CHATROOM_INVITE       (empathy_chatroom_invite_get_gtype ())
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623948"></a><h3>
+<a name="EmpathyChatroomPriv"></a>EmpathyChatroomPriv</h3>
+<a class="indexterm" name="id2623961"></a><pre class="programlisting">typedef struct _EmpathyChatroomPriv EmpathyChatroomPriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623977"></a><h3>
+<a name="EmpathyChatroom-struct"></a>EmpathyChatroom</h3>
+<a class="indexterm" name="id2623989"></a><pre class="programlisting">typedef struct _EmpathyChatroom EmpathyChatroom;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624005"></a><h3>
+<a name="empathy-chatroom-new"></a>empathy_chatroom_new ()</h3>
+<a class="indexterm" name="id2624016"></a><pre class="programlisting"><a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>*    empathy_chatroom_new                (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *room);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>room</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620436"></a><h3>
+<a name="empathy-chatroom-new-full"></a>empathy_chatroom_new_full ()</h3>
+<a class="indexterm" name="id2620447"></a><pre class="programlisting"><a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a>*    empathy_chatroom_new_full           (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *room,
+                                                         const gchar *name,
+                                                         gboolean auto_connect);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>room</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>auto_connect</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620567"></a><h3>
+<a name="empathy-chatroom-get-account"></a>empathy_chatroom_get_account ()</h3>
+<a class="indexterm" name="id2620580"></a><pre class="programlisting"><a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>*          empathy_chatroom_get_account        (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620637"></a><h3>
+<a name="empathy-chatroom-set-account"></a>empathy_chatroom_set_account ()</h3>
+<a class="indexterm" name="id2620650"></a><pre class="programlisting">void                empathy_chatroom_set_account        (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620718"></a><h3>
+<a name="empathy-chatroom-get-room"></a>empathy_chatroom_get_room ()</h3>
+<a class="indexterm" name="id2620730"></a><pre class="programlisting">const gchar*        empathy_chatroom_get_room           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620788"></a><h3>
+<a name="empathy-chatroom-set-room"></a>empathy_chatroom_set_room ()</h3>
+<a class="indexterm" name="id2620800"></a><pre class="programlisting">void                empathy_chatroom_set_room           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         const gchar *room);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>room</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624911"></a><h3>
+<a name="empathy-chatroom-get-name"></a>empathy_chatroom_get_name ()</h3>
+<a class="indexterm" name="id2624921"></a><pre class="programlisting">const gchar*        empathy_chatroom_get_name           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2624973"></a><h3>
+<a name="empathy-chatroom-set-name"></a>empathy_chatroom_set_name ()</h3>
+<a class="indexterm" name="id2624984"></a><pre class="programlisting">void                empathy_chatroom_set_name           (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         const gchar *name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625046"></a><h3>
+<a name="empathy-chatroom-get-auto-connect"></a>empathy_chatroom_get_auto_connect ()</h3>
+<a class="indexterm" name="id2625060"></a><pre class="programlisting">gboolean            empathy_chatroom_get_auto_connect   (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625116"></a><h3>
+<a name="empathy-chatroom-set-auto-connect"></a>empathy_chatroom_set_auto_connect ()</h3>
+<a class="indexterm" name="id2625129"></a><pre class="programlisting">void                empathy_chatroom_set_auto_connect   (<a href="EmpathyChatroom.html" title="EmpathyChatroom">EmpathyChatroom</a> *chatroom,
+                                                         gboolean auto_connect);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>auto_connect</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2590272"></a><h3>
+<a name="empathy-chatroom-equal"></a>empathy_chatroom_equal ()</h3>
+<a class="indexterm" name="id2569412"></a><pre class="programlisting">gboolean            empathy_chatroom_equal              (gconstpointer v1,
+                                                         gconstpointer v2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>v1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>v2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2625258"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2625268"></a><h3>
+<a name="EmpathyChatroom--account"></a>The "<code class="literal">account</code>" property</h3>
+<a class="indexterm" name="id2625280"></a><pre class="programlisting">  "account"                  <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>             : Read / Write</pre>
+<p>The account associated with an chatroom.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625300"></a><h3>
+<a name="EmpathyChatroom--auto-connect"></a>The "<code class="literal">auto-connect</code>" property</h3>
+<a class="indexterm" name="id2625315"></a><pre class="programlisting">  "auto-connect"             gboolean              : Read / Write</pre>
+<p>Connect on startup.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625338"></a><h3>
+<a name="EmpathyChatroom--name"></a>The "<code class="literal">name</code>" property</h3>
+<a class="indexterm" name="id2625351"></a><pre class="programlisting">  "name"                     gchararray            : Read / Write</pre>
+<p>Chatroom name.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2625373"></a><h3>
+<a name="EmpathyChatroom--room"></a>The "<code class="literal">room</code>" property</h3>
+<a class="indexterm" name="id2625386"></a><pre class="programlisting">  "room"                     gchararray            : Read / Write</pre>
+<p>Chatroom represented as 'room@server'.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div>
+</body>
+</html>

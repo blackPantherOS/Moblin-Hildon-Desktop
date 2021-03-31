@@ -1,0 +1,36 @@
+This package was debianized by Danny Varner <danny.varner@intel.com> on
+Thu, 06 Dec 2007 10:14:17 -0800.
+
+It was downloaded from <http://www.moblin.org>
+
+Upstream Author(s): 
+	Danny Varner <danny.varner@intel.com>
+
+Copyright: 
+
+#    Copyright (c) 2007 Intel Corporation
+#
+#    This program is free software; you can redistribute it and/or modify it
+#    under the terms of the GNU General Public License as published by the Free
+#    Software Foundation; version 2 of the License
+#
+#    This program is distributed in the hope that it will be useful, but
+#    WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+#    or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+#    for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+#    02110-1301, USA.
+
+
+License:
+
+    GPLv2.0
+
+The Debian packaging is (C) 2007, Danny Varner <danny.varner@intel.com> and
+is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+
+# Please also look if there are files or directories which have a
+# different copyright/license attached and list them here.

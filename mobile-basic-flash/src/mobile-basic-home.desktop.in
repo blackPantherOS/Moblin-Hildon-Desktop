@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Mobile Basic Home Plugin
+Type=default
+X-Path=libmobilebasichome.so

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Dummy Panel Plugin
+Type=Link
+X-Plugin-Type=default
+X-Path=libdummypanel.so

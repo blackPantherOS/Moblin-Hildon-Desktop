@@ -1,0 +1,45 @@
+<!ENTITY toggle.label "Alternar Grab and Drag">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Alternar Modo do Grab and Drag">
+<!ENTITY grabanddrag.shortlabel "Segurar/Arrastar">
+<!ENTITY options.title "Preferências do Grab and Drag">
+<!ENTITY enabled.label "Habilitar Extensão">
+<!ENTITY qt.label "Tecla de Mudança Rápida">
+<!ENTITY mousecursor.label "Cursor do Mouse">
+<!ENTITY grabcursor.label "Cursor Segurando">
+<!ENTITY openhand.label "Mão aberta">
+<!ENTITY closedhand.label "Mão Fechada">
+<!ENTITY altopenhand.label "Mão Aberta #2">
+<!ENTITY altclosedhand.label "Mão Fechada #2">
+<!ENTITY fourway.label "Setas nos 4 Sentidos">
+<!ENTITY stdarrow.label "Seta Padrão">
+<!ENTITY defcur.label "Cursor Predefinido">
+<!ENTITY options.cursors "Cursores">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Tecla de Mudança Normal">
+<!ENTITY options.togKey "Tecla">
+<!ENTITY options.dragInc "Incrementos de Rolagem">
+<!ENTITY options.mult "Multiplicador de Rolagem">
+<!ENTITY options.sbmode "Modo de Barra de Rolagem">
+<!ENTITY options.samecur "Manter">
+<!ENTITY options.reverse "Inverter Sentido">
+<!ENTITY options.behavior "Comportamento">
+<!ENTITY options.flicks "Gestos de Flick">
+<!ENTITY options.flickon "Habilitar Flick">
+<!ENTITY options.flickspeed "Velocidade de Flick">
+<!ENTITY options.flicktimelimit "Limite de Tempo">
+<!ENTITY notes "Notas">
+<!ENTITY prefs.rollForInfo "Mova o mouse sobre cada opção para mais informações.">
+<!ENTITY prefs.cursorwarning "Cursores de mãos requerem Firefox/Thunderbird 1.5+. Alguns sistemas operacionais podem não exibir o primeiro conjunto de cursores de mãos corretamente ainda.">
+<!ENTITY prefs.cursorwarning2 "Deixando o cursor inalterado ao arrastar pode melhorar consideravelmente o desempenho na rolagem. Alguns sistemas operacionais podem não exibir alguns cursores corretamente.">
+<!ENTITY prefs.toolbarInfo "Um botão de mudança para barra de ferramenta também está disponível (Exibir &gt; Barras de ferramentas &gt; Personalizar...)">
+<!ENTITY prefs.qtInfo "Mantendo pressionada a tecla de mudança rápida, o Grab and Drag é desabilitado temporariamente, até que a tecla seja solta. Isto facilita a seleção de textos.">
+<!ENTITY prefs.dragIncInfo "A rolagem ocorrerá apenas em incrementos de pixels especificados aqui. Um número maior deve melhorar o desempenho, mas diminuir a suavidade.">
+<!ENTITY prefs.multInfo "A taxa de rolagem pode ser multiplicada por este número para permitir que a tela role mais rápido do que o movimento do cursor do mouse.">
+<!ENTITY prefs.reverseInfo "Selecione esta opção para inverter o sentido de rolamento do documento com relação ao movimento do mouse.">
+<!ENTITY prefs.sbmodeInfo "Selecione esta opção para arrastar como se a barra de rolagem estivesse sob o cursor do mouse.">
+<!ENTITY prefs.flicksInfo "'Flicks' são gestos feitos movendo rapidamente a caneta ou o mouse através da tela em determinado sentido. O Grab and Drag permite que você use flicks para rolar para cima, baixo, esquerda ou direita até uma página inteira por vez. Flicks são principalmente úteis para computadores que utilizam caneta em tela sensível ao toque.">
+<!ENTITY prefs.flickSpeedInfo "Isto determina quão rapidamente um flick rola a tela. É o número de pixels deslocados por vez.">
+<!ENTITY prefs.flickTimeLimitInfo "Isto determina quão rapidamente um flick deve ser feito para que seja reconhecido. O parâmetro é em milisegundos.">

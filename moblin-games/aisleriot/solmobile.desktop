@@ -1,0 +1,13 @@
+[Mobile Entry]
+Encoding=UTF-8
+Name=AisleRiot Solitaire
+Comment=Play many different solitaire games
+Exec=sol
+Icon=gnome-aisleriot
+Terminal=false
+Type=Application
+Categories=GTK;Game;CardGame;Mobile
+StartupNotify=true
+X-HildonDesk-ShowInToolbar=true
+X-Osso-Service=org.gnome.Games.AisleRiot
+X-Osso-Type=application/x-executable

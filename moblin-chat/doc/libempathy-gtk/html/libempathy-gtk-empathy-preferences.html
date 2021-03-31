@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>empathy-preferences</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="libempathy-gtk-empathy-contact-widget.html" title="empathy-contact-widget">
+<link rel="next" href="libempathy-gtk-empathy-status-presets.html" title="empathy-status-presets">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-gtk-empathy-contact-widget.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="libempathy-gtk-empathy-status-presets.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2572763" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2510928" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-gtk-empathy-preferences"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2572763"></a><span class="refentrytitle">empathy-preferences</span>
+</h2>
+<p>empathy-preferences</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-PATH:CAPS">EMPATHY_PREFS_PATH</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-SOUNDS-FOR-MESSAGES:CAPS">EMPATHY_PREFS_SOUNDS_FOR_MESSAGES</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-SOUNDS-WHEN-AWAY:CAPS">EMPATHY_PREFS_SOUNDS_WHEN_AWAY</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-SOUNDS-WHEN-BUSY:CAPS">EMPATHY_PREFS_SOUNDS_WHEN_BUSY</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-POPUPS-WHEN-AVAILABLE:CAPS">EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CHAT-SHOW-SMILEYS:CAPS">EMPATHY_PREFS_CHAT_SHOW_SMILEYS</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CHAT-THEME:CAPS">EMPATHY_PREFS_CHAT_THEME</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CHAT-THEME-CHAT-ROOM:CAPS">EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CHAT-SPELL-CHECKER-LANGUAGES:CAPS">EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CHAT-SPELL-CHECKER-ENABLED:CAPS">EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-UI-SEPARATE-CHAT-WINDOWS:CAPS">EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-UI-MAIN-WINDOW-HIDDEN:CAPS">EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-UI-AVATAR-DIRECTORY:CAPS">EMPATHY_PREFS_UI_AVATAR_DIRECTORY</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-UI-SHOW-AVATARS:CAPS">EMPATHY_PREFS_UI_SHOW_AVATARS</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-UI-COMPACT-CONTACT-LIST:CAPS">EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CONTACTS-SHOW-OFFLINE:CAPS">EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-CONTACTS-SORT-CRITERIUM:CAPS">EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-HINTS-CLOSE-MAIN-WINDOW:CAPS">EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW</a>
+#define             <a href="libempathy-gtk-empathy-preferences.html#EMPATHY-PREFS-SALUT-ACCOUNT-CREATED:CAPS">EMPATHY_PREFS_SALUT_ACCOUNT_CREATED</a>
+GtkWidget*          <a href="libempathy-gtk-empathy-preferences.html#empathy-preferences-show">empathy_preferences_show</a>            (GtkWindow *parent);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2510928"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2510944"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2510954"></a><h3>
+<a name="EMPATHY-PREFS-PATH:CAPS"></a>EMPATHY_PREFS_PATH</h3>
+<a class="indexterm" name="id2510966"></a><pre class="programlisting">#define EMPATHY_PREFS_PATH "/apps/empathy"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2510982"></a><h3>
+<a name="EMPATHY-PREFS-SOUNDS-FOR-MESSAGES:CAPS"></a>EMPATHY_PREFS_SOUNDS_FOR_MESSAGES</h3>
+<a class="indexterm" name="id2607961"></a><pre class="programlisting">#define EMPATHY_PREFS_SOUNDS_FOR_MESSAGES          EMPATHY_PREFS_PATH "/notifications/sounds_for_messages"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607979"></a><h3>
+<a name="EMPATHY-PREFS-SOUNDS-WHEN-AWAY:CAPS"></a>EMPATHY_PREFS_SOUNDS_WHEN_AWAY</h3>
+<a class="indexterm" name="id2607992"></a><pre class="programlisting">#define EMPATHY_PREFS_SOUNDS_WHEN_AWAY             EMPATHY_PREFS_PATH "/notifications/sounds_when_away"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608010"></a><h3>
+<a name="EMPATHY-PREFS-SOUNDS-WHEN-BUSY:CAPS"></a>EMPATHY_PREFS_SOUNDS_WHEN_BUSY</h3>
+<a class="indexterm" name="id2608023"></a><pre class="programlisting">#define EMPATHY_PREFS_SOUNDS_WHEN_BUSY             EMPATHY_PREFS_PATH "/notifications/sounds_when_busy"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608040"></a><h3>
+<a name="EMPATHY-PREFS-POPUPS-WHEN-AVAILABLE:CAPS"></a>EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE</h3>
+<a class="indexterm" name="id2608054"></a><pre class="programlisting">#define EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE        EMPATHY_PREFS_PATH "/notifications/popups_when_available"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608072"></a><h3>
+<a name="EMPATHY-PREFS-CHAT-SHOW-SMILEYS:CAPS"></a>EMPATHY_PREFS_CHAT_SHOW_SMILEYS</h3>
+<a class="indexterm" name="id2608085"></a><pre class="programlisting">#define EMPATHY_PREFS_CHAT_SHOW_SMILEYS            EMPATHY_PREFS_PATH "/conversation/graphical_smileys"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2578309"></a><h3>
+<a name="EMPATHY-PREFS-CHAT-THEME:CAPS"></a>EMPATHY_PREFS_CHAT_THEME</h3>
+<a class="indexterm" name="id2578322"></a><pre class="programlisting">#define EMPATHY_PREFS_CHAT_THEME                   EMPATHY_PREFS_PATH "/conversation/theme"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2578339"></a><h3>
+<a name="EMPATHY-PREFS-CHAT-THEME-CHAT-ROOM:CAPS"></a>EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM</h3>
+<a class="indexterm" name="id2578352"></a><pre class="programlisting">#define EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM         EMPATHY_PREFS_PATH "/conversation/theme_chat_room"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2578370"></a><h3>
+<a name="EMPATHY-PREFS-CHAT-SPELL-CHECKER-LANGUAGES:CAPS"></a>EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES</h3>
+<a class="indexterm" name="id2578383"></a><pre class="programlisting">#define EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES EMPATHY_PREFS_PATH "/conversation/spell_checker_languages"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2578400"></a><h3>
+<a name="EMPATHY-PREFS-CHAT-SPELL-CHECKER-ENABLED:CAPS"></a>EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED</h3>
+<a class="indexterm" name="id2578414"></a><pre class="programlisting">#define EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED   EMPATHY_PREFS_PATH "/conversation/spell_checker_enabled"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2578432"></a><h3>
+<a name="EMPATHY-PREFS-UI-SEPARATE-CHAT-WINDOWS:CAPS"></a>EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS</h3>
+<a class="indexterm" name="id2578446"></a><pre class="programlisting">#define EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS     EMPATHY_PREFS_PATH "/ui/separate_chat_windows"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602288"></a><h3>
+<a name="EMPATHY-PREFS-UI-MAIN-WINDOW-HIDDEN:CAPS"></a>EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN</h3>
+<a class="indexterm" name="id2602302"></a><pre class="programlisting">#define EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN        EMPATHY_PREFS_PATH "/ui/main_window_hidden"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602319"></a><h3>
+<a name="EMPATHY-PREFS-UI-AVATAR-DIRECTORY:CAPS"></a>EMPATHY_PREFS_UI_AVATAR_DIRECTORY</h3>
+<a class="indexterm" name="id2602333"></a><pre class="programlisting">#define EMPATHY_PREFS_UI_AVATAR_DIRECTORY          EMPATHY_PREFS_PATH "/ui/avatar_directory"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602350"></a><h3>
+<a name="EMPATHY-PREFS-UI-SHOW-AVATARS:CAPS"></a>EMPATHY_PREFS_UI_SHOW_AVATARS</h3>
+<a class="indexterm" name="id2602363"></a><pre class="programlisting">#define EMPATHY_PREFS_UI_SHOW_AVATARS              EMPATHY_PREFS_PATH "/ui/show_avatars"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602381"></a><h3>
+<a name="EMPATHY-PREFS-UI-COMPACT-CONTACT-LIST:CAPS"></a>EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST</h3>
+<a class="indexterm" name="id2602393"></a><pre class="programlisting">#define EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST      EMPATHY_PREFS_PATH "/ui/compact_contact_list"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602411"></a><h3>
+<a name="EMPATHY-PREFS-CONTACTS-SHOW-OFFLINE:CAPS"></a>EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE</h3>
+<a class="indexterm" name="id2602425"></a><pre class="programlisting">#define EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE        EMPATHY_PREFS_PATH "/contacts/show_offline"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602443"></a><h3>
+<a name="EMPATHY-PREFS-CONTACTS-SORT-CRITERIUM:CAPS"></a>EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM</h3>
+<a class="indexterm" name="id2602456"></a><pre class="programlisting">#define EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM      EMPATHY_PREFS_PATH "/contacts/sort_criterium"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602473"></a><h3>
+<a name="EMPATHY-PREFS-HINTS-CLOSE-MAIN-WINDOW:CAPS"></a>EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW</h3>
+<a class="indexterm" name="id2602487"></a><pre class="programlisting">#define EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW      EMPATHY_PREFS_PATH "/hints/close_main_window"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602504"></a><h3>
+<a name="EMPATHY-PREFS-SALUT-ACCOUNT-CREATED:CAPS"></a>EMPATHY_PREFS_SALUT_ACCOUNT_CREATED</h3>
+<a class="indexterm" name="id2602519"></a><pre class="programlisting">#define EMPATHY_PREFS_SALUT_ACCOUNT_CREATED        EMPATHY_PREFS_PATH "/accounts/salut_created"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2602536"></a><h3>
+<a name="empathy-preferences-show"></a>empathy_preferences_show ()</h3>
+<a class="indexterm" name="id2602655"></a><pre class="programlisting">GtkWidget*          empathy_preferences_show            (GtkWindow *parent);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>parent</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

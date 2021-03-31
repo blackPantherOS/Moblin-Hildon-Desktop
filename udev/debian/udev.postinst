@@ -1,0 +1,239 @@
+#!/bin/sh -e
+# This script can be called in the following ways:
+#
+# After the package was installed:
+#	<postinst> configure <old-version>
+#
+#
+# If prerm fails during upgrade or fails on failed upgrade:
+#	<old-postinst> abort-upgrade <new-version>
+#
+# If prerm fails during deconfiguration of a package:
+#	<postinst> abort-deconfigure in-favour <new-package> <version>
+#	           removing <old-package> <version>
+#
+# If prerm fails during replacement due to conflict:
+#	<postinst> abort-remove in-favour <new-package> <version>
+
+
+# Remove a no-longer used conffile
+rm_conffile()
+{
+    CONFFILE="$1"
+
+    if [ -e "$CONFFILE".dpkg-obsolete ]; then
+	echo "Removing obsolete conffile $CONFFILE"
+	rm -f "$CONFFILE".dpkg-obsolete
+    fi
+}
+
+# Remove a conffile directory if it's not empty
+rm_confdir()
+{
+    CONFDIR="$1"
+
+    if [ -d "$CONFDIR" ]; then
+	rmdir "$CONFDIR" 2>/dev/null \
+	    || echo "Unable to remove $CONFDIR, not empty"
+    fi
+}
+
+# Move a conffile without triggering a dpkg question
+mv_conffile() {
+    OLDCONFFILE="$1"
+    NEWCONFFILE="$2"
+
+    if [ -e "$OLDCONFFILE".dpkg-moving ]; then
+        echo "Preserving user changes to $NEWCONFFILE"
+        mv -f "$NEWCONFFILE" "$NEWCONFFILE".dpkg-new
+        mv -f "$OLDCONFFILE".dpkg-moving "$NEWCONFFILE"
+    elif [ -e "$OLDCONFFILE".dpkg-bak ]; then
+	rm -f "$OLDCONFFILE".dpkg-bak
+    fi
+}
+
+
+# Construct the initial device tree (things udev doesn't provide)
+create_devices()
+{
+	rm -f /lib/udev/devices/fd
+	ln -sn /proc/self/fd   /lib/udev/devices/fd
+
+	rm -f /lib/udev/devices/stdin
+	ln -sn /proc/self/fd/0 /lib/udev/devices/stdin
+
+	rm -f /lib/udev/devices/stdout
+	ln -sn /proc/self/fd/1 /lib/udev/devices/stdout
+
+	rm -f /lib/udev/devices/stderr
+	ln -sn /proc/self/fd/2 /lib/udev/devices/stderr
+
+	rm -f /lib/udev/devices/core
+	ln -sn /proc/kcore     /lib/udev/devices/core
+
+	rm -f /lib/udev/devices/sndstat
+	ln -sn /proc/asound/oss/sndstat /lib/udev/devices/sndstat
+
+	rm -f /lib/udev/devices/MAKEDEV
+	ln -sn /sbin/MAKEDEV   /lib/udev/devices/MAKEDEV
+
+	rm -f /lib/udev/devices/ppp
+	mknod -m 600 /lib/udev/devices/ppp c 108 0
+
+	rm -f /lib/udev/devices/loop0
+	mknod -m 600 /lib/udev/devices/loop0 b 7 0
+
+	rm -f /lib/udev/devices/net/tun
+	mknod -m 600 /lib/udev/devices/net/tun c 10 200
+
+	rm -f /lib/udev/devices/kmem
+	mknod -m 640 /lib/udev/devices/kmem c 1 2
+	chgrp kmem /lib/udev/devices/kmem
+
+	# Add devices we need to start udevd itself
+	rm -f /lib/udev/devices/console
+	mknod -m 600 /lib/udev/devices/console c 5 1
+
+	rm -f /lib/udev/devices/null
+	mknod -m 600 /lib/udev/devices/null c 1 3
+
+}
+
+# Add groups that we use
+add_groups()
+{
+    for GROUP in scanner nvram; do
+	if [ -z "$(getent group $GROUP)" ]; then
+	    echo "Adding $GROUP group..."
+	    addgroup --quiet --system $GROUP || true
+	fi
+    done
+}
+
+# Write the initial copy of the persistent net and cd rules
+seed_persistent_rules()
+{
+    FILE=/etc/udev/rules.d/70-persistent-net.rules
+    if [ ! -e $FILE ]; then
+	echo "# This file maintains persistent names for network interfaces." > $FILE
+	echo "# See udev(7) for syntax." >> $FILE
+	echo "#" >> $FILE
+	echo "# Entries are automatically added by the 75-persistent-net-generator.rules" >> $FILE
+	echo "# file; however you are also free to add your own entries." >> $FILE
+
+	cd /sys/class/net || return 0
+	for INTERFACE in *; do
+	    case $INTERFACE in
+		eth*|ath*|wlan*|ra*|sta*)
+		    ;;
+		*)
+		    continue
+		    ;;
+	    esac
+
+	    DRIVER=$(basename $(readlink $INTERFACE/device/driver))
+	    BUS=$(basename $(readlink $INTERFACE/device/bus))
+	    case $BUS in
+		pci)
+		    COMMENT="PCI device $(cat $INTERFACE/device/vendor):$(cat $INTERFACE/device/device) ($DRIVER)"
+		    ;;
+		usb)
+		    COMMENT="USB device 0x$(cat $INTERFACE/device/idVendor):0x$(cat $INTERFACE/device/idProduct) ($DRIVER)"
+		    ;;
+		ieee1394)
+		    COMMENT="Firewire device $(cat $INTERFACE/device/host_id)"
+		    ;;
+		xen)
+		    COMMENT="Xen virtual device"
+		    ;;
+		*)
+		    COMMENT="$BUS device ($DRVER)"
+		    ;;
+	    esac
+
+	    INTERFACE="$INTERFACE" DEVPATH="/class/net/$INTERFACE" COMMENT="$COMMENT" \
+	    	/lib/udev/write_net_rules || true
+	done
+    fi
+
+    FILE=/etc/udev/rules.d/70-persistent-cd.rules
+    if [ ! -e $FILE ]; then
+	echo "# This file maintains persistent names for CD/DVD reader and writer devices." > $FILE
+	echo "# See udev(7) for syntax." >> $FILE
+	echo "#" >> $FILE
+	echo "# Entries are automatically added by the 75-persistent-cd-generator.rules" >> $FILE
+	echo "# file; however you are also free to add your own entries provided you" >> $FILE
+	echo "# add the ENV{GENERATED}="1" flag to your own rules as well." >> $FILE
+    fi
+}
+
+# Notify the user that a reboot is required
+reboot_required()
+{
+    if [ -x /usr/share/update-notifier/notify-reboot-required ]; then
+	/usr/share/update-notifier/notify-reboot-required
+    fi
+}
+
+# Update the initramfs
+update_initramfs()
+{
+    update-initramfs -u
+}
+
+
+# Rename the persistent-disk.rules file
+mv_persistent_disk_rules()
+{
+    mv_conffile /etc/udev/rules.d/65-persistent-disk.rules \
+	        /etc/udev/rules.d/65-persistent-storage.rules
+}
+
+# Rename the cdrom_id.rules file
+mv_cdrom_id_rules()
+{
+    mv_conffile /etc/udev/rules.d/50-cdrom_id.rules \
+	        /etc/udev/rules.d/30-cdrom_id.rules
+}
+
+# Remove the iftab.rules file
+rm_iftab_rules()
+{
+    rm_conffile /etc/udev/rules.d/25-iftab.rules
+}
+
+
+case "$1" in
+    configure)
+	# Upgrade from dapper
+	if dpkg --compare-versions "$2" lt "093-0ubuntu1"; then
+	    mv_persistent_disk_rules
+	fi
+
+	# Upgrade within feisty development cycle
+	if dpkg --compare-versions "$2" lt "108-0ubuntu1"; then
+	    mv_cdrom_id_rules
+	fi
+
+	# Upgrade from feisty
+	if dpkg --compare-versions "$2" lt "111-0ubuntu1"; then
+	    rm_iftab_rules
+	fi
+
+	create_devices
+	add_groups
+	##seed_persistent_rules
+	update_initramfs
+	;;
+
+    abort-upgrade|abort-deconfigure|abort-remove)
+	;;
+
+    *)
+	echo "$0 called with unknown argument \`$1'" 1>&2
+	exit 1
+	;;
+esac
+
+#DEBHELPER#
+exit 0

@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/gnome.mk
+include /usr/share/cdbs/1/rules/simple-patchsys.mk
+
+# If compiling for lpia, enable Hildon interface
+ifeq ($(DEB_BUILD_ARCH), lpia)
+DEB_CONFIGURE_EXTRA_FLAGS = --enable-hildon
+endif

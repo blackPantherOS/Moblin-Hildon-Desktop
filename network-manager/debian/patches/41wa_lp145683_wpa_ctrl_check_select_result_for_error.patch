@@ -1,0 +1,46 @@
+---
+ src/wpa_ctrl.c |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Index: network-manager.debian/src/wpa_ctrl.c
+===================================================================
+--- network-manager.debian.orig/src/wpa_ctrl.c
++++ network-manager.debian/src/wpa_ctrl.c
+@@ -171,17 +171,17 @@
+ 		return -1;
+ 
+ 	for (;;) {
+ 		tv.tv_sec = timeout_sec;
+ 		tv.tv_usec = 0;
+ 		FD_ZERO(&rfds);
+ 		FD_SET(ctrl->s, &rfds);
+ 		res = select(ctrl->s + 1, &rfds, NULL, NULL, &tv);
+-		if (FD_ISSET(ctrl->s, &rfds)) {
++		if (res >0 && FD_ISSET(ctrl->s, &rfds)) {
+ 			res = recv(ctrl->s, reply, *reply_len, 0);
+ 			if (res < 0)
+ 				return res;
+ 			if (res > 0 && reply[0] == '<') {
+ 				/* This is an unsolicited message from
+ 				 * wpa_supplicant, not the reply to the
+ 				 * request. Use msg_cb to report this to the
+ 				 * caller. */
+@@ -252,17 +252,17 @@
+ 	struct timeval tv;
+ 	int res;
+ 	fd_set rfds;
+ 	tv.tv_sec = 0;
+ 	tv.tv_usec = 0;
+ 	FD_ZERO(&rfds);
+ 	FD_SET(ctrl->s, &rfds);
+ 	res = select(ctrl->s + 1, &rfds, NULL, NULL, &tv);
+-	return FD_ISSET(ctrl->s, &rfds);
++	return res > 0 && FD_ISSET(ctrl->s, &rfds);
+ }
+ 
+ 
+ int wpa_ctrl_get_fd(struct wpa_ctrl *ctrl)
+ {
+ 	return ctrl->s;
+ }
+ 

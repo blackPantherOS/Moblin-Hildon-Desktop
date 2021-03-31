@@ -1,0 +1,13 @@
+# -*- sh -*-
+# Xsession.d script for samsung-q1-ultra-config.
+#
+#
+
+UME_GUI=/usr/share/ume-config-common/ume-gui-start
+
+export GTK2_RC_FILES=/usr/share/themes/mobilebasic/gtk-2.0/gtkrc:/usr/share/themes/mobilebasic/gtk-2.0/gtkrc.maemo_af_desktop
+export LANG=en_GB.UTF-8
+
+if [ -z "${STARTUP}" ] && [ -x "${UME_GUI}" ]; then
+    STARTUP="${UME_GUI}"
+fi

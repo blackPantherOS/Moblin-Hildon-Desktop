@@ -1,0 +1,67 @@
+#!/bin/bash
+# helper function to umount/mount partitions. Expecially for umount, when normal umount fail, it will use fuser -k to kill those processes who prevent umounting and the try umount again.
+if [ "`whoami`" != "root" ]; then
+   echo "You must run this as root!"
+   exit 1
+fi
+
+action=$1
+#mnt_point=`cat /etc/fstab | grep vfat |tail -n 1| awk '{print $2}'`
+timeout=`gconftool-2 -g /system/usbc/timeout`
+if [ -z "$timeout" ]; then
+   timeout=3
+fi
+mnt_point=`gconftool-2 -g /system/usbc/mount_point`
+if [ -z "$mnt_point" ]; then
+   mnt_point="/mediasync"
+fi
+mnt_dev=`fdisk -l /dev/sda | grep FAT | tail -n 1 | awk '{print $1}'`
+
+if [ -z "$mnt_dev" -o -z "$action" ]; then
+   echo "Could not find vfat partition or action (mount/umount) is NULL!"
+   exit 1
+fi
+
+if [ "$action" == "mount" ]; then
+   mkdir -m 000 -p $mnt_point
+# let normal users could access the mounted fs
+   mount -o umask=000 $mnt_dev $mnt_point >/dev/null 2>&1
+fi
+
+if [ "$action" == "umount" ]; then
+   if [ -n "`fuser -km -HUP -s $mnt_point`" ]; then
+       # There was at least one application with open file descriptors
+       # in the sync directory, so give the app a second to cleanup
+       # before attempting the first umount
+       sleep 1
+   fi
+   
+   umntrc=`umount $mnt_point 2>&1`
+   ret=$?
+   if [ "`echo $umntrc | grep 'not mounted'`" ]; then
+      echo "$mnt_point is not mounted!"
+      exit 1
+   fi
+
+   if [ $ret -eq 0 ]; then
+      echo "umount ok!"
+      chmod 000 $mnt_point
+      exit 0
+   fi
+
+   if [ "`echo $umntrc | grep 'busy'`" ]; then
+# wait for application close the file when getting DBus message
+     sleep $timeout 
+     fuser -km $mnt_point >/dev/null 2>&1
+     sleep 1
+     umntrc=`umount $mnt_point 2>&1`
+     ret=$?
+     if [ $ret -ne 0 ]; then
+        umntrc=`umount -l $mnt_point 2>&1`
+        ret=$?
+     fi
+     chmod 000 $mnt_point
+     exit $ret 
+   fi
+fi
+

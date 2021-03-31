@@ -1,0 +1,412 @@
+mobile-basic-flash (0.43) gaston; urgency=low
+
+  * Fix for bug 194267 -- special chars in bkgd file 
+    cause failure
+  * Reduced icon timeout to 1500ms (from 3000ms)
+
+ -- Bob Spencer <bob.spencer@intel.com>  Fri,  4 Apr 2008 18:41:39 -0700
+
+mobile-basic-flash (0.42) gaston; urgency=low
+
+  * Add libwnck22 dependency to get mobile-basic-home-plugin loaded properly.
+
+ -- Horace Li <horace.li@intel.com>  Fri, 28 Mar 2008 14:32:43 +0800
+
+mobile-basic-flash (0.41) gaston; urgency=low
+
+  * Integrate Bill's patch to handle banner show/hide in better way.
+  * Add terminal.desktop.
+  * Exclude "Preferences" category from "All".
+  * Cutting a new release
+
+ -- Horace Li <horace.li@intel.com>  Fri, 28 Mar 2008 13:35:57 +0800
+
+mobile-basic-flash (0.40) gaston; urgency=low
+
+  * Cutting release with revert of previous changes 
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 26 Mar 2008 16:26:09 -0700
+
+mobile-basic-flash (0.39) gaston; urgency=low
+
+  * Reverted last change set.  Hangs install due
+    to schema problem.  
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 26 Mar 2008 16:22:16 -0700
+
+mobile-basic-flash (0.38) gaston; urgency=low
+
+  * Set "Internet" to default category.
+  * Load proper "Foobillard" icon.
+  * Install "Galculator" icon.
+  * Add debian/postinst to install mobile-basic-flash.schemas.
+
+ -- Horace Li <horace.li@intel.com>  Wed, 26 Mar 2008 17:24:37 +0800
+
+mobile-basic-flash (0.37) gaston; urgency=low
+
+  * Fixed schema installation.  Fixed code to handle no schema install
+
+ -- Bob Spencer <bob.spencer@intel.com>  Tue, 25 Mar 2008 17:05:01 -0700
+
+mobile-basic-flash (0.36) gaston; urgency=low
+
+  * Stopped trying to copy .desktop files to /usr/share/applications
+    for other apps.
+  * Added an onlyshowin_filter list to force-show apps regardless of
+    their onlyshowin key
+  * Updated debian/rules file to install schema in the correct location
+  * Re-added the xterm icon and terminal .desktop file
+  * 
+
+ -- Bob Spencer <bob.spencer@intel.com>  Mon, 24 Mar 2008 19:35:34 -0700
+
+mobile-basic-flash (0.34) gaston; urgency=low
+
+  * Load application .desktop files from /usr/share/applications
+  * Use OnlyShowIn=GNOME;Mobile filter to show appropriate apps
+  * Added schema to turn off filter and also correctly add existing
+    gconf keys that should have had a schema
+  * Added OnlyShowIn to .desktop files
+  * Removed numbering on .desktop files
+  * Load icons in gtk standard way (plus pixmaps dir)
+  * Fixed bug to change background color
+  * Added libgnome-menu-dev as build dependency
+
+ -- Bob Spencer <bob.spencer@intel.com>  Sun, 23 Mar 2008 00:00:33 -0700
+
+mobile-basic-flash (0.33) gaston; urgency=low
+
+  * Cut a new release for gaston.
+
+ -- Horace Li <horace.li@intel.com>  Fri, 29 Feb 2008 19:30:46 +0800
+
+mobile-basic-flash (0.32) gaston; urgency=low
+
+  [ Bill Filler ]
+  * fixed desktop file to use Type=default rather then Type=Link   
+  * fixed problem with undefined symbol when trying to load plugin:
+  * removed unecessary includes
+  * corrected problems with mobile-basic-flash-plugin.h
+  * renamed file from .cpp to .c
+
+  [ Horace Li ]
+  * removed unused variables and fixed compilation warnings.   
+
+ -- Horace Li <horace.li@intel.com>  Thu, 28 Feb 2008 15:40:15 +0800
+
+mobile-basic-flash (0.31) gaston; urgency=low
+
+  * Added support for reading the native language versions of the Name
+    fields in the application and applet .desktop files
+
+ -- Todd Brandt <todd.e.brandt@intel.com>  Tue, 26 Feb 2008 19:22:51 -0800
+
+mobile-basic-flash (0.30) gaston; urgency=low
+
+  * Fixed hildon banner bug: 
+    https://bugs.launchpad.net/moblin-ui-framework/+bug/146109 
+  * Fixed control panel applet startup bug:
+    https://bugs.launchpad.net/moblin-applets/+bug/188275
+
+ -- Bob Spencer <bob.spencer@intel.com>  Fri, 15 Feb 2008 09:49:25 -0800
+
+mobile-basic-flash (0.29) gaston; urgency=low
+
+  * added patch from bfiller which allows non-Hildon, non-osso apps to
+    behave as singleton apps.  If there is no service file, the window
+    is found in the list of running apps and brought to the top.
+  * Uploaded to Hardy
+
+ -- Bob Spencer <bob.spencer@intel.com>  Fri,  1 Feb 2008 16:02:05 -0800
+
+mobile-basic-flash (0.28) gaston; urgency=low
+
+  * support screen rotation auto-size.
+
+ -- Horace Li <horace.li@intel.com>  Fri, 25 Jan 2008 16:39:25 +0800
+
+mobile-basic-flash (0.27) gaston; urgency=low
+
+  * update applications desktop entry files, and home plugins, according
+    to freedesktop specification.
+
+ -- Horace Li <horace.li@intel.com>  Mon, 21 Jan 2008 18:09:44 +0800
+
+mobile-basic-flash (0.26) gaston; urgency=low
+
+  * Removed the hildon-control-panel desktop from the menu
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Sun,  2 Dec 2007 22:04:56 -0800
+
+mobile-basic-flash (0.25) gaston; urgency=low
+
+  * Adding proper icon search functionality to enable finding icons
+    in the standard system search path
+  * Add support for control panel plugins, removing the need for using
+    the hildon control panel.
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Sun,  2 Dec 2007 16:45:41 -0800
+
+mobile-basic-flash (0.24) gaston; urgency=low
+
+  * Merely cutting a release to trigger the build
+
+ -- Bob Spencer <bob.spencer@intel.com>  Mon, 26 Nov 2007 21:57:02 -0800
+
+mobile-basic-flash (0.23) gaston; urgency=low
+
+  * Removed frozen bubble game from apps list.  Fix for bug #164250
+  * removed from Makefile.am
+
+ -- Bob Spencer <bob.spencer@intel.com>  Mon, 26 Nov 2007 16:24:57 -0800
+
+mobile-basic-flash (0.22) gaston; urgency=low
+
+  * Adding support for an "All" category that list all applications
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 21 Nov 2007 16:32:29 -0800
+
+mobile-basic-flash (0.21) gaston; urgency=low
+
+  * Incrementing version number since the last changelog entry
+    was borked.  There are not functional changes from version 0.20
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 21 Nov 2007 11:47:37 -0800
+
+mobile-basic-flash (0.20) feisty; urgency=low
+
+  * Fixing layout bug in grid JS
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 21 Nov 2007 11:35:00 -0800
+
+mobile-basic-flash (0.19) gaston; urgency=low
+
+  * Incrementing package version to work around build issue
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 20 Nov 2007 20:51:36 -0800
+
+mobile-basic-flash (0.18) gaston; urgency=low
+
+  * Updated the home plugin to listen for marquee-plugin active category
+    changes (via gconf), and then filter the list of displayed applications
+    based on the existance of a matching category in the associated desktop
+    file.
+  * Updating the desktop files to include categories for "Mobile", 
+    "Internet", "Games", "Tools", and "Testing"
+	
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 20 Nov 2007 19:58:07 -0800
+
+mobile-basic-flash (0.17) gaston; urgency=low
+
+  * Split moblin-media into video, music, and photo applications
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 16 Nov 2007 20:40:20 -0800
+
+mobile-basic-flash (0.16) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Added patches from Bill Filler (Canonical/Lexington)
+  * Patch 1: launch_banner. Should show a banner when an app starts and
+    hide when the app is fully started.  Doesn't yet work
+  * Patch 2: launch_enhancements: added launch related functions to
+    desktop_mgr.js to add ability to launch apps by name, index, id,
+    path and launch plugin. Reworked launching code in
+    mobile-basic-flash-plugin.cpp to support all the new launching functions.
+  * Patch 3: support for hiding/showing the marquee when the home plugin is
+    shown via gconf setting
+  * Patch 4: support for specifying which html page to initially show via gconf
+    setting. This is useful to load either new grid based html homepage or
+    flash based homepage
+
+  [ Horace Li ]
+  * Check package module "libosso" and add corresponding CFLAGS and LIBS.
+
+  [ Bob Spencer ]
+  * Changed application desktop files to reorder.  Also added Clutter test launcher
+
+  [ Horace Li ]
+  * Update contents/Makefile.am to get renamed .desktop files installed.
+  * Cut a new release.
+
+ -- Horace Li <horace.li@intel.com>  Thu, 15 Nov 2007 16:18:33 +0800
+
+mobile-basic-flash (0.15) gaston; urgency=low
+
+  * Added vertical scrollability using smagoun's patch for 
+    when too many icons are on the screen
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 24 Oct 2007 19:53:44 -0700
+
+mobile-basic-flash (0.14) gaston; urgency=low
+
+  * Changed game .desktop files so that /usr/games is part of Exec
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 24 Oct 2007 19:53:29 -0700
+
+mobile-basic-flash (0.13) gaston; urgency=low
+
+  * Changing the name of the galculator service to use gnome instead of
+    moblin
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 17 Oct 2007 11:20:34 -0700
+
+mobile-basic-flash (0.12) gaston; urgency=low
+
+  * Adding desktop files and icons for:
+    - claws (a hildonized email client)
+    - cheese (a hildonized camera application)
+    - foobillard, frozen-bubble, neverball, and neverput
+      (the opengl enabled games that are being pulled into the image
+       via the ubuntu-mobile meta package)
+  * Cutting a new gaston release.
+
+  [ Horace Li ]
+  * Add 'X-Osso-Service' in 53-calc.desktop to allow singleton application.
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 16 Oct 2007 10:25:51 -0700
+
+mobile-basic-flash (0.11) gaston; urgency=low
+
+  * Cutting a gaston release
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 12 Oct 2007 17:16:47 -0700
+
+mobile-basic-flash (0.10) gutsy; urgency=high
+
+  [ Bob Spencer ]
+  * Added grid html page as alternative to flash home screen
+  * Extracted javascript to .js and CSS to .css files
+  * Updated mobile-basic-flash-plugin.cpp background load, and now
+    loads home.html
+  * Copied flash_home.html to home.html as default. Will change to
+    grid_home.html later today after more validation
+  * Updated desktop_mgr.js to use loadBackground and loadApplications
+    instead of loadConfig. Updated the swf (see gui.as) files to match
+  * Added images in theme. Added theme notification.
+  * Updated launch to have 3s timeout and not allow other apps to launch
+  * Made grid layout the default
+  * Changed call to mobile-player to moblin-media
+  * Removed parameter www.google.com to midbrowser
+  * Changed mobile player to moblin-media
+  * Added Osso-Service entry to media player desktop file
+  * Added osso-service entry for control panel and chat
+  * Use mobilebasic theme if non-existent Human theme is present (need to
+    figure out how to set the gconf theme settings to correct name)
+  * changed the default background to be black.  Removed red dot in top corner
+
+ -- Bob Spencer <bob@bobuntu>  Fri, 12 Oct 2007 05:48:23 -0700
+
+mobile-basic-flash (0.9) gutsy; urgency=low
+
+  [ Horace Li ]
+  * Redirect 41-notepad.desktop to moblin-notes, add X-Osso-Service.
+  * Redirect 53-calc.desktop to moblin-calc, add X-Osso-Service.
+  * Rename mousepad.png to notes.png.
+
+mobile-basic-flash (0.8) UNRELEASED; urgency=low
+
+  [ Tollef Fog Heen ]
+  * Make debian/copyright talk about the LGPL, not the GPL as this is
+    LGPL-ed.
+  * Just build-depend on automake rather than a specific version.
+  * Cutitng a new release for the moblin apt repository
+
+  [ Bob Spencer ]
+  * Fixed bug that prevents applications with ID's above 9 to install
+  * Added ability to launch application using path or id
+
+ -- Bob Spencer <bob@bobuntu>  Mon, 17 Sep 2007 16:37:55 -0700
+  
+mobile-basic-flash (0.7) gaston; urgency=low
+
+  * Remove executable bits from everything in debian/, but the rules
+    file. 
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 23 Aug 2007 17:44:11 -0700
+
+mobile-basic-flash (0.6) UNRELEASED; urgency=low
+
+  * Adding a contribution from Michael Frey that removes the dependency
+    on running an application service by adding communication between
+    the actionscript and the container to startup applications.
+  * Removing the unneeded script that kills the hildon desktop
+  * Removing comm.as and datetime.as since they are no longer used
+  * Setting all movies to 15fps
+  * Replacing the logic that would parse the xml configuration file
+    with code that reads from desktop entries found in
+    /usr/share/mobile-basic-flash/applications/ to build the list of
+    icons for the flash content to show.
+  * Adding support for the flash background configuration to use the
+    existing gnome gconf settings.  With this you can now use the new
+    moblin-applets background applet to set the background.
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 23 Aug 2007 15:28:43 -0700
+
+mobile-basic-flash (0.5) UNRELEASED; urgency=low
+
+  * Changed the dependency from midbrowser back to libxul. The 
+    midbrowser package has some problems.
+
+ -- Carl Wong <carl.wong@intel.com>  Tue, 14 Aug 2007 10:18:40 -0700
+
+mobile-basic-flash (0.4) gutsy; urgency=low
+
+  [ Carl Wong ]
+  * Checked-in a new flash_home_1024x600.swf created by Jeremy.
+  * Changed build dependency libxul to midbrowser in control and
+    configure.ac.
+
+  [ Tollef Fog Heen ]
+  * Add dh_installchangelogs, dh_installdocs and dh_strip to get copyright
+    file installed and binaries stripped.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Mon, 13 Aug 2007 14:29:39 +0200
+
+mobile-basic-flash (0.3) UNRELEASED; urgency=low
+  
+  * Changed /usr/bin/mobile-browser to /usr/bin/midbrowser.
+  * redirected calculator link to galculator
+
+ -- Carl Wong <carl.wong@intel.com>  Mon,  6 Aug 2007 11:23:45 -0700
+
+mobile-basic-flash (0.2) gutsy; urgency=low
+
+  [ Bob Spencer ]
+  * fixed icon spacing for 1024 and also animation. Should work on 1024x600
+    well
+  * added source files for all flash versions (800x480, 800x600, 1024x600).
+    Should really only need one source file with the intelligence to detect
+
+  [ Tollef Fog Heen ]
+  * Update the description to be more useful.
+  * Fix up changelog, get rid of Ubuntu revision as this is a native
+    package for now.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 26 Jul 2007 18:57:41 +0200
+
+mobile-basic-flash (0.1-1ubuntu3) gutsy; urgency=low
+
+  * Remove executable bits from all the files in debian/ but the rules
+    file.
+  * Change text in debian/copyright to refer to the LGPL, not the GPL.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 19 Jul 2007 21:19:19 +0200
+
+mobile-basic-flash (0.1-1ubuntu2) feisty; urgency=low
+
+  * add mousepad link
+
+ -- Horace Li <horace.li@intel.com>  Thu, 12 Jul 2007 14:30:45 +0800
+
+mobile-basic-flash (0.1-1ubuntu1) feisty; urgency=low
+
+  * add empathy link
+
+ -- Horace Li <horace.li@intel.com>  Thu, 12 Jul 2007 14:24:06 +0800
+
+mobile-basic-flash (0.1-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Bob Spencer <bob.spencer@intel.com>  Mon, 02 July 2007 10:09:15 -0700

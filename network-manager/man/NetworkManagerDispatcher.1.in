@@ -1,0 +1,33 @@
+.\" NetworkManager(1) manual page
+.\"
+.\" Copyright (C) 2005 Robert Love
+.\"
+.TH NETWORKMANAGERDISPATCHER "1"
+.SH NAME
+NetworkManagerDispatcher \- daemon that runs commands in response to off/online
+.SH SYNOPSIS
+.B NetworkManagerDispatcher [\-\-no-daemon]
+.SH DESCRIPTION
+The \fINetworkManagerDispatcher\fP daemon runs commands in the
+.I @sysconfdir@/NetworkManager/dispatcher.d
+directory in response to interfaces coming up and down.  The scripts are run
+alphabetically.  The first parameter is the network interface name.  The second
+parameter is
+.I pre\-up
+before bringing the interface up,
+.I up
+after bringing the interface up,
+.I down
+before taking the interface down and
+.I post\-down
+after taking the interface down.
+.SH OPTIONS
+The following options are supported:
+.TP
+.I "--no-daemon"
+Do not daemonize.  This is useful for debugging.
+.SH FILES
+@sysconfdir@/NetworkManager/dispatcher.d
+.SH SEE ALSO
+.BR NetworkManager (1),
+.BR nm-tool (1)

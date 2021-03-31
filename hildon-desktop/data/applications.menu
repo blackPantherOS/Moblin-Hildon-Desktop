@@ -1,0 +1,81 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+
+<Menu>
+
+  <!-- This is actually not needed -->
+  <Name>Others Menu</Name>
+
+  <!-- Search the default locations -->
+  <DefaultAppDirs/>
+  <DefaultDirectoryDirs/>
+
+  // My selection submenu
+  <Menu>
+    <Name>tana_fi_my_selection</Name>
+    <Include>
+      <Filename>mobile-player.desktop</Filename>
+      <Filename>mousepad.desktop</Filename>
+      <Filename>matchbox-keyboard.desktop</Filename>
+      <Filename>mp_ui.desktop</Filename>
+      <Filename>image-viewer.desktop</Filename>
+      <Filename>osso_help.desktop</Filename>
+    </Include>
+  </Menu>
+
+  // Internet submenu
+  <Menu>
+    <Name>tana_fi_internet</Name>
+    <Include>
+      <Filename>midbrowser.desktop</Filename>
+      <Filename>bookmark.desktop</Filename>
+      <Filename>osso_rss_feed_reader.desktop</Filename>
+    </Include>
+  </Menu>
+
+  // Communication submenu
+  <Menu>
+    <Name>tana_fi_communication</Name>
+    <Include>
+      <Filename>empathy.desktop</Filename>
+      <Filename>osso-addressbook.desktop</Filename>
+      <Filename>modest.desktop</Filename>
+      <Filename>voip-ui.desktop</Filename>
+      <Filename>chat-ui.desktop</Filename>
+    </Include>
+  </Menu>
+
+  // Utilities submenu
+  <Menu>
+    <Name>tana_fi_utilities</Name>
+    <Include>
+      <Filename>filemanager.desktop</Filename>
+      <Filename>osso_calculator.desktop</Filename>
+      <Filename>osso_worldclock.desktop</Filename>
+      <Filename>osso_notes.desktop</Filename>
+      <Filename>osso_pdfviewer.desktop</Filename>
+      <Filename>osso_sketch.desktop</Filename>
+      <Filename>debian-uxterm.desktop</Filename>
+      <Filename>debian-xterm.desktop</Filename>
+    </Include>
+  </Menu>
+
+  // Settings submenu
+  <Menu>
+    <Name>tana_fi_settings</Name>
+    <Include>
+      <Filename>hildon-control-panel.desktop</Filename>
+      <Filename>hildon-application-manager.desktop</Filename>
+      <Filename>hwr-teacher.desktop</Filename>
+    </Include>
+  </Menu>
+
+  // Extras submenu
+  <Menu>
+    <Name>tana_fi_extras</Name>
+    <All/>
+    <Include>
+    </Include>
+  </Menu>
+
+</Menu>

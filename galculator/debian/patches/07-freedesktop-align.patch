@@ -1,0 +1,23 @@
+diff -Nur galculator/debian/control galculator-new/debian/control
+--- galculator/debian/control	2008-03-27 22:15:24.000000000 +0800
++++ galculator-new/debian/control	2008-03-27 22:20:18.000000000 +0800
+@@ -8,7 +8,7 @@
+ 
+ Package: galculator
+ Architecture: any
+-Depends: ${shlibs:Depends}, ${misc:Depends}, libhildon-1-0 [lpia]
++Depends: ${shlibs:Depends}, ${misc:Depends}, libhildon-1-0 [lpia], gnome-desktop-data
+ Description: A GTK+ 2.0 based calculator
+  .
+  galculator is a scientific calculator. It supports different number 
+diff -Nur galculator/galculator.desktop.in galculator-new/galculator.desktop.in
+--- galculator/galculator.desktop.in	2008-03-27 22:15:24.000000000 +0800
++++ galculator-new/galculator.desktop.in	2008-03-27 22:19:51.000000000 +0800
+@@ -5,6 +5,7 @@
+ Icon=gnome-calc2.png
+ Terminal=false
+ Type=Application
++OnlyShowIn=GNOME;Mobile
+ Categories=Application;Utility;
+ StartupNotify=true
+ Encoding=UTF-8

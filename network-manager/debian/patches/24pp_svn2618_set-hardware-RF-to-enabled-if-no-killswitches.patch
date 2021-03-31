@@ -1,0 +1,23 @@
+
+Rev: 2618
+Comment:
+* src/NetworkManager.c
+	- (nm_hal_init): set hardware RF to enabled if no killswitches are found
+		after the initial discovery
+
+--
+Index: bzr.debian.0.9.5/src/NetworkManager.c
+===================================================================
+--- bzr.debian.0.9.5/src/NetworkManager.c	(revision 2617)
++++ bzr.debian.0.9.5/src/NetworkManager.c	(revision 2618)
+@@ -825,6 +825,10 @@
+ 		nm_add_initial_killswitch_devices (data);
+ 		nm_add_initial_devices (data);
+ 	}
++
++	/* If there weren't any killswitches, mark hardware RF to on */
++	if (g_slist_length (data->killswitch_list) == 0)
++		data->hw_rf_enabled = TRUE;
+ }
+ 
+ 

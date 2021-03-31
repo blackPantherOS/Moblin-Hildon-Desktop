@@ -1,0 +1,12 @@
+/Makefile.in/1.13/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsDebugFactory.cpp/1.6/Wed Jan 19 21:57:04 2005//TFIREFOX_3_0b2_RELEASE
+/nsILayoutDebuggingTools.idl/1.1/Tue Jul  8 21:08:08 2003//TFIREFOX_3_0b2_RELEASE
+/nsILayoutRegressionTester.idl/1.5/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsLayoutDebugCIID.h/1.4/Sun Apr 18 22:13:52 2004//TFIREFOX_3_0b2_RELEASE
+/nsLayoutDebugCLH.cpp/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsLayoutDebugCLH.h/1.2/Wed Jan 19 21:57:04 2005//TFIREFOX_3_0b2_RELEASE
+/nsLayoutDebuggingTools.cpp/1.19/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsLayoutDebuggingTools.h/1.1/Tue Jul  8 21:08:09 2003//TFIREFOX_3_0b2_RELEASE
+/nsRegressionTester.cpp/1.23/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsRegressionTester.h/1.6/Sun Apr 18 22:13:52 2004//TFIREFOX_3_0b2_RELEASE
+D

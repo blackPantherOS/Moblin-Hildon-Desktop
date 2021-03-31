@@ -1,0 +1,580 @@
+# Moblin Media Translation Template:
+#
+# Copyright 2007, 2008 Intel Corporation
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),  
+# to deal in the Software without restriction, including without limitation  
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,  
+# and/or sell copies of the Software, and to permit persons to whom the  
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in 
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+# DEALINGS IN THE SOFTWARE.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.34\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-14 20:14-0700\n"
+"PO-Revision-Date: 2008-02-09 19:30-0800\n"
+"Last-Translator: Rusty Lynch <rusty.lynch@intel.com>\n"
+"Language-Team: TESTLANG <TestLang@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/dialogs.glade.h:1
+msgid "4.12 MB"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:2
+msgid "4hr 2min 3sec"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:3
+msgid "<small>Copyright (c) Intel Corporation 2007-2008</small>"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:4
+msgid ""
+"<span foreground=\"black\" weight=\"bold\" size=\"24000\">Moblin Media</span>"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:5
+msgid "About Moblin Media"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:6
+msgid "Album:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:7
+msgid "Artist:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:8
+msgid "Beatles"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:9
+msgid "Enter an internet URL to play online content:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:10
+msgid "File:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:11
+msgid "Greatest Hits Vol 2"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:12
+msgid "Hint"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:13
+msgid "JPG"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:14
+msgid "Length:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:15
+msgid "Music, Video, and Photos"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:16
+msgid "Name:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:17
+msgid "Online Music Properties"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:18
+msgid "Open Location"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:19 ../src/constant.py:185
+msgid "Properties"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:20
+msgid "Size:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:21
+msgid "Song Properties"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:22
+msgid "Title:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:23
+msgid "Type:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:24
+msgid "URL:"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:25 ../glade/moblin_media.glade.h:14
+msgid "Yellow Brick Road"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:26
+msgid "Yellow_Brick_Road.mp3"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:27
+msgid "http://"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/dialogs.glade.h:28
+msgid "version 0.38"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:1
+msgid "1988"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:2
+msgid "Album Name"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:3
+msgid "Artist Name"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:4
+msgid "Elton John"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:5
+msgid "FileList"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:6
+msgid "Greatest Hits"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:7
+msgid "Media"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:8
+msgid "Select browse button below to open a photo"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:9
+msgid "Select browse button below to open a video"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:10
+msgid ""
+"Sort By Title\n"
+"Sort By Artist\n"
+"Sort By Album\n"
+"Sort By Length"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:15
+msgid "_Add to Playlist"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:16
+msgid "album"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:17
+msgid "artist"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:18
+msgid "default"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:19
+msgid "music"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:20
+msgid "photo"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:21
+msgid "playback"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:22
+msgid "playlist"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:23
+msgid "pm_clutter"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:24
+msgid "share"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:25
+msgid "thumbnail"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/moblin_media.glade.h:26
+msgid "video"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:1
+msgid " second(s)."
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:2
+msgid "(1.4 MB)"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:3
+msgid "Customize how labels are displayed below the photo thumbnail images."
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:4
+msgid "Defaults"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:5 ../src/constant.py:219
+msgid "Delete"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:6
+msgid "Extension (jpg, tif, ...)"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:7
+msgid "Full screen"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:8
+msgid "Labels"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:9 ../src/constant.py:223
+msgid "Name"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:10
+msgid "Photo Settings"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:11
+msgid "PhotoSample.jpg"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:12
+msgid "Play slideshow"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:13
+msgid "Resize thumbnails (slider)"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:14
+msgid "Rotate photo"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:15
+msgid "Select the features you would like to include on the toolbar."
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:16
+msgid "Set your preferences for the slide show."
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:17
+msgid "Settings"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:18
+msgid "Show each photo for "
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:19 ../src/constant.py:224
+msgid "Size"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:20
+msgid "Slide Show"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:21
+msgid ""
+"SlideShow Icon\n"
+"Goes Above"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:23
+msgid ""
+"Smooth Fade\n"
+"Flip\n"
+"Pixelate\n"
+"Shatter\n"
+"Drip\n"
+"Zip\n"
+"Random"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:30
+msgid "Sort"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:31
+msgid "Toolbar"
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:32
+msgid "Transition between slides using: "
+msgstr "LANG-TEST-STRING"
+
+#: ../glade/settings_dialog.glade.h:33
+msgid "View properties"
+msgstr "LANG-TEST-STRING"
+
+#. #############################################################################
+#. Translatable Strings
+#: ../src/constant.py:169
+msgid "A song can not be deleted while it is playing."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:170
+msgid "A song can not be edited while it is playing."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:171
+msgid "Can not edit playing video"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:172
+msgid "Application is disabled while in docking mode"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:173
+msgid "Unable to open file"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:174
+msgid "Unable to play file"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:175
+msgid "Delete Media"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:176
+#, python-format
+msgid ""
+"Are you sure you want to delete \n"
+"'%s'?"
+msgstr "LANG-TEST-STRING-<%s>-LANG-TEST-STRING"
+
+#: ../src/constant.py:177
+msgid "Please select a song to delete."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:178
+msgid "Rename Conflict"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:179
+#, python-format
+msgid "The file '%s' already exists.  Do you want to replace it?"
+msgstr "LANG-TEST-STRING-<%s>-LANG-TEST-STRING"
+
+#: ../src/constant.py:180
+msgid "Extension Changed"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:181
+#, python-format
+msgid "Are you sure you want to change the file extension from %s to %s?"
+msgstr "LANG-TEST-STRING-<%s>-<%s>-LANG-TEST-STRING"
+
+#: ../src/constant.py:182
+msgid "Music"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:183
+msgid "Video"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:184
+msgid "Photos"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:186
+msgid "Please select an item to see its propreties."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:187
+msgid "The name can not be empty"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:188
+msgid "Error"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:189
+msgid ""
+"Please input a title. \n"
+"\n"
+"A title can be any descriptive text to identify this online music."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:191
+msgid "Please enter a valid URL"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:192
+msgid "An error occurred when adding the online music entry."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:193
+msgid "The stream type is not supported.  Playback can not continue."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:194
+msgid "The protocol is not supported."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:195
+msgid "The URL is invalid."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:196
+msgid "The file is corrupt."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:197
+msgid "Out of memory."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:198
+msgid "An unknown error has occurred."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:199
+msgid "Sorting by Name"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:200
+msgid "Sorting by Size"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:201
+msgid "Sorting by Date"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:203
+msgid "Title"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:204
+msgid "Length"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:205
+msgid "Artist"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:206
+msgid "Album"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:207
+msgid "URL"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:208
+msgid "Playlist"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:210
+msgid "Online Music"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:211
+msgid "All Songs"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:213
+msgid "Open Location..."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:214
+msgid "Edit"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:215
+msgid "Sort by"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:216
+msgid "Settings..."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:217
+msgid "About"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:218
+msgid "Quit"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:220
+msgid "File Properties..."
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:221
+msgid "Rotate clockwise"
+msgstr "LANG-TEST-STRING"
+
+#: ../src/constant.py:222
+msgid "Rotate counter-clockwise"
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import:81
+msgid "Do you want to import media files?"
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import:82
+msgid "Media Import"
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import:217
+msgid "File"
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import:230
+msgid "Generating thumbnail for"
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import.glade.h:1
+msgid "Copying"
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import.glade.h:2
+msgid "Copying ..."
+msgstr "LANG-TEST-STRING"
+
+#: ../import/media-import.glade.h:3
+msgid "Importing Media"
+msgstr "LANG-TEST-STRING"

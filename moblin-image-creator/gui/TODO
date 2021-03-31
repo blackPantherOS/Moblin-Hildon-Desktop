@@ -1,0 +1,9 @@
+This is a list of GUI todos:
+===========================
+Author: Tariq Shureih
+
+* Generic callback for unimplemented features showing a dialogue to user
+*Targets: ability to mount/unmount from GUI
+*Console for projects with mount checking
+*generic error and success dialogue boxes
+

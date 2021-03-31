@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<gconfschemafile>
+  <schemalist>
+    <!-- Why use /desktop/hildon instead of /apps/mobile-basic-flash? -->
+    <schema>
+      <key>/schemas/desktop/hildon/marquee/hide</key>
+      <applyto>/desktop/hildon/marquee/hide</applyto>
+      <owner>mobile-basic-flash</owner>
+      <type>bool</type>
+      <default>False</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/hildon/htmlhomeplugin/homepage</key>
+      <applyto>/desktop/hildon/htmlhomeplugin/homepage</applyto>
+      <owner>mobile-basic-flash</owner>
+      <type>string</type>
+      <default>home.html</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/hildon/htmlhomeplugin/flashmoviename</key>
+      <applyto>/desktop/hildon/htmlhomeplugin/flashmoviename</applyto>
+      <owner>mobile-basic-flash</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/hildon/htmlhomeplugin/onlyshowin_filter</key>
+      <applyto>/desktop/hildon/htmlhomeplugin/onlyshowin_filter</applyto>
+      <owner>mobile-basic-flash</owner>
+      <type>bool</type>
+      <default>True</default>
+      <locale name="C"/>
+    </schema>
+    <schema>
+      <key>/schemas/desktop/hildon/htmlhomeplugin/onlyshowin_ignore</key>
+      <applyto>/desktop/hildon/htmlhomeplugin/onlyshowin_ignore</applyto>
+      <owner>mobile-basic-flash</owner>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[cheese,claws-mail,clutter-home,empathy,foobillard,frozen-bubble,galculator,midbrowser,moblin-media-music,moblin-media-photo,moblin-media-video,neverball,neverputt,mousepad,terminal]</default>
+      <locale name="C"/>
+    </schema>
+  </schemalist>
+</gconfschemafile>

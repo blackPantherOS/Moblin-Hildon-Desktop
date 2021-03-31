@@ -1,0 +1,31 @@
+D/agl////
+D/egl////
+D/glx////
+D/wgl////
+/.cvsignore/1.1/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.6/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz.def/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz.h/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz.man/1.1/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_buffer.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_compose.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_context.c/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_drawable.c/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_filter.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_format.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_framebuffer.c/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_geometry.c/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_gl.h/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_operator.c/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_pixel.c/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_program.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_rect.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_region.c/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_status.c/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_surface.c/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_texture.c/1.4/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_trap.c/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_trapimp.h/1.2/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitz_util.c/1.3/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/glitzint.h/1.6/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE

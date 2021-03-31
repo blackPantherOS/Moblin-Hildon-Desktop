@@ -1,0 +1,75 @@
+<!ENTITY toggle.label "Zmień styl przewijania">
+<!ENTITY grabanddrag.label "Przeciągnij">
+<!ENTITY grabanddrag.tooltip "Zmienia styl przewijania">
+<!ENTITY grabanddrag.shortlabel "Złap/Przeciągnij">
+<!ENTITY options.title "Grab and Drag - ustawienia">
+<!ENTITY options.reset "Przywróć ustawienia domyślne">
+<!ENTITY options.tab.general "Ogólne">
+<!ENTITY options.tab.behavior "Zachowanie">
+<!ENTITY options.tab.mom "Momentum">
+<!ENTITY options.tab.gestures "Flick">
+<!ENTITY options.tab.advanced "Zaawansowane">
+<!ENTITY options.features "Funkcje">
+<!ENTITY enabled.label "Włącz styl &quot;Złap i przeciągnij&quot;">
+<!ENTITY qt.label "Klawisz szybkiej zmiany stylu">
+<!ENTITY mousecursor.label "Kursor myszki">
+<!ENTITY grabcursor.label "Kursor przewijania">
+<!ENTITY openhand.label "Otwarta rączka">
+<!ENTITY closedhand.label "Zamknięta rączka">
+<!ENTITY altopenhand.label "Otwarta rączka #2">
+<!ENTITY altclosedhand.label "Zamknięta rączka #2">
+<!ENTITY fourway.label "Czteroramienna strzałka">
+<!ENTITY stdarrow.label "Standartowa strzałka">
+<!ENTITY defcur.label "Domyślny kursor">
+<!ENTITY options.cursors "Kursory">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Klawisze skrótu">
+<!ENTITY options.togKey "+">
+<!ENTITY options.dragInc "Szybkość przewijania">
+<!ENTITY options.dragInc.min "płynnie">
+<!ENTITY options.dragInc.max "szybko">
+<!ENTITY options.mult "Prędkość przewijania">
+<!ENTITY options.mult.min "domyślna">
+<!ENTITY options.mult.max "szybko">
+<!ENTITY options.sbmode "Tryb przewijania">
+<!ENTITY options.samecur "Nie zmieniaj">
+<!ENTITY options.reverse "Odwróć kierunek">
+<!ENTITY options.behavior "Zachowanie przewijania">
+<!ENTITY options.behavior.scrolling "Przewijanie">
+<!ENTITY options.flicks "Przewijanie typu &quot;flick&quot;">
+<!ENTITY options.flickon "Włącz przewijanie typu &quot;flick&quot;">
+<!ENTITY options.flickspeed "Szybkość przewijania">
+<!ENTITY options.flickspeed.min "wolno">
+<!ENTITY options.flickspeed.max "szybko">
+<!ENTITY options.flicktimelimit "Szybkość gestu">
+<!ENTITY options.flicktimelimit.min "szybko">
+<!ENTITY options.flicktimelimit.max "wolno">
+<!ENTITY options.mom "Przewijanie typu''momentum''">
+<!ENTITY options.momOn "Włącz przewijanie typu &quot;momentum&quot;">
+<!ENTITY options.momExtent "Czas reakcji">
+<!ENTITY options.momExtent.min "krótki">
+<!ENTITY options.momExtent.max "długi">
+<!ENTITY options.momVariation "Zmniejszenie prędkości reakcji">
+<!ENTITY options.momVariation.min "krótka">
+<!ENTITY options.momVariation.max "długa">
+<!ENTITY options.smoothStop "Zatrzymaj przewijanie płynnie">
+<!ENTITY notes "Podpowiedzi">
+<!ENTITY prefs.rollForInfo "Aby uzyskać więcej informacji przesuń wskaźnik myszki nad opcję">
+<!ENTITY prefs.enabledInfo "Zmianę stylu można także dokonać za pomocą skrótu klawiaturowego, przycisku narzędziowego oraz elementu w menu &quot;Narzędzia&quot;">
+<!ENTITY prefs.cursorwarning "Niektóre systemy operacyjne nie wyświetlają części kursorów prawidłowo">
+<!ENTITY prefs.cursorwarning2 "Pozostawienie kursora bez zmian może podczas przewijania zauważalnie zwiększyć wydajność tej operacji. Niektóre systemy operacyjne nie wyświetlają części kursorów prawidłowo.">
+<!ENTITY prefs.toolbarInfo "Jest także dostępny przycisk zmiany stylu, który można umieścić na pasku narzędziowym. Użyj opcji dostosowywania pasków.">
+<!ENTITY prefs.qtInfo "Przytrzymując poniższy klawisz można chwilowo wyłączyć opcję ''Złap i przeciągnij''. Pozwala to na łatwe zaznaczanie tekstu.">
+<!ENTITY prefs.dragIncInfo "Opcja ta pozwala ustalić skok o jaki będzie realizowane przewijanie. Zwiększenie tego parametru zwiększy szybkość przewijania, ale zmniejszy jego płynność.">
+<!ENTITY prefs.multInfo "Zwiększenie tego parametru powoduje, że strona będzie przewijana szybciej niż szybkość ruchu kursora.">
+<!ENTITY prefs.reverseInfo "Zaznacz tę opcję, aby odwrócić kierunek przewijania dokumentu.">
+<!ENTITY prefs.sbmodeInfo "Zaznacz tę opcję, aby przewijać jak gdyby kursor myszki znajdował się na pasku przewijania.">
+<!ENTITY prefs.flicksInfo "''Flicks'' są to gesty wykonane szybkim ruchem rysika/myszki w poprzek ekranu, w określonym kierunku. Rozszerzenie pozwala na używanie tych gestów do przewijania do góry, na dół, w lewo lub w prawo całego ekranu. Gesty te są bardzo użyteczne dla osób używających komputerów z obsługą rysikami.">
+<!ENTITY prefs.flickSpeedInfo "Ta opcja określa jak szybko gest typu ''flick'' przewija ekran.">
+<!ENTITY prefs.flickTimeLimitInfo "Ta opcja określa jak szybko gest typu ''flick''' musi być wykonany, aby został rozpoznany.">
+<!ENTITY prefs.momInfo "Jeśli Momentum zostanie włączone,  będzie wymuszało przewijanie z prędokością określoną w opcjach momentum do czasu zatrzymania poprzez kliknięcie. To pozwala na płynne i szybkie przewijanie długich stron.">
+<!ENTITY prefs.momExtentInfo "Ta opcja określa jak długo strona będzie przewijana z domyślną prędkością do chwili uruchomienia momentum. Im mniejsza jest ta wartość tym szybciej przewijanie jest przełączane na momentum.">
+<!ENTITY prefs.momVariationInfo "Ta opcja określa stosunek reakcji momentum do zmniejszenia prędkości. Im mniejsza jest ta wartość tym szybciej przewijanie jest przełączane na momentum.">
+<!ENTITY prefs.smoothStopInfo "Zaznacz tę opcję, aby delikatnie zatrzymać przewijanie pod koniec operacji przewijania generowanego przez Momentum lub Flicks.">

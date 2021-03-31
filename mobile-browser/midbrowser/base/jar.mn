@@ -1,0 +1,6 @@
+midbrowser.jar:
+%  content midbrowser %content/midbrowser/ xpcnativewrappers=yes
+%  override chrome://browser/content/browser.xul %content/midbrowser/midbrowser.xul
+*       content/midbrowser/midbrowser.xul			(content/midbrowser.xul)
+*       content/midbrowser/midbrowser.css			(content/midbrowser.css)
+*       content/midbrowser/hildonBindings.xml			(content/hildonBindings.xml)

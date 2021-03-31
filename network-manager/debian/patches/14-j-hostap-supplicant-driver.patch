@@ -1,0 +1,14 @@
+diff -Nur bzr.debian.0.9.4.patchupdate/src/nm-device-802-11-wireless.c bzr.debian.0.9.4.patchupdate.new/src/nm-device-802-11-wireless.c
+--- bzr.debian.0.9.4.patchupdate/src/nm-device-802-11-wireless.c	2007-06-25 17:16:17.000000000 +0200
++++ bzr.debian.0.9.4.patchupdate.new/src/nm-device-802-11-wireless.c	2007-06-25 17:16:17.000000000 +0200
+@@ -2526,7 +2526,9 @@
+        
+ 	if (!strcmp (kernel_driver, "ath_pci"))
+                wpa_driver = "madwifi";
+-       else
++        else if (!strcmp (kernel_driver, "hostap_pci") || !strcmp (kernel_driver, "hostap_cs") || !strcmp (kernel_driver, "hostap_plx"))
++               wpa_driver = "hostap";
++	else
+                wpa_driver = "wext";
+ 
+ 	/* wpa_cli -g/var/run/wpa_supplicant-global interface_add eth1 "" wext /var/run/wpa_supplicant */

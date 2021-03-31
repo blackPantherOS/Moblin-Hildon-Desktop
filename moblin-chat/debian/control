@@ -1,0 +1,27 @@
+Source: moblin-chat
+Section: gnome
+Priority: optional
+XSBC-Original-Maintainer: Telepathy Maintaince Team <pkg-telepathy-maintainers@lists.alioth.debian.org>
+Maintainer: Peter Zhu <peter.j.zhu@intel.com>, Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+Uploaders:  Sjoerd Simons <sjoerd@debian.org>,  Dafydd Harries <daf@debian.org>, Simon McVittie <smcv@ianadd.pseudorandom.co.uk>, Riccardo Setti <giskard@debian.org>
+Build-Depends: cdbs, debhelper (>= 5), libtool, scrollkeeper, libgtk2.0-dev (>= 2.10.0), libgnomeui-dev (>= 2.16.0-2), libglade2-dev (>= 2.0.0), libgconf2-dev (>= 1.2.0), libmissioncontrol-client-dev (>= 4.35), intltool, libaspell-dev, iso-codes, libebook1.2-dev, libhildon-1-dev, libosso-dev, moko, autoconf, gtk-doc-tools, automake (>= 1.9)
+Standards-Version: 3.7.2
+
+Package: moblin-chat
+Architecture: any
+Section: gnome
+Depends: ${shlibs:Depends}, ${misc:Depends}, telepathy-core, telepathy-mission-control, gnome-icon-theme, moko
+Recommends: telepathy-gabble, telepathy-salut
+Suggests: telepaty-core
+Conflicts: cohoba, gossip-telepathy, empathy, libempathy2, libempathy-common, libempathy-gtk-common
+Description: High-level library and user-interface for Telepathy
+ Moblin-chat is based on Empathy and apdated for use on MID.
+ Empathy consists of a rich set of reusable instant messaging widgets, and a
+ GNOME client using those widgets. It uses Telepathy and Nokia's Mission
+ Control, and reuses Gossip's UI. The main goal is to permit desktop
+ integration by providing libempathy and libempathy-gtk libraries.
+ libempathy-gtk is a set of powerful widgets that can be embeded into any
+ GNOME application.
+ .
+ Current empathy consists only of some sample application, which on their own
+ can be used as an IM client.

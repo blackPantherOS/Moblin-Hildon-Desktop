@@ -1,0 +1,13 @@
+diff -ruNp udev-111~/etc/udev/rules.d/60-persistent-storage.rules udev-111/etc/udev/rules.d/60-persistent-storage.rules
+--- udev-111~/etc/udev/rules.d/60-persistent-storage.rules	2007-05-21 12:45:46.000000000 +0100
++++ udev-111/etc/udev/rules.d/60-persistent-storage.rules	2007-05-21 12:46:30.000000000 +0100
+@@ -21,6 +21,9 @@ KERNEL=="ram*|loop*|fd*|nbd*|gnbd*", GOT
+ KERNEL=="hd*[!0-9]", ATTR{removable}=="1", DRIVERS=="ide-cs|ide-floppy", GOTO="persistent_storage_end"
+ KERNEL=="hd*[0-9]", ATTRS{removable}=="1", GOTO="persistent_storage_end"
+ 
++# never add uuid information for whole disk
++ATTR{whole_disk}=="", GOTO="persistent_storage_end"
++
+ # for partitions import parent information
+ KERNEL=="*[0-9]", IMPORT{parent}="ID_*"
+ 

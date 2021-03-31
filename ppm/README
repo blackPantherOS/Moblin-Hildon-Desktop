@@ -1,0 +1,70 @@
+The Power Policy Manager (PPM) is a layered system-wide power policy manager.
+Most power managers assume a binary power policy; the system is either on
+battery or on AC power.  With a layered approach, many power modes can be active
+at once, without hard-coding in exceptions.
+
+
+__ Compiling PPM __
+
+Required packages:
+ - libglib2.0-dev
+ - libdbus-1-dev
+ - libdbus-glib-1-dev
+ - libhal-dev
+
+Recommended packages (needed for plugins to work):
+ - xbacklight
+ - libxrandr2 >= 1.2.0
+
+To compile PPM:
+$ make
+# make install
+
+
+__ Running PPM __
+
+PPM consists of ppmtool and ppmd.  ppmtool is a user-space tool (ppmtool) to set
+policy modes.  Type `ppmtool --help` for command information.  ppmd is a daemon
+that listens over dbus for messages from ppmtool, or changes from the kernel
+that should trigger a mode switch.  ppmd will become a background process by
+default, unless the -f flag is specified.  ppmd should be started before
+ppmtool.
+
+
+__ How PPM works __
+
+PPM breaks down power policy management by using plugins, layers, and modes.
+
+A plugin is a small program that changes the power policy for a particular
+subsystem.  A CPU plugin may set the frequency governer based on commands sent
+to it from PPM.  Commands take the form "class command value"; a command to
+the CPU plugin might take the form "cpu performance max".
+
+A policy layer is a grouping of plugin commands, with an associated priority.
+For example, a low-power layer might contain commands to set the CPU into a
+low-power mode, set the screensaver timeout to 2 minutes, and dim the screen.
+Another layer to deal with thermal issues might set the screensaver timeout to
+30 seconds, along with putting the SATA hard drive into low power mode and
+telling the CPU to go into "cool" mode.  The thermal policy layer would have the
+highest priority, ensuring that the system doesn't overheat.
+
+A mode contains the set of layers to activate.  Multiple modes can be active at
+the same time.  If two modes select different layers, the commands sent to the
+plugins will be based on a combination of the layers.  Higher priority layers
+take precedence.  For example, if one layer had the plugin command "cpu
+performance max" but a higher priority layer had the plugin command "cpu
+performance cool", the later command would be sent to the cpu plugin.  Layers
+are transparent, meaning that commands from lower priority layers that don't
+overlap with commands from higher priority layers are active.
+
+For example, Alice is giving a presentation on an airplane while her laptop is
+on battery.  Since the laptop is running on battery, PPM will automatically
+activate a low-power mode.  This will send plugin commands to dim the screen and
+set the screensaver timeout to 2 minutes.  This is not what Alice wants, since
+she is giving a presentation.
+
+However, Alice can activate the 'airplane' and 'presentation' modes.  The
+airplane mode would activate a radio_silence layer to turn off all radios for
+FAA compliance.  The presentation mode would activate the screensaver_off layer
+(which has a higher priority than the low-power layer) to brighten the screen
+and turn off the screensaver.

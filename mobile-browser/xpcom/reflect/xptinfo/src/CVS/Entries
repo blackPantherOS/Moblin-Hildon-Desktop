@@ -1,0 +1,14 @@
+/.cvsignore/1.1/Mon Mar  8 21:27:02 1999//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.27/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/TODO/1.6/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiFile.cpp/1.8/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiInterfaceInfo.cpp/1.20/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiInterfaceInfoManager.cpp/1.60/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiManifest.cpp/1.35/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiMisc.cpp/1.13/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiTypelibGuts.cpp/1.6/Sun Apr 18 14:18:20 2004//TFIREFOX_3_0b2_RELEASE
+/xptiWorkingSet.cpp/1.18/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiZipItem.cpp/1.7/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+/xptiZipLoader.cpp/1.12/Sun Apr 18 14:18:20 2004//TFIREFOX_3_0b2_RELEASE
+/xptiprivate.h/1.33/Thu Dec 13 11:58:38 2007//TFIREFOX_3_0b2_RELEASE
+D

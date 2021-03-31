@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyAccountChooser">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyAccountChooser</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyAccountChooser</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="gboolean">gboolean</link>            (<link linkend="EmpathyAccountChooserFilterFunc">*EmpathyAccountChooserFilterFunc</link>)  (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+                    <link linkend="EmpathyAccountChooser-struct">EmpathyAccountChooser</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-account-chooser-new">empathy_account_chooser_new</link>         (void);
+<link linkend="McAccount">McAccount</link>*          <link linkend="empathy-account-chooser-get-account">empathy_account_chooser_get_account</link> (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-account-chooser-set-account">empathy_account_chooser_set_account</link> (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-account-chooser-get-has-all-option">empathy_account_chooser_get_has_all_option</link>
+                                                        (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser);
+<link linkend="void">void</link>                <link linkend="empathy-account-chooser-set-has-all-option">empathy_account_chooser_set_has_all_option</link>
+                                                        (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser,
+                                                         <link linkend="gboolean">gboolean</link> has_all_option);
+<link linkend="void">void</link>                <link linkend="empathy-account-chooser-set-filter">empathy_account_chooser_set_filter</link>  (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser,
+                                                         <link linkend="EmpathyAccountChooserFilterFunc">EmpathyAccountChooserFilterFunc</link> filter,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-account-chooser-filter-is-connected">empathy_account_chooser_filter_is_connected</link>
+                                                        (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkComboBox">GtkComboBox</link>
+                                       +----EmpathyAccountChooser
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EmpathyAccountChooser implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkCellLayout">GtkCellLayout</link> and  <link linkend="GtkCellEditable">GtkCellEditable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyAccountChooser--has-all-option">has-all-option</link>&quot;           <link linkend="gboolean">gboolean</link>              : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyAccountChooserFilterFunc" role="function"/>EmpathyAccountChooserFilterFunc ()</title>
+<indexterm><primary>EmpathyAccountChooserFilterFunc</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            (*EmpathyAccountChooserFilterFunc)  (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="EmpathyAccountChooser-struct" role="struct"/>EmpathyAccountChooser</title>
+<indexterm><primary>EmpathyAccountChooser</primary></indexterm><programlisting>typedef struct _EmpathyAccountChooser EmpathyAccountChooser;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-new" role="function"/>empathy_account_chooser_new ()</title>
+<indexterm><primary>empathy_account_chooser_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_account_chooser_new         (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-get-account" role="function"/>empathy_account_chooser_get_account ()</title>
+<indexterm><primary>empathy_account_chooser_get_account</primary></indexterm><programlisting><link linkend="McAccount">McAccount</link>*          empathy_account_chooser_get_account (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chooser</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-set-account" role="function"/>empathy_account_chooser_set_account ()</title>
+<indexterm><primary>empathy_account_chooser_set_account</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_account_chooser_set_account (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chooser</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-get-has-all-option" role="function"/>empathy_account_chooser_get_has_all_option ()</title>
+<indexterm><primary>empathy_account_chooser_get_has_all_option</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_account_chooser_get_has_all_option
+                                                        (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chooser</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-set-has-all-option" role="function"/>empathy_account_chooser_set_has_all_option ()</title>
+<indexterm><primary>empathy_account_chooser_set_has_all_option</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_account_chooser_set_has_all_option
+                                                        (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser,
+                                                         <link linkend="gboolean">gboolean</link> has_all_option);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chooser</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>has_all_option</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-set-filter" role="function"/>empathy_account_chooser_set_filter ()</title>
+<indexterm><primary>empathy_account_chooser_set_filter</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_account_chooser_set_filter  (<link linkend="EmpathyAccountChooser">EmpathyAccountChooser</link> *chooser,
+                                                         <link linkend="EmpathyAccountChooserFilterFunc">EmpathyAccountChooserFilterFunc</link> filter,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chooser</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-chooser-filter-is-connected" role="function"/>empathy_account_chooser_filter_is_connected ()</title>
+<indexterm><primary>empathy_account_chooser_filter_is_connected</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_account_chooser_filter_is_connected
+                                                        (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyAccountChooser--has-all-option"/>The &quot;<literal>has-all-option</literal>&quot; property</title>
+<indexterm><primary>EmpathyAccountChooser:has-all-option</primary></indexterm><programlisting>  &quot;has-all-option&quot;           <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Have a separate option in the list to mean ALL accounts.</para><para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

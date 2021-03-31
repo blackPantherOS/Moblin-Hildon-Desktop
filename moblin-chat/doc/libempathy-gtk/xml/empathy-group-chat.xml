@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyGroupChat">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyGroupChat</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyGroupChat</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyGroupChatPriv">EmpathyGroupChatPriv</link>;
+                    <link linkend="EmpathyGroupChat-struct">EmpathyGroupChat</link>;
+<link linkend="EmpathyGroupChat">EmpathyGroupChat</link>*   <link linkend="empathy-group-chat-new">empathy_group_chat_new</link>              (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-group-chat-get-show-contacts">empathy_group_chat_get_show_contacts</link>
+                                                        (<link linkend="EmpathyGroupChat">EmpathyGroupChat</link> *chat);
+<link linkend="void">void</link>                <link linkend="empathy-group-chat-set-show-contacts">empathy_group_chat_set_show_contacts</link>
+                                                        (<link linkend="EmpathyGroupChat">EmpathyGroupChat</link> *chat,
+                                                         <link linkend="gboolean">gboolean</link> show);
+<link linkend="void">void</link>                <link linkend="empathy-group-chat-set-topic">empathy_group_chat_set_topic</link>        (<link linkend="EmpathyGroupChat">EmpathyGroupChat</link> *chat);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EmpathyChat">EmpathyChat</link>
+         +----EmpathyGroupChat
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyGroupChatPriv" role="struct"/>EmpathyGroupChatPriv</title>
+<indexterm><primary>EmpathyGroupChatPriv</primary></indexterm><programlisting>typedef struct _EmpathyGroupChatPriv EmpathyGroupChatPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyGroupChat-struct" role="struct"/>EmpathyGroupChat</title>
+<indexterm><primary>EmpathyGroupChat</primary></indexterm><programlisting>typedef struct _EmpathyGroupChat EmpathyGroupChat;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-group-chat-new" role="function"/>empathy_group_chat_new ()</title>
+<indexterm><primary>empathy_group_chat_new</primary></indexterm><programlisting><link linkend="EmpathyGroupChat">EmpathyGroupChat</link>*   empathy_group_chat_new              (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tp_chan</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-group-chat-get-show-contacts" role="function"/>empathy_group_chat_get_show_contacts ()</title>
+<indexterm><primary>empathy_group_chat_get_show_contacts</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_group_chat_get_show_contacts
+                                                        (<link linkend="EmpathyGroupChat">EmpathyGroupChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-group-chat-set-show-contacts" role="function"/>empathy_group_chat_set_show_contacts ()</title>
+<indexterm><primary>empathy_group_chat_set_show_contacts</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_group_chat_set_show_contacts
+                                                        (<link linkend="EmpathyGroupChat">EmpathyGroupChat</link> *chat,
+                                                         <link linkend="gboolean">gboolean</link> show);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-group-chat-set-topic" role="function"/>empathy_group_chat_set_topic ()</title>
+<indexterm><primary>empathy_group_chat_set_topic</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_group_chat_set_topic        (<link linkend="EmpathyGroupChat">EmpathyGroupChat</link> *chat);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>chat</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

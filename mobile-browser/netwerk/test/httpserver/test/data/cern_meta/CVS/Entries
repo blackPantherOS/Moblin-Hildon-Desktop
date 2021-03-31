@@ -1,0 +1,11 @@
+/caret_test.txt^^/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/caret_test.txt^^headers^/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_both.html/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_both.html^headers^/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_ctype_override.txt/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_ctype_override.txt^headers^/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_status_override.html/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_status_override.html^headers^/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_status_override_nodesc.txt/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/test_status_override_nodesc.txt^headers^/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+D

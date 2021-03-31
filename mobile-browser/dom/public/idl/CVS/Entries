@@ -1,0 +1,20 @@
+D/base////
+D/canvas////
+D/core////
+D/css////
+D/events////
+D/html////
+D/ls////
+D/offline////
+D/range////
+D/sidebar////
+D/storage////
+D/stylesheets////
+D/svg////
+D/traversal////
+D/views////
+D/xbl////
+D/xpath////
+D/xul////
+/.cvsignore/1.1/Wed Sep  1 01:13:54 1999//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.16/Thu Dec 13 11:58:31 2007//TFIREFOX_3_0b2_RELEASE

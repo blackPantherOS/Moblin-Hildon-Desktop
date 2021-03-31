@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+KVERS=#KVERS#
+
+case "$1" in
+	configure)
+		if [ $(uname -r) = $KVERS ]; then
+			depmod -a
+		fi
+	;;
+esac
+
+#DEBHELPER#
+

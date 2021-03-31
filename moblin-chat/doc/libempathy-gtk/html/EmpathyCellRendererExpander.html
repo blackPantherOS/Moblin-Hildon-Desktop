@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyCellRendererExpander</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="EphySpinner.html" title="EphySpinner">
+<link rel="next" href="libempathy-gtk-empathy-contact-groups.html" title="empathy-contact-groups">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EphySpinner.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="libempathy-gtk-empathy-contact-groups.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2561935" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2616551" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2594035" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2617050" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyCellRendererExpander"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2561935"></a><span class="refentrytitle">EmpathyCellRendererExpander</span>
+</h2>
+<p>EmpathyCellRendererExpander</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyCellRendererExpander.html#EmpathyCellRendererExpander-struct">EmpathyCellRendererExpander</a>;
+GtkCellRenderer*    <a href="EmpathyCellRendererExpander.html#empathy-cell-renderer-expander-new">empathy_cell_renderer_expander_new</a>  (void);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2594035"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----GInitiallyUnowned
+         +----GtkObject
+               +----GtkCellRenderer
+                     +----EmpathyCellRendererExpander
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2617050"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyCellRendererExpander.html#EmpathyCellRendererExpander--activatable">activatable</a>"              gboolean              : Read / Write
+  "<a href="EmpathyCellRendererExpander.html#EmpathyCellRendererExpander--expander-size">expander-size</a>"            gint                  : Read / Write
+  "<a href="EmpathyCellRendererExpander.html#EmpathyCellRendererExpander--expander-style">expander-style</a>"           GtkExpanderStyle      : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2616551"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2616567"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2616578"></a><h3>
+<a name="EmpathyCellRendererExpander-struct"></a>EmpathyCellRendererExpander</h3>
+<a class="indexterm" name="id2616589"></a><pre class="programlisting">typedef struct _EmpathyCellRendererExpander EmpathyCellRendererExpander;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616605"></a><h3>
+<a name="empathy-cell-renderer-expander-new"></a>empathy_cell_renderer_expander_new ()</h3>
+<a class="indexterm" name="id2616616"></a><pre class="programlisting">GtkCellRenderer*    empathy_cell_renderer_expander_new  (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2616654"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2616665"></a><h3>
+<a name="EmpathyCellRendererExpander--activatable"></a>The "<code class="literal">activatable</code>" property</h3>
+<a class="indexterm" name="id2616679"></a><pre class="programlisting">  "activatable"              gboolean              : Read / Write</pre>
+<p>The expander can be activated.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620638"></a><h3>
+<a name="EmpathyCellRendererExpander--expander-size"></a>The "<code class="literal">expander-size</code>" property</h3>
+<a class="indexterm" name="id2620655"></a><pre class="programlisting">  "expander-size"            gint                  : Read / Write</pre>
+<p>The size of the expander.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 12</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620683"></a><h3>
+<a name="EmpathyCellRendererExpander--expander-style"></a>The "<code class="literal">expander-style</code>" property</h3>
+<a class="indexterm" name="id2620699"></a><pre class="programlisting">  "expander-style"           GtkExpanderStyle      : Read / Write</pre>
+<p>Style to use when painting the expander.</p>
+<p>Default value: GTK_EXPANDER_COLLAPSED</p>
+</div>
+</div>
+</div>
+</body>
+</html>

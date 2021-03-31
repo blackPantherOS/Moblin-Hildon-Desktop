@@ -1,0 +1,5 @@
+usr/lib/lib*.so.*
+etc/clock-plugin.conf
+usr/share/pixmaps/mb_apps_menu.png
+usr/share/applications/hildon-marquee
+usr/share/applications/hildon-status-bar

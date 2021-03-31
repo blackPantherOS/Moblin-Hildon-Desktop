@@ -1,0 +1,11 @@
+--- network-manager-applet-0.6.5/src/applet-dbus-info.c	2007-06-19 21:13:01.000000000 +0100
++++ network-manager-applet-0.6.5.new/src/applet-dbus-info.c	2007-06-19 21:06:40.000000000 +0100
+@@ -103,7 +103,7 @@
+ 	char *				net_path = cb_data->net_path;
+ 	char *				essid = cb_data->essid;
+ 
+-	if (result == GNOME_KEYRING_RESULT_OK)
++	if (result == GNOME_KEYRING_RESULT_OK && found_list != NULL)
+ 	{
+ 		gchar *			escaped_network;
+ 		GnomeKeyringFound *	found;

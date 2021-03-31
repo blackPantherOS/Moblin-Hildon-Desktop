@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyContactListView">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyContactListView</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyContactListView</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyContactListViewPriv">EmpathyContactListViewPriv</link>;
+                    <link linkend="EmpathyContactListView-struct">EmpathyContactListView</link>;
+<link linkend="void">void</link>                (<link linkend="EmpathyContactListViewDragReceivedFunc">*EmpathyContactListViewDragReceivedFunc</link>)
+                                                        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GdkDragAction">GdkDragAction</link> action,
+                                                         const <link linkend="gchar">gchar</link> *old_group,
+                                                         const <link linkend="gchar">gchar</link> *new_group,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="EmpathyContactListView">EmpathyContactListView</link>* <link linkend="empathy-contact-list-view-new">empathy_contact_list_view_new</link>   (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-contact-list-view-get-selected">empathy_contact_list_view_get_selected</link>
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-contact-list-view-get-selected-group">empathy_contact_list_view_get_selected_group</link>
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-contact-list-view-get-contact-menu">empathy_contact_list_view_get_contact_menu</link>
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-contact-list-view-get-group-menu">empathy_contact_list_view_get_group_menu</link>
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-view-set-filter">empathy_contact_list_view_set_filter</link>
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *filter);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-view-set-drag-received-func">empathy_contact_list_view_set_drag_received_func</link>
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view,
+                                                         <link linkend="EmpathyContactListViewDragReceivedFunc">EmpathyContactListViewDragReceivedFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkTreeView">GtkTreeView</link>
+                                 +----EmpathyContactListView
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EmpathyContactListView implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyContactListView--filter">filter</link>&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyContactListView-drag-contact-received">drag-contact-received</link>&quot;                          : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyContactListViewPriv" role="struct"/>EmpathyContactListViewPriv</title>
+<indexterm><primary>EmpathyContactListViewPriv</primary></indexterm><programlisting>typedef struct _EmpathyContactListViewPriv EmpathyContactListViewPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyContactListView-struct" role="struct"/>EmpathyContactListView</title>
+<indexterm><primary>EmpathyContactListView</primary></indexterm><programlisting>typedef struct _EmpathyContactListView EmpathyContactListView;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyContactListViewDragReceivedFunc" role="function"/>EmpathyContactListViewDragReceivedFunc ()</title>
+<indexterm><primary>EmpathyContactListViewDragReceivedFunc</primary></indexterm><programlisting><link linkend="void">void</link>                (*EmpathyContactListViewDragReceivedFunc)
+                                                        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GdkDragAction">GdkDragAction</link> action,
+                                                         const <link linkend="gchar">gchar</link> *old_group,
+                                                         const <link linkend="gchar">gchar</link> *new_group,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>action</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>old_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-new" role="function"/>empathy_contact_list_view_new ()</title>
+<indexterm><primary>empathy_contact_list_view_new</primary></indexterm><programlisting><link linkend="EmpathyContactListView">EmpathyContactListView</link>* empathy_contact_list_view_new   (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-get-selected" role="function"/>empathy_contact_list_view_get_selected ()</title>
+<indexterm><primary>empathy_contact_list_view_get_selected</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_contact_list_view_get_selected
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-get-selected-group" role="function"/>empathy_contact_list_view_get_selected_group ()</title>
+<indexterm><primary>empathy_contact_list_view_get_selected_group</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_contact_list_view_get_selected_group
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-get-contact-menu" role="function"/>empathy_contact_list_view_get_contact_menu ()</title>
+<indexterm><primary>empathy_contact_list_view_get_contact_menu</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_contact_list_view_get_contact_menu
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-get-group-menu" role="function"/>empathy_contact_list_view_get_group_menu ()</title>
+<indexterm><primary>empathy_contact_list_view_get_group_menu</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_contact_list_view_get_group_menu
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-set-filter" role="function"/>empathy_contact_list_view_set_filter ()</title>
+<indexterm><primary>empathy_contact_list_view_set_filter</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_view_set_filter
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view,
+                                                         const <link linkend="gchar">gchar</link> *filter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-view-set-drag-received-func" role="function"/>empathy_contact_list_view_set_drag_received_func ()</title>
+<indexterm><primary>empathy_contact_list_view_set_drag_received_func</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_view_set_drag_received_func
+                                                        (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *view,
+                                                         <link linkend="EmpathyContactListViewDragReceivedFunc">EmpathyContactListViewDragReceivedFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyContactListView--filter"/>The &quot;<literal>filter</literal>&quot; property</title>
+<indexterm><primary>EmpathyContactListView:filter</primary></indexterm><programlisting>  &quot;filter&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>The text to use to filter the contact list.</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyContactListView-drag-contact-received"/>The &quot;drag-contact-received&quot; signal</title>
+<indexterm><primary>EmpathyContactListView::drag-contact-received</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyContactListView">EmpathyContactListView</link> *empathycontactlistview,
+                                                        <link linkend="EmpathyContact">EmpathyContact</link>         *arg1,
+                                                        <link linkend="gchar">gchar</link>                  *arg2,
+                                                        <link linkend="gchar">gchar</link>                  *arg3,
+                                                        <link linkend="gpointer">gpointer</link>                user_data)                   : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathycontactlistview</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg3</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

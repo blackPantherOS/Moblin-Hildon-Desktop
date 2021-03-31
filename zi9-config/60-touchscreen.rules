@@ -1,0 +1,4 @@
+# udev rules for USB touchscreen devices
+
+# DIALOGUE PenMount Touchscreen
+KERNEL=="event[0-9]*", SYSFS{idVendor}=="14e1", SYSFS{idProduct}=="6000", SYMLINK+="input/touchscreen"

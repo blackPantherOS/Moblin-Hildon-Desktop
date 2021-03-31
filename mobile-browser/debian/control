@@ -1,0 +1,18 @@
+Source: midbrowser
+Section: web
+Priority: optional
+Maintainer: Carl Wong <carl.wong@intel.com>
+Build-Depends: bzip2, debhelper (>= 5), quilt, patchutils (>= 0.2.25), cdbs (>= 0.4.27-1), libx11-dev, libxt-dev, libgtk2.0-dev (>= 2.8), zlib1g-dev, liborbit2-dev, libidl-dev (>= 0.8.0), zip, libxft-dev, libfreetype6-dev, libpng12-dev, libjpeg62-dev, libxrender-dev, libxinerama-dev, libcairo2-dev, libgnome2-dev, libgconf2-dev, libgnomevfs2-dev, libgnomeui-dev, sharutils, m4, binutils (>= 2.17-1) [mips mipsel], libhunspell-dev, libthai-dev, libnss3-dev, libnspr4-dev, imagemagick, libhildon-1-dev, g++-4.2, gcc-4.2, libdbus-glib-1-dev
+Standards-Version: 3.7.2
+
+Package: midbrowser
+Architecture: any
+Depends: fontconfig, psmisc, debianutils (>= 1.16), ${shlibs:Depends}
+Conflicts: libnss3
+Replaces: libnss3
+Recommends: ubufox
+Suggests: midbrowser-gnome-support (= ${Source-Version}), latex-xft-fonts
+Provides: www-browser
+Description: mobile web browser based on Mozilla
+ Midbrowser is a mobile web browser based on Firefox.
+

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -eu
+
+case "$1" in
+    	configure)
+		if dpkg --compare-versions "$2" "lt-nl" 0.6.5-0ubuntu12; then
+		    sh /usr/lib/network-manager/ifblacklist_migrate.sh
+		    sleep 2
+                fi
+
+		if [ -x "/etc/init.d/dbus" ]; then
+			RESULT=0
+			invoke-rc.d --disclose-deny dbus force-reload || RESULT=$?
+
+			if [ ${RESULT} -eq 0 ]; then
+				# Only run dbus actions if invoke-rc.d returned 0
+				if [ -x "/etc/dbus-1/event.d/25NetworkManager" ]; then
+					/etc/dbus-1/event.d/25NetworkManager restart
+				fi
+
+				if [ -x "/etc/dbus-1/event.d/26NetworkManagerDispatcher" ]; then
+					/etc/dbus-1/event.d/26NetworkManagerDispatcher restart
+				fi			 
+			fi
+		fi
+    	;;
+esac
+
+#DEBHELPER#
+
+exit 0

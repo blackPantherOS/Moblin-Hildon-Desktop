@@ -1,0 +1,8 @@
+/sbin
+/etc/udev
+/etc/udev/rules.d
+/lib/firmware
+/lib/udev
+/lib/debian-installer-startup.d
+/usr/bin
+/usr/sbin

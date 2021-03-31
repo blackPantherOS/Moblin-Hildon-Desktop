@@ -1,0 +1,39 @@
+Source: libhildon
+Section: x11
+Priority: optional
+XSBC-Original-Maintainer: Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>
+Maintainer: Ubuntu Mobile <ubuntu-mobile@lists.ubuntu.com>
+Build-Depends: debhelper (>= 5.0.0), pkg-config, libgtk2.0-dev (>= 2.10), libxi-dev, libxt-dev, libpng12-dev, libgconf2-dev, gtk-doc-tools, libesd0-dev, automake
+Standards-Version: 3.6.0
+
+Package: libhildon-1-dev
+Section: devel
+Architecture: any
+Depends: libhildon-1-0 (= ${Source-Version}), libgtk2.0-dev (>= 2.10), libgconf2-dev, libesd0-dev
+Description: Hildon libraries development files
+ Hildon is the widget library for maemo.  It contains widgets
+ appropriate for internet tablet applications.
+ .
+ This package contains the development files needed to write
+ applications for using those widgets.
+
+Package: libhildon-1-0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Hildon libraries
+ Hildon is the widget library for maemo.  It contains widgets
+ appropriate for internet tablet applications.
+ .
+ This package contains the run-time library.
+
+Package: libhildon-1-0-dbg
+Section: libdevel
+Architecture: any
+Depends: libhildon-1-0 (= ${Source-Version})
+Description: Debug symbols for hildon libraries
+ Hildon is the widget library for maemo.  It contains widgets
+ appropriate for internet tablet applications.
+ .
+ This package contains debug symbols, useful for debugging libhildon
+ itself.

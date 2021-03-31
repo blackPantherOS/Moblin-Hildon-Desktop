@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+        configure)
+                if [ -w "/etc/hildon-desktop/desktop.conf" ]; then
+                        sed -i 's/549/670/;s/200/303/' /etc/hildon-desktop/desktop.conf
+                fi
+
+                if [ -w "/etc/hildon-desktop/marquee.conf" ]; then
+                        sed -i 's/navigator/marquee/;s/applications-menu/showhome-plugin/' /etc/hildon-d
+                fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

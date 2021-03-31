@@ -1,0 +1,66 @@
+<!-- ##### SECTION Title ##### -->
+empathy-enum-types
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO EMPATHY_TYPE_SUBSCRIPTION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION empathy_subscription_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### MACRO EMPATHY_TYPE_REG_EX_TYPE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION empathy_reg_ex_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### MACRO EMPATHY_TYPE_MESSAGE_TYPE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION empathy_message_type_get_type ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+

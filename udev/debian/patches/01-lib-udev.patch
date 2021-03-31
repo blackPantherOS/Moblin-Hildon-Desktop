@@ -1,0 +1,16 @@
+diff -ruNp udev-103~/extras/scsi_id/Makefile udev-103/extras/scsi_id/Makefile
+--- udev-103~/extras/scsi_id/Makefile	2006-10-20 13:43:35.000000000 +0100
++++ udev-103/extras/scsi_id/Makefile	2006-11-01 16:00:24.000000000 +0000
+@@ -59,12 +59,10 @@ clean:
+ 
+ install-bin: all
+ 	$(INSTALL_PROGRAM) -D $(PROG) $(DESTDIR)$(libudevdir)/$(PROG)
+-	ln -sf $(libudevdir)/$(PROG) $(DESTDIR)$(sbindir)/$(PROG)
+ .PHONY: install-bin
+ 
+ uninstall-bin:
+ 	- rm $(DESTDIR)$(libudevdir)/$(PROG)
+-	- rm -f $(DESTDIR)$(sbindir)/$(PROG)
+ .PHONY: uninstall-bin
+ 
+ install-man:

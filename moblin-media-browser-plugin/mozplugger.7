@@ -1,0 +1,277 @@
+.PU
+.TH mozplugger 7
+.SH NAME
+mozplugger \- a streaming multimedia plugin for UNIX mozilla
+
+.SH DESCRIPTION
+.I MozPlugger
+is a  Mozilla plugin which can show many types of multimedia
+inside your Mozilla. To accomplish this, MozPlugger uses external
+programs such as mplayer, xanim, mtv, timidity and tracker.
+
+.SH CONFIGURE FILE
+You can configure mozplugger by changing the file
+.I mozpluggerrc
+which can be located in any of the following directories:
+
+	$HOME/.netscape/
+.br
+	$HOME/.mozilla/
+.br
+	$HOME/.opera/
+.br
+	$MOZILLA_HOME/
+.br
+	$OPERA_HOME/
+.br
+	/usr/local/netscape/
+.br
+	/etc/
+.br
+	/usr/local/mozilla/
+.br
+	/usr/local/netscape/
+
+The format of
+.I mozpluggerrc
+is very simple. The general layout is to have one or more lines
+describing mime types followed by one or more lines describing
+commands used to handle those mime types. Lines beginning with
+# are considered comments and are ignored. Here is a simple example:
+
+	video/mpeg: mpeg: Mpeg video
+.br
+	video/quicktime: qt,mov: Mpeg video
+.br
+		: xanim +W$window -Zr +q +Ze +f $file
+
+Each line describing a mime type has three fields:
+
+	
+.B mime type
+:
+.B extensions
+:
+.B description
+
+.TP
+.B mime type
+The mime type is the standardized name for the content type you want
+MozPlugger to handle. This must be the same type as the web server claims
+the file to be, or MozPlugger will not be used for that file, regardless
+of the extension. Note: Some web servers incorrectly report the wrong mime
+type, blame the web server adminstrator not mozplugger.
+.TP
+.B extensions
+This is a comma separated list of extensions that should be associated
+with this particular mime type. The extensions are only used when a web
+server does not report what type of file it is, or when loading files
+directly from disk.
+.TP
+.B description
+This is the description that shows up in about:plugins and in the
+application preferences section in Mozilla.
+
+
+.TP
+Lines that describe what command to use for a mime type must begin
+with a whitespace and have two fields:
+
+	
+.B flags
+:
+.B command
+
+.TP
+.B flags
+This is a space separated list of flags which tells mozplugger how to
+handle this particular application. See below for further details.
+.TP
+.B command
+This is a command which is sent to /bin/sh when handling this mime
+type.
+
+.SH USING M4
+
+When loading, MozPlugger will pass the mozpluggerrc file through m4,
+a general purpose macro processor (assuming m4 is installed). This 
+provides the ablity to use macros within mozpluggerrc especially for
+those commonly used command lines. m4 brings text replacement, parameter
+substitution, file inclusion, string manipulation, conditional 
+evaluation, arthemtic expressions, etc to mozpluggerrc. Please see m4
+documentation for more details. 
+
+.SH FINDING THE RIGHT COMMAND
+
+When MozPlugger is called from your browser, it looks through the
+configuration file and tries to find a matching mime type.
+For an application to be chosen it has to fulfill certain criteria, it
+has to exist, and it must match the flags given to mozplugger.
+
+When it does, it tries to figure out which command to use.
+First, it looks through all the commands for that
+particular mime type to see if it can find an application that has the
+.B stream
+flag. If it cannot find a streaming application it downloads the file
+and tries again. Note that MozPlugger will check the first word of the command
+and search your $PATH for that command. If that command is not found
+MozPlugger will go to the next line in your mozpluggerrc.
+
+.SH WHEN IT DOESNT WORK
+
+If for some reason the embedded object fails to be rendered in the browser,
+this could be a fault with the application as opposed to MozPlugger. To
+diagnosis the fault it is suggested that first you make sure that any output
+from the application will be visible to you by removing the
+.B noisy
+flag (if set in mozpluggerrc). 
+
+Next run the browser from the shell (xterm or equivalent) passing the 
+appropriate browser command line flag to enable output from stdout and stderr
+to be displayed. 
+
+For example, for firefox the command line string is:
+
+        
+.B  firefox -debug 
+
+This should allow any output from the application to be visible at the shell
+and hopefully lead to a diagnosis of the fault.
+
+.SH FLAGS
+.TP
+.B repeat
+This indicates that the command uses the $repeat variable.
+.TP
+.B loop
+This indicates that the application loops forever. If the <EMBED>
+tag used to start MozPlugger indicated that the file should not
+loop forever, the command on this line will not be used.
+.TP
+.B stream
+This indicates that this application can take an url. In this case, the
+variable $file contains the URL of the file to play and the browser
+does not download it.
+.TP
+.B ignore_errors
+This flag tells MozPlugger to ignore the exit status of the application.
+.TP
+.B noisy
+This flag tells MozPlugger to redirect the stdout and stderr of the application
+to /dev/null.
+.TP
+.B swallow (name)
+It will tell
+mozplugger that the application will open a window with the specified
+name and that this window will then be moved to inside your browser.
+If name is prefixed with '=' then mozplugger looks for an
+exact match with the window name, if the prefix is '~' then mozplugger
+looks for a case insensitive match, if prefixed with '*' then mozplugger
+looks for a window name that starts with 'name' and is case insensitive. If
+none of these prefixes then, mozplugger checks if name occurs anywhere in the
+window name, but is case sensitive. Note any spaces between the brackets are
+counted as part of the window name.
+The window name to use in mozpluggerrc can be obtained by using the 
+utility xprop(). Run the application in question, type 
+"xprop WM_CLASS" at a shell prompt and then click on the application
+window.
+.TP
+.B fmatch (string)
+This flag defines a command that will be used only if the filename or url 
+(i.e. file) contains 'string'. If 'string' is prefixed with '*' then mozplugger
+defines a match when the file starts with 'string' (the check is case 
+insensitive). If 'string' is prefixed with '%' then mozplugger defines a match
+when the file ends with 'string' (the check is case insenstive and ignores any
+parameters at the end of a url {i.e. '?xxx=yyy'}). If none of these prefixes
+then mozplugger defines a match when the 'string' is found somewhere in the file
+(but this time match is case sensitive). Note any spaces between the brackets are
+counted as part of the 'string'.
+.TP
+.B nokill
+This tells MozPlugger to not try to kill the application when leaving
+the page, and to not start the application in a loop. This is normally
+used for applications that are not swallowed and can play multiple
+files, such as xmms.
+
+.TP
+.B fill
+This keyword is used to maximize a swallowed window.
+.TP
+.B maxaspect
+This keyword is used to maximize a swallowed window while keeping the
+width/height ratio constant.
+.TP
+.B controls
+This flag is typically used with audio files to display a controller
+with the buttons play, pause and stop while playing.
+.TP
+.B embed, noembed
+These flags can be used to define embed-only or full-window-only
+commands.
+.TP
+.B links
+This flag is used for defining commands for embedded objects that are 
+really links to external applications (such objects typically use the
+target and href variables to indicate a clickable link). Embedded 
+Quicktime objects sometimes use this mechanism.
+.TP
+.B hidden
+In conjunction with the swallow keyword, this tells the plugin to
+swallow windows which are not visible yet.
+
+.SH VARIABLES
+MozPlugger gives some variables to /bin/sh when starting the application,
+these variables are:
+
+.TP
+.B $repeats
+This variable contains how many times the file should be played.
+Applications which use this variable should also set the
+.B repeat
+flag.
+.TP
+.B $window
+This is the X window Mozilla has given the plugin. This can be used
+with applications such as MPlayer to display graphics inside the mozilla
+window.
+.TP
+.B $width
+This is the horizontal resolution in pixels.
+.TP
+.B $height
+This is the vertical resolution in pixels.
+.TP
+.B $file
+This is the file to play.
+If the application uses the
+.B stream
+flag, this this variable contains the URL of the file to play.
+.TP
+.B $mimetype
+This variable contains the mime type of $file.
+.TP
+.B $VAR_<parameter_name>
+All the parameters of the <EMBED> tags are made available in
+mozpluggerrc through environment variables.  For example the parameter
+loop="1" in an <EMBED> tag defines the variable VAR_loop=1.
+
+.SH BUGS
+You have to remove ~/.netscape/plugin-list or ~/.mozilla/firefox/pluginreg.dat
+after changing the configuration, or nothing will happen. This is a
+Netscape/Mozilla/Firefox bug, not a MozPlugger bug.
+
+Netscape 3.x will not play anything for <EMBED> tags for which height or
+width are zero. This too is a Netscape bug.
+
+Occassionally you may notice some zombie mozplugger-helper processes (defunct), 
+this is not a bug, this is by design. The zombie processes occur when either
+the application exits or when using
+.B nokill
+flag (without exiting the page with the embedded object). The zombie(s) are 
+reaped when closing the web page containing the associated embedded objects. 
+.SH AUTHORS
+Fredrik Hubinette, hubbe@hubbe.net
+.br
+Louis Bavoil, louis@bavoil.net
+.br
+Peter Leese, peter@leese.net

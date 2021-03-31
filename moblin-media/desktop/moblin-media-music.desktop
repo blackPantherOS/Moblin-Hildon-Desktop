@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Music
+GenericName=Music
+Comment=Play Music
+Exec=moblin-media --mode music
+Terminal=false
+Type=Application
+Icon=media-music
+StartupWMClass=MoblinMedia.py
+StartupNotify=true
+Categories=GTK;Application;AudioVideo
+X-Osso-Service=org.moblin.media.music
+OnlyShowIn=GNOME;Mobile

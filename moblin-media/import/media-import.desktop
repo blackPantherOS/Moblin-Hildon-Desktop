@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Media Import
+Comment=Import media files off removable devices
+Exec=media-import
+Terminal=false
+Type=Application

@@ -1,0 +1,47 @@
+This package was debianized by Sjoerd Simons <sjoerd@debian.org> on
+Mon, 14 May 2007 22:32:24 +0200.
+
+This package was hildonized by Peter Zhu <peter.j.zhu@intel.com> on
+Wed July 11 14:29:57 CST 2007
+
+It was downloaded from  http://ftp.gnome.org/pub/GNOME/sources/empathy
+
+Upstream Authors: Xavier Claessens <xclaesse@gmail.com>
+                  Richard Hult <richard@imendio.com>
+                  Michael Hallendal <micke@imendio.com>
+                  Martyn Russell <martyn@imendio.com>
+
+Copyright: 2000      Eazel, Inc. 
+           2000-2005 Paolo Maggi
+           2002-2003 Jeroen Zwartepoorte
+           2002-2004 Marco Presenti Gritti
+           2002-2006 Imendio AB
+           2004-2005 Martyn Russel
+           2004-2006 Christian Persch
+           2006      Xavier Claessens
+           2007      Collabora Ltd.
+	   2007      Intel Ltd.
+
+The files in po/* are copyright:
+      2002-2006 Free Software Foundation, Inc.
+      2002-2003 Richard Hult <richard@imendio.com>
+      2003-2004 Christian Rose <menthos@menthos.com>
+      2006      Daniel Nylander <po@danielnylander.se>
+
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+On Debian systems, the complete text of the GPL can be found in 
+/usr/share/common-licenses/GPL.

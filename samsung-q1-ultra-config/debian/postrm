@@ -1,0 +1,5 @@
+#! /bin/sh
+
+update-rc.d -f samsung-q1-ultra-keycode-setup remove >/dev/null
+[ -x "/etc/acpi/powerbtn.sh.acpid" ] && mv /etc/acpi/powerbtn.sh.acpid /etc/acpi/powerbtn.sh
+

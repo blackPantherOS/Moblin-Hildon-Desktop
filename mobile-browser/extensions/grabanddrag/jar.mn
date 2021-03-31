@@ -1,0 +1,42 @@
+grabanddrag.jar:
+% content grabanddrag %content/grabanddrag/ xpcnativewrappers=no
+% overlay chrome://navigator/content/navigator.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://navigator/content/viewSource.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://navigator/content/viewPartialSource.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://messenger/content/messenger.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://messenger/content/mail3PaneWindowVertLayout.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://messenger/content/messageWindow.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://midbrowser/content/midbrowser.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://global/content/viewSource.xul chrome://grabanddrag/content/grabanddrag.xul
+% overlay chrome://global/content/viewPartialSource.xul chrome://grabanddrag/content/grabanddrag.xul
+  content/grabanddrag/gadIntro.xul                                    (resources/content/grabanddrag/gadIntro.xul)
+  content/grabanddrag/gadPrefs.xul                                    (resources/content/grabanddrag/gadPrefs.xul)
+  content/grabanddrag/gadScale.xml                                    (resources/content/grabanddrag/gadScale.xml)
+  content/grabanddrag/grabanddrag.js                                  (resources/content/grabanddrag/grabanddrag.js)
+  content/grabanddrag/grabanddrag.xul                                 (resources/content/grabanddrag/grabanddrag.xul)
+% locale grabanddrag en-US %locale/en-US/grabanddrag/
+  locale/en-US/grabanddrag/grabanddrag.dtd                             (resources/locale/en-US/grabanddrag/grabanddrag.dtd)
+  locale/en-US/grabanddrag/grabanddrag.properties                      (resources/locale/en-US/grabanddrag/grabanddrag.properties)
+% skin grabanddrag classic/1.0 %skin/classic/grabanddrag/
+% style chrome://grabanddrag/content/gadPrefs.xul chrome://grabanddrag/skin/grabAndDrag.css
+% style chrome://grabanddrag/content/gadPrefs.xul chrome://grabanddrag/skin/gadPrefs.css
+% style chrome://midbrowser/content/midbrowser.xul chrome://grabanddrag/skin/grabAndDrag.css
+% style chrome://global/content/customizeToolbar.xul chrome://grabanddrag/skin/grabAndDrag.css
+% style chrome://messenger/content/messengercompose/messengercompose.xul" chrome://grabanddrag/skin/grabAndDrag.css
+% style chrome://messenger/content/messenger.xul" chrome://grabanddrag/skin/grabAndDrag.css
+% style chrome://messenger/content/messageWindow.xul" chrome://grabanddrag/skin/grabAndDrag.css
+  skin/classic/grabanddrag/gadPrefs.css                               (resources/skin/classic/grabanddrag/gadPrefs.css)
+  skin/classic/grabanddrag/gadScale_xbl.css                           (resources/skin/classic/grabanddrag/gadScale_xbl.css)
+  skin/classic/grabanddrag/grab.png                                   (resources/skin/classic/grabanddrag/grab.png)
+  skin/classic/grabanddrag/grabanddrag32.png                          (resources/skin/classic/grabanddrag/grabanddrag32.png)
+  skin/classic/grabanddrag/grabAndDrag.css                            (resources/skin/classic/grabanddrag/grabAndDrag.css)
+  skin/classic/grabanddrag/grabanddragsmall.png                       (resources/skin/classic/grabanddrag/grabanddragsmall.png)
+  skin/classic/grabanddrag/grabanddragtb.png                          (resources/skin/classic/grabanddrag/grabanddragtb.png)
+  skin/classic/grabanddrag/grabanddragtbsmall.png                     (resources/skin/classic/grabanddrag/grabanddragtbsmall.png)
+  skin/classic/grabanddrag/grabbing.png                               (resources/skin/classic/grabanddrag/grabbing.png)
+  skin/classic/grabanddrag/grabbingC.png                              (resources/skin/classic/grabanddrag/grabbingC.png)
+  skin/classic/grabanddrag/grabC.png                                  (resources/skin/classic/grabanddrag/grabC.png)
+  skin/classic/grabanddrag/invisible.png                              (resources/skin/classic/grabanddrag/invisible.png)
+  skin/classic/grabanddrag/sliderBack.png                             (resources/skin/classic/grabanddrag/sliderBack.png)
+  skin/classic/grabanddrag/sliderBack2.png                            (resources/skin/classic/grabanddrag/sliderBack2.png)

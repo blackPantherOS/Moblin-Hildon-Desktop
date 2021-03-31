@@ -1,0 +1,5 @@
+?package(galculator):\
+needs="X11"\
+section="Apps/Math"\
+title="galculator"\
+command="/usr/bin/galculator"

@@ -1,0 +1,28 @@
+#! /bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+if [ "configure" = "$1" ] && [ -z "$2" ]; then 
+    cat > /etc/network/interfaces <<EOF
+auto lo
+iface lo inet loopback
+EOF
+    
+fi
+
+if ! getent passwd ume > /dev/null; then
+    db_set passwd/root-password-crypted "*"
+    # U6aMy0wojraho is an empty string.
+    db_set passwd/user-password-crypted U6aMy0wojraho
+    db_set passwd/username ume
+    /usr/lib/user-setup/user-setup-apply
+fi
+
+# Ew
+if [ -f /etc/X11/Xwrapper.config ]; then
+    sed -i -e 's/allowed_users=.*/allowed_users=anybody/' /etc/X11/Xwrapper.config
+fi
+
+#DEBHELPER#

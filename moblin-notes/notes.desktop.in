@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+_Name=Notes
+_Comment=Simple text editor
+_GenericName=Text Editor
+Exec=notes
+Icon=moblin-notes
+StartupNotify=true
+Terminal=false
+OnlyShowIn=GNOME;Mobile
+MimeType=text/plain
+Categories=Application;Utility;TextEditor;GTK;

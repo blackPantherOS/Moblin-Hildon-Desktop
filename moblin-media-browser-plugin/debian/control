@@ -1,0 +1,14 @@
+Source: moblin-media-browser-plugin
+Section: browser
+Priority: optional
+Maintainer: Carl Wong <carl.wong@intel.com>
+Build-Depends: debhelper (>= 5.0.0), libtool, automake, pkg-config, libx11-dev
+Standards-Version: 3.7.2
+
+Package: moblin-media-browser-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, m4
+Replaces: desktop-file-utils
+Description: Moblin media Player Midbrowser Plugin
+ This plugin is used by Midbrowser to launch the moblin media player
+ to play media files like movies, mp3,...etc.

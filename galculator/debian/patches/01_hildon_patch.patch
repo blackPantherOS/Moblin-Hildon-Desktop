@@ -1,0 +1,767 @@
+diff -Nur galculator-1.2.5.2/src/callbacks.c galculator-1.2.5.2.new/src/callbacks.c
+--- galculator-1.2.5.2/src/callbacks.c	2007-09-20 10:16:11.000000000 -0300
++++ galculator-1.2.5.2.new/src/callbacks.c	2007-09-20 10:19:15.000000000 -0300
+@@ -862,7 +862,11 @@
+ 	GtkWidget	*menu_item;
+ 	
+ 	prefs.show_menu = gtk_check_menu_item_get_active ((GtkCheckMenuItem *) menuitem);;
++#ifdef WITH_HILDON
++	set_widget_visibility (main_window_xml, "main_menu", prefs.show_menu);
++#else
+ 	set_widget_visibility (main_window_xml, "menubar", prefs.show_menu);
++#endif
+ 	/* in case this cb is called by the right button mouse click menu */
+ 	menu_item = glade_xml_get_widget (main_window_xml, "show_menubar1");
+ 	gtk_check_menu_item_set_active ((GtkCheckMenuItem *) menu_item, prefs.show_menu);
+@@ -931,7 +935,11 @@
+ 	GtkCheckMenuItem		*show_menubar_item;
+ 	
+ 	prefs.show_menu = gtk_toggle_button_get_active (togglebutton);
++#ifdef WITH_HILDON
++	set_widget_visibility (main_window_xml, "main_menu", prefs.show_menu);
++#else
+ 	set_widget_visibility (main_window_xml, "menubar", prefs.show_menu);
++#endif
+ 	show_menubar_item = (GtkCheckMenuItem *) glade_xml_get_widget (main_window_xml, "show_menubar1");
+ 	gtk_check_menu_item_set_active (show_menubar_item, prefs.show_menu);
+ }
+diff -Nur galculator-1.2.5.2/src/galculator.h galculator-1.2.5.2.new/src/galculator.h
+--- galculator-1.2.5.2/src/galculator.h	2006-03-22 05:41:39.000000000 -0300
++++ galculator-1.2.5.2.new/src/galculator.h	2007-09-20 10:19:15.000000000 -0300
+@@ -27,13 +27,22 @@
+ #  include <config.h>
+ #endif
+ 
++#ifdef WITH_HILDON
++#include "hildon/hildon-program.h"
++#include "hildon/hildon-window.h"
++#include "glade/glade-build.h"
++#endif
++
+ #define DEFAULT_DEC_POINT '.'
+ 
+ #define CLEARED_DISPLAY	"0"
+ 
+ #define CONFIG_FILE_NAME ".galculator"
+-
++#ifdef WITH_HILDON
++#define MAIN_GLADE_FILE 		PACKAGE_GLADE_DIR "/main_frame_hildon.glade"
++#else
+ #define MAIN_GLADE_FILE 		PACKAGE_GLADE_DIR "/main_frame.glade"
++#endif
+ #define SCIENTIFIC_GLADE_FILE		PACKAGE_GLADE_DIR "/scientific_buttons.glade"
+ #define BASIC_GLADE_FILE		PACKAGE_GLADE_DIR "/basic_buttons.glade"
+ #define ABOUT_GLADE_FILE 		PACKAGE_GLADE_DIR "/about.glade"
+diff -Nur galculator-1.2.5.2/src/general_functions.c galculator-1.2.5.2.new/src/general_functions.c
+--- galculator-1.2.5.2/src/general_functions.c	2007-09-20 10:16:11.000000000 -0300
++++ galculator-1.2.5.2.new/src/general_functions.c	2007-09-20 10:19:15.000000000 -0300
+@@ -323,8 +323,11 @@
+ 
+ 	display_update_tags ();
+ 	display_set_bkg_color (prefs.bkg_color);
+-	
++#ifdef WITH_HILDON
++	set_widget_visibility (main_window_xml, "main_menu", prefs.show_menu);
++#else
+ 	set_widget_visibility (main_window_xml, "menubar", prefs.show_menu);
++#endif
+ 	menu_item = glade_xml_get_widget (main_window_xml, "show_menubar1");
+ 	gtk_check_menu_item_set_active ((GtkCheckMenuItem *) menu_item, prefs.show_menu);
+ 
+diff -Nur galculator-1.2.5.2/src/main.c galculator-1.2.5.2.new/src/main.c
+--- galculator-1.2.5.2/src/main.c	2006-03-22 05:41:39.000000000 -0300
++++ galculator-1.2.5.2.new/src/main.c	2007-09-20 10:19:15.000000000 -0300
+@@ -108,11 +108,21 @@
+ 	return FALSE;
+ }
+ 
++#ifdef WITH_HILDON
++/* Registering the hildon application */
++static GtkWidget* glade_hildon_window_new (GladeXML *xml, GType type, GladeWidgetInfo *info)
++{
++    return hildon_window_new();
++}
++#endif
++
+ int main (int argc, char *argv[])
+ {
+ 	char		*config_file_name;
+ 	GtkWidget 	*main_window;
+-	
++#ifdef WITH_HILDON
++	HildonProgram   *hildon_program;
++#endif
+ 	/*
+ 	 * gtk_init runs (among other things) setlocale (LC_ALL, ""). Therefore we
+ 	 * have to/can deal with i18n only from this point.
+@@ -142,11 +152,20 @@
+ 
+ 	current_status.notation = prefs.def_notation;
+ 	
++#ifdef WITH_HILDON
++	glade_register_widget (HILDON_TYPE_WINDOW, glade_hildon_window_new, glade_standard_build_children, NULL);
++	hildon_program = HILDON_PROGRAM(hildon_program_get_instance());
++#endif
++
+ 	/* at first get the main frame */
+ 	
+ 	main_window = ui_main_window_create();
++#ifdef WITH_HILDON
++	hildon_program_add_window(hildon_program, HILDON_WINDOW(main_window));
++	g_set_application_name("Galculator");
++	create_hildon_menu(HILDON_WINDOW(main_window));
++#endif	
+ 	gtk_window_set_title ((GtkWindow *)main_window, PACKAGE);
+-
+ 	ui_main_window_buttons_create(prefs.mode);
+ 	
+ 	/* usually, only Shift, CTRL and ALT modifiers are paid attention to by 
+diff -Nur galculator-1.2.5.2/src/ui.c galculator-1.2.5.2.new/src/ui.c
+--- galculator-1.2.5.2/src/ui.c	2006-03-22 05:41:39.000000000 -0300
++++ galculator-1.2.5.2.new/src/ui.c	2007-09-20 10:19:15.000000000 -0300
+@@ -299,11 +299,23 @@
+ 	return glade_xml_get_widget (main_window_xml, "main_window");
+ }
+ 
++#ifdef WITH_HILDON
++void create_hildon_menu (HildonWindow *main_window)
++{
++    GtkWidget *main_menu;
++    
++    main_menu = glade_xml_get_widget (main_window_xml, "main_menu");
++    hildon_window_set_menu(HILDON_WINDOW(main_window), GTK_MENU(main_menu));
++    gtk_widget_show_all(GTK_WIDGET(main_menu));
++}
++#endif
++
+ /* ui_main_window_set_dispctrl. we can't (un-)hide the dispctrl buttons as they
+  * have the same key accelerators and thus only one button group would get
+  * activated.
+  */
+ 
++
+ void ui_main_window_set_dispctrl (int location)
+ {
+ 	GtkWidget	*table_dispctrl, *box;
+diff -Nur galculator-1.2.5.2/src/ui.h galculator-1.2.5.2.new/src/ui.h
+--- galculator-1.2.5.2/src/ui.h	2006-03-22 05:41:39.000000000 -0300
++++ galculator-1.2.5.2.new/src/ui.h	2007-09-20 10:19:15.000000000 -0300
+@@ -80,3 +80,6 @@
+ 		gboolean *push_in, 
+ 		gpointer user_data);
+ void set_widget_visibility (GladeXML *xml, char *widget_name, gboolean visible);
++#ifdef WITH_HILDON
++void create_hildon_menu (HildonWindow *main_window);
++#endif
+diff -Nur galculator-1.2.5.2/ui/main_frame_hildon.glade galculator-1.2.5.2.new/ui/main_frame_hildon.glade
+--- galculator-1.2.5.2/ui/main_frame_hildon.glade	1969-12-31 21:00:00.000000000 -0300
++++ galculator-1.2.5.2.new/ui/main_frame_hildon.glade	2007-09-20 10:19:31.000000000 -0300
+@@ -0,0 +1,586 @@
++<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
++<!DOCTYPE glade-interface SYSTEM "http://glade.gnome.org/glade-2.0.dtd">
++
++<glade-interface>
++
++<widget class="HildonWindow" id="main_window">
++  <property name="title" translatable="yes"></property>
++  <property name="type">GTK_WINDOW_TOPLEVEL</property>
++  <property name="window_position">GTK_WIN_POS_NONE</property>
++  <property name="modal">False</property>
++  <property name="resizable">True</property>
++  <property name="destroy_with_parent">False</property>
++  <accessibility>
++    <atkproperty name="AtkObject::accessible_description" translatable="yes">The main program window.</atkproperty>
++  </accessibility>
++  <signal name="destroy" handler="on_quit_activate" last_modification_time="Sat, 22 May 2004 16:54:39 GMT"/>
++  <signal name="check_resize" handler="on_main_window_check_resize" last_modification_time="Fri, 25 Jul 2003 18:49:40 GMT"/>
++
++  <child>
++    <widget class="GtkEventBox" id="main_eventbox">
++      <property name="visible">True</property>
++      <signal name="button_press_event" handler="on_button_press_event" last_modification_time="Sun, 01 Feb 2004 15:11:31 GMT"/>
++
++      <child>
++	<widget class="GtkVBox" id="window_vbox">
++	  <property name="visible">True</property>
++	  <property name="homogeneous">False</property>
++	  <property name="spacing">0</property>
++
++	  <child>
++	    <widget class="GtkMenu" id="main_menu">
++	      <property name="visible">True</property>
++
++	      <child>
++		<widget class="GtkMenuItem" id="file">
++		  <property name="visible">True</property>
++		  <property name="label" translatable="yes">_File</property>
++		  <property name="use_underline">True</property>
++
++		  <child>
++		    <widget class="GtkMenu" id="file_menu">
++
++		      <child>
++			<widget class="GtkImageMenuItem" id="quit">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Quit</property>
++			  <property name="use_underline">True</property>
++			  <signal name="activate" handler="on_quit_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++			  <accelerator key="q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++
++			  <child internal-child="image">
++			    <widget class="GtkImage" id="image215">
++			      <property name="visible">True</property>
++			      <property name="stock">gtk-quit</property>
++			      <property name="icon_size">1</property>
++			      <property name="xalign">0.5</property>
++			      <property name="yalign">0.5</property>
++			      <property name="xpad">0</property>
++			      <property name="ypad">0</property>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++		    </widget>
++		  </child>
++		</widget>
++	      </child>
++
++	      <child>
++		<widget class="GtkMenuItem" id="edit">
++		  <property name="visible">True</property>
++		  <property name="label" translatable="yes">_Edit</property>
++		  <property name="use_underline">True</property>
++
++		  <child>
++		    <widget class="GtkMenu" id="edit_menu">
++
++		      <child>
++			<widget class="GtkImageMenuItem" id="cut">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">Cu_t Display Value</property>
++			  <property name="use_underline">True</property>
++			  <signal name="activate" handler="on_cut_activate" last_modification_time="Sat, 05 Jul 2003 11:29:00 GMT"/>
++			  <accelerator key="x" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++
++			  <child internal-child="image">
++			    <widget class="GtkImage" id="image216">
++			      <property name="visible">True</property>
++			      <property name="stock">gtk-cut</property>
++			      <property name="icon_size">1</property>
++			      <property name="xalign">0.5</property>
++			      <property name="yalign">0.5</property>
++			      <property name="xpad">0</property>
++			      <property name="ypad">0</property>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkImageMenuItem" id="copy">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Copy Display Value</property>
++			  <property name="use_underline">True</property>
++			  <signal name="activate" handler="on_copy_activate" last_modification_time="Sat, 05 Jul 2003 11:29:00 GMT"/>
++			  <accelerator key="c" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++
++			  <child internal-child="image">
++			    <widget class="GtkImage" id="image217">
++			      <property name="visible">True</property>
++			      <property name="stock">gtk-copy</property>
++			      <property name="icon_size">1</property>
++			      <property name="xalign">0.5</property>
++			      <property name="yalign">0.5</property>
++			      <property name="xpad">0</property>
++			      <property name="ypad">0</property>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkImageMenuItem" id="paste">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Paste As Display Value</property>
++			  <property name="use_underline">True</property>
++			  <signal name="activate" handler="on_paste_activate" last_modification_time="Sat, 05 Jul 2003 11:29:00 GMT"/>
++			  <accelerator key="v" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++
++			  <child internal-child="image">
++			    <widget class="GtkImage" id="image218">
++			      <property name="visible">True</property>
++			      <property name="stock">gtk-paste</property>
++			      <property name="icon_size">1</property>
++			      <property name="xalign">0.5</property>
++			      <property name="yalign">0.5</property>
++			      <property name="xpad">0</property>
++			      <property name="ypad">0</property>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkMenuItem" id="separator3">
++			  <property name="visible">True</property>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkImageMenuItem" id="preferences1">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Preferences...</property>
++			  <property name="use_underline">True</property>
++			  <signal name="activate" handler="on_preferences1_activate" last_modification_time="Fri, 21 Feb 2003 21:17:43 GMT"/>
++			  <accelerator key="P" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++
++			  <child internal-child="image">
++			    <widget class="GtkImage" id="image219">
++			      <property name="visible">True</property>
++			      <property name="stock">gtk-preferences</property>
++			      <property name="icon_size">1</property>
++			      <property name="xalign">0.5</property>
++			      <property name="yalign">0.5</property>
++			      <property name="xpad">0</property>
++			      <property name="ypad">0</property>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++		    </widget>
++		  </child>
++		</widget>
++	      </child>
++
++	      <child>
++		<widget class="GtkMenuItem" id="view">
++		  <property name="visible">True</property>
++		  <property name="label" translatable="yes">_View</property>
++		  <property name="use_underline">True</property>
++
++		  <child>
++		    <widget class="GtkMenu" id="view_menu">
++
++		      <child>
++			<widget class="GtkRadioMenuItem" id="basic_mode">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Basic Mode</property>
++			  <property name="use_underline">True</property>
++			  <property name="active">True</property>
++			  <signal name="activate" handler="on_basic_mode_activate" last_modification_time="Sat, 05 Jul 2003 11:32:05 GMT"/>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkRadioMenuItem" id="scientific_mode">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Scientific Mode</property>
++			  <property name="use_underline">True</property>
++			  <property name="active">False</property>
++			  <property name="group">basic_mode</property>
++			  <signal name="activate" handler="on_scientific_mode_activate" last_modification_time="Sat, 05 Jul 2003 11:32:05 GMT"/>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkMenuItem" id="separator4">
++			  <property name="visible">True</property>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkMenuItem" id="buttons1">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">Buttons</property>
++			  <property name="use_underline">True</property>
++
++			  <child>
++			    <widget class="GtkMenu" id="buttons1_menu">
++
++			      <child>
++				<widget class="GtkCheckMenuItem" id="display_control">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">Display Control</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_display_control_activate" last_modification_time="Sat, 12 Jul 2003 11:47:06 GMT"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkCheckMenuItem" id="functions">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">Functions</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_functions_activate" last_modification_time="Sat, 12 Jul 2003 11:47:06 GMT"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkCheckMenuItem" id="logical">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">Logical</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_logical_activate" last_modification_time="Sat, 12 Jul 2003 11:47:45 GMT"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkCheckMenuItem" id="standard">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">Standard</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_standard_activate" last_modification_time="Thu, 17 Jul 2003 19:47:01 GMT"/>
++				</widget>
++			      </child>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkMenuItem" id="separator5">
++			  <property name="visible">True</property>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkCheckMenuItem" id="show_menubar1">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">Show _menu bar</property>
++			  <property name="use_underline">True</property>
++			  <property name="active">False</property>
++			  <signal name="activate" handler="on_show_menubar1_activate" last_modification_time="Mon, 10 Mar 2003 17:04:28 GMT"/>
++			  <accelerator key="M" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++			</widget>
++		      </child>
++		    </widget>
++		  </child>
++		</widget>
++	      </child>
++
++	      <child>
++		<widget class="GtkMenuItem" id="calculator">
++		  <property name="visible">True</property>
++		  <property name="label" translatable="yes">_Calculator</property>
++		  <property name="use_underline">True</property>
++
++		  <child>
++		    <widget class="GtkMenu" id="calculator_menu">
++
++		      <child>
++			<widget class="GtkMenuItem" id="base_units">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_Number bases</property>
++			  <property name="use_underline">True</property>
++
++			  <child>
++			    <widget class="GtkMenu" id="base_units_menu">
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="dec">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Decimal</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_dec_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="D" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="hex">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Hexadecimal</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <property name="group">dec</property>
++				  <signal name="activate" handler="on_hex_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="H" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="oct">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Octal</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <property name="group">dec</property>
++				  <signal name="activate" handler="on_oct_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="O" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="bin">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Binary</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">True</property>
++				  <property name="group">dec</property>
++				  <signal name="activate" handler="on_bin_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="B" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkMenuItem" id="angle_units">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">Angle _units</property>
++			  <property name="use_underline">True</property>
++
++			  <child>
++			    <widget class="GtkMenu" id="angle_units_menu">
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="deg">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">D_egrees</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_deg_activate" last_modification_time="Fri, 25 Oct 2002 21:07:15 GMT"/>
++				  <accelerator key="E" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="rad">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Radians</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <property name="group">deg</property>
++				  <signal name="activate" handler="on_rad_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="R" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="grad">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Gradians</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">True</property>
++				  <property name="group">deg</property>
++				  <signal name="activate" handler="on_grad_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="G" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++
++		      <child>
++			<widget class="GtkMenuItem" id="notation">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">Notation _modes</property>
++			  <property name="use_underline">True</property>
++
++			  <child>
++			    <widget class="GtkMenu" id="notation_menu">
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="alg">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Algebraic</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <signal name="activate" handler="on_ordinary_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="A" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="rpn">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Reverse Polish (RPN)</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">True</property>
++				  <property name="group">alg</property>
++				  <signal name="activate" handler="on_rpn_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
++				  <accelerator key="N" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++
++			      <child>
++				<widget class="GtkRadioMenuItem" id="form">
++				  <property name="visible">True</property>
++				  <property name="label" translatable="yes">_Formula Entry</property>
++				  <property name="use_underline">True</property>
++				  <property name="active">False</property>
++				  <property name="group">alg</property>
++				  <signal name="activate" handler="on_form_activate" last_modification_time="Thu, 29 Jan 2004 09:13:38 GMT"/>
++				  <accelerator key="F" modifiers="GDK_CONTROL_MASK" signal="activate"/>
++				</widget>
++			      </child>
++			    </widget>
++			  </child>
++			</widget>
++		      </child>
++		    </widget>
++		  </child>
++		</widget>
++	      </child>
++
++	      <child>
++		<widget class="GtkMenuItem" id="help">
++		  <property name="visible">True</property>
++		  <property name="label" translatable="yes">_Help</property>
++		  <property name="use_underline">True</property>
++
++		  <child>
++		    <widget class="GtkMenu" id="help_menu">
++
++		      <child>
++			<widget class="GtkMenuItem" id="about">
++			  <property name="visible">True</property>
++			  <property name="label" translatable="yes">_About...</property>
++			  <property name="use_underline">True</property>
++			  <signal name="activate" handler="on_about_activate" last_modification_time="Fri, 25 Oct 2002 21:07:15 GMT"/>
++			</widget>
++		      </child>
++		    </widget>
++		  </child>
++		</widget>
++	      </child>
++	    </widget>
++	    <packing>
++	      <property name="padding">0</property>
++	      <property name="expand">False</property>
++	      <property name="fill">False</property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkHBox" id="display_hbox">
++	      <property name="border_width">6</property>
++	      <property name="visible">True</property>
++	      <property name="homogeneous">False</property>
++	      <property name="spacing">6</property>
++
++	      <child>
++		<widget class="GtkScrolledWindow" id="scrolledwindow1">
++		  <property name="visible">True</property>
++		  <property name="can_focus">True</property>
++		  <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
++		  <property name="vscrollbar_policy">GTK_POLICY_NEVER</property>
++		  <property name="shadow_type">GTK_SHADOW_IN</property>
++		  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
++
++		  <child>
++		    <widget class="GtkTextView" id="textview">
++		      <property name="visible">True</property>
++		      <property name="can_focus">True</property>
++		      <property name="editable">False</property>
++		      <property name="justification">GTK_JUSTIFY_LEFT</property>
++		      <property name="wrap_mode">GTK_WRAP_WORD</property>
++		      <property name="cursor_visible">False</property>
++		      <property name="pixels_above_lines">0</property>
++		      <property name="pixels_below_lines">0</property>
++		      <property name="pixels_inside_wrap">0</property>
++		      <property name="left_margin">10</property>
++		      <property name="right_margin">10</property>
++		      <property name="indent">0</property>
++		      <property name="text" translatable="yes"></property>
++		      <signal name="button_press_event" handler="on_textview_button_press_event" last_modification_time="Sun, 11 May 2003 10:30:15 GMT"/>
++		      <signal name="selection_received" handler="on_textview_selection_received" last_modification_time="Wed, 18 Jun 2003 19:49:38 GMT"/>
++		    </widget>
++		  </child>
++		</widget>
++		<packing>
++		  <property name="padding">0</property>
++		  <property name="expand">True</property>
++		  <property name="fill">True</property>
++		</packing>
++	      </child>
++
++	      <child>
++		<placeholder/>
++	      </child>
++	    </widget>
++	    <packing>
++	      <property name="padding">0</property>
++	      <property name="expand">False</property>
++	      <property name="fill">False</property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <placeholder/>
++	  </child>
++
++	  <child>
++	    <widget class="GtkHBox" id="formula_entry_hbox">
++	      <property name="visible">True</property>
++	      <property name="homogeneous">False</property>
++	      <property name="spacing">0</property>
++
++	      <child>
++		<widget class="GtkEntry" id="formula_entry">
++		  <property name="visible">True</property>
++		  <property name="tooltip" translatable="yes">Formula entry text field - enter string expression to compute here.</property>
++		  <property name="can_focus">True</property>
++		  <property name="editable">True</property>
++		  <property name="visibility">True</property>
++		  <property name="max_length">0</property>
++		  <property name="text" translatable="yes"></property>
++		  <property name="has_frame">True</property>
++		  <property name="invisible_char" translatable="yes">*</property>
++		  <property name="activates_default">False</property>
++		  <signal name="activate" handler="on_formula_entry_activate" last_modification_time="Sat, 31 Jan 2004 17:31:02 GMT"/>
++		  <signal name="changed" handler="on_formula_entry_changed" last_modification_time="Fri, 27 Feb 2004 08:32:03 GMT"/>
++		</widget>
++		<packing>
++		  <property name="padding">6</property>
++		  <property name="expand">True</property>
++		  <property name="fill">True</property>
++		</packing>
++	      </child>
++	    </widget>
++	    <packing>
++	      <property name="padding">0</property>
++	      <property name="expand">False</property>
++	      <property name="fill">False</property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <placeholder/>
++	  </child>
++	</widget>
++      </child>
++    </widget>
++  </child>
++</widget>
++
++</glade-interface>
+diff -Nur galculator-1.2.5.2/ui/Makefile.am galculator-1.2.5.2.new/ui/Makefile.am
+--- galculator-1.2.5.2/ui/Makefile.am	2004-01-10 13:53:24.000000000 -0200
++++ galculator-1.2.5.2.new/ui/Makefile.am	2007-09-20 10:19:15.000000000 -0300
+@@ -7,6 +7,7 @@
+ 		font.glade \
+ 		prefs.glade \
+ 		main_frame.glade \
++		main_frame_hildon.glade \
+ 		scientific_buttons.glade \
+ 		basic_buttons.glade \
+ 		dispctrl_bottom.glade \
+diff -Nur galculator-1.2.5.2/ui/Makefile.in galculator-1.2.5.2.new/ui/Makefile.in
+--- galculator-1.2.5.2/ui/Makefile.in	2006-04-01 16:06:37.000000000 -0300
++++ galculator-1.2.5.2.new/ui/Makefile.in	2007-09-20 10:19:15.000000000 -0300
+@@ -211,6 +211,7 @@
+ 		font.glade \
+ 		prefs.glade \
+ 		main_frame.glade \
++		main_frame_hildon.glade \
+ 		scientific_buttons.glade \
+ 		basic_buttons.glade \
+ 		dispctrl_bottom.glade \

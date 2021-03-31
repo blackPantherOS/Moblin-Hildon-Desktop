@@ -1,0 +1,24 @@
+/.cvsignore/1.1/Tue Dec 18 09:11:03 2001//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.31/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/blank_glyph.ccmap/3.5/Mon Dec 15 00:32:15 2003//TFIREFOX_3_0b2_RELEASE
+/fontEncoding.properties/3.8/Wed Aug 25 23:02:45 2004//TFIREFOX_3_0b2_RELEASE
+/fontNameMap.properties/3.1/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/gfxwin.pkg/1.2/Wed Jan  7 01:21:38 2004//TFIREFOX_3_0b2_RELEASE
+/nsDeviceContextWin.cpp/3.128/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsDeviceContextWin.h/3.52/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsDrawingSurfaceWin.cpp/3.22/Thu Jan 26 21:30:09 2006//TFIREFOX_3_0b2_RELEASE
+/nsDrawingSurfaceWin.h/3.7/Sat Apr 17 21:52:32 2004//TFIREFOX_3_0b2_RELEASE
+/nsFontMetricsWin.cpp/3.251/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsFontMetricsWin.h/3.60/Mon Jun 26 22:18:22 2006//TFIREFOX_3_0b2_RELEASE
+/nsGfxFactoryWin.cpp/3.45/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsIDrawingSurfaceWin.h/3.5/Sat Apr 17 21:52:32 2004//TFIREFOX_3_0b2_RELEASE
+/nsIRenderingContextWin.h/3.7/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsImageWin.cpp/3.153/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsImageWin.h/3.66/Wed May 11 02:20:23 2005//TFIREFOX_3_0b2_RELEASE
+/nsRegionWin.cpp/3.17/Sat Apr 17 21:52:32 2004//TFIREFOX_3_0b2_RELEASE
+/nsRegionWin.h/3.11/Sat Apr 17 21:52:32 2004//TFIREFOX_3_0b2_RELEASE
+/nsRenderingContextWin.cpp/3.184/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsRenderingContextWin.h/3.89/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsUnicodeRange.cpp/3.8/Sat Jun 10 00:43:34 2006//TFIREFOX_3_0b2_RELEASE
+/nsUnicodeRange.h/3.5/Wed Dec 14 14:51:10 2005//TFIREFOX_3_0b2_RELEASE
+D

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+. /etc/pm/functions
+
+case "$(get_video_type)" in
+        ATI)
+		. /etc/pm/functions-ati
+		;;
+	nVidia)
+		. /etc/pm/functions-nvidia
+		;;
+	Intel)
+		. /etc/pm/functions-intel
+		;;
+	*)
+		;;
+esac
+
+case "$1" in
+	suspend)
+		suspend_video
+		;;
+	resume)
+		resume_video
+		;;
+	hibernate)
+		if [ "x$HIBERNATE_RESUME_POST_VIDEO" == "xyes" ]; then
+			suspend_video
+		fi
+		;;
+	thaw)
+		if [ "x$HIBERNATE_RESUME_POST_VIDEO" == "xyes" ]; then
+			resume_video
+		fi
+		;;
+	*)
+		;;
+esac
+
+exit $?

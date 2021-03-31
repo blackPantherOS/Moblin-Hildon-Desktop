@@ -1,0 +1,27 @@
+---
+ src/NetworkManagerPolicy.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: network-manager.debian/src/NetworkManagerPolicy.c
+===================================================================
+--- network-manager.debian.orig/src/NetworkManagerPolicy.c
++++ network-manager.debian/src/NetworkManagerPolicy.c
+@@ -167,17 +167,17 @@
+ 	g_assert (data);
+ 
+ 	dev = nm_act_request_get_dev (req);
+ 	g_assert (dev);
+ 
+ 	nm_act_request_set_stage (req, NM_ACT_STAGE_FAILED);
+ 	nm_act_request_ref (req);
+ 
+-	source = g_idle_source_new ();
++	source = g_timeout_source_new (250);
+ 	g_source_set_priority (source, G_PRIORITY_HIGH_IDLE);
+ 	g_source_set_callback (source, (GSourceFunc) nm_policy_activation_failed, req, NULL);
+ 	g_source_attach (source, data->main_context);
+ 	g_source_unref (source);
+ 	nm_info ("Activation (%s) failure scheduled...", nm_device_get_iface (dev));
+ }
+ 
+ 

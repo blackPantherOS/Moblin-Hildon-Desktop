@@ -1,0 +1,26 @@
+<!ENTITY toggle.label "Grab and Drag 切り替え">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Grab and Drag のモードを切り替えます">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Grab and Drag 設定">
+<!ENTITY enabled.label "拡張機能を有効にする">
+<!ENTITY qt.label "切り替えキー">
+<!ENTITY mousecursor.label "マウスカーソル">
+<!ENTITY grabcursor.label "つかんだときのカーソル">
+<!ENTITY openhand.label "開いた手">
+<!ENTITY closedhand.label "閉じた手">
+<!ENTITY altopenhand.label "開いた手 #2">
+<!ENTITY altclosedhand.label "閉じた手 #2">
+<!ENTITY fourway.label "4 方向矢印">
+<!ENTITY stdarrow.label "標準の矢印">
+<!ENTITY defcur.label "デフォルトカーソル">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "普通の切り替えホットキー">
+<!ENTITY options.togKey "キー">
+<!ENTITY notes "注意">
+<!ENTITY prefs.cursorwarning "手のカーソルは Firefox/Thunderbird 1.5+ でないと使えません。手のカーソルの最初の一式は OS によっては正常に表示されないかもしれません">
+<!ENTITY prefs.toolbarInfo "ツールバー切り替えボタンは (表示 > ツールバー > カスタマイズ...) から使うこともできます">
+<!ENTITY prefs.qtInfo "「切り替えキー」を押していると離すまで一時的に Grab and Drag を無効にします。これにより簡単にテキストが選択できます">
+<!ENTITY prefs.rollForInfo "マウスをオプションに持って行くと情報を表示します">

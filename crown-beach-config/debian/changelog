@@ -1,0 +1,325 @@
+crown-beach-config (0.34) gaston; urgency=low
+
+  * Fixed USB persist script
+  * Release 0.34
+
+ -- Alek Du <alek.du@intel.com>  Thu, 03 Apr 2008 15:11:48 +0800
+
+crown-beach-config (0.33) gaston; urgency=low
+
+  * Add USB persist script support
+  * Suppress kernel message during suspend
+  * Remove iusb module loading (built-in now)
+  * Cutting release 0.33
+
+ -- Alek Du <alek.du@intel.com>  Thu, 03 Apr 2008 14:31:21 +0800
+
+crown-beach-config (0.32) gaston; urgency=low
+
+  *cutting release 0.32 
+
+ -- Martin Xu <martin.xu@intel.com>  Fri, 21 Mar 2008 13:40:09 +0800
+
+crown-beach-config (0.31) gaston; urgency=low
+
+  * Adding normal boot time optimization 
+
+ -- Martin Xu <martin.xu@intel.com>  Fri, 14 Mar 2008 18:48:48 +0800
+
+crown-beach-config (0.30) gaston; urgency=low
+
+  * Adding workaround for the crownbeach touchscreen kit DPI auto 
+    detection issue (which causes the font to be HUGE)
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu, 06 Mar 2008 14:55:00 -0800
+
+crown-beach-config (0.29) gaston; urgency=low
+
+  * Removing hostname.sh
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 04 Mar 2008 18:16:25 -0800
+
+crown-beach-config (0.28) gaston; urgency=low
+
+  * Release 0.28 to fix versioning glitch in Ubuntu (no changes since 0.27)
+
+ -- Steve Magoun <steve.magoun@canonical.com>  Tue, 04 Mar 2008 10:29:56 -0500
+
+crown-beach-config (0.27) gaston; urgency=low
+
+  * use pm-hibernate to go into S4 state 
+
+ -- Martin Xu <martin.xu@intel.com>  Tue, 19 Feb 2008 11:52:03 +0800
+
+crown-beach-config (0.26) gaston; urgency=low
+
+  [ Inuka Gunawardana ]
+  * Added xorg.conf file changes for the touch screen
+
+  [ Rob Rhoads ]
+  * cutting release 0.25
+
+ -- Rob Rhoads <rob.rhoads@intel.com>  Fri, 15 Feb 2008 14:55:20 -0800
+
+crown-beach-config (0.25) gaston; urgency=low
+
+  * cutting release 0.25
+
+ -- Martin Xu <martin.xu@intel.com>  Fri, 15 Feb 2008 13:18:45 +0800
+
+crown-beach-config (0.25) UNRELEASED; urgency=low
+
+  * fixing the fast-boot HT bug by removing the USBC fast-boot workround which is 
+    not necessary after the suspend/resume issue has been fixed at USBC Beta4 release.
+
+ -- Martin Xu <martin.xu@intel.com>  Thu, 14 Feb 2008 16:28:31 +0800
+
+crown-beach-config (0.24) gaston; urgency=low
+
+  * Removing the use of DBus to signal media apps that the 
+    sync device is about to unmounted.  Now we send a simple SIGHUP
+    to all apps that have an open file descriptor on any file in the
+    sync directory
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri,  1 Feb 2008 19:22:01 -0800
+
+crown-beach-config (0.23) gaston; urgency=low
+
+  * cutting release v0.23
+
+ -- Alek Du <alek.du@intel.com>  Tue, 22 Jan 2008 16:32:29 +0800
+
+crown-beach-config (0.23) UNRELEASED; urgency=low
+
+  * moved the grub-fast-resume splash image to ume-config-common
+
+ -- Alek Du <alek.du@intel.com>  Tue, 22 Jan 2008 15:52:49 +0800
+
+crown-beach-config (0.22) gaston; urgency=low
+
+  * Add grub-fast-resume splashy and progress bar support
+  * Cutting release 0.22 
+
+ -- Martin Xu <martin.xu@intel.com>  Mon,  7 Jan 2008 10:06:18 +0800
+
+crown-beach-config (0.21) gaston; urgency=low
+
+  [ Rob Rhoads ]
+  * Merged Inuka's DRI section change to allow ume user to run
+    3D driver
+  * Cutting gaston release 0.21
+
+  [ Martin Xu]
+  *add the acpid lock to fast boot 
+
+ -- Martin Xu <martin.xu@intel.com>  Thu, 13 Dec 2007 17:08:22 +0800
+
+crown-beach-config (0.20) gaston; urgency=low
+
+  * Merged in Inuka's changes to disable vsync interrupts in
+    psb.ko
+  * Cutting gaston release 0.20
+
+ -- Rob Rhoads <rob.rhoads@intel.com>  Mon, 10 Dec 2007 12:01:50 -0800
+
+crown-beach-config (0.19) gaston; urgency=low
+
+  * Cutting gaston release 0.19
+
+ -- Rob Rhoads <rob.rhoads@intel.com>  Thu, 06 Dec 2007 19:19:17 -0800
+
+crown-beach-config (0.18) UNRELEASED; urgency=low
+
+  * Add USBC udev scripts (modules loading, DBus message sending, auto umounting/mounting fat partition)
+  * Add Gconf2 schemas file for USBC (timeout, mount point)
+  * Add gconf2 and psmisc as dependency
+  * Add USBC S4 workaround
+
+ -- Alek Du <alek.du@intel.com>  Thu, 06 Dec 2007 15:50:25 +0800
+
+crown-beach-config (0.18) gaston; urgency=low
+
+  * enable acpi_enable at grub
+  * add power button support
+
+ -- Martin Xu <martin.xu@intel.com>  Thu,  6 Dec 2007 10:41:01 +0800
+
+crown-beach-config (0.17) gaston; urgency=low
+
+  * Cutting gaston release 0.17
+
+ -- rob rhoads <rob@elrico>  Wed, 07 Nov 2007 16:30:20 -0800
+
+crown-beach-config (0.17) UNRELEASED; urgency=low
+
+  [ rob rhoads ]
+  * Merged in Inuka's powersave event script changes.  
+    He removed hal-disable-polling from the script as it's now
+    done in fdi file.
+
+ -- rob rhoads <rob@elrico>  Wed, 07 Nov 2007 16:06:35 -0800
+
+crown-beach-config (0.16) gaston; urgency=low
+
+  [ Alek Du ]
+  * Have to cut a new version again, since there is a weird 0.15 version
+    deb file in moblin.org (the date of the deb file in 19,Oct)
+
+ -- Alek Du <alek.du@intel.com>  Mon, 05 Nov 2007 16:18:56 +0800
+
+crown-beach-config (0.15) gaston; urgency=low
+
+  [ Rob Rhoads ]
+  * Merged in Inuka's latest power_save script changes which contains
+    a fix to disable HAL polling of CD
+  * Merged Inuka's latest power_save startup script: hal-disable-device
+    redirection to null seemed to cause the command to work inconsistantly.
+    Moved command to pre-start and changed for loop into a single command
+  * Merged in Inuka's power_save startup script which implements the
+    power saving recommendations made by powertop at system startup.
+
+  [ Rusty Lynch ]
+  * Adding Martin's hibernation and shut-down scripts
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 02 Nov 2007 15:59:02 -0700
+
+crown-beach-config (0.14) gaston; urgency=low
+
+  * Cutting gaston release 0.14
+
+ -- Rob Rhoads <rob.rhoads@intel.com>  Fri, 19 Oct 2007 16:31:16 -0700
+
+crown-beach-config (0.13) UNRELEASED; urgency=low
+
+  [ Rob Rhoads ]
+  * Reverted Alek's touch_fonts script commits. User needs to set the correct
+    date & time on the system.
+
+  [ Alek Du ]
+  * Let X only run under runlevel 2, thus it won't block reboot
+
+ -- Rob Rhoads <rob.rhoads@intel.com>  Fri, 19 Oct 2007 14:56:17 -0700
+
+crown-beach-config (0.12) gutsy; urgency=low
+
+  [ Alek Du ]
+  * Change the ambiguous GPL "either version 2 or later" to version 2
+    according to QA's request
+  * Remove 25crown-beach-config_startup from rules file
+
+  [ Tollef Fog Heen ]
+  * Remove obsolete preinst, this is handled by ume-config-common now.
+  * Remove ume-gui-start, this is part of ume-config-common.
+  * Remove /etc/X11/Xsession.d/25crown-beach-config_startup in postinst.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Wed, 12 Sep 2007 08:59:03 +0200
+
+crown-beach-config (0.11) gutsy; urgency=low
+
+  * Get rid of unused 25crown-beach-config_startup script.
+  * Add dependency on ume-config-common (>= 0.4) and change session script
+    to start as ume user.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Tue, 11 Sep 2007 15:47:12 +0200
+
+crown-beach-config (0.10) gutsy; urgency=low
+
+  * Remove installation of interfaces(5) from debian/rules, fixes FTBFS.
+  * Remove installation of /etc/modules from debian/rules.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 23 Aug 2007 20:40:01 +0200
+
+crown-beach-config (0.9) gutsy; urgency=low
+
+  [ Rob Rhoads ]
+  * Removed the Horizontal and Vertical refresh as the Poulsbo driver
+    is smart enough to figure this out. This was a problem with the
+    LVDS display panel.
+
+  [ Tollef Fog Heen ]
+  * Install the xorg config file as /etc/X11/xorg-crownbeach.conf
+  * Don't nuke xorg.conf in preinst.
+  * No need to install the Xsession script +x, so stop doing that.
+  * Stop removing /etc/hostname in preinst, just overwrite it instead.
+  * Same for /etc/modules; overwrite in preinst.
+  * Stop removing /etc/network/interfaces in preinst, just overwrite it instead.
+  * Stop overwriting /etc/modprobe.d/options, just ship a file alongside
+    it.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 23 Aug 2007 16:03:46 +0200
+
+crown-beach-config (0.8) UNRELEASED; urgency=low
+
+  * Updated the xorg.conf file to use the Poulsbo driver in place of the VESA
+    driver.
+
+ -- Rob Rhoads <rob.rhoads@intel.com> <rob@opusx>  Wed, 22 Aug 2007 18:08:21 -0700
+
+crown-beach-config (0.7) UNRELEASED; urgency=low
+
+  * Fix the install error (file "options" was include in module-init-tools)
+  * Try to fix again
+
+ -- Alek Du <alek.du@intel.com>  Fri, 17 Aug 2007 11:15:53 +0800
+
+crown-beach-config (0.6) UNRELEASED; urgency=low
+
+  [ Rob Rhoads ]
+  * Changed the xorg.conf to a generic configuration. This is a temporary fix/hack until we get the correct xorg.conf for crown beach.
+
+  [ Alek Du ]
+  * Add /etc/modules file for SDIO/SD Memory modules initialization
+  * Add /etc/modprobe.d/options file for intel hda audio module initialization
+  * "rm" /etc/modprobe.d/options before install the new one
+
+  [ Jacob Pan ]
+  * Sync Xsession config files with samsung Q1U 
+
+ -- Alek Du <alek.du@intel.com>  Fri, 17 Aug 2007 10:21:07 +0800
+
+crown-beach-config (0.5) UNRELEASED; urgency=low
+
+  * Changed rules file.  No .xinitrc was found.  Changed crown-beach-config to ume-config-crown-beach
+
+ -- Bob Spencer <bob@bobuntu>  Wed, 25 Jul 2007 15:37:43 -0700
+
+crown-beach-config (0.4) feisty; urgency=low
+
+  * Adding the session and xinitrc scripts from the samsung config
+    so that the crown beach can not boot into the full GUI
+  * Adding grub configuration file
+
+ -- Rusty Lynch <rusty@rusty-laptop>  Tue, 24 Jul 2007 06:53:38 -0700
+
+crown-beach-config (0.3) gutsy; urgency=low
+
+  * Remove useless debian/README file.
+  * Fix grammar in long description slightly.
+  * Set the Architecture to all, not any.
+  * Move binary-arch rules to binary-indep.
+  * Fix up install rules.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 12 Jul 2007 16:05:21 +0200
+
+crown-beach-config (0.2) gutsy; urgency=low
+
+  * Remove useless configure target.
+  * Clean up clean target.
+  * Empty the build target.
+  * Use install instead of mkdir + cp.
+  * Remove setting of CFLAGS from debian/rules.
+  * Set section to admin.
+  * Fix up copyright file.
+  * Get rid of the preinst as it's not needed.
+  * Rename binary package to ume-config-crown-beach.
+  * Fix paths in debian/rules for binary package rename.
+  * Add warning to the end of the description that this package is not
+    suitable for most users.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 12 Jul 2007 14:52:18 +0200
+
+crown-beach-config (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Alek Du <alek.du@intel.com>  Mon, 2 Jul 2007 09:46:36 +0800

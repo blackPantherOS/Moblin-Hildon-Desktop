@@ -1,0 +1,25 @@
+
+start on startup
+
+stop on runlevel 
+
+
+script  
+  #Increase VM dirty write back
+  echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
+  #Multi-core, multi-threaded power-saving tunables, enable cpu-freq governor
+  for i in $( ls -d /sys/devices/system/cpu/cpu* )
+  do
+     if [ -e "$i/sched_mc_power_savings" ]
+     then
+       echo "setting sched_mc_power_savings for $i"
+       echo 1 > "$i/sched_mc_power_savings"
+     fi 
+     if [ -e "$i/cpufreq/scaling_governor" ]
+     then
+       echo "setting scaling_gover for $i"
+       echo ondemand > "$i/cpufreq/scaling_governor"
+     fi
+  done
+  exit 0
+end script

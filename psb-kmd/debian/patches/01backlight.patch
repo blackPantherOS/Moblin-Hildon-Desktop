@@ -1,0 +1,74 @@
+diff --git a/intel_lvds.c b/intel_lvds.c
+index 80274a8..afcf530 100644
+--- a/intel_lvds.c
++++ b/intel_lvds.c
+@@ -28,6 +28,7 @@
+  */
+ 
+ #include <linux/i2c.h>
++#include <linux/backlight.h>
+ #include "drm_crtc.h"
+ #include "drm_edid.h"
+ #include "intel_lvds.h"
+@@ -534,6 +535,34 @@ out:
+ 	return 0;
+ }
+ 
++/* added by alek du to add /sys/class/backlight interface */
++static int update_bl_status(struct backlight_device *bd)
++{
++        int value = bd->props.brightness;
++	
++#if LINUX_VERSION_CODE <= KERNEL_VERSION(2,6,22)
++	struct drm_device *dev = class_get_devdata (&bd->class_dev);
++#else
++	struct drm_device *dev = bl_get_data(bd);
++#endif
++	lvds_backlight = value;
++	intel_lvds_set_backlight(dev, value);
++	/*value = (bd->props.power == FB_BLANK_UNBLANK) ? 1 : 0;
++	intel_lvds_set_power(dev,value);*/
++	return 0;
++}
++
++static int read_brightness(struct backlight_device *bd)
++{
++        return bd->props.brightness;
++}
++
++static struct backlight_device *psbbl_device;
++static struct backlight_ops psbbl_ops = {
++        .get_brightness = read_brightness,
++        .update_status = update_bl_status,
++};
++
+ /**
+  * intel_lvds_destroy - unregister and free LVDS structures
+  * @output: output to free
+@@ -552,6 +581,9 @@ static void intel_lvds_destroy(struct drm_output *output)
+ 		remove_proc_entry("dri/lvds", NULL);
+ 	}
+ #endif
++	if (psbbl_device){
++		backlight_device_unregister(psbbl_device);
++	}		
+ 	if(dev_OpRegion != NULL)
+ 		iounmap(dev_OpRegion);
+ 	intel_i2c_destroy(intel_output->ddc_bus);
+@@ -816,7 +848,15 @@ void intel_lvds_init(struct drm_device *dev)
+ 
+ 	}
+ #endif
+-
++	{	/* add /sys/class/backlight interface as standard */
++		psbbl_device = backlight_device_register("psblvds", &dev->pdev->dev, dev, &psbbl_ops);
++		if (psbbl_device){
++			psbbl_device->props.max_brightness = BRIGHTNESS_MAX_LEVEL;
++			psbbl_device->props.brightness = lvds_backlight;
++			psbbl_device->props.power = FB_BLANK_UNBLANK;
++			backlight_update_status(psbbl_device);
++		}
++	}
+ blc_out:
+ 
+ 	/* Set up the DDC bus. */

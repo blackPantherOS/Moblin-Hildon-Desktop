@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>empathy-contact-widget</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="libempathy-gtk-empathy-chatrooms-window.html" title="empathy-chatrooms-window">
+<link rel="next" href="libempathy-gtk-empathy-preferences.html" title="empathy-preferences">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-gtk-empathy-chatrooms-window.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="libempathy-gtk-empathy-preferences.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2567108" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2593825" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-gtk-empathy-contact-widget"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2567108"></a><span class="refentrytitle">empathy-contact-widget</span>
+</h2>
+<p>empathy-contact-widget</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+enum                <a href="libempathy-gtk-empathy-contact-widget.html#EmpathyContactWidgetType">EmpathyContactWidgetType</a>;
+GtkWidget*          <a href="libempathy-gtk-empathy-contact-widget.html#empathy-contact-widget-new">empathy_contact_widget_new</a>          (<a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a> *contact,
+                                                         <a href="libempathy-gtk-empathy-contact-widget.html#EmpathyContactWidgetType">EmpathyContactWidgetType</a> type);
+<a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a>*     <a href="libempathy-gtk-empathy-contact-widget.html#empathy-contact-widget-get-contact">empathy_contact_widget_get_contact</a>  (GtkWidget *widget);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2593825"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2593841"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2593851"></a><h3>
+<a name="EmpathyContactWidgetType"></a>enum EmpathyContactWidgetType</h3>
+<a class="indexterm" name="id2581182"></a><pre class="programlisting">typedef enum {
+	CONTACT_WIDGET_TYPE_SHOW, /* used to show contact information */
+	CONTACT_WIDGET_TYPE_EDIT, /* used to edit contact information */
+	CONTACT_WIDGET_TYPE_ADD,  /* used to add a new contact */
+	CONTACT_WIDGET_TYPE_SUBSCRIPTION /* used to accepte/reject a new contact */
+} EmpathyContactWidgetType;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2581202"></a><h3>
+<a name="empathy-contact-widget-new"></a>empathy_contact_widget_new ()</h3>
+<a class="indexterm" name="id2581213"></a><pre class="programlisting">GtkWidget*          empathy_contact_widget_new          (<a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a> *contact,
+                                                         <a href="libempathy-gtk-empathy-contact-widget.html#EmpathyContactWidgetType">EmpathyContactWidgetType</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2581290"></a><h3>
+<a name="empathy-contact-widget-get-contact"></a>empathy_contact_widget_get_contact ()</h3>
+<a class="indexterm" name="id2581302"></a><pre class="programlisting"><a
+href="../libempathy/EmpathyContact.html"
+>EmpathyContact</a>*     empathy_contact_widget_get_contact  (GtkWidget *widget);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>widget</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

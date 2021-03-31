@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyCellRendererText">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyCellRendererText</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyCellRendererText</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyCellRendererTextPriv">EmpathyCellRendererTextPriv</link>;
+                    <link linkend="EmpathyCellRendererText-struct">EmpathyCellRendererText</link>;
+<link linkend="GtkCellRenderer">GtkCellRenderer</link>*    <link linkend="empathy-cell-renderer-text-new">empathy_cell_renderer_text_new</link>      (void);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkCellRenderer">GtkCellRenderer</link>
+                     +----<link linkend="GtkCellRendererText">GtkCellRendererText</link>
+                           +----EmpathyCellRendererText
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyCellRendererText--is-group">is-group</link>&quot;                 <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyCellRendererText--name">name</link>&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyCellRendererText--show-status">show-status</link>&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyCellRendererText--status">status</link>&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyCellRendererTextPriv" role="struct"/>EmpathyCellRendererTextPriv</title>
+<indexterm><primary>EmpathyCellRendererTextPriv</primary></indexterm><programlisting>typedef struct _EmpathyCellRendererTextPriv EmpathyCellRendererTextPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyCellRendererText-struct" role="struct"/>EmpathyCellRendererText</title>
+<indexterm><primary>EmpathyCellRendererText</primary></indexterm><programlisting>typedef struct _EmpathyCellRendererText EmpathyCellRendererText;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-cell-renderer-text-new" role="function"/>empathy_cell_renderer_text_new ()</title>
+<indexterm><primary>empathy_cell_renderer_text_new</primary></indexterm><programlisting><link linkend="GtkCellRenderer">GtkCellRenderer</link>*    empathy_cell_renderer_text_new      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyCellRendererText--is-group"/>The &quot;<literal>is-group</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererText:is-group</primary></indexterm><programlisting>  &quot;is-group&quot;                 <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Whether this cell is a group.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyCellRendererText--name"/>The &quot;<literal>name</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererText:name</primary></indexterm><programlisting>  &quot;name&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>Contact name.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyCellRendererText--show-status"/>The &quot;<literal>show-status</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererText:show-status</primary></indexterm><programlisting>  &quot;show-status&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Whether to show the status line.</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyCellRendererText--status"/>The &quot;<literal>status</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererText:status</primary></indexterm><programlisting>  &quot;status&quot;                   <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>Contact status string.</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyCellRendererExpander">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyCellRendererExpander</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyCellRendererExpander</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyCellRendererExpander-struct">EmpathyCellRendererExpander</link>;
+<link linkend="GtkCellRenderer">GtkCellRenderer</link>*    <link linkend="empathy-cell-renderer-expander-new">empathy_cell_renderer_expander_new</link>  (void);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkCellRenderer">GtkCellRenderer</link>
+                     +----EmpathyCellRendererExpander
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyCellRendererExpander--activatable">activatable</link>&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyCellRendererExpander--expander-size">expander-size</link>&quot;            <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="EmpathyCellRendererExpander--expander-style">expander-style</link>&quot;           <link linkend="GtkExpanderStyle">GtkExpanderStyle</link>      : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyCellRendererExpander-struct" role="struct"/>EmpathyCellRendererExpander</title>
+<indexterm><primary>EmpathyCellRendererExpander</primary></indexterm><programlisting>typedef struct _EmpathyCellRendererExpander EmpathyCellRendererExpander;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-cell-renderer-expander-new" role="function"/>empathy_cell_renderer_expander_new ()</title>
+<indexterm><primary>empathy_cell_renderer_expander_new</primary></indexterm><programlisting><link linkend="GtkCellRenderer">GtkCellRenderer</link>*    empathy_cell_renderer_expander_new  (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyCellRendererExpander--activatable"/>The &quot;<literal>activatable</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererExpander:activatable</primary></indexterm><programlisting>  &quot;activatable&quot;              <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>The expander can be activated.</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyCellRendererExpander--expander-size"/>The &quot;<literal>expander-size</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererExpander:expander-size</primary></indexterm><programlisting>  &quot;expander-size&quot;            <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>The size of the expander.</para><para>Allowed values: &gt;= 0</para>
+<para>Default value: 12</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyCellRendererExpander--expander-style"/>The &quot;<literal>expander-style</literal>&quot; property</title>
+<indexterm><primary>EmpathyCellRendererExpander:expander-style</primary></indexterm><programlisting>  &quot;expander-style&quot;           <link linkend="GtkExpanderStyle">GtkExpanderStyle</link>      : Read / Write</programlisting>
+<para>Style to use when painting the expander.</para><para>Default value: GTK_EXPANDER_COLLAPSED</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

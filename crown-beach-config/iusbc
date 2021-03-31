@@ -1,0 +1,47 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          iusbc
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:	     S 0 1 6
+# Short-Description: Load Intel USBC mass storage driver.
+# Description:
+### END INIT INFO
+
+PATH=/sbin:/bin:/usr/bin
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+#mnt_point=`cat /etc/fstab | grep vfat| tail -n 1|awk '{print $1}'`
+mnt_point=`gconftool-2 -g /system/usbc/mount_point`
+mnt_dev=`fdisk -l /dev/sda | grep FAT | tail -n 1 | awk '{print $1}'`
+if [ -z "$mnt_point" ]; then
+   mnt_point="/mediasync"
+fi
+
+case "$1" in
+  start|"")
+	if [ -z "$mnt_dev" ]; then
+           exit 3
+        fi
+	#modprobe iusbc
+	modprobe g_file_storage stall=0 removable=1 vendor=0x8086 product=0xa4a5 file=$mnt_dev
+	mkdir -m 000 -p $mnt_point >/dev/null 2>&1
+# we should let all users access mnt_point
+	mount -o umask=000 $mnt_dev $mnt_point >/dev/null 2>&1
+	;;
+  restart|reload|force-reload)
+	echo "Error: argument '$1' not supported" >&2
+	exit 3
+	;;
+  stop)
+	modprobe -r g_file_storage
+	#modprobe -r iusbc
+	;;
+  *)
+	echo "Usage: iusbc [start|stop]" >&2
+	exit 3
+	;;
+esac

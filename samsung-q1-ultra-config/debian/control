@@ -1,0 +1,16 @@
+Source: samsung-q1-ultra-config 
+Section: admin
+Priority: extra
+Maintainer: Rusty Lynch <rusty.lynch@intel.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: ume-config-samsung-q1-ultra
+Replaces: initscripts
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ume-config-common (>= 0.4), acpid
+Description: Configuration for a Samsung Q1 Ultra
+ This package provides samsung Q1 ultra specific configuration files
+ .
+ You do not want this on a normal system, it will overwrite your X
+ configuration and other bits of the system.

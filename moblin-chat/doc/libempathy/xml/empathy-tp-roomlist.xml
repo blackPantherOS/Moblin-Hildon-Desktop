@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-EmpathyTpRoomlist">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyTpRoomlist</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyTpRoomlist</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyTpRoomlistPriv">EmpathyTpRoomlistPriv</link>;
+                    <link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link>;
+<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link>*  <link linkend="empathy-tp-roomlist-new">empathy_tp_roomlist_new</link>             (<link linkend="McAccount">McAccount</link> *account);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-tp-roomlist-is-listing">empathy_tp_roomlist_is_listing</link>      (<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link> *list);
+<link linkend="void">void</link>                <link linkend="empathy-tp-roomlist-start">empathy_tp_roomlist_start</link>           (<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link> *list);
+<link linkend="void">void</link>                <link linkend="empathy-tp-roomlist-stop">empathy_tp_roomlist_stop</link>            (<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link> *list);
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyTpRoomlistPriv" role="struct"/>EmpathyTpRoomlistPriv</title>
+<indexterm><primary>EmpathyTpRoomlistPriv</primary></indexterm><programlisting>typedef struct _EmpathyTpRoomlistPriv EmpathyTpRoomlistPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyTpRoomlist" role="struct"/>EmpathyTpRoomlist</title>
+<indexterm><primary>EmpathyTpRoomlist</primary></indexterm><programlisting>typedef struct {
+	GObject      parent;
+} EmpathyTpRoomlist;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-roomlist-new" role="function"/>empathy_tp_roomlist_new ()</title>
+<indexterm><primary>empathy_tp_roomlist_new</primary></indexterm><programlisting><link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link>*  empathy_tp_roomlist_new             (<link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-roomlist-is-listing" role="function"/>empathy_tp_roomlist_is_listing ()</title>
+<indexterm><primary>empathy_tp_roomlist_is_listing</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_tp_roomlist_is_listing      (<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-roomlist-start" role="function"/>empathy_tp_roomlist_start ()</title>
+<indexterm><primary>empathy_tp_roomlist_start</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_roomlist_start           (<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-tp-roomlist-stop" role="function"/>empathy_tp_roomlist_stop ()</title>
+<indexterm><primary>empathy_tp_roomlist_stop</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_tp_roomlist_stop            (<link linkend="EmpathyTpRoomlist">EmpathyTpRoomlist</link> *list);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

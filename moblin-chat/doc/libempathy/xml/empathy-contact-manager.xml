@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyContactManager">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyContactManager</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyContactManager</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyContactManagerPriv">EmpathyContactManagerPriv</link>;
+                    <link linkend="EmpathyContactManager-struct">EmpathyContactManager</link>;
+<link linkend="EmpathyContactManager">EmpathyContactManager</link>* <link linkend="empathy-contact-manager-new">empathy_contact_manager_new</link>      (void);
+<link linkend="EmpathyTpContactList">EmpathyTpContactList</link>* <link linkend="empathy-contact-manager-get-list">empathy_contact_manager_get_list</link>  (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-contact-manager-get-user">empathy_contact_manager_get_user</link>    (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-contact-manager-create">empathy_contact_manager_create</link>      (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *id);
+<link linkend="void">void</link>                <link linkend="empathy-contact-manager-rename-group">empathy_contact_manager_rename_group</link>
+                                                        (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *old_group,
+                                                         const <link linkend="gchar">gchar</link> *new_group);
+<link linkend="GList">GList</link>*              <link linkend="empathy-contact-manager-get-groups">empathy_contact_manager_get_groups</link>  (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyContactManager
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EmpathyContactManager implements
+ <link linkend="EmpathyContactList">EmpathyContactList</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyContactManagerPriv" role="struct"/>EmpathyContactManagerPriv</title>
+<indexterm><primary>EmpathyContactManagerPriv</primary></indexterm><programlisting>typedef struct _EmpathyContactManagerPriv EmpathyContactManagerPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyContactManager-struct" role="struct"/>EmpathyContactManager</title>
+<indexterm><primary>EmpathyContactManager</primary></indexterm><programlisting>typedef struct _EmpathyContactManager EmpathyContactManager;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-manager-new" role="function"/>empathy_contact_manager_new ()</title>
+<indexterm><primary>empathy_contact_manager_new</primary></indexterm><programlisting><link linkend="EmpathyContactManager">EmpathyContactManager</link>* empathy_contact_manager_new      (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-manager-get-list" role="function"/>empathy_contact_manager_get_list ()</title>
+<indexterm><primary>empathy_contact_manager_get_list</primary></indexterm><programlisting><link linkend="EmpathyTpContactList">EmpathyTpContactList</link>* empathy_contact_manager_get_list  (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-manager-get-user" role="function"/>empathy_contact_manager_get_user ()</title>
+<indexterm><primary>empathy_contact_manager_get_user</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_contact_manager_get_user    (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-manager-create" role="function"/>empathy_contact_manager_create ()</title>
+<indexterm><primary>empathy_contact_manager_create</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_contact_manager_create      (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *id);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-manager-rename-group" role="function"/>empathy_contact_manager_rename_group ()</title>
+<indexterm><primary>empathy_contact_manager_rename_group</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_manager_rename_group
+                                                        (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *old_group,
+                                                         const <link linkend="gchar">gchar</link> *new_group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>old_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-manager-get-groups" role="function"/>empathy_contact_manager_get_groups ()</title>
+<indexterm><primary>empathy_contact_manager_get_groups</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_contact_manager_get_groups  (<link linkend="EmpathyContactManager">EmpathyContactManager</link> *manager);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,59 @@
+2007-11-13  Gil Forcada  <gforcada@svn.gnome.org>
+
+	* ca/ca.po: Added Catalan translation by Joan Duran.
+	* ca/figures/*: Added screenshots for Catalan translation.
+	* Makefile.am: Added ca to DOC_LINGUAS.
+
+2007-09-10  Hendrik Richter  <hendrikr@gnome.org>
+
+	* de/*: Added German translation by Florian Purucker <florian@purucker.net>
+	* Makefile.am: Added de to DOC_LINGUAS.
+
+2007-08-30  Claude Paroz  <claude@2xlibre.net>
+
+	* Makefile.am: Added fr to DOC_LINGUAS.
+	* fr/*: Added French translation.
+
+2007-08-30  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation
+
+2007-08-29  Claude Paroz  <claude@2xlibre.net>
+
+	* C/gnobots2.xml: NumLock key should now be recommended off.
+
+2007-08-29  Claude Paroz  <claude@2xlibre.net>
+
+	* C/gnobots2.xml: Updated documentation, especially keyboard controls.
+	Fixes #392586.
+
+2007-07-27  Andreas Røsdal  <andreasr@gnome.org>
+
+	* es/gnobots2-es.omf:
+	* es/legal.xml:
+	* es/topic.dat:
+	* es/Makefile.am:
+	* es/gnobots2.xml:
+	* Makefile.am: Resolve bug #459693, which caused
+	'make distcheck' to fail. This was caused by the previous
+	commit which didn't remove the obsolete files when migrating
+	the translation to gnome-doc-utils.
+
+2007-07-15  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+
+2007-07-12  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Updated Spanish translation
+        * Makefile.am: Added es to DOC_LINGUAS
+
+2007-06-03  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+        * es/es.po: Added initial Spanish translation
+        * es/figures/*.png: added screenshots
+
+2007-04-30  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Added Swedish translation.
+	* Makefile.am: Added sv to DOC_LINGUAS

@@ -1,0 +1,230 @@
+=== modified file 'src/NetworkManager.c'
+Binary files bzr.debian.0.9.5/.bzr/checkout/dirstate and bzr.debian.0.9.5.new/.bzr/checkout/dirstate differ
+diff -Nur bzr.debian.0.9.5/src/backends/NetworkManagerDebian.c bzr.debian.0.9.5.new/src/backends/NetworkManagerDebian.c
+--- bzr.debian.0.9.5/src/backends/NetworkManagerDebian.c	2007-06-25 17:40:34.000000000 +0200
++++ bzr.debian.0.9.5.new/src/backends/NetworkManagerDebian.c	2007-06-25 17:40:34.000000000 +0200
+@@ -31,7 +31,11 @@
+ #include <sys/types.h>
+ #include <signal.h>
+ #include <arpa/inet.h>
++#include <sys/inotify.h>
++#include <string.h>
+ #include "NetworkManagerSystem.h"
++#include "NetworkManagerDbus.h"
++#include "NetworkManagerPolicy.h"
+ #include "NetworkManagerUtils.h"
+ #include "nm-device.h"
+ #include "nm-device-802-3-ethernet.h"
+@@ -43,14 +47,178 @@
+ #define ARPING "/usr/sbin/arping"
+ #define RESOLVCONF "resolvconf"
+ 
++/* taken from NetworkManager.c */
++static char *nm_get_device_interface_from_hal (LibHalContext *ctx, const char *udi)
++{
++	char *iface = NULL;
++
++	if (libhal_device_property_exists (ctx, udi, "net.interface", NULL))
++	{
++		/* Only use Ethernet and Wireless devices at the moment */
++		if (libhal_device_property_exists (ctx, udi, "info.category", NULL))
++		{
++			char *category = libhal_device_get_property_string (ctx, udi, "info.category", NULL);
++			if (category && (!strcmp (category, "net.80203") || !strcmp (category, "net.80211")))
++			{
++				char *temp = libhal_device_get_property_string (ctx, udi, "net.interface", NULL);
++				iface = g_strdup (temp);
++				libhal_free_string (temp);
++			}
++			libhal_free_string (category);
++		}
++	}
++
++	return (iface);
++}
++
++/* callback called when /etc/network/interfaces is modified */
++static gboolean eni_changed (GIOChannel *eni_channel, GIOCondition cond, gpointer user_data)
++{
++	gboolean reparse = FALSE;
++	NMData *data = (NMData *) user_data;
++	NMDevice *active;
++	char **net_devices;
++	DBusError error;
++	int num_net_devices;
++	int i;
++	GSList *walk;
++	struct inotify_event evt;
++
++	/* read the notifications from the watch descriptor */
++	while (g_io_channel_read_chars (eni_channel, (gchar *) &evt,
++			sizeof (struct inotify_event), NULL, NULL) == G_IO_STATUS_NORMAL) {
++		if (evt.len > 0) {
++			gchar filename[evt.len];
++			g_io_channel_read_chars (eni_channel, filename, evt.len, NULL, NULL);
++
++			if (!strcmp (filename, "interfaces"))
++				reparse = TRUE;
++		}
++	}
++	
++	if (reparse == FALSE)
++		/* ignore this notification */
++		return TRUE;
++
++	nm_info ("/etc/network/interface changed: rebuilding the device list.");
++
++	/* get the existing devices from Hal */
++	dbus_error_init (&error);
++	net_devices = libhal_find_device_by_capability (data->hal_ctx, "net", &num_net_devices, &error);
++	if (dbus_error_is_set (&error)) {
++		nm_warning ("Could not get existing devices from Hal: %s", error.message);
++		dbus_error_free (&error);
++
++		return FALSE;
++	}
++
++	/* get the currently active device, we do not touch it if it has not been disabled */
++	active = nm_get_active_device (data);
++	if (active && nm_system_device_get_disabled (active) == TRUE)
++		active = NULL;
++
++	nm_lock_mutex (data->dev_list_mutex, __FUNCTION__);
++
++	/* remove the devices */
++	for (walk = data->dev_list; walk != NULL; walk = g_slist_next (walk)) {
++		NMDevice *dev = NM_DEVICE (walk->data);
++		
++		if (active && dev == active) {
++			/* do not remove the active device */
++			nm_info ("Keeping active %s device '%s'.",
++				nm_device_is_802_11_wireless (dev) ? "wireless (802.11)" :	"wired Ethernet (802.3)",
++				nm_device_get_iface (dev));
++			
++			continue;
++		}
++
++		nm_info ("Removing %s device '%s'.", 
++				nm_device_is_802_11_wireless (dev) ? "wireless (802.11)" :	"wired Ethernet (802.3)",
++				nm_device_get_iface (dev));
++		nm_device_set_removed (dev, TRUE);
++		nm_device_stop (dev);
++		
++		nm_dbus_schedule_device_status_change_signal (data, dev, NULL, DEVICE_REMOVED);
++		g_object_unref (dev);
++	}
++
++	g_slist_free (data->dev_list);
++	data->dev_list = NULL;
++	if (active)
++		data->dev_list = g_slist_append (data->dev_list, active);
++
++	nm_info ("Recreating the device list.");
++	/* repopulate the device list */
++	for (i = 0; i < num_net_devices; i++)
++	{
++		char *iface;
++
++		if ((iface = nm_get_device_interface_from_hal (data->hal_ctx, net_devices[i])))
++		{
++			NMDevice *dev;
++
++			if (active && !strcmp (iface, nm_device_get_iface (active)))
++				continue;
++
++			if ((dev = nm_device_new (iface, net_devices[i], FALSE, DEVICE_TYPE_UNKNOWN, data)))
++			{
++				nm_info ("Now managing %s device '%s'.",
++					nm_device_is_802_11_wireless (dev) ? "wireless (802.11)" : "wired Ethernet (802.3)",
++					nm_device_get_iface (dev));
++
++				data->dev_list = g_slist_append (data->dev_list, dev);
++				nm_device_deactivate (dev);
++
++				nm_dbus_schedule_device_status_change_signal (data, dev, NULL, DEVICE_ADDED);
++			}
++
++			g_free (iface);
++		}
++	}
++	nm_info ("Device list recreated successfully.");
++
++	libhal_free_string_array (net_devices);
++	nm_policy_schedule_device_change_check (data);
++	nm_unlock_mutex (data->dev_list_mutex, __FUNCTION__);
++
++	return TRUE;
++}
++
+ /*
+  * nm_system_init
+  *
+  * Initializes the distribution-specific system backend
+  *
+  */
+-void nm_system_init (void)
++void nm_system_init (NMData *data)
+ {
++	GIOChannel *eni_channel;
++	GSource *io_source;
++
++	int ifd = inotify_init ();
++	if (ifd == -1) {
++		nm_warning ("Could not initialize inotify");
++
++		return;
++	}
++
++	int wd = inotify_add_watch (ifd, "/etc/network/", IN_CLOSE_WRITE);
++	if (wd == -1) {
++		nm_warning ("Could not monitor /etc/network/interface");
++		close (ifd);
++
++		return;
++	}
++
++	/* add an io_watch to the main_context */
++	eni_channel = g_io_channel_unix_new (ifd);
++	g_io_channel_set_flags (eni_channel, G_IO_FLAG_NONBLOCK, NULL);
++	g_io_channel_set_encoding (eni_channel, NULL, NULL); 
++	io_source = g_io_create_watch (eni_channel, G_IO_IN | G_IO_ERR);
++	g_source_set_callback (io_source, (GSourceFunc) eni_changed, data, NULL);
++	g_source_attach (io_source, data->main_context);
++	g_io_channel_unref (eni_channel);
++	g_source_unref (io_source);
+ }
+ 
+ /*
+diff -Nur bzr.debian.0.9.5/src/NetworkManager.c bzr.debian.0.9.5.new/src/NetworkManager.c
+--- bzr.debian.0.9.5/src/NetworkManager.c	2007-06-25 17:18:17.000000000 +0200
++++ bzr.debian.0.9.5.new/src/NetworkManager.c	2007-06-25 17:40:34.000000000 +0200
+@@ -757,8 +757,6 @@
+ 	nm_logging_setup (become_daemon);
+ 	nm_info ("starting...");
+ 
+-	nm_system_init();
+-
+ 	/* Initialize our instance data */
+ 	nm_data = nm_data_new (enable_test_devices);
+ 	if (!nm_data)
+@@ -800,6 +798,8 @@
+ 	/* If Hal is around, grab a device list from it */
+ 	if ((owner = get_name_owner (nm_data->dbus_connection, "org.freedesktop.Hal")))
+ 		nm_hal_init (nm_data);
++	
++	nm_system_init (nm_data);
+ 
+ 	/* We run dhclient when we need to, and we don't want any stray ones
+ 	 * lying around upon launch.
+diff -Nur bzr.debian.0.9.5/src/NetworkManagerSystem.h bzr.debian.0.9.5.new/src/NetworkManagerSystem.h
+--- bzr.debian.0.9.5/src/NetworkManagerSystem.h	2007-06-25 17:18:17.000000000 +0200
++++ bzr.debian.0.9.5.new/src/NetworkManagerSystem.h	2007-06-25 17:40:34.000000000 +0200
+@@ -33,7 +33,7 @@
+  * implemented in the backend files in backends/ directory
+  */
+ 
+-void			nm_system_init (void);
++void			nm_system_init (struct NMData *data);
+ gboolean		nm_system_device_has_active_routes			(NMDevice *dev);
+ 
+ int			nm_system_get_rtnl_index_from_iface		(const char *iface);

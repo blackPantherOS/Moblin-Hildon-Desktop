@@ -1,0 +1,21 @@
+Source: moblin-calc
+Section: math
+Priority: optional
+Maintainer: Sebastien Bacher <seb128@debian.org> Horace Li <horace.li@intel.com>
+Build-Depends: cdbs, debhelper (>= 4.0), libtool, libgtk2.0-dev (>= 2.0.0), libglade2-dev, libxml-parser-perl, autoconf, libhildon-1-dev, intltool, libosso-dev
+Standards-Version: 3.6.1.0
+
+Package: moblin-calc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libhildon-1-0
+Description: A GTK+ 2.0 based calculator
+ .
+ moblin-calc is a scientific calculator. It is derived from galculator 
+ and supports different number bases (DEC/HEX/OCT/BIN) and angles bases 
+ (DEG/RAD/GRAD) and features a wide range of mathematical (basic arithmetic 
+ operations, trigonometric functions, etc) and other useful functions 
+ (memory, etc) at the moment. 
+  moblin-calc can be used in algebraic mode as well as in Reverse Polish Notation.
+ .
+  Author:   Simon Floery <simon.floery@gmx.at>
+  Homepage: http://moblin.org

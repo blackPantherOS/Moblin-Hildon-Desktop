@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -e ~/proot ]; then
+   cd ~/proot
+   sudo umount  ./proc
+   sudo umount  ./usr/share/pdk
+   sudo umount  ./sys
+   sudo umount  ./dev
+   sudo umount  ./tmp
+   sudo umount  ./var
+else
+   echo no need to umount
+fi
+

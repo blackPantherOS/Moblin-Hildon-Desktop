@@ -1,0 +1,305 @@
+midbrowser (0.3.0b2d~mt1ubuntu11)
+
+  * Changed the preference "general.useragent.extra.firefox" to "Firefox/3.0 beta". This fixes
+    the rendering issues with sites that check for browser and version (i.e. mail.live.com).
+  * Changed the preference "browser.enable.automatic_image_resizing" from true to false. This
+    fixes bug #186556 (image cannot be magnified using the zoom in/out button).
+  * Set the default value for "font.size.variable.x-western" to 13. This work around will
+    fix the rendering issues found in http://www.miniclip.com.
+
+ -- Carl Wong <carl.wong@intel.com>  Fri, 28 Mar 2008 14:28:11 -0700
+
+midbrowser (0.3.0b2d~mt1ubuntu10)
+
+  * Removed the "Security_Devices" from Encryption tab. Not needed for mobile device.
+  * Fixed bug #174762, removed all "import" and "export" buttons from Encryption->View_Certificates tab.
+
+ -- Carl Wong <carl.wong@intel.com>  Fri, 21 Mar 2008 16:23:15 -0700
+
+midbrowser (0.3.0b2d~mt1ubuntu9)
+
+  [ Carl Wong ]
+  *  Fixed bug #186580 (The enable/disable status of the "status bar" menu is 
+     not correctly displayed) the right way. The previous fix didn't work all
+     the time.
+
+  [ Jimmy Huang ]
+  *  Fixed bug #156977 (No interface to manage Bookmarks) by adding a delete button to allow deleting of bookmarks without right-click.
+ -- Carl Wong <carl.wong@intel.com>  Wed, 19 Mar 2008 16:27:40 -0700
+
+midbrowser (0.3.0b2d~mt1ubuntu8)
+
+  * Fixed midbrowser.desktop to meet the freedesktop.org menu specification.
+  * Added a new file call default.list to the debian directory.  This file
+    is used by the download manager to determine which app to launch when
+    user tries to open a file.
+  * Modified debian/rule to install default.list to /usr/share/applications.
+
+ -- Carl Wong <carl.wong@intel.com>  Mon, 17 Mar 2008 14:48:58 -0700
+
+midbrowser (0.3.0b2d~mt1ubuntu7)
+
+  [ Carl Wong ]
+  * Reduced the number of level of sub-menus in the view menu. Moved the character 
+    encoding menu item to the top.
+  * Changed to use the side bar to display the history and bookmark.
+
+  [ Jimmy Huang ]
+  * Added a default entry for the Gconf key for homepage_url that fixes the bug where home_page cannot be reset for a second time.
+  * Fixed the bug#175028 the button size in preference dialog is not consistent.
+  * Restored icon size in full screen mode.
+
+ -- Carl Wong <carl.wong@intel.com>  Sun, 16 Mar 2008 11:36:47 -0700
+
+midbrowser (0.3.0b2d~mt1ubuntu6) 
+
+  [ Jimmy Huang ]
+  * Fixed the bug where in non-full screen mode, the urlbar cannot pick up url changes.
+
+  [ Carl Wong ]
+  * Fixed the tooltip for zoom in, zoom out and reset toolbar icons to use existing 
+    labels. This miminizes the changes needed for i18n support.
+
+ -- Carl Wong <carl.wong@intel.com>  Thu, 13 Mar 2008 16:15:45 -0700
+
+midbrowser (0.3.0b2d~mt1ubuntu5) 
+
+  [ Jimmy Huang ]
+  * Fixed the bug#173759 where full screen restore button is too small on MID device.
+  * Fixed the bug#188247 where the display all tabs button is too small on MID device.
+  * Fixed the bug#175028 the button size in preference dialog is not consistent.
+  * Fixed a bug where the load image exception button is not disabled when it is unchecked in the preference dialog.
+
+  [ Carl Wong ]
+  *  Fixed bug #186580(The enable/disable status of the "status bar" menu is not
+     correctly displayed).
+
+  [ Jimmy Huang ]
+  * Fixed third-party application handlers and plugins not showing up in the Preference/Applications Dialog.
+  * Fixed the bug where UrlBar's history and Searchbar's suggestions obscuring the virtual keyboard.
+  * Disabled Profile Migrator which causes the old profile settings to interrupt gconf settings such as homepage and http proxy.
+  * Cleaned up GrabandDrag preference dialog so it looks cleaner.
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Fri, 07 Mar 2008 13:29:27 -0800
+
+midbrowser (0.3.0b2d~mt1ubuntu4) 
+
+  [ Carl Wong ]
+  * Changed the Browse:Back and Browse:Forward to use F9 and F10 instead of the VK_LEFT and
+    VK_RIGHT.
+  * Disabled F1 help. The exsiting Firefox help is not appropriate for Midbrowser.
+  * Disabled context menu in the Toolbar. No customize of toolbar is allowed.
+
+  [ Jimmy Huang ]
+  * Increased icons in the download dialogs
+  * Added default directories for default download behavior, so that media files defaults 
+    to $HOME/media/audio, $HOME/media/photo, $HOME/media/video, and other files to 
+    $HOME/Documents directory.
+
+  [ Carl Wong ]
+  * Update the icons in the about and credit dialog with the new icons from Jason.
+  * Used file:// instead of chrome:// for welcome startup page. 
+
+ -- Carl Wong <carl.wong@intel.com>  Fri, 15 Feb 2008 20:13:35 -0800
+
+midbrowser (0.3.0b2d~mt1ubuntu3) 
+
+  * Fixed an install issue with grabanddrag.
+
+ -- Carl Wong <carl.wong@intel.com>  Wed, 06 Feb 2008 19:19:45 -0800
+
+midbrowser (0.3.0b2d~mt1ubuntu2) 
+
+  [ Carl Wong ]
+  * Added a workaround to build and package the grabanddrag extension.
+
+  [ Jimmy Huang ]
+  * Fixed build package with grabanddrag extension, removed previous workaround.x
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Thu, 07 Feb 2008 13:14:40 -0800
+
+midbrowser (0.3.0b2d~mt1ubuntu1) 
+
+  [ Jimmy Huang ]
+  * Integrated GrabandDrag addon in the Mid Browser so it builds with the addon by default to support panning.
+
+ -- Carl Wong <carl.wong@intel.com>  Thu, 31 Jan 2008 15:30:07 -0800
+
+midbrowser (0.3.0b2c~mt1) 
+
+  * Added code to disallow popup by default.
+  * Fixed a crash in "Content" preference page.
+  * Removed the DOM inspector from the midbrowser package.
+  * Fixed couple of bugs related to tab browsing.
+  * Changed the value of StartupWMClass in midbrowser.desktop from 
+    Midbrowser-bin to Navigator. With this change, the new and improved hildon
+    desktop will handle the signleton issue automatically. No codes is require
+    on the browser side to handle this issue.
+
+ -- Carl Wong <carl.wong@intel.com>  Wed, 30 Jan 2008 09:44:51 -0800
+
+midbrowser (0.3.0b2b~mt1) 
+
+  *  Up the version in debian/changelog for release to gaston.
+
+ -- Carl Wong <carl.wong@intel.com>  Sun, 27 Jan 2008 13:41:49 -0800
+
+midbrowser (0.3.0b2a~mt1) 
+
+  [ Alexander Sack ]
+  * upgrade to FIREFOX_3_0b2_RELEASE as codebase.
+  * fixes bookmarks and places
+
+  [ Carl Wong ]
+  * Pushed the master branch that was based on FF2.0.x codebase to master.1.6.
+  * Pushed the WORKING branch that based on FF3.0b2RELEASE to master.
+  * Merged the preferences changes from the original master branch to the new.
+  * Merged the changes made to midbrowser.js. and the hildon component from the
+    original main branch.
+  * Added libdbus-glib-1-dev to debian/control.
+  * Modified browser/themes/gnomestripe/browser.css
+    + Used a larger icons for toolbar
+    + Changed the font size of the menu to make it look like a hildon menu
+    + Changed the height of the url-bar and search-bar and increased the
+      font sizes used inside these bars.
+
+ -- Carl Wong <carl.wong@intel.com>  Sun, 27 Jan 2008 11:14:45 -0800
+
+midbrowser (0.3.0b1a~mt1) 
+
+   * merge new upstream branch UPSTREAM.3.x (using FIREFOX_3_0b1_RELEASE)
+     + port midbrowser/ directory to new firefox code base
+     + don't use midbrowser/themes directory from midbrowser 0.1.6 because 3.0b2
+       will use system icons anyway
+   * drop obsolete system pref header:
+     + remove extensions/pref/system-pref/src/gconf/nsSystemPrefService.h
+   * Fix gconf system pref	service:
+     + Build two modules: system-pref + syspref-gconf aka SystemPrefModule,
+       SystemPrefServiceModule and build the modules as static LIBXUL_,
+       EXPORT_LIBRARY's as COMPONENT's:
+       - update extensions/pref/system-pref/src/gconf/Makefile.in
+       - update extensions/pref/system-pref/src/Makefile.in
+     + Take care that SystemPrefServiceModule is properly enlisted as a libxul
+       (aka toolkit/library) resident:
+       - update toolkit/library/libxul-config.mk
+       - toolkit/library/nsStaticXULComponents.cpp
+     + link libxul with MOZ_GCONF_LIBS if GCONF preferences are used:
+       - toolkit/library/libxul-rules.mk
+   * Make midbrowser a target application for default theme extension
+     - update midbrowser/app/profile/extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}/install.rdf.in
+   * Fix make install target for midbrowser, by adding more midbrowser specific
+     files to packages-static file of browser (until we make midbrowser a first
+     class citizen by adding its own installer directory.
+     - update browser/installer/unix/packages-static
+   * drop version suffix from installdir(s)
+     - update config/autoconf.mk.in
+   * Add midbrowser as targetApplication to browser generic locale
+     - update browser/locales/generic/install.rdf
+   * Disable auto update for midbrowser:
+     - update midbrowser/app/profile/midbrowser.js
+   * only install files from installdir in main binary package (midbrowser);
+     leave alone sdkdir for now (make a -dev package out of it at some point)
+     - add debian/midbrowser.install
+   * remove not used nsMobileBrowserApp.cpp in browser/app
+     - remove browser/app/nsMobileBrowserApp.cpp
+   * sync mozilla.in from browser/app to midbrowser/app
+     - update midbrowser/app/mozilla.in
+   * fix rules to build midbrowser 0.3.x
+     - don't tweak CFLAGS, but define OPTFLAGS properly
+     - explicitly use CXX=g++-4.2 and CC=gcc-4.2
+       + update debian/control Build-Depends accordingly
+     - use DEB_CONFIGURE_USER_FLAGS adapted from xulrunner-1.9
+     - run dh_clean in clean: target
+     - use DESTDIR=debian/tmp instead of prefix=debian/tmp/usr for make install
+       invocation
+   * define MIDBROWSER_VERSION for install.rdf.in substitution of midbrowser
+     theme
+     - update midbrowser/app/profile/extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}/Makefile.in
+
+   [ Jimmy Huang ]
+   * Fixed GConf Proxy settings using the gconf_backend patch and ported it over
+     to FF 3.0 code base.
+   * Fixed midbrowser/components/preferences directory and where the advanced
+     and applications dialog is not showing up properly in the preference dialog
+     box.
+   * Added zoom in/zoom out/zoom reset buttons to the navigation bar.
+   * Added alternative icons for zoom in/zoom out.  Added new icons for zoom-reset.
+
+ -- Alexander Sack <asac@ubuntu.com>  Fri, 21 Dec 2007 01:44:08 +0100
+
+midbrowser (0.1.6g) 
+
+    * midbrowser/config/version.txt - bumped up the version.
+    * browser/base/content/sanitize.js
+       - Fixed bug#173589 where the Browser shows a window instead of dialog 
+         in the "Clear privacy settings".
+    * Fixed bug #173593. Made the "Search for text when I start typing" option
+      to be on by default.
+    * Fixed bug#173587. Removed the "Master password" and "show password"
+      from security tab of the preference dialog.
+    * Fixed bug #173596. Removed update tab from advance dialog since
+      we don't have update in place yet.
+    * Fixed bug where Popup Blocker is not enabled by default in Moblin Browser
+    * Fixed bug#173589 where the Browser shows a window instead of dialog in 
+      the "Clear privacy settings".
+
+    * Simpilfied the main, content and feed preferences page.
+    * main.xul
+      - Removed Download directory preference section.
+      - Removed Check that Firefox is default browser section.
+    * content.xul
+      - Removed Fonts and Color
+      - Remvoed File type association
+    * feeds.xul and feeds.js
+      - Removed option in list called "No Appplication Selected".
+
+    * Fixed a crash in nsHilonXEventService.cpp. Also removed bad code that 
+      tries to update the window tile.
+    * Excluded Dom inspector from midbrowser build.
+
+    * gfx/src/gtk/gtk2drawing.c
+      - Fixed bug#145931 where Browser crashes when accepting a certificate. Apparently
+        in moz_gtk_container_paint routine, it was passing a null widget id to
+        gtk_paint_flat_box and gtk_paint_focus routines.
+    
+
+ -- Carl Wong <carl.wong@.intel.com>  Sun, 09 Dec 2007 11:45:58 -0800
+
+midbrowser (0.1.6f) 
+
+  * gfx/src/gtk/gtk2drawing.c
+    - Fixed bug#145931 where Browser crashes when accepting a certificate. Apparently
+      in moz_gtk_container_paint routine, it was passing a null widget id to 
+      gtk_paint_flat_box and gtk_paint_focus routines.
+  * midbrowser/config/version.txt - bumped up the version.
+
+ -- Carl Wong <carl.wong@intel.com>  Thu, 29 Nov 2007 15:02:05 -0800
+
+midbrowser (0.1.6e) 
+
+  * debian/rules - removed --enable-extension=default from configure. This 
+    fixes the moblin midbrowser bugs 16773 and 116747.
+  * extensions/pref/system-pref/src/nsSystemPref.cpp - this fixes bug 163779
+    (Midbrowser will crash if checking the checkbox of "Blockpopup window" 
+    twice).
+  * config/verson.txt - bumped up the version.
+
+ -- Carl Wong <carl.wong@intel.com>  Wed, 21 Nov 2007 15:52:11 -0800
+
+midbrowser (0.1.6d) 
+
+  * Included the pref extension patch obtained from novell. This allows the browser to use
+    system's network proxy setting. The advance->network setting dialog has been removed.
+    User must use the system's network proxy setting dialog to make the proxy change.
+  * Increased the size of the default icons in toolbar from 24x24 to 32x32 to make
+    the browser more finger friendly on a mid device.
+  * Modified autoconf.mk.in to force the install dir names to be midbrowser instead of
+    midbrowser-version.
+  * In midbrowser/app/profile/midbrowser.js, disabled browser.shell.checkDefaultBrowser
+    and temporary changed the general.useragent.extra.firefox to be "Firefox/2.0.0.6" to
+    work around the redirect issue of microsoft's live.com websites.
+  * Note that this debian directory is used for Intel internal release only. Offical
+    gusty build was done by Alexander Sac from ubuntu.
+
+ -- Carl Wong <carl.wong@intel.com>  Fri, 16 Nov 2007 16:01:45 -0800
+

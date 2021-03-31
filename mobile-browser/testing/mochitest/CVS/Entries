@@ -1,0 +1,15 @@
+D/MochiKit////
+D/chrome////
+D/static////
+D/tests////
+/Makefile.in/1.8/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/README.txt/1.6/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/browser-harness.xul/1.4/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/browser-test-overlay.xul/1.1/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/browser-test.js/1.3/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/gen_template.pl/1.4/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/harness.xul/1.3/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/redirect.html/1.1/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE
+/runtests.pl.in/1.33/Wed Jan 16 23:39:22 2008//TFIREFOX_3_0b2_RELEASE
+/server.js/1.21/Wed Jan 16 23:39:22 2008//TFIREFOX_3_0b2_RELEASE
+/server.py/1.3/Thu Dec 13 11:58:34 2007//TFIREFOX_3_0b2_RELEASE

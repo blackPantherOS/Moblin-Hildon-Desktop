@@ -1,0 +1,13 @@
+diff -Nur network-manager-applet-0.6.5/po/fr.po network-manager-applet-0.6.5.new/po/fr.po
+--- network-manager-applet-0.6.5/po/fr.po	2007-04-19 20:01:19.000000000 +0200
++++ network-manager-applet-0.6.5.new/po/fr.po	2007-06-26 10:32:37.000000000 +0200
+@@ -289,7 +289,7 @@
+ 
+ #: ../src/applet.c:1560
+ msgid "Create _New Wireless Network..."
+-msgstr "Créer_un nouveau réseau sans fil..."
++msgstr "Créer _un nouveau réseau sans fil..."
+ 
+ #: ../src/applet.c:1683
+ msgid "_VPN Connections"
+

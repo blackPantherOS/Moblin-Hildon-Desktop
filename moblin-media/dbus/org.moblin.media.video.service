@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.moblin.media.video
+Exec=/usr/bin/moblin-media --mode video
+

@@ -1,0 +1,126 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper. 
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+#
+# This version is for a hypothetical package that can build a kernel modules
+# architecture-dependant package via make-kpkg, as well as an
+# architecture-independent module source package, and other packages
+# either dep/indep for things like common files or userspace components
+# needed for the kernel modules.
+
+# Uncomment this to turn on verbose mode. 
+QUILT_STAMPFN = quilt-stamp
+
+include /usr/share/quilt/quilt.make
+
+export DH_VERBOSE=1
+
+KVERS := $(shell ls -al /lib/modules/ | grep 2.6.22 | grep menlow-default | sed -ne "s/.*\(2.6.22.*\)/\1/p")
+KVERS-DEV := $(shell ls -al /lib/modules/ | grep 2.6.22 | grep menlow-developer | sed -ne "s/.*\(2.6.22.*\)/\1/p")
+KVERS2 := $(shell ls -al /lib/modules/ | grep 2.6.24 | grep menlow-default | sed -ne "s/.*\(2.6.24.*\)/\1/p")
+KVERS-DEV2 := $(shell ls -al /lib/modules/ | grep 2.6.24 | grep menlow-developer | sed -ne "s/.*\(2.6.24.*\)/\1/p")
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+# some default definitions, important!
+# 
+# Name of the source package
+psource:=psb-kmd-source
+
+# The short upstream name, used for the module source directory
+sname:=psb-kmd-source
+
+build: binary-modules
+binary-modules: patch
+	dh_clean -k
+	install -d debian/psb-kmd-default-2.6.22/lib/modules/$(KVERS)/kernel/drivers/char/drm/
+	install -d debian/psb-kmd-developer-2.6.22/lib/modules/$(KVERS-DEV)/kernel/drivers/char/drm/
+	install -d debian/psb-kmd-default-2.6.24/lib/modules/$(KVERS2)/kernel/drivers/char/drm/
+	install -d debian/psb-kmd-developer-2.6.24/lib/modules/$(KVERS-DEV2)/kernel/drivers/char/drm/
+	install -d debian/$(psource)/usr/src/modules/$(sname)/debian
+
+	# Copy only the driver source to the proper location
+	cp `find . -type f -maxdepth 1` debian/$(psource)/usr/src/modules/$(sname)
+	# Copy the needed debian/ pieces to the proper location
+	cp debian/*modules.in* \
+		debian/$(psource)/usr/src/modules/$(sname)/debian
+	cp debian/*_KVERS_* debian/rules debian/changelog debian/copyright \
+		debian/compat debian/$(psource)/usr/src/modules/$(sname)/debian/
+	cd debian/$(psource)/usr/src && tar c modules | bzip2 -9 > $(sname).tar.bz2 && rm -rf modules
+
+	# Build the module
+	LINUXDIR=/lib/modules/$(KVERS)/build $(MAKE) drm.o psb.o
+	cp drm.ko psb.ko $(CURDIR)/debian/psb-kmd-default-2.6.22/lib/modules/$(KVERS)/kernel/drivers/char/drm/
+
+	LINUXDIR=/lib/modules/$(KVERS-DEV)/build $(MAKE) drm.o psb.o
+	cp drm.ko psb.ko $(CURDIR)/debian/psb-kmd-developer-2.6.22/lib/modules/$(KVERS-DEV)/kernel/drivers/char/drm/
+
+	LINUXDIR=/lib/modules/$(KVERS2)/build $(MAKE) drm.o psb.o
+	cp drm.ko psb.ko $(CURDIR)/debian/psb-kmd-default-2.6.24/lib/modules/$(KVERS2)/kernel/drivers/char/drm/
+
+	LINUXDIR=/lib/modules/$(KVERS-DEV2)/build $(MAKE) drm.o psb.o
+	cp drm.ko psb.ko $(CURDIR)/debian/psb-kmd-developer-2.6.24/lib/modules/$(KVERS-DEV2)/kernel/drivers/char/drm/
+	cat debian/postinst.in | sed -e "s/#KVERS#/$(KVERS)/" > debian/postinst	
+	touch $@
+
+clean:  unpatch
+	dh_testdir
+	dh_testroot
+	rm -f build-arch-stamp build-indep-stamp configure-stamp
+
+	# Add here commands to clean up after the build process.
+	-$(MAKE) clean
+	$(RM) debian/postinst
+
+	dh_clean
+
+install: DH_OPTIONS=
+install: build
+	dh_testdir
+	dh_testroot
+	dh_install
+
+# Build architecture-independent files here.
+# Pass -i to all debhelper commands in this target to reduce clutter.i
+binary: binary-arch
+binary-arch: build install
+	dh_testdir -a
+	dh_testroot -a
+	dh_installchangelogs  -a
+	dh_installdocs -a
+	dh_installexamples -a
+#	dh_install -i
+#	dh_installmenu -i
+#	dh_installdebconf -i
+#	dh_installlogrotate -i
+#	dh_installemacsen -i
+#	dh_installpam -i
+#	dh_installmime -i
+#	dh_installinit -i
+#	dh_installcron -i
+#	dh_installinfo -i
+	dh_installman -a
+	dh_link -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_installdeb -a
+#	dh_perl -i
+#	dh_python -i
+#	dh_makeshlibs -i
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+.PHONY: build clean binary install configure binary-modules

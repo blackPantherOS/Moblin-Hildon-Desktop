@@ -1,0 +1,94 @@
+diff -Nur bzr.debian.0.9.5/src/nm-device-802-11-wireless.c bzr.debian.0.9.5.new/src/nm-device-802-11-wireless.c
+--- bzr.debian.0.9.5/src/nm-device-802-11-wireless.c	2007-06-25 17:32:45.000000000 +0200
++++ bzr.debian.0.9.5.new/src/nm-device-802-11-wireless.c	2007-06-25 17:32:57.000000000 +0200
+@@ -2764,6 +2764,9 @@
+ 	const char *		iface = nm_device_get_iface (NM_DEVICE (self));
+ 	gboolean			success = FALSE;
+ 	int				tries = 0;
++	const char *            wpa_driver;
++	const char *            kernel_driver;
++
+ 
+ 	/* Try to open wpa_supplicant's global control socket */
+ 	for (tries = 0; tries < WPA_SUPPLICANT_NUM_RETRIES && !ctrl; tries++)
+@@ -2777,10 +2780,22 @@
+ 		nm_info ("Error opening supplicant global control interface.");
+ 		goto exit;
+ 	}
++     
++	kernel_driver = nm_device_get_driver (NM_DEVICE (self));
++
++       /*
++        * We want to work with the generic "wext" wpa_supplicant driver, but some kernel drivers
++        * are just utter junk.  For those losers, we use a specific wpa_supplicant driver.
++        */
++       
++	if (!strcmp (kernel_driver, "ath_pci"))
++               wpa_driver = "madwifi";
++       else
++               wpa_driver = "wext";
+ 
+ 	/* wpa_cli -g/var/run/wpa_supplicant-global interface_add eth1 "" wext /var/run/wpa_supplicant */
+ 	if (!nm_utils_supplicant_request_with_check (ctrl, "OK", __func__, NULL,
+-			"INTERFACE_ADD %s\t\twext\t" WPA_SUPPLICANT_CONTROL_SOCKET "\t", iface))
++			"INTERFACE_ADD %s\t\t%s\t" WPA_SUPPLICANT_CONTROL_SOCKET "\t", iface, wpa_driver))
+ 		goto exit;
+ 	wpa_ctrl_close (ctrl);
+ 
+@@ -2816,7 +2831,8 @@
+ 	struct wpa_ctrl *	ctrl;
+ 	gboolean			is_adhoc;
+ 	char *		hex_essid = NULL;
+-	const char *		ap_scan = "AP_SCAN 1";
++	const char *		ap_scan;
++	const char *		kernel_driver;
+ 	guint32			caps;
+ 	gboolean			supports_wpa;
+ 
+@@ -2845,6 +2861,46 @@
+ 	if (!nm_ap_get_broadcast (ap) || is_adhoc || !supports_wpa)
+ 		ap_scan = "AP_SCAN 2";
+ 
++	kernel_driver = nm_device_get_driver (NM_DEVICE (self));
++
++        /*
++         * We want to use "AP_SCAN 1", which tells wpa_supplicant to perform scanning.  This seems
++         * to work better with some drivers.  But we want "AP_SCAN 2", telling wpa_supplicant that
++         * we will do our own scanning, if
++         *
++         *      - The driver is orinoco_cs.  It chokes on "AP_SCAN 1".
++         *      - The AP is non-broadcast or Ad-Hoc.  Unless the driver is madwifi.
++         */
++        
++	if (!strcmp (kernel_driver, "orinoco_cs"))
++               	ap_scan = "AP_SCAN 2";
++        else if ((!nm_ap_get_broadcast (ap) || is_adhoc) && strcmp (kernel_driver, "ath_pci"))
++               	ap_scan = "AP_SCAN 2";
++        else if (!nm_ap_get_broadcast (ap) || is_adhoc || !supports_wpa)
++		ap_scan = "AP_SCAN 2";
++	else
++               	ap_scan = "AP_SCAN 1";
++
++	kernel_driver = nm_device_get_driver (NM_DEVICE (self));
++
++        /*
++         * We want to use "AP_SCAN 1", which tells wpa_supplicant to perform scanning.  This seems
++         * to work better with some drivers.  But we want "AP_SCAN 2", telling wpa_supplicant that
++         * we will do our own scanning, if
++         *
++         *      - The driver is orinoco_cs.  It chokes on "AP_SCAN 1".
++         *      - The AP is non-broadcast or Ad-Hoc.  Unless the driver is madwifi.
++         */
++        
++	if (!strcmp (kernel_driver, "orinoco_cs"))
++               	ap_scan = "AP_SCAN 2";
++        else if ((!nm_ap_get_broadcast (ap) || is_adhoc) && strcmp (kernel_driver, "ath_pci"))
++               	ap_scan = "AP_SCAN 2";
++        else if (!nm_ap_get_broadcast (ap) || is_adhoc || !supports_wpa)
++		ap_scan = "AP_SCAN 2";
++	else
++               	ap_scan = "AP_SCAN 1";
++
+ 	/* Tell wpa_supplicant that we'll do the scanning */
+ 	if (!nm_utils_supplicant_request_with_check (ctrl, "OK", __func__, NULL, ap_scan))
+ 		goto out;

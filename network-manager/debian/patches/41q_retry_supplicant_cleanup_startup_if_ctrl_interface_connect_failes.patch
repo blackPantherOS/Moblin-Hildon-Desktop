@@ -1,0 +1,39 @@
+---
+ src/nm-device-802-11-wireless.c |   16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+Index: network-manager.debian/src/nm-device-802-11-wireless.c
+===================================================================
+--- network-manager.debian.orig/src/nm-device-802-11-wireless.c	2007-09-02 23:44:09.000000000 +0200
++++ network-manager.debian/src/nm-device-802-11-wireless.c	2007-09-02 23:57:02.000000000 +0200
+@@ -2429,17 +2429,29 @@
+ 	char * sock_path;
+ 
+ 	g_return_if_fail (self != NULL);
+ 
+ 	if (self->priv->supplicant.pid > 0)
+ 	{
+ 		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+                         "DISABLE_NETWORK 0"))
+-			nm_warning("couldn't disable network in supplicant_cleanup");
++			nm_warning("supplicant_cleanup - couldn't disable network in supplicant_cleanup");
++
++		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++                        "AP_SCAN 0"))
++			nm_warning("supplicant_cleanup - couldn't set AP_SCAN 0");
++
++		//		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++		//                        "interface_remove %s", iface))
++		//			nm_warning("supplicant_cleanup - couldn't remove device interface %s", iface);
++
++		if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
++                        "TERMINATE"))
++			nm_warning("supplicant_cleanup - couldn't terminate wpasupplicant cleanly.");
+ 
+ 		kill (self->priv->supplicant.pid, SIGTERM);
+ 		self->priv->supplicant.pid = -1;
+ 	}
+ 	if (self->priv->supplicant.watch)
+ 	{
+ 		g_source_destroy (self->priv->supplicant.watch);
+ 		self->priv->supplicant.watch = NULL;

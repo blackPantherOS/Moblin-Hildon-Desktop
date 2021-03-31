@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EphySpinner">
+<refmeta>
+<refentrytitle role="top_of_page">EphySpinner</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EphySpinner</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EphySpinnerDetails">EphySpinnerDetails</link>;
+                    <link linkend="EphySpinner-struct">EphySpinner</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="ephy-spinner-new">ephy_spinner_new</link>                    (void);
+<link linkend="void">void</link>                <link linkend="ephy-spinner-start">ephy_spinner_start</link>                  (<link linkend="EphySpinner">EphySpinner</link> *throbber);
+<link linkend="void">void</link>                <link linkend="ephy-spinner-stop">ephy_spinner_stop</link>                   (<link linkend="EphySpinner">EphySpinner</link> *throbber);
+<link linkend="void">void</link>                <link linkend="ephy-spinner-set-size">ephy_spinner_set_size</link>               (<link linkend="EphySpinner">EphySpinner</link> *spinner,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> size);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----EphySpinner
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EphySpinner implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EphySpinnerDetails" role="struct"/>EphySpinnerDetails</title>
+<indexterm><primary>EphySpinnerDetails</primary></indexterm><programlisting>typedef struct _EphySpinnerDetails EphySpinnerDetails;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EphySpinner-struct" role="struct"/>EphySpinner</title>
+<indexterm><primary>EphySpinner</primary></indexterm><programlisting>typedef struct _EphySpinner EphySpinner;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="ephy-spinner-new" role="function"/>ephy_spinner_new ()</title>
+<indexterm><primary>ephy_spinner_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          ephy_spinner_new                    (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="ephy-spinner-start" role="function"/>ephy_spinner_start ()</title>
+<indexterm><primary>ephy_spinner_start</primary></indexterm><programlisting><link linkend="void">void</link>                ephy_spinner_start                  (<link linkend="EphySpinner">EphySpinner</link> *throbber);</programlisting>
+<para>
+Start the spinner animation.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>throbber</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="ephy-spinner-stop" role="function"/>ephy_spinner_stop ()</title>
+<indexterm><primary>ephy_spinner_stop</primary></indexterm><programlisting><link linkend="void">void</link>                ephy_spinner_stop                   (<link linkend="EphySpinner">EphySpinner</link> *throbber);</programlisting>
+<para>
+Stop the spinner animation.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>throbber</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="ephy-spinner-set-size" role="function"/>ephy_spinner_set_size ()</title>
+<indexterm><primary>ephy_spinner_set_size</primary></indexterm><programlisting><link linkend="void">void</link>                ephy_spinner_set_size               (<link linkend="EphySpinner">EphySpinner</link> *spinner,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> size);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>spinner</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>size</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

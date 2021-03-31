@@ -1,0 +1,26 @@
+<!ENTITY toggle.label "Grab and Drag çalıştır">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Tut ve Sürükle Biçimine Geç">
+<!ENTITY grabanddrag.shortlabel "Tut/Sürükle">
+<!ENTITY options.title "Grab and Drag Seçenekleri">
+<!ENTITY enabled.label "Eklenti Etkinleştirildi">
+<!ENTITY qt.label "Hızlı Başlat Tuşu">
+<!ENTITY mousecursor.label "Fare İşaretçisi">
+<!ENTITY grabcursor.label "Tutma İşaretçisi">
+<!ENTITY openhand.label "Açık El">
+<!ENTITY closedhand.label "Kapalı El">
+<!ENTITY altopenhand.label "Açık El #2">
+<!ENTITY altclosedhand.label "Kapalı El #2">
+<!ENTITY fourway.label "4 Yönlü Ok">
+<!ENTITY stdarrow.label "Varsayılan Ok">
+<!ENTITY defcur.label "Varsayılan İşaretçi">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Normal Çalıştırma Kısayolu">
+<!ENTITY options.togKey "Tuş">
+<!ENTITY notes "Notlar">
+<!ENTITY prefs.cursorwarning "El işaretçileri Firefox/Thunderbird 1.5+ gerektirir. Bazı işletim sistemleri birinci el işaretçileri takımını görüntüleyemeyebilir.">
+<!ENTITY prefs.toolbarInfo "Araç çubuğuna "çalıştır" düğmesi ekleyebilirsiniz (Görünüm > Araç Çubukları > Özelleştir...)">
+<!ENTITY prefs.qtInfo "'Hızlı Başlat' kısayol tuşunu basılı tutarsanız Grab and Drag, tuşu bırakana kadar devre dışı kalacaktır.">
+<!ENTITY prefs.rollForInfo "Daha fazla bilgi için fareyi bir seçeneğin üzerine getirin.">

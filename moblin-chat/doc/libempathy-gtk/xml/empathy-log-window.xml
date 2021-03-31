@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-log-window">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-log-window</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-log-window</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>                <link linkend="empathy-log-window-show">empathy_log_window_show</link>             (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="empathy-log-window-show" role="function"/>empathy_log_window_show ()</title>
+<indexterm><primary>empathy_log_window_show</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_log_window_show             (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

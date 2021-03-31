@@ -1,0 +1,106 @@
+<!ENTITY toggle.label "Grab and Drag aan/uit">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Grab and Drag aan-/uitschakelen">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Grab and Drag Voorkeuren">
+<!ENTITY options.apply "Toepassen">
+<!ENTITY options.wizard "Opzetassistent">
+<!ENTITY options.reset "Herstel standaardinstelling">
+<!ENTITY options.tab.general "Algemeen">
+<!ENTITY options.tab.behavior "Meer opties">
+<!ENTITY options.tab.mom "Traagheid">
+<!ENTITY options.tab.gestures "Gebaren">
+<!ENTITY options.tab.advanced "Geavanceerd">
+<!ENTITY options.features "Eigenschappen">
+<!ENTITY enabled.label "Extensie ingeschakeld">
+<!ENTITY mousecursor.label "Muisaanwijzer">
+<!ENTITY grabcursor.label "Sleepaanwijzer">
+<!ENTITY openhand.label "Open hand">
+<!ENTITY closedhand.label "Gesloten hand">
+<!ENTITY altopenhand.label "Open hand #2">
+<!ENTITY altclosedhand.label "Gesloten hand #2">
+<!ENTITY fourway.label "Kruis met pijlen">
+<!ENTITY stdarrow.label "Standaard pijl">
+<!ENTITY nocursor.label "Onzichtbaar">
+<!ENTITY defcur.label "Standaard aanwijzer">
+<!ENTITY options.cursors "Aanwijzers">
+<!ENTITY options.togUseCtrl "Ctrl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Shift">
+<!ENTITY options.togKeyCap "Wissel Sneltoets">
+<!ENTITY options.togKey "Toets">
+<!ENTITY options.dragInc "Sleepintervallen">
+<!ENTITY options.dragInc.min "vloeiend">
+<!ENTITY options.dragInc.max "gevoelig">
+<!ENTITY options.mult "Sleepversnelling">
+<!ENTITY options.mult.min "standaard">
+<!ENTITY options.mult.max "snel">
+<!ENTITY options.sbmode "Gedraag als schuifbalk (doet alsof de schuifbalk is vastgepakt)">
+<!ENTITY options.samecur "Niet veranderen (verbeterd prestaties)">
+<!ENTITY options.reverse "Tegenovergestelde schuifrichting">
+<!ENTITY options.behavior "Gedrag">
+<!ENTITY options.behavior.drag "Sleepgedrag">
+<!ENTITY options.behavior.scrolling "Schuifgedrag">
+<!ENTITY options.flicks "Halende bewegingen">
+<!ENTITY options.flickon "Halende bewegingen ingeschakeld">
+<!ENTITY options.flickExtent "Halen schuift als">
+<!ENTITY options.flickOneScreen "PgUp/PgDn (een scherm per keer)">
+<!ENTITY options.flickWholePage "Home/End (naar de rand van de pagina)">
+<!ENTITY options.flickspeed "Schuifsnelheid">
+<!ENTITY options.flickspeed.min "langzaam">
+<!ENTITY options.flickspeed.max "snel">
+<!ENTITY options.flicktimelimit "Tijdlimiet">
+<!ENTITY options.flicktimelimit.min "kort">
+<!ENTITY options.flicktimelimit.max "lang">
+<!ENTITY options.mom "Sleep Traagheid">
+<!ENTITY options.momOn "Traagheid ingeschakeld">
+<!ENTITY options.momExtent "Tijdgevoeligheid">
+<!ENTITY options.momExtent.min "kort">
+<!ENTITY options.momExtent.max "lang">
+<!ENTITY options.momVariation "Vertragingsgevoeligheid">
+<!ENTITY options.momVariation.min "klein">
+<!ENTITY options.momVariation.max "groot">
+<!ENTITY options.momFriction "Traagheidswrijving">
+<!ENTITY options.momFriction.min "geen wrijving">
+<!ENTITY options.momFriction.max "volledige wrijving">
+<!ENTITY options.smoothStop "Vloeiend stoppen met schuiven van halen en traagheid">
+<!ENTITY options.button1 "Gebruik de">
+<!ENTITY left "linker">
+<!ENTITY middle "middelste">
+<!ENTITY right "rechter">
+<!ENTITY options.button2 "muisknop om te pakken en slepen">
+<!ENTITY one "1">
+<!ENTITY two "2">
+<!ENTITY three "3">
+<!ENTITY options.QT "TekstWissel">
+<!ENTITY qt.clicking "Klik">
+<!ENTITY qt.enable "maal op de paginatekst om tekst te kunnen selecteren">
+<!ENTITY qt.disable "maal op iets wat geen tekst is om weer te kunnen pakken en slepen">
+<!ENTITY qt.qtOffCopy "Kopiëer de geselecteerde tekst naar het klembord wanneer het pakken weer is ingeschakeld.">
+<!ENTITY options.preLevel1 "Pakken op">
+<!ENTITY preLevel.0 "geen-tekst/geen-koppeling gebieden">
+<!ENTITY preLevel.1 "geen-koppeling gebieden">
+<!ENTITY preLevel.2 "iedere plek op het scherm">
+<!ENTITY options.preLevel2 "zal de pagina verslepen">
+<!ENTITY prefs.cursorwarning "Sommige besturingssystemen laten sommige aanwijzers misschien niet goed zien.">
+<!ENTITY prefs.dragIncInfo "Het vergroten van deze waarde maakt de intervallen bij het schuiven groter. Dit gaat wat ten koste van de vloeiendheid, maar kan betere prestaties geven op sommige machines.">
+<!ENTITY prefs.multInfo "Het vergroten van deze waarde laat het scherm sneller schuiven dan de muis in werkelijkheid beweegt.">
+<!ENTITY prefs.momInfo "Als Traagheid actief is, zal bij het loslaten van een pagina die u met een constante snelheid versleept, de pagina door blijven schuiven totdat er geklikt wordt om te stoppen. Dit voorziet in een vloeiende en snelle beweging door lange pagina&apos;s.">
+<!ENTITY prefs.momParamInfo "Tijdgevoeligheid bepaald hoeveel tijd een pagina met een bijna-constante snelheid moet zijn versleept om traagheid op gang te brengen. Vertragingsgevoeligheid bepaald hoe gevoelig de traagheid is voor veranderingen in de sleepsnelheid direct voor het loslaten. In beide gevallen geld dat hoe kleiner de waarde, hoe gemakkelijker het is de traagheid op gang te brengen.">
+<!ENTITY prefs.momParamInfo2 "Wrijving bepaald hoe hard de snelheid van het schuiven afneemt bij het loslaten. Lagere waardes laten de pagina ver door schuiven, terwijl hogere waardes de pagina al laten stoppen na een korte afstand.">
+<!ENTITY prefs.flicksInfo "‘Halen’ zij muisbewegingen die worden gemaakt door met uw pen/muis snel een haal over het scherm te maken in een zekere richting. Met Grab and Drag kunt u halen gebruiken om een schermgrootte omhoog, omlaag, naar links of naar rechts te schuiven. Halen zijn vooral nuttig bij pen-gestuurde computers.">
+<!ENTITY prefs.flickTimeLimitInfo "Dit bepaald hoe snel een haal moet worden gemaakt om herkent te worden.">
+<!ENTITY wiz.title "Grab and Drag Opzetassistent">
+<!ENTITY wiz.go "Voltooien">
+<!ENTITY wiz.config "Ik gebruik Grab and Drag met een...">
+<!ENTITY wiz.3button "3-knoppige muis (middelste knop gebruiken)">
+<!ENTITY wiz.2buttonR "2-knoppige muis (rechterknop gebruiken)">
+<!ENTITY wiz.2buttonL "1- of 2-knoppige muis (linkerknop gebruiken)">
+<!ENTITY wiz.pen "pen-gestuurde computer (linkerknop en beweging)">
+<!ENTITY wiz.addTB "Voeg de Grab and Drag aan/uit-knop toe aan de Navigatiewerkbalk">
+<!ENTITY wiz.openprefs "Open hierna het hoofdvenster met voorkeuren">
+<!ENTITY wiz.notes "Welkom bij de Grab and Drag opzetassistent. Hiermee kunt u snel de juiste instelling voor deze extensie opzetten voor uw computer. Vele extra opties kunt u vinden in het hoofdvenster met voorkeuren, zoals het gedrag en het uiterlijk van de extensie.">
+<!ENTITY wiz.please "Let op:">
+<!ENTITY wiz.notes2 "De meest veelvoorkomende vraag die nieuwe gebruikers van Grab and Drag stellen is hoe het slepen uitgeschakeld moet worden om tekst te kunnen selecteren. Er zijn drie mogelijkheden: met de Wissel Sneltoets, de aan/uit-knop op de werkbalk, en de ‘TekstWissel’ functie waarmee u kunt wisselen door gewoon op een tekst-gebied te klikken. Zie alstublieft het hoofdvenster voor meer informatie en voorkeuren.">
+<!ENTITY wiz.notes3 "merk dan op dat de ‘Snel Wissel’ functie is vervangen door de ‘TekstWissel’ functie zoals die hierboven beschreven is.">
+<!ENTITY wiz.ifprev "Als u eerdere versies van Grab and Drag heeft gebruikt,">

@@ -1,0 +1,31 @@
+<!ENTITY toggle.label "Kytke Grab and Drag">
+<!ENTITY grabanddrag.label "Grab and Drag">
+<!ENTITY grabanddrag.tooltip "Kytke Grab and Drag käyttötapa">
+<!ENTITY grabanddrag.shortlabel "Grab/Drag">
+<!ENTITY options.title "Grab and Drag asetukset">
+<!ENTITY enabled.label "Laajennus käytössä">
+<!ENTITY qt.label "Nopean kytkennän näppäin">
+<!ENTITY mousecursor.label "Hiiren kursori">
+<!ENTITY grabcursor.label "Tarttumis kursori">
+<!ENTITY openhand.label "Avoin käsi">
+<!ENTITY closedhand.label "Suljettu käsi">
+<!ENTITY altopenhand.label "Toinen avoin käsi">
+<!ENTITY altclosedhand.label "Toinen suljettu käsi">
+<!ENTITY fourway.label "Neljäsuuntainen nuoli">
+<!ENTITY stdarrow.label "Perusnuoli">
+<!ENTITY defcur.label "Oletusnuoli">
+<!ENTITY options.togUseCtrl "Ctl">
+<!ENTITY options.togUseAlt "Alt">
+<!ENTITY options.togUseShift "Vaihto">
+<!ENTITY options.togKeyCap "Tavallinen pikanäppäin">
+<!ENTITY options.togKey "Näppäin">
+<!ENTITY options.dragInc "Vedon kiihtyminen">
+<!ENTITY options.mult "Vedon kertaantuminen">
+<!ENTITY options.sbmode "Vierityspalkinvetotyyli">
+<!ENTITY notes "Kommentit">
+<!ENTITY prefs.cursorwarning "Huomaa: Käsikursorit vaativat Firefox/Thunderbird 1.5+">
+<!ENTITY prefs.toolbarInfo "Saatavilla on myös työkalupalkin kytkinnäppäin (käytä Näytä > Työkalupalkit > Muokkaa...)">
+<!ENTITY prefs.qtInfo "Nopean kytkennän näppäimen painaminen pitää Grab and Dragin toimintakyvyttömänä, kunnes näppäin taas vapautetaan. Näin sisältöä on helppo valita.">
+<!ENTITY prefs.dragIncInfo "Vierityis tapahtuu vain tässä määritellyillä pikseleleillä. Suurempi luku voi toimia paremmin, mutta vähemmän pehmeästi.">
+<!ENTITY prefs.multInfo "Vieritysnopeus kerrotaan tällä numerolla, jotta ruutu liikkuu nopeammin kuin hiiri liikkuu. Voit käyttää negatiivista arvoa vierittääksesi vastakkaiseen suuntaan. Valitse 'Vierityspalkinvetotyyli' vetääksesi kuten silloin kun vierityspalkki on hiiren kohdistimen alla.">
+<!ENTITY prefs.rollForInfo "Liikuta hiirtä toiminnon päälle saadaksesi siitä lisää tietoa.">

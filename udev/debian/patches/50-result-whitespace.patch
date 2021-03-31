@@ -1,0 +1,22 @@
+diff -ruNp udev-108~/udev_utils_string.c udev-108/udev_utils_string.c
+--- udev-108~/udev_utils_string.c	2007-03-30 12:39:20.000000000 +0100
++++ udev-108/udev_utils_string.c	2007-03-30 12:41:49.000000000 +0100
+@@ -229,10 +229,17 @@ int replace_untrusted_chars(char *str)
+ 		if ((str[i] >= '0' && str[i] <= '9') ||
+ 		    (str[i] >= 'A' && str[i] <= 'Z') ||
+ 		    (str[i] >= 'a' && str[i] <= 'z') ||
+-		    strchr(" #$%+-./:=?@_,", str[i])) {
++		    strchr("#$%+-./:=?@_,", str[i])) {
+ 			i++;
+ 			continue;
+ 		}
++		/* whitespace replaced with ordinary space */
++		if (isspace(str[i])) {
++			str[i] = ' ';
++			i++;
++			replaced++;
++			continue;
++		}
+ 		/* valid utf8 is accepted */
+ 		len = utf8_encoded_valid_unichar(&str[i]);
+ 		if (len > 1) {

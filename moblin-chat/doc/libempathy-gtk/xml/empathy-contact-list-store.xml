@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-EmpathyContactListStore">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyContactListStore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyContactListStore</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+enum                <link linkend="EmpathyContactListStoreSort">EmpathyContactListStoreSort</link>;
+                    <link linkend="EmpathyContactListStorePriv">EmpathyContactListStorePriv</link>;
+                    <link linkend="EmpathyContactListStore">EmpathyContactListStore</link>;
+<link linkend="GList">GList</link>*              (<link linkend="EmpathyContactGroupsFunc">*EmpathyContactGroupsFunc</link>)         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="EmpathyContactListStore">EmpathyContactListStore</link>* <link linkend="empathy-contact-list-store-new">empathy_contact_list_store_new</link> (<link linkend="EmpathyContactList">EmpathyContactList</link> *list_iface);
+<link linkend="EmpathyContactList">EmpathyContactList</link>* <link linkend="empathy-contact-list-store-get-list-iface">empathy_contact_list_store_get_list_iface</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-list-store-get-show-offline">empathy_contact_list_store_get_show_offline</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-store-set-show-offline">empathy_contact_list_store_set_show_offline</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="gboolean">gboolean</link> show_offline);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-list-store-get-show-avatars">empathy_contact_list_store_get_show_avatars</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-store-set-show-avatars">empathy_contact_list_store_set_show_avatars</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="gboolean">gboolean</link> show_avatars);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-list-store-get-is-compact">empathy_contact_list_store_get_is_compact</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-store-set-is-compact">empathy_contact_list_store_set_is_compact</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="gboolean">gboolean</link> is_compact);
+<link linkend="EmpathyContactListStoreSort">EmpathyContactListStoreSort</link> <link linkend="empathy-contact-list-store-get-sort-criterium">empathy_contact_list_store_get_sort_criterium</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-store-set-sort-criterium">empathy_contact_list_store_set_sort_criterium</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="EmpathyContactListStoreSort">EmpathyContactListStoreSort</link> sort_criterium);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-list-store-row-separator-func">empathy_contact_list_store_row_separator_func</link>
+                                                        (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-contact-list-store-get-parent-group">empathy_contact_list_store_get_parent_group</link>
+                                                        (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="GtkTreePath">GtkTreePath</link> *path,
+                                                         <link linkend="gboolean">gboolean</link> *path_is_group);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-list-store-search-equal-func">empathy_contact_list_store_search_equal_func</link>
+                                                        (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="gint">gint</link> column,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter,
+                                                         <link linkend="gpointer">gpointer</link> search_data);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-store-set-contact-groups-func">empathy_contact_list_store_set_contact_groups_func</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="EmpathyContactGroupsFunc">EmpathyContactGroupsFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                <link linkend="empathy-contact-list-store-update-contact-groups">empathy_contact_list_store_update_contact_groups</link>
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyContactListStoreSort" role="enum"/>enum EmpathyContactListStoreSort</title>
+<indexterm><primary>EmpathyContactListStoreSort</primary></indexterm><programlisting>typedef enum {
+	EMPATHY_CONTACT_LIST_STORE_SORT_STATE,
+	EMPATHY_CONTACT_LIST_STORE_SORT_NAME
+} EmpathyContactListStoreSort;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyContactListStorePriv" role="struct"/>EmpathyContactListStorePriv</title>
+<indexterm><primary>EmpathyContactListStorePriv</primary></indexterm><programlisting>typedef struct _EmpathyContactListStorePriv EmpathyContactListStorePriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyContactListStore" role="struct"/>EmpathyContactListStore</title>
+<indexterm><primary>EmpathyContactListStore</primary></indexterm><programlisting>typedef struct {
+	GtkTreeStore            parent;
+} EmpathyContactListStore;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyContactGroupsFunc" role="function"/>EmpathyContactGroupsFunc ()</title>
+<indexterm><primary>EmpathyContactGroupsFunc</primary></indexterm><programlisting><link linkend="GList">GList</link>*              (*EmpathyContactGroupsFunc)         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-new" role="function"/>empathy_contact_list_store_new ()</title>
+<indexterm><primary>empathy_contact_list_store_new</primary></indexterm><programlisting><link linkend="EmpathyContactListStore">EmpathyContactListStore</link>* empathy_contact_list_store_new (<link linkend="EmpathyContactList">EmpathyContactList</link> *list_iface);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>list_iface</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-get-list-iface" role="function"/>empathy_contact_list_store_get_list_iface ()</title>
+<indexterm><primary>empathy_contact_list_store_get_list_iface</primary></indexterm><programlisting><link linkend="EmpathyContactList">EmpathyContactList</link>* empathy_contact_list_store_get_list_iface
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-get-show-offline" role="function"/>empathy_contact_list_store_get_show_offline ()</title>
+<indexterm><primary>empathy_contact_list_store_get_show_offline</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_list_store_get_show_offline
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-set-show-offline" role="function"/>empathy_contact_list_store_set_show_offline ()</title>
+<indexterm><primary>empathy_contact_list_store_set_show_offline</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_store_set_show_offline
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="gboolean">gboolean</link> show_offline);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_offline</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-get-show-avatars" role="function"/>empathy_contact_list_store_get_show_avatars ()</title>
+<indexterm><primary>empathy_contact_list_store_get_show_avatars</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_list_store_get_show_avatars
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-set-show-avatars" role="function"/>empathy_contact_list_store_set_show_avatars ()</title>
+<indexterm><primary>empathy_contact_list_store_set_show_avatars</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_store_set_show_avatars
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="gboolean">gboolean</link> show_avatars);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_avatars</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-get-is-compact" role="function"/>empathy_contact_list_store_get_is_compact ()</title>
+<indexterm><primary>empathy_contact_list_store_get_is_compact</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_list_store_get_is_compact
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-set-is-compact" role="function"/>empathy_contact_list_store_set_is_compact ()</title>
+<indexterm><primary>empathy_contact_list_store_set_is_compact</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_store_set_is_compact
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="gboolean">gboolean</link> is_compact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_compact</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-get-sort-criterium" role="function"/>empathy_contact_list_store_get_sort_criterium ()</title>
+<indexterm><primary>empathy_contact_list_store_get_sort_criterium</primary></indexterm><programlisting><link linkend="EmpathyContactListStoreSort">EmpathyContactListStoreSort</link> empathy_contact_list_store_get_sort_criterium
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-set-sort-criterium" role="function"/>empathy_contact_list_store_set_sort_criterium ()</title>
+<indexterm><primary>empathy_contact_list_store_set_sort_criterium</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_store_set_sort_criterium
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="EmpathyContactListStoreSort">EmpathyContactListStoreSort</link> sort_criterium);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sort_criterium</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-row-separator-func" role="function"/>empathy_contact_list_store_row_separator_func ()</title>
+<indexterm><primary>empathy_contact_list_store_row_separator_func</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_list_store_row_separator_func
+                                                        (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>model</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-get-parent-group" role="function"/>empathy_contact_list_store_get_parent_group ()</title>
+<indexterm><primary>empathy_contact_list_store_get_parent_group</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_contact_list_store_get_parent_group
+                                                        (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="GtkTreePath">GtkTreePath</link> *path,
+                                                         <link linkend="gboolean">gboolean</link> *path_is_group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>model</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>path_is_group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-search-equal-func" role="function"/>empathy_contact_list_store_search_equal_func ()</title>
+<indexterm><primary>empathy_contact_list_store_search_equal_func</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_list_store_search_equal_func
+                                                        (<link linkend="GtkTreeModel">GtkTreeModel</link> *model,
+                                                         <link linkend="gint">gint</link> column,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter,
+                                                         <link linkend="gpointer">gpointer</link> search_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>model</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>column</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>search_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-set-contact-groups-func" role="function"/>empathy_contact_list_store_set_contact_groups_func ()</title>
+<indexterm><primary>empathy_contact_list_store_set_contact_groups_func</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_store_set_contact_groups_func
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="EmpathyContactGroupsFunc">EmpathyContactGroupsFunc</link> func,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>func</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-list-store-update-contact-groups" role="function"/>empathy_contact_list_store_update_contact_groups ()</title>
+<indexterm><primary>empathy_contact_list_store_update_contact_groups</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_list_store_update_contact_groups
+                                                        (<link linkend="EmpathyContactListStore">EmpathyContactListStore</link> *store,
+                                                         <link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

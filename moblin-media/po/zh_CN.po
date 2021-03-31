@@ -1,0 +1,616 @@
+# Moblin Media Translation Template:
+#
+# Copyright 2007, 2008 Intel Corporation
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.34\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-14 20:18-0700\n"
+"PO-Revision-Date: 2008-02-09 19:30-0800\n"
+"Last-Translator: Rusty Lynch <rusty.lynch@intel.com>\n"
+"Language-Team: TESTLANG <TestLang@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/dialogs.glade.h:1
+msgid "4.12 MB"
+msgstr "4.12 MB"
+
+#: ../glade/dialogs.glade.h:2
+msgid "4hr 2min 3sec"
+msgstr "4时2分3秒"
+
+#: ../glade/dialogs.glade.h:3
+msgid "<small>Copyright (c) Intel Corporation 2007-2008</small>"
+msgstr "版权归英特尔公司所有 2007－2008"
+
+#: ../glade/dialogs.glade.h:4
+msgid ""
+"<span foreground=\"black\" weight=\"bold\" size=\"24000\">Moblin Media</span>"
+msgstr "Moblin Media"
+
+#: ../glade/dialogs.glade.h:5
+msgid "About Moblin Media"
+msgstr "关于Moblin播放器"
+
+#: ../glade/dialogs.glade.h:6
+msgid "Album:"
+msgstr "专辑"
+
+#: ../glade/dialogs.glade.h:7
+msgid "Artist:"
+msgstr "艺术家"
+
+#: ../glade/dialogs.glade.h:8
+msgid "Beatles"
+msgstr "乐队"
+
+#: ../glade/dialogs.glade.h:9
+msgid "Enter an internet URL to play online content:"
+msgstr "输入在线播放内容网络地址："
+
+#: ../glade/dialogs.glade.h:10
+msgid "File:"
+msgstr "文件："
+
+#: ../glade/dialogs.glade.h:11
+msgid "Greatest Hits Vol 2"
+msgstr "Greatest Hits Vol 2"
+
+#: ../glade/dialogs.glade.h:12
+msgid "Hint"
+msgstr "Hint"
+
+#: ../glade/dialogs.glade.h:13
+msgid "JPG"
+msgstr "JPG"
+
+#: ../glade/dialogs.glade.h:14
+msgid "Length:"
+msgstr "长度："
+
+#: ../glade/dialogs.glade.h:15
+msgid "Music, Video, and Photos"
+msgstr ""
+"音乐，视频，图片\n"
+"多媒体享受的新领域"
+
+#: ../glade/dialogs.glade.h:16
+msgid "Name:"
+msgstr "名字："
+
+#: ../glade/dialogs.glade.h:17
+msgid "Online Music Properties"
+msgstr "在线音乐属性"
+
+#: ../glade/dialogs.glade.h:18
+msgid "Open Location"
+msgstr "打开位置"
+
+#: ../glade/dialogs.glade.h:19 ../src/constant.py:185
+msgid "Properties"
+msgstr "属性"
+
+#: ../glade/dialogs.glade.h:20
+msgid "Size:"
+msgstr "大小："
+
+#: ../glade/dialogs.glade.h:21
+msgid "Song Properties"
+msgstr "歌曲属性"
+
+#: ../glade/dialogs.glade.h:22
+msgid "Title:"
+msgstr "标题："
+
+#: ../glade/dialogs.glade.h:23
+msgid "Type:"
+msgstr "类型："
+
+#: ../glade/dialogs.glade.h:24
+msgid "URL:"
+msgstr "地址："
+
+#: ../glade/dialogs.glade.h:25 ../glade/moblin_media.glade.h:14
+msgid "Yellow Brick Road"
+msgstr "Yellow Brick Road"
+
+#: ../glade/dialogs.glade.h:26
+msgid "Yellow_Brick_Road.mp3"
+msgstr "Yellow_Brick_Road.mp3"
+
+#: ../glade/dialogs.glade.h:27
+msgid "http://"
+msgstr "http://"
+
+#: ../glade/dialogs.glade.h:28
+msgid "version 0.38"
+msgstr "版本 0.38"
+
+#: ../glade/moblin_media.glade.h:1
+msgid "1988"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:2
+msgid "Album Name"
+msgstr "专辑名"
+
+#: ../glade/moblin_media.glade.h:3
+msgid "Artist Name"
+msgstr "艺术家名"
+
+#: ../glade/moblin_media.glade.h:4
+msgid "Elton John"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:5
+msgid "FileList"
+msgstr "文件列表"
+
+#: ../glade/moblin_media.glade.h:6
+msgid "Greatest Hits"
+msgstr "Greatest Hits 软件测试"
+
+#: ../glade/moblin_media.glade.h:7
+msgid "Media"
+msgstr "多媒体"
+
+#: ../glade/moblin_media.glade.h:8
+msgid "Select browse button below to open a photo"
+msgstr "选择下面的浏览按钮打开图片"
+
+#: ../glade/moblin_media.glade.h:9
+msgid "Select browse button below to open a video"
+msgstr "选择下面的浏览按钮打开视频"
+
+#: ../glade/moblin_media.glade.h:10
+msgid ""
+"Sort By Title\n"
+"Sort By Artist\n"
+"Sort By Album\n"
+"Sort By Length"
+msgstr ""
+"按标题排序\n"
+"按艺术家排序\n"
+"按专辑排序\n"
+"按长度排序"
+
+#: ../glade/moblin_media.glade.h:15
+msgid "_Add to Playlist"
+msgstr "添加到播放列表"
+
+#: ../glade/moblin_media.glade.h:16
+msgid "album"
+msgstr "专辑"
+
+#: ../glade/moblin_media.glade.h:17
+msgid "artist"
+msgstr "艺术家"
+
+#: ../glade/moblin_media.glade.h:18
+msgid "default"
+msgstr "默认"
+
+#: ../glade/moblin_media.glade.h:19
+msgid "music"
+msgstr "音乐"
+
+#: ../glade/moblin_media.glade.h:20
+msgid "photo"
+msgstr "图片"
+
+#: ../glade/moblin_media.glade.h:21
+msgid "playback"
+msgstr "播放"
+
+#: ../glade/moblin_media.glade.h:22
+msgid "playlist"
+msgstr "播放列表"
+
+#: ../glade/moblin_media.glade.h:23
+msgid "pm_clutter"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:24
+msgid "share"
+msgstr "共享"
+
+#: ../glade/moblin_media.glade.h:25
+msgid "thumbnail"
+msgstr "缩略图"
+
+#: ../glade/moblin_media.glade.h:26
+msgid "video"
+msgstr "视频"
+
+#: ../glade/settings_dialog.glade.h:1
+msgid " second(s)."
+msgstr "秒"
+
+#: ../glade/settings_dialog.glade.h:2
+msgid "(1.4 MB)"
+msgstr "(1.4 MB)"
+
+#: ../glade/settings_dialog.glade.h:3
+msgid "Customize how labels are displayed below the photo thumbnail images."
+msgstr "图片缩略图模式下用户化标签的显示。"
+
+#: ../glade/settings_dialog.glade.h:4
+msgid "Defaults"
+msgstr "默认"
+
+#: ../glade/settings_dialog.glade.h:5 ../src/constant.py:219
+msgid "Delete"
+msgstr "删除"
+
+#: ../glade/settings_dialog.glade.h:6
+msgid "Extension (jpg, tif, ...)"
+msgstr "扩展名(jpg, tif, ...)"
+
+#: ../glade/settings_dialog.glade.h:7
+msgid "Full screen"
+msgstr "全屏"
+
+#: ../glade/settings_dialog.glade.h:8
+msgid "Labels"
+msgstr "标签"
+
+#: ../glade/settings_dialog.glade.h:9 ../src/constant.py:223
+msgid "Name"
+msgstr "名字"
+
+#: ../glade/settings_dialog.glade.h:10
+msgid "Photo Settings"
+msgstr "图片设置"
+
+#: ../glade/settings_dialog.glade.h:11
+msgid "PhotoSample.jpg"
+msgstr "PhotoSample.jpg"
+
+#: ../glade/settings_dialog.glade.h:12
+msgid "Play slideshow"
+msgstr "播放幻灯片"
+
+#: ../glade/settings_dialog.glade.h:13
+msgid "Resize thumbnails (slider)"
+msgstr "缩略图（幻灯片）大小调整"
+
+#: ../glade/settings_dialog.glade.h:14
+msgid "Rotate photo"
+msgstr "图片旋转"
+
+#: ../glade/settings_dialog.glade.h:15
+msgid "Select the features you would like to include on the toolbar."
+msgstr "选择要加入工具栏中的属性"
+
+#: ../glade/settings_dialog.glade.h:16
+msgid "Set your preferences for the slide show."
+msgstr "设定幻灯片放映的选项"
+
+#: ../glade/settings_dialog.glade.h:17
+msgid "Settings"
+msgstr "设置"
+
+#: ../glade/settings_dialog.glade.h:18
+msgid "Show each photo for "
+msgstr "每个图片显示"
+
+#: ../glade/settings_dialog.glade.h:19 ../src/constant.py:224
+msgid "Size"
+msgstr "大小"
+
+#: ../glade/settings_dialog.glade.h:20
+msgid "Slide Show"
+msgstr "幻灯片放映"
+
+#: ../glade/settings_dialog.glade.h:21
+msgid ""
+"SlideShow Icon\n"
+"Goes Above"
+msgstr ""
+"幻灯片显示图标\n"
+"向上移动"
+
+#: ../glade/settings_dialog.glade.h:23
+msgid ""
+"Smooth Fade\n"
+"Flip\n"
+"Pixelate\n"
+"Shatter\n"
+"Drip\n"
+"Zip\n"
+"Random"
+msgstr ""
+"平滑淡入淡出\n"
+"跳跃\n"
+"像素化\n"
+" 碎片\n"
+"雨滴\n"
+"拉链\n"
+"随机"
+
+#: ../glade/settings_dialog.glade.h:30
+msgid "Sort"
+msgstr "排序"
+
+#: ../glade/settings_dialog.glade.h:31
+msgid "Toolbar"
+msgstr "工具条"
+
+#: ../glade/settings_dialog.glade.h:32
+msgid "Transition between slides using: "
+msgstr "幻灯片切换"
+
+#: ../glade/settings_dialog.glade.h:33
+msgid "View properties"
+msgstr "查看属性"
+
+#. #############################################################################
+#. Translatable Strings
+#: ../src/constant.py:169
+msgid "A song can not be deleted while it is playing."
+msgstr "不能删除正在播放的歌曲"
+
+#: ../src/constant.py:170
+msgid "A song can not be edited while it is playing."
+msgstr "不能编辑正在播放的歌曲"
+
+#: ../src/constant.py:171
+msgid "Can not edit playing video"
+msgstr "不能编辑正在播放的视频"
+
+#: ../src/constant.py:172
+msgid "Application is disabled while in docking mode"
+msgstr "Dock模式下应用被禁止"
+
+#: ../src/constant.py:173
+msgid "Unable to open file"
+msgstr "不能打开文件"
+
+#: ../src/constant.py:174
+msgid "Unable to play file"
+msgstr "不能播放文件"
+
+#: ../src/constant.py:175
+msgid "Delete Media"
+msgstr "删除媒体文件？"
+
+#: ../src/constant.py:176
+#, python-format
+msgid ""
+"Are you sure you want to delete \n"
+"'%s'?"
+msgstr "确定删除 '%s'？"
+
+#: ../src/constant.py:177
+msgid "Please select a song to delete."
+msgstr "请选择要删除的歌曲"
+
+#: ../src/constant.py:178
+msgid "Rename Conflict"
+msgstr "重命名冲突"
+
+#: ../src/constant.py:179
+#, python-format
+msgid "The file '%s' already exists.  Do you want to replace it?"
+msgstr "文件-<%s>-已存在，确定替换它？"
+
+#: ../src/constant.py:180
+msgid "Extension Changed"
+msgstr "扩展名被改变"
+
+#: ../src/constant.py:181
+#, python-format
+msgid "Are you sure you want to change the file extension from %s to %s?"
+msgstr "确定把文件扩展名从<%s>变为<%s>？"
+
+#: ../src/constant.py:182
+msgid "Music"
+msgstr "音乐"
+
+#: ../src/constant.py:183
+msgid "Video"
+msgstr "视频"
+
+#: ../src/constant.py:184
+msgid "Photos"
+msgstr "图片"
+
+#: ../src/constant.py:186
+msgid "Please select an item to see its propreties."
+msgstr "请选择一项查看其属性"
+
+#: ../src/constant.py:187
+msgid "The name can not be empty"
+msgstr "名字不能为空"
+
+#: ../src/constant.py:188
+msgid "Error"
+msgstr "错误"
+
+#: ../src/constant.py:189
+msgid ""
+"Please input a title. \n"
+"\n"
+"A title can be any descriptive text to identify this online music."
+msgstr "请输入标题，标题可以是任何可以描述该在线音乐的文字。"
+
+#: ../src/constant.py:191
+msgid "Please enter a valid URL"
+msgstr "请输入一个有效网络地址"
+
+#: ../src/constant.py:192
+msgid "An error occurred when adding the online music entry."
+msgstr "添加在线音乐入口时出错。"
+
+#: ../src/constant.py:193
+msgid "The stream type is not supported.  Playback can not continue."
+msgstr "流媒体类型不支持。不能继续播放。"
+
+#: ../src/constant.py:194
+msgid "The protocol is not supported."
+msgstr "不支持该协议。"
+
+#: ../src/constant.py:195
+msgid "The URL is invalid."
+msgstr "网络地址无效"
+
+#: ../src/constant.py:196
+msgid "The file is corrupt."
+msgstr "文件被破坏。"
+
+#: ../src/constant.py:197
+msgid "Out of memory."
+msgstr "内存越界。"
+
+#: ../src/constant.py:198
+msgid "An unknown error has occurred."
+msgstr "发生未知错误。"
+
+#: ../src/constant.py:199
+msgid "Sorting by Name"
+msgstr "按名称排序"
+
+#: ../src/constant.py:200
+msgid "Sorting by Size"
+msgstr "按大小排序"
+
+#: ../src/constant.py:201
+msgid "Sorting by Date"
+msgstr "按日期排序"
+
+#: ../src/constant.py:203
+msgid "Title"
+msgstr "标题"
+
+#: ../src/constant.py:204
+msgid "Length"
+msgstr "长度"
+
+#: ../src/constant.py:205
+msgid "Artist"
+msgstr "艺术家"
+
+#: ../src/constant.py:206
+msgid "Album"
+msgstr "专辑"
+
+#: ../src/constant.py:207
+msgid "URL"
+msgstr "网络地址"
+
+#: ../src/constant.py:208
+msgid "Playlist"
+msgstr "播放列表"
+
+#: ../src/constant.py:210
+msgid "Online Music"
+msgstr "在线音乐"
+
+#: ../src/constant.py:211
+msgid "All Songs"
+msgstr "所有歌曲"
+
+#: ../src/constant.py:213
+msgid "Open Location..."
+msgstr "打开位置....."
+
+#: ../src/constant.py:214
+msgid "Edit"
+msgstr "编辑"
+
+#: ../src/constant.py:215
+msgid "Sort by"
+msgstr "排序方式"
+
+#: ../src/constant.py:216
+msgid "Settings..."
+msgstr "设置..."
+
+#: ../src/constant.py:217
+msgid "About"
+msgstr "关于"
+
+#: ../src/constant.py:218
+msgid "Quit"
+msgstr "退出"
+
+#: ../src/constant.py:220
+msgid "File Properties..."
+msgstr "文件属性...."
+
+#: ../src/constant.py:221
+msgid "Rotate clockwise"
+msgstr "左旋转"
+
+#: ../src/constant.py:222
+msgid "Rotate counter-clockwise"
+msgstr "逆时针旋转"
+
+#: ../import/media-import:81
+msgid "Do you want to import media files?"
+msgstr "您要导入媒体文件吗？"
+
+#: ../import/media-import:82
+msgid "Media Import"
+msgstr "媒体导入"
+
+#: ../import/media-import:217
+msgid "File"
+msgstr "文件"
+
+#: ../import/media-import:230
+msgid "Generating thumbnail for"
+msgstr "正在创建缩略图"
+
+#: ../import/media-import.glade.h:1
+msgid "Copying"
+msgstr "拷贝中"
+
+#: ../import/media-import.glade.h:2
+msgid "Copying ..."
+msgstr "拷贝中..."
+
+#: ../import/media-import.glade.h:3
+msgid "Importing Media"
+msgstr "正在导入媒体"
+
+#~ msgid "OK"
+#~ msgstr "确定"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "Select browse button below to open an audio"
+#~ msgstr "选择下面的浏览按钮打开音乐"
+
+#~ msgid "art"
+#~ msgstr "艺术"
+
+#~ msgid "Can not delete playing song"
+#~ msgstr "不能删除正在播放的歌曲"
+
+#~ msgid "Can not delete playing video"
+#~ msgstr "不能删除正在播放的视频"
+
+#~ msgid "Rotate right"
+#~ msgstr "右旋转"

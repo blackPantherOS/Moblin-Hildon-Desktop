@@ -1,0 +1,262 @@
+#!/usr/bin/env python
+# vim: ai ts=4 sts=4 et sw=4
+#
+# Copyright 2007, 2008 Intel Corporation
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),  
+# to deal in the Software without restriction, including without limitation  
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,  
+# and/or sell copies of the Software, and to permit persons to whom the  
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in 
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+# DEALINGS IN THE SOFTWARE.
+
+
+import dbus
+import dbus.glib
+import dbus.service
+import gconf
+import gettext
+import gobject
+import gtk
+import gtk.glade
+import gnomevfs
+import gobject
+import Image
+import locale
+import md5
+import os
+import shutil
+from stat import *
+import sys
+import threading
+import time
+
+sys.path.insert(0, '/usr/share/moblin-media')
+import constant
+import utils
+
+_ = gettext.lgettext
+
+"""
+A class which detect the mounted signal and pop a dialog to ask the
+user if import the media file
+"""
+class App(gtk.Object):
+    def __init__(self):
+        self.__monitor = gnomevfs.VolumeMonitor()
+        self.__monitor.connect("volume-mounted", self.__on_volume_mounted)
+        self.__monitor.connect("volume-unmounted", self.__on_volume_unmounted)
+        self.__bus = dbus.SystemBus()
+        # Look for the glade file in the current directory first (to assist
+        # developers), and then the application share directory
+        if os.path.isfile('media-import.glade'):
+            self.__glade_file = 'media-import.glade'
+        else:
+            self.__glade_file = '/usr/share/moblin-media/media-import.glade'
+
+    def run(self):
+        gtk.main()
+
+    def quit(self):
+        gtk.main_quit()
+
+    def __on_volume_mounted(self, monitor, volume):
+	# we must avoid USBC local partition dbus message
+        client = gconf.client_get_default()
+        media_path = client.get_string('/system/usbc/mount_point')
+        # Option Dialog: "Do you want to import media files?"
+        self.__mount_point = self.__get_mount_point(volume.get_hal_udi())
+        if self.__mount_point != media_path:
+            self.__opt_dialog = gtk.MessageDialog(None,
+                                              gtk.DIALOG_MODAL,
+                                              gtk.MESSAGE_QUESTION,
+                                              gtk.BUTTONS_YES_NO,
+                                              _("Do you want to import media files?"))
+            self.__opt_dialog.set_title(_("Media Import"))
+            self.__opt_dialog.connect('response', self.__on_opt_dialog_response)
+            self.__opt_dialog.show()
+
+    def __on_volume_unmounted(self, monitor, volume):
+        # Attempt to close any UI exposed to the user and shutdown
+        # any thread that is importing files into the media library
+        try:
+            self.__opt_dialog.destroy()
+        except:
+            pass
+        try:
+            self.__pbar_dialog.destroy()
+        except:
+            pass
+        try:
+            self.__thread.stop()
+        except:
+            pass
+        
+    def __on_opt_dialog_response(self, dialog, resp_id):
+        dialog.destroy()
+        if resp_id == gtk.RESPONSE_YES:
+            tree = gtk.glade.XML(self.__glade_file,'import_dialog')
+            self.__pbar_dialog = tree.get_widget("import_dialog")
+            self.__pbar_dialog.hide()
+            self.__pbar_dialog.connect("close" , self.__on_pbar_dialog_close)
+            self.__pbar_dialog.connect("response" , self.__on_pbar_dialog_response)
+            self.__pbar_dialog.show()
+            self.__thread = ImportThread(self.__mount_point,
+                                         tree,
+                                         self.__pbar_dialog)
+            self.__thread.start()
+            
+    def __on_pbar_dialog_close(self, dialog):
+        dialog.destroy()
+        self.__thread.stop()
+
+    def __on_pbar_dialog_response(self, dialog, response_id):
+        dialog.destroy()
+        self.__thread.stop()
+    
+    def __get_mount_point(self, udi):
+        return self.__get_property(udi)["volume.mount_point"]
+
+    def __get_property(self, device_udi):
+        device = self.__bus.get_object("org.freedesktop.Hal", device_udi)
+        return device.GetAllProperties(dbus_interface="org.freedesktop.Hal.Device")
+
+
+class ImportThread(threading.Thread):
+    def __init__(self, mount_point, xml, dialog):
+        self.__dialog = dialog
+        self.__mount_point = mount_point
+        self.__stop_event = threading.Event()
+        self.__pbar = xml.get_widget("pb_syncing")
+        self.__lbcopying = xml.get_widget("lbCopying")
+        client = gconf.client_get_default()
+        media_path = client.get_string('/system/usbc/mount_point')
+        if not media_path:
+            media_path = os.path.expanduser('~/media')
+        self.__video_path = os.path.join(media_path, 'video')
+        self.__photo_path = os.path.join(media_path, 'photo')
+        self.__audio_path = os.path.join(media_path, 'audio')
+        for d in [self.__video_path, self.__photo_path, self.__audio_path]:
+            if not os.path.isdir(d):
+                os.makedirs(d)
+        tmp = os.path.join(constant.MediaImagePath, 'thumbnail_background.png')
+        self.__thumb_bkgd = Image.open(tmp)
+        if not os.path.exists(constant.THUMBNAIL_DIR):
+            os.makedirs(constant.THUMBNAIL_DIR)
+        threading.Thread.__init__(self)
+
+    def __get_thumbnail_path(self, full_image_path):
+        info = os.stat(full_image_path)
+        mtime = info[ST_MTIME]
+        filesize = info[ST_SIZE]
+        tmp = os.path.join(constant.THUMBNAIL_DIR, full_image_path)
+        root, ext = os.path.splitext(tmp)
+        md5dest = md5.new("%s%s%s" % (tmp, mtime, filesize)).hexdigest() + \
+                  tmp.replace('/','\n')
+        return os.path.join(constant.THUMBNAIL_DIR, "%s.jpg" % (md5dest))
+
+    def __create_photo_thumbnail(self, image_path):
+        output_name = self.__get_thumbnail_path(image_path)
+        if os.path.exists(output_name):
+            return
+        name, mtype = os.path.splitext(image_path)
+        mtype = mtype.replace(".", "")
+
+        # open a 200x200 canvas img to put thumbnail on
+        thumb_bkgd = self.__thumb_bkgd.copy()
+        bkgd_width = thumb_bkgd.size[0]
+        bkgd_height = thumb_bkgd.size[1]
+
+        photo = Image.open(image_path)
+        photo_width = photo.size[0]
+        photo_height = photo.size[1]
+        photo.thumbnail((bkgd_width, bkgd_height))
+
+        # Place into box so it is centered, regardless of the
+        # dimensions and/or orientation
+        h_start = bkgd_width - int((photo_width + bkgd_width)/2)
+        v_start = bkgd_height - int((photo_height + bkgd_height)/2)
+        thumb_bkgd.paste(photo, (h_start, v_start))
+
+        # Save the image data to the target thumbnail file
+        thumb_bkgd.save(output_name, "JPEG")
+
+    def stop(self):
+        self.__stop_event.set()
+         
+    def run(self):
+        media_files = []
+        photo_thumbnails = []
+        for root, dirs, files in os.walk(self.__mount_point):
+            for f in files:
+                name, tmp = os.path.splitext(f)
+                ext = tmp.replace('.', '').lower()
+                if ext in constant.MediaType['video']:
+                    media_files.append([os.path.join(root, f),
+                                        os.path.join(self.__video_path, f)])
+                elif ext in constant.MediaType['photo']:
+                    media_files.append([os.path.join(root, f),
+                                        os.path.join(self.__photo_path, f)])
+                    photo_thumbnails.append(os.path.join(self.__photo_path, f))
+                elif ext in constant.MediaType['audio']:
+                    media_files.append([os.path.join(root, f),
+                                        os.path.join(self.__audio_path, f)])
+        self.__pbar.set_fraction(0)
+        count = 0.0
+        for entry in media_files:
+            path, name = os.path.split(entry[0])
+            count = count + 1
+            self.__pbar.set_fraction(float(count)/len(media_files))
+            self.__lbcopying.set_text('%s: %s ' % (_("File"), name))
+            if not os.path.isfile(entry[1]):
+                try:
+                    shutil.copy2(entry[0], entry[1])
+                except:
+                    pass
+            if self.__stop_event.isSet():
+                break;
+        count = 0.0
+        for entry in photo_thumbnails:
+            count = count + 1
+            path, name = os.path.split(entry)
+            self.__pbar.set_fraction(float(count)/len(photo_thumbnails))
+            msg = _("Generating thumbnail for")
+            self.__lbcopying.set_text('%s: %s ' % (msg, name))
+            utils.create_thumbnail_image(constant.THUMBNAIL_DIR,
+                                         full_image_path = entry,
+                                         canvas = self.__thumb_bkgd)
+        self.__dialog.destroy()
+        try:
+            bus = dbus.SessionBus()
+            obj = bus.get_object('org.moblin.media', '/org/moblin/media')
+            obj.refresh()
+        except:
+            pass
+
+if __name__ == '__main__':
+    gobject.threads_init()
+    gtk.gdk.threads_init()
+
+    # Setup basic internationalization, for more info see:
+    # http://docs.python.org/lib/i18n.html
+    locale.setlocale(locale.LC_ALL, '')
+    for module in gtk.glade, gettext:
+        module.bindtextdomain('moblin-media')
+        module.textdomain('moblin-media')
+
+    app = App()
+    try:
+        app.run()
+    except:
+        app.quit()

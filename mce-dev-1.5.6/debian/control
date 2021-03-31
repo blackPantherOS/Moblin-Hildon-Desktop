@@ -1,0 +1,15 @@
+Source: mce-dev
+Section: devel
+Priority: optional
+Maintainer: David Weinehall <david.weinehall@nokia.com>
+Build-Depends: debhelper (>= 4.1.0)
+Build-Depends-Indep: doxygen
+Standards-Version: 3.6.2.1
+
+Package: mce-dev
+Section: devel
+Architecture: all
+Depends: ${shlibs:Depends}
+Description: development files for mce
+ This package contains headers defining the DBus method calls
+ provided by the Mode Control Entity, and the signals emitted by it.

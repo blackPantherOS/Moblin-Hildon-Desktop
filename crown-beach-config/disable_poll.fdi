@@ -1,0 +1,5 @@
+<device>
+  <match key="storage.media_check_enabled" bool="true"> 
+    <merge key="storage.media_check_enabled" type="bool">false</merge>
+  </match>
+</device>

@@ -1,0 +1,16 @@
+#! /bin/sh
+
+[ -x "/etc/acpi/powerbtn.sh.acpid" ] && /bin/mv /etc/acpi/powerbtn.sh.acpid /etc/acpi/powerbtn.sh
+
+#remove the iusbc service
+/usr/sbin/update-rc.d iusbc remove
+
+#remove the post-service 
+/usr/sbin/update-rc.d post-service remove
+
+[ -L "/etc/rc3.d/S25bluetooth" ] && [ ! -L "/etc/rc2.d/S25bluetooth" ] && /bin/cp -s /etc/rc3.d/S25bluetooth /etc/rc2.d
+
+[ -d "/etc/rcP.d" ] && /bin/rm -rf /etc/rcP.d
+
+echo postrm done
+

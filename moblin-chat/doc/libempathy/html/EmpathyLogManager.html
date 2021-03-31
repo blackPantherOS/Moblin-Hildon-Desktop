@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyLogManager</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyContact.html" title="EmpathyContact">
+<link rel="next" href="EmpathyChatroom.html" title="EmpathyChatroom">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyContact.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyChatroom.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2568770" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2618430" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2618406" class="shortcut">Object Hierarchy</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyLogManager"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2568770"></a><span class="refentrytitle">EmpathyLogManager</span>
+</h2>
+<p>EmpathyLogManager</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyLogManager.html#EmpathyLogManagerPriv">EmpathyLogManagerPriv</a>;
+                    <a href="EmpathyLogManager.html#EmpathyLogSearchHit">EmpathyLogSearchHit</a>;
+                    <a href="EmpathyLogManager.html#EmpathyLogManager-struct">EmpathyLogManager</a>;
+<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a>*  <a href="EmpathyLogManager.html#empathy-log-manager-new">empathy_log_manager_new</a>             (void);
+void                <a href="EmpathyLogManager.html#empathy-log-manager-add-message">empathy_log_manager_add_message</a>     (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom,
+                                                         <a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);
+gboolean            <a href="EmpathyLogManager.html#empathy-log-manager-exists">empathy_log_manager_exists</a>          (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom);
+GList*              <a href="EmpathyLogManager.html#empathy-log-manager-get-dates">empathy_log_manager_get_dates</a>       (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom);
+GList*              <a href="EmpathyLogManager.html#empathy-log-manager-get-messages-for-file">empathy_log_manager_get_messages_for_file</a>
+                                                        (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         const gchar *filename);
+GList*              <a href="EmpathyLogManager.html#empathy-log-manager-get-messages-for-date">empathy_log_manager_get_messages_for_date</a>
+                                                        (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom,
+                                                         const gchar *date);
+GList*              <a href="EmpathyLogManager.html#empathy-log-manager-get-last-messages">empathy_log_manager_get_last_messages</a>
+                                                        (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom);
+GList*              <a href="EmpathyLogManager.html#empathy-log-manager-get-chats">empathy_log_manager_get_chats</a>       (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+GList*              <a href="EmpathyLogManager.html#empathy-log-manager-search-new">empathy_log_manager_search_new</a>      (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         const gchar *text);
+void                <a href="EmpathyLogManager.html#empathy-log-manager-search-free">empathy_log_manager_search_free</a>     (GList *hits);
+gchar*              <a href="EmpathyLogManager.html#empathy-log-manager-get-date-readable">empathy_log_manager_get_date_readable</a>
+                                                        (const gchar *date);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2618406"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyLogManager
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2618430"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2618446"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2618457"></a><h3>
+<a name="EmpathyLogManagerPriv"></a>EmpathyLogManagerPriv</h3>
+<a class="indexterm" name="id2618468"></a><pre class="programlisting">typedef struct _EmpathyLogManagerPriv EmpathyLogManagerPriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620928"></a><h3>
+<a name="EmpathyLogSearchHit"></a>EmpathyLogSearchHit</h3>
+<a class="indexterm" name="id2620940"></a><pre class="programlisting">typedef struct {
+	McAccount *account;
+	gchar     *chat_id;
+	gboolean   is_chatroom;
+	gchar     *filename;
+	gchar     *date;
+} EmpathyLogSearchHit;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620958"></a><h3>
+<a name="EmpathyLogManager-struct"></a>EmpathyLogManager</h3>
+<a class="indexterm" name="id2620969"></a><pre class="programlisting">typedef struct _EmpathyLogManager EmpathyLogManager;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2620986"></a><h3>
+<a name="empathy-log-manager-new"></a>empathy_log_manager_new ()</h3>
+<a class="indexterm" name="id2620997"></a><pre class="programlisting"><a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a>*  empathy_log_manager_new             (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621033"></a><h3>
+<a name="empathy-log-manager-add-message"></a>empathy_log_manager_add_message ()</h3>
+<a class="indexterm" name="id2621045"></a><pre class="programlisting">void                empathy_log_manager_add_message     (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom,
+                                                         <a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chat_id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621155"></a><h3>
+<a name="empathy-log-manager-exists"></a>empathy_log_manager_exists ()</h3>
+<a class="indexterm" name="id2621166"></a><pre class="programlisting">gboolean            empathy_log_manager_exists          (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chat_id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621287"></a><h3>
+<a name="empathy-log-manager-get-dates"></a>empathy_log_manager_get_dates ()</h3>
+<a class="indexterm" name="id2621298"></a><pre class="programlisting">GList*              empathy_log_manager_get_dates       (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chat_id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2614448"></a><h3>
+<a name="empathy-log-manager-get-messages-for-file"></a>empathy_log_manager_get_messages_for_file ()</h3>
+<a class="indexterm" name="id2614462"></a><pre class="programlisting">GList*              empathy_log_manager_get_messages_for_file
+                                                        (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         const gchar *filename);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>filename</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2614541"></a><h3>
+<a name="empathy-log-manager-get-messages-for-date"></a>empathy_log_manager_get_messages_for_date ()</h3>
+<a class="indexterm" name="id2614556"></a><pre class="programlisting">GList*              empathy_log_manager_get_messages_for_date
+                                                        (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom,
+                                                         const gchar *date);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chat_id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>date</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2614699"></a><h3>
+<a name="empathy-log-manager-get-last-messages"></a>empathy_log_manager_get_last_messages ()</h3>
+<a class="indexterm" name="id2614712"></a><pre class="programlisting">GList*              empathy_log_manager_get_last_messages
+                                                        (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *chat_id,
+                                                         gboolean chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chat_id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2614835"></a><h3>
+<a name="empathy-log-manager-get-chats"></a>empathy_log_manager_get_chats ()</h3>
+<a class="indexterm" name="id2614848"></a><pre class="programlisting">GList*              empathy_log_manager_get_chats       (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2614926"></a><h3>
+<a name="empathy-log-manager-search-new"></a>empathy_log_manager_search_new ()</h3>
+<a class="indexterm" name="id2614940"></a><pre class="programlisting">GList*              empathy_log_manager_search_new      (<a href="EmpathyLogManager.html" title="EmpathyLogManager">EmpathyLogManager</a> *manager,
+                                                         const gchar *text);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>manager</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>text</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2615018"></a><h3>
+<a name="empathy-log-manager-search-free"></a>empathy_log_manager_search_free ()</h3>
+<a class="indexterm" name="id2615032"></a><pre class="programlisting">void                empathy_log_manager_search_free     (GList *hits);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>hits</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623761"></a><h3>
+<a name="empathy-log-manager-get-date-readable"></a>empathy_log_manager_get_date_readable ()</h3>
+<a class="indexterm" name="id2623774"></a><pre class="programlisting">gchar*              empathy_log_manager_get_date_readable
+                                                        (const gchar *date);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>date</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

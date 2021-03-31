@@ -1,0 +1,3 @@
+version=3
+http://www.xfce.org/archive/xfce-(.*)/src/ \
+	mousepad-(.*)\.tar\.bz2

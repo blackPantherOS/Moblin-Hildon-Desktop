@@ -1,0 +1,28 @@
+---
+ src/NetworkManager.c |    3 +++
+ 1 file changed, 3 insertions(+)
+
+Index: network-manager.debian/src/NetworkManager.c
+===================================================================
+--- network-manager.debian.orig/src/NetworkManager.c	2007-08-03 16:49:23.000000000 +0200
++++ network-manager.debian/src/NetworkManager.c	2007-08-03 16:51:38.000000000 +0200
+@@ -762,16 +762,19 @@
+ 	g_main_loop_unref (data->main_loop);
+ 	g_main_context_unref (data->main_context);
+ 
+ 	nm_dbus_method_list_free (data->nm_methods);
+ 	nm_dbus_method_list_free (data->device_methods);
+ 	nm_dbus_method_list_free (data->net_methods);
+ 	nm_dbus_method_list_free (data->vpn_methods);
+ 
++        if(data->dbus_connection)
++		dbus_connection_unref(data->dbus_connection);
++
+ 	g_io_channel_unref (data->sigterm_iochannel);
+ 
+ 	nm_hal_deinit (data);
+ 
+ 	memset (data, 0, sizeof (NMData));
+ }
+ 
+ int nm_get_sigterm_pipe (void)

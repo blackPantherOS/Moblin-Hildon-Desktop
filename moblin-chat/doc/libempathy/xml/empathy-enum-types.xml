@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-empathy-enum-types">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-enum-types</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-enum-types</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="EMPATHY-TYPE-SUBSCRIPTION:CAPS">EMPATHY_TYPE_SUBSCRIPTION</link>
+<link linkend="GType">GType</link>               <link linkend="empathy-subscription-get-type">empathy_subscription_get_type</link>       (void);
+#define             <link linkend="EMPATHY-TYPE-REG-EX-TYPE:CAPS">EMPATHY_TYPE_REG_EX_TYPE</link>
+<link linkend="GType">GType</link>               <link linkend="empathy-reg-ex-type-get-type">empathy_reg_ex_type_get_type</link>        (void);
+#define             <link linkend="EMPATHY-TYPE-MESSAGE-TYPE:CAPS">EMPATHY_TYPE_MESSAGE_TYPE</link>
+<link linkend="GType">GType</link>               <link linkend="empathy-message-type-get-type">empathy_message_type_get_type</link>       (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EMPATHY-TYPE-SUBSCRIPTION:CAPS" role="macro"/>EMPATHY_TYPE_SUBSCRIPTION</title>
+<indexterm><primary>EMPATHY_TYPE_SUBSCRIPTION</primary></indexterm><programlisting>#define EMPATHY_TYPE_SUBSCRIPTION empathy_subscription_get_type()
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-subscription-get-type" role="function"/>empathy_subscription_get_type ()</title>
+<indexterm><primary>empathy_subscription_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               empathy_subscription_get_type       (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-TYPE-REG-EX-TYPE:CAPS" role="macro"/>EMPATHY_TYPE_REG_EX_TYPE</title>
+<indexterm><primary>EMPATHY_TYPE_REG_EX_TYPE</primary></indexterm><programlisting>#define EMPATHY_TYPE_REG_EX_TYPE empathy_reg_ex_type_get_type()
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-reg-ex-type-get-type" role="function"/>empathy_reg_ex_type_get_type ()</title>
+<indexterm><primary>empathy_reg_ex_type_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               empathy_reg_ex_type_get_type        (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-TYPE-MESSAGE-TYPE:CAPS" role="macro"/>EMPATHY_TYPE_MESSAGE_TYPE</title>
+<indexterm><primary>EMPATHY_TYPE_MESSAGE_TYPE</primary></indexterm><programlisting>#define EMPATHY_TYPE_MESSAGE_TYPE empathy_message_type_get_type()
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-message-type-get-type" role="function"/>empathy_message_type_get_type ()</title>
+<indexterm><primary>empathy_message_type_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               empathy_message_type_get_type       (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,13 @@
+#!/bin/sh -e
+#[-f /var/run/.gui.start ] && rm /var/ru/.gui.start
+i=0
+while [ "$i" -le 10 ]
+do
+	i=$(($i + 1))
+	[ -f /var/run/.gui.start  ] && break
+	sleep 2
+done
+#[-f /var/run/.gui.start ] && rm /var/ru/.gui.start
+
+exec /etc/init.d/rc P
+

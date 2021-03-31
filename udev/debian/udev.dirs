@@ -1,0 +1,12 @@
+/lib/firmware
+/lib/udev
+/lib/udev/devices
+/lib/udev/devices/net
+/lib/udev/devices/pts
+/lib/udev/devices/shm
+/usr/share/initramfs-tools/hooks
+/usr/share/initramfs-tools/scripts/init-premount
+/usr/share/initramfs-tools/scripts/casper-premount
+/usr/share/initramfs-tools/scripts/local-top
+/usr/share/initramfs-tools/scripts/nfs-top
+/usr/share/initramfs-tools/scripts/init-bottom

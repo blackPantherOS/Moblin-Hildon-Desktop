@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Close App Plugin
+Type=default
+X-Path=libcloseapp.so

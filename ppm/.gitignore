@@ -1,0 +1,14 @@
+*.[oa]
+*~
+*.ko
+*.so
+*.swp
+*.d
+# ignore generated files
+include/cei_client.h
+include/cei_server.h
+ppmtool/.depend
+daemon/config.h
+# ignore binary files
+daemon/ppmd
+ppmtool/ppmtool

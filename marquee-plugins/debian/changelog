@@ -1,0 +1,285 @@
+marquee-plugins (0.22) gaston; urgency=low
+
+  * Remove marquee-plugins.schemas since category key setting in gconf
+    is now handled in mobile-basic-flash. This is also remove original
+    default "Mobile" as active category. New default active category is
+    "All" that is done in mobile-basic-flash too.
+
+ -- Horace Li <horace.li@intel.com>  Wed, 02 Apr 2008 14:50:29 +0800
+
+marquee-plugins (0.21) gaston; urgency=low
+
+  * Show up "AlL" as default category and save user changes.
+
+ -- Horace Li <horace.li@intel.com>  Fri, 28 Mar 2008 15:03:40 +0800
+
+marquee-plugins (0.20) gaston; urgency=low
+
+  * Update marquee plugins entry plugin type field name from "X-Plugin-Type"
+    to "Type", mainly to be compatible with upstream hildon-desktop.
+
+ -- Horace Li <horace.li@intel.com>  Thu, 28 Feb 2008 15:31:41 +0800
+
+marquee-plugins (0.19) gaston; urgency=low
+
+  * Removed previous change by Horace which hides the down arrow when the menu
+    is showing.  The intent was to hide the down arrow when no menu exists to
+    show.
+
+ -- Bob Spencer <bob.spencer@intel.com>  Thu, 21 Feb 2008 07:54:43 -0800
+
+marquee-plugins (0.18) gaston; urgency=low
+
+  * Hide/Show arrow on titlebar when drop down menu is showed up/hide.
+  * ellipsize (add an ellipsis: "...") to the title if there is not
+    enough space on title bar.
+
+ -- Horace Li <horace.li@intel.com>  Thu, 14 Feb 2008 15:23:36 +0800
+
+marquee-plugins (0.17) gaston; urgency=low
+
+  * update marquee plugins desktop entry files, according to
+    freedesktop specification.
+
+ -- Horace Li <horace.li@intel.com>  Mon, 21 Jan 2008 17:50:13 +0800
+
+marquee-plugins (0.16) gaston; urgency=low
+
+  * fix bug #176074.
+  * fix bug #179032, tuning status bar length to be suitable for both
+    800 and 1024 screen width.
+  * Support dynamic screen resolution switch between 1024*600/1024*768
+    and 800*480/800*600.
+  * Cut a new release.
+
+ -- Horace Li <horace.li@intel.com>  Tue, 15 Jan 2008 17:31:12 +0800
+
+marquee-plugins (0.15) gaston; urgency=low
+
+  * Removing the extra 'All' from the settings configuration
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Thu,  6 Dec 2007 03:29:19 -0800
+
+marquee-plugins (0.14) gaston; urgency=low
+
+  * Adding 'Settings' to the default containers list
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed,  5 Dec 2007 00:33:05 -0800
+
+marquee-plugins (0.13) gaston; urgency=low
+
+  * Increased font size of titlebar and clock
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 21 Nov 2007 16:43:57 -0800
+
+marquee-plugins (0.12) gaston; urgency=low
+
+  * Adding support for an addition "All" category that the desktop
+    launcher will interpret as "list all applications"
+  * fixed a bug in the schema file that was causing the "active"
+    category gconf key to be installed in the wrong location
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 21 Nov 2007 16:34:21 -0800
+
+marquee-plugins (0.11) gaston; urgency=low
+
+  * Setting the active category to "Mobile" if no categories are listed
+    the the gconf key.
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Wed, 21 Nov 2007 11:36:55 -0800
+
+marquee-plugins (0.10) gaston; urgency=low
+
+  * reworked the gconf notification code
+  * added code to force the active category to always be the first 
+    entry in the categories list on startup
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 20 Nov 2007 22:51:11 -0800
+
+marquee-plugins (0.9) gaston; urgency=low
+
+  * Incrementing the version info to work around a build system issue
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 20 Nov 2007 20:49:15 -0800
+
+marquee-plugins (0.8) gaston; urgency=low
+
+  * Changing drop-down-menu-plugin implementation to list available 'views',
+    where each view is pulled from a new marquee-plugin gconf setting.  When
+    the user selects the given view, then an 'active' gconf setting is set to
+    the selected view, and the label on the ddm is changed to the name of the
+    choosen view.
+  * Fixing the braindead implementation for detecting that the desktop is on
+    top by just looking for the window title to be "Home".
+  * Adding the first step of localizing by calling gettext() on the text
+    for setting the drop-down-menu label 
+
+ -- Rusty Lynch <rusty@intel.com>  Tue, 20 Nov 2007 20:29:19 -0800
+
+marquee-plugins (0.7) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Drop down menu arrow is separate image. Can be hidden.
+    TBD: hide arrow when no menu items exist.
+
+  [ Horace Li ]
+  * fix bug #146083
+
+ -- Horace Li <horace.li@intel.com>  Tue,  6 Nov 2007 11:59:12 +0800
+
+marquee-plugins (0.6) gaston; urgency=low
+
+  [ Horace Li ]
+  * Remove nav-next-plugin and nav-prev-plugin.
+  * Set plug-ins height configurable according to marquee panel height.
+  * Add home menu to access background, menus & toolbars, and about-me preference.
+  * Re-organize the included header files.
+
+  [ Xu Li ]
+  * Add calendar show-up in clock plug-in.
+
+  [ Horace Li ]
+  * Cut a new release.
+  * Move home drop-down menu up 2 pixels.
+  * Allow only single dialog pop-up for each preference.
+
+ -- Horace Li <horace.li@intel.com>  Sun, 28 Oct 2007 16:31:53 +0800
+
+marquee-plugins (0.5) gaston; urgency=low
+
+  * Removed dummy plugin from marquee
+
+ -- Bob Spencer <bob.spencer@intel.com>  Tue, 23 Oct 2007 14:28:45 -0700
+
+marquee-plugins (0.4) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Bumping the version to get a new build and update changelog
+
+  [ Horace Li ]
+  * fix launchpad bug #145936
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 12 Oct 2007 14:41:37 -0700
+
+marquee-plugins (0.3) gaston; urgency=low
+
+  [ Bob Spencer ]
+  * Updated with new graphics from Jason
+  * Added isascii check for graphics.  Added -Werror flag. Added _XOPEN_SOURCE 600
+    so that ctype.h would compile
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 10 Oct 2007 17:45:37 -0700
+
+marquee-plugins (0.2-1ubuntu3) feisty; urgency=low
+
+  [ Horace Li ]
+  * show up last active window when showhome-plugin is clicked with desktop on-top.
+
+ -- Horace Li <horace.li@intel.com>  Fri,  7 Sep 2007 16:51:46 +0800
+
+marquee-plugins (0.2-1ubuntu2) gaston; urgency=low
+
+  [ Horace Li ]
+  * add a new plugin to show homescreen as a replacement of applications-menu.
+  * re-design navigator next/prev buttons event handler. this is to fix moblin bug #12
+  * fix the bug that window title name sometimes mismatched. moblin bug #51
+  * re-config desktop.conf and marquee.conf to set proper position for statusbar and show up 
+    'show homescreen' plugin.
+
+ -- Horace Li <horace.li@intel.com>  Fri,  7 Sep 2007 16:51:46 +0800
+
+marquee-plugins (0.2-1ubuntu1) gaston; urgency=low
+
+  [ Horace Li ]
+  * set nav next/prev button to switch running application instead of windows.
+
+  [ Bob Spencer ]
+  * Upated README
+  * Changed error handling to not treat warnings as errors.  
+    Temporary quick fix to get build to complete, build complains about isascii
+ 
+ -- Bob Spencer <bob.spencer@intel.com>  Thu, 30 Aug 2007 07:49:34 -0700
+
+marquee-plugins (0.2) gutsy; urgency=low
+
+  [ Horace Li ]
+  * update application menu icon size and installation path.
+  * update drop-down-menu-size width since increase application menu width from 52 pixels
+    to 69 pixels.
+
+  [ Tollef Fog Heen ]
+  * Remove (s) from debian/copyright to shut up lintian.
+  * Update description.
+  * Remove duplicates from Depends, and get rid of obsolete libwnck build
+    dependency.
+  * Do make distclean, not just make clean to try to get rid of generated
+    files in the source package.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Tue, 24 Jul 2007 16:35:38 +0200
+
+marquee-plugins (0.1-1ubuntu8) feisty; urgency=low
+
+  [ Rusty Lynch ]
+  * Performed some basic code cleanup on the nav-prev-app plugin
+    with no new functionality
+
+  [ Horace Li ]
+  * add COPYING and README, append Intel developers in AUTHORS
+
+  [ Tollef Fog Heen ]
+  * Remove useless README.Debian.
+  * Remove shared library cruft from debian/rules.
+  * Fix copyright to refer to /usr/share/common-licenses/LGPL-2.1
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 20 Jul 2007 09:18:50 +0200
+
+marquee-plugins (0.1-1ubuntu7) feisty; urgency=low
+
+  * Enable nav buttons for "watchable" applications switching
+
+ -- Horace Li <horace.li@intel.com>  Wed, 11 Jul 2007 17:04:28 +0800
+
+marquee-plugins (0.1-1ubuntu6) feisty; urgency=low
+
+  * Changed the clock format. Fixed reading from config so it would actually read more than one value
+  * Changed drop down menu font, color, and made it work (not add new label each time clicked)
+
+ -- Bob Spencer <bob.spencer@intel.com>  Sun,  8 Jul 2007 00:42:46 -0700
+
+marquee-plugins (0.1-1ubuntu5) feisty; urgency=low
+
+  * Display close button only when there is active window on the screen
+
+ -- Horace Li <horace.li@intel.com>  Fri,  6 Jul 2007 17:41:41 +0800
+
+marquee-plugins (0.1-1ubuntu4) feisty; urgency=low
+
+  * Added support to update Window titlename
+
+ -- Horace Li <horace.li@intel.com>  Fri,  6 Jul 2007 16:55:59 +0800
+
+marquee-plugins (0.1-1ubuntu3) gutsy; urgency=low
+
+  * Added resize for screen so plugins will fill the space for 1024 and 800
+    screens
+
+ -- Bob Spencer <bob.spencer@intel.com>  Fri, 06 Jul 2007 08:28:48 +0000
+
+marquee-plugins (0.1-1ubuntu2) gutsy; urgency=low
+
+  * added dummy statusbar plugin.  Create /usr/shrae/applications/hildon-status-bar folder
+
+ -- Bob Spencer <bob.spencer@intel.com>  Fri, 06 Jul 2007 08:09:09 +0000
+
+marquee-plugins (0.1-1ubuntu1) gutsy; urgency=low
+
+  * Plugins sized correctly for 800 width.  Also graphics added 
+
+ -- Bob Spencer <bob.spencer@intel.com>  Fri, 06 Jul 2007 00:49:44 +0000
+
+marquee-plugins (0.1-1) unstable; urgency=low
+
+  * Initial checkin of Nokia example plugins 
+
+ -- bspencer <bob.spencer@intel.com>  Mon, 02 Jul 2007 16:39:31 +0000
+

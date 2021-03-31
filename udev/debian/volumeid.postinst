@@ -1,0 +1,203 @@
+#!/bin/sh -e
+# This script can be called in the following ways:
+#
+# After the package was installed:
+#	<postinst> configure <old-version>
+#
+#
+# If prerm fails during upgrade or fails on failed upgrade:
+#	<old-postinst> abort-upgrade <new-version>
+#
+# If prerm fails during deconfiguration of a package:
+#	<postinst> abort-deconfigure in-favour <new-package> <version>
+#	           removing <old-package> <version>
+#
+# If prerm fails during replacement due to conflict:
+#	<postinst> abort-remove in-favour <new-package> <version>
+
+
+# Rewrite /etc/fstab so that filesystems are mounted by UUID
+mount_by_uuid_conversion()
+{
+    if [ -e /etc/fstab.pre-uuid ]; then
+	return
+    fi
+
+    cp -a /etc/fstab /etc/fstab.pre-uuid
+    exec 9<&0 8>&1 </etc/fstab >/etc/fstab.new
+    trap "rm -f /etc/fstab.new" 0
+
+    uuids=""
+
+    old_IFS="$IFS"
+    IFS="
+"
+    while read LINE
+    do
+	IFS="$old_IFS"
+	set -- $LINE
+	IFS="
+"
+	DEV=$1 MTPT=$2 FSTYPE=$3 OPTS=$4
+
+	# Check the device is sane for conversion
+	case "$DEV" in
+	    ""|\#*)		# Preserve blank lines and user comments
+		echo "$LINE"
+		continue
+		;;
+	    LABEL=*|UUID=*)	# Already mounting by LABEL or UUID
+	        echo "$LINE"
+		continue
+		;;
+	    /dev/disk/*)	# Already mounting by particulars
+	        echo "$LINE"
+		continue
+		;;
+	    /dev/fd[0-9]*)	# Floppy devices, not mounted by filesystem
+	        echo "$LINE"
+		continue
+		;;
+	    /dev/mapper/*)	# devmapper devices, already by "label"
+	        echo "$LINE"
+		continue
+		;;
+	    /dev/evms/*)	# evms devices, already by "label"
+	        echo "$LINE"
+		continue
+		;;
+	    /dev/md[0-9]*)	# RAID devices, broken
+	        echo "$LINE"
+		continue
+		;;
+	    /dev/*)		# Ordinary devices -- we want to convert
+		if [ -L "$DEV" ] && readlink "$DEV" | grep -q "^/dev/mapper/"; then	
+		    echo "$LINE"
+		    continue
+		elif [ ! -b "$DEV" ]; then
+		    echo "$LINE"
+		    continue
+		fi
+	        ;;
+	    *)			# Anything else gets left alone
+	        echo "$LINE"
+		continue
+	esac 
+	
+	# Don't convert filesystem types that don't make sense
+	case "$FSTYPE" in
+	    auto)		# Auto detection -- implies non-fixed fs
+		echo "$LINE"
+		continue
+		;;
+	esac
+	
+	# Check filesystem options also
+	case "$OPTS" in
+	    noauto|*,noauto|noauto,*|*,noauto,*)	# Implies non-fixed
+	        echo "$LINE"
+		continue
+		;;
+	esac
+
+
+	# If we reach this point, we think we want to move the fstab
+	# entry over to mount-by-UUID.  The first check is that the
+	# filesystem on the device *has* a uuid
+	UUID=$(/sbin/vol_id -u "$DEV" || true)
+	if [ -z "$UUID" ]; then
+	    # Can we generate one?
+	    if [ "$FSTYPE" = "swap" ]; then
+		REAL_FSTYPE=$(/sbin/vol_id -t "$DEV" || true)
+		case "$REAL_FSTYPE" in
+		    swap)	# is a swap device, add a UUID to it
+			UUID=$(uuidgen)
+			echo -n "$UUID" |
+			  perl -ne 's/-//g;chomp;print pack "H*",$_' |
+			  dd conv=notrunc "of=$DEV" obs=1 seek=1036 2>/dev/null
+			;;
+		    swsusp)	# contains a suspended image, mkswap it!
+			if ! mkswap "$DEV" >/dev/null; then
+			    echo "Warning: unable to make swap $DEV" 1>&2
+			    echo "$LINE"
+			    continue
+			fi
+
+			UUID=$(/sbin/vol_id -u "$DEV" || true)
+			if [ -z "$UUID" ]; then
+			    echo "Warning: unable to generate uuid for $DEV" 1>&2
+			    echo "$LINE"
+			    continue
+			fi
+			;;
+		    *)
+			echo "Warning: $DEV is not a swap partition" 1>&2
+			echo "$LINE"
+			continue
+			;;
+		esac
+	    else
+		echo "Warning: unable to find a UUID for $DEV" 1>&2
+		echo "$LINE"
+		continue
+	    fi
+	fi
+
+	# Check for duplicates
+	case "$uuids" in
+	"$UUID" | "$UUID "* | *" $UUID" | *" $UUID "*)
+	    echo "Error: duplicate UUID $UUID detected" 1>&2
+	    echo "Unable to migrate /etc/fstab to UUID-based mounting" 1>&2
+
+	    exec 0<&9 9<&- 1>&8 8>&-
+	    trap 0
+
+	    rm -f /etc/fstab.new
+	    return
+	    ;;
+	*)
+	    uuids="${uuids:+$uuids }$UUID"
+	    ;;
+	esac
+
+	# Now write the new line out
+	shift
+	echo "# $DEV -- converted during upgrade to edgy"
+	echo "UUID=$UUID $@"
+    done
+    IFS="$old_IFS"
+
+    exec 0<&9 9<&- 1>&8 8>&-
+    trap 0
+
+    mv -f /etc/fstab.new /etc/fstab
+}
+
+# Update the initramfs
+update_initramfs()
+{
+    update-initramfs -u
+}
+
+
+case "$1" in
+    configure)
+	# Upgrade from dapper
+	if dpkg --compare-versions "$2" lt "093-0ubuntu5"; then
+	    mount_by_uuid_conversion
+	fi
+
+	update_initramfs
+	;;
+
+    abort-upgrade|abort-deconfigure|abort-remove)
+	;;
+
+    *)
+	echo "$0 called with unknown argument \`$1'" 1>&2
+	exit 1
+	;;
+esac
+
+#DEBHELPER#
+exit 0

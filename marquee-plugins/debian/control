@@ -1,0 +1,14 @@
+Source: marquee-plugins
+Section: libs
+Priority: optional
+Maintainer: Bob Spencer <bob.spencer@intel.com>
+Build-Depends: debhelper (>= 5), libtool, automake, autoconf, hildon-desktop-dev, libdbus-glib-1-dev
+Standards-Version: 3.7.2
+
+Package: marquee-plugins
+Section: libs
+Architecture: any
+Depends: hildon-desktop, ${shlibs:Depends}, ${misc:Depends}
+Description: Plugins for the Hildon marquee
+ This package contains the marquee plugins for hildon, such as the
+ application menu, the clock and the close button.

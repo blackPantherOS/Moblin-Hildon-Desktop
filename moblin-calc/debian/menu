@@ -1,0 +1,5 @@
+?package(moblin-calc):\
+needs="X11"\
+section="Apps/Math"\
+title="calculator"\
+command="/usr/bin/calculator"

@@ -1,0 +1,1971 @@
+# Dutch translation of Gossip.
+#
+# Copyright (C) 2003-2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gossip package.
+#
+# Vincent van Adrighem <V.vanAdrighem@dirck.mine.nu>, 2003.
+# Taco Witte <tcwitte@cs.uu.nl>, 2003-2004.
+# Wouter Bolsterlee <wbolster@gnome.org>, 2006, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gossip cvs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-05-15 23:46+0200\n"
+"PO-Revision-Date: 2007-04-09 15:19+0200 \n"
+"Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
+"Language-Team: Gnome-NL <gnome-nl-list@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/empathy.desktop.in.h:1
+#, fuzzy
+msgid "Empathy Instant Messenger"
+msgstr "Instant Messenger"
+
+#: ../data/empathy.desktop.in.h:2
+msgid "Instant Messenger"
+msgstr "Instant Messenger"
+
+#: ../data/empathy.schemas.in.h:1
+msgid "Always open a separate chat window for new chats."
+msgstr "Altijd een nieuw scherm voor nieuwe gesprekken openen."
+
+#: ../data/empathy.schemas.in.h:2
+msgid "Chat window theme"
+msgstr "Thema voor chatvensters"
+
+#: ../data/empathy.schemas.in.h:3
+msgid ""
+"Comma separated list of spell checker languages to use (e.g. en, fr, nl)."
+msgstr ""
+"Komma-gescheiden lijst van talen voor de spellingchecker (bijv. en, fr, nl)."
+
+#: ../data/empathy.schemas.in.h:4
+msgid "Compact contact list"
+msgstr "Compacte contactlijst"
+
+#: ../data/empathy.schemas.in.h:5
+msgid "Contact list sort criterium"
+msgstr ""
+
+# avatar? :s  (Wouter Bolsterlee)
+#: ../data/empathy.schemas.in.h:6
+msgid "Default directory to select an avatar image from"
+msgstr "Standaardmap voor het kiezen van gebruikersafbeeldingen"
+
+#: ../data/empathy.schemas.in.h:7
+msgid "Enable popup when contact is available"
+msgstr "Notificatiebericht tonen als een contact online komt"
+
+#: ../data/empathy.schemas.in.h:8
+msgid "Enable sound when away"
+msgstr "Geluid afspelen indien afwezig"
+
+#: ../data/empathy.schemas.in.h:9
+msgid "Enable sound when busy"
+msgstr "Geluid afspelen indien bezig"
+
+#: ../data/empathy.schemas.in.h:10
+msgid "Enable spell checker"
+msgstr "Spellingchecker inschakelen"
+
+#: ../data/empathy.schemas.in.h:11
+msgid "Hide main window"
+msgstr "Hoofdvenster verbergen"
+
+#: ../data/empathy.schemas.in.h:12
+msgid "Hide the main window."
+msgstr "Het hoofdvenster niet tonen."
+
+#: ../data/empathy.schemas.in.h:13
+msgid "Open new chats in separate windows"
+msgstr "Nieuwe chats openen in aparte vensters"
+
+#: ../data/empathy.schemas.in.h:14
+msgid "Show avatars"
+msgstr "Gebruikersafbeeldingen tonen"
+
+#: ../data/empathy.schemas.in.h:15
+msgid "Show hint about closing the main window"
+msgstr "Tip tonen bij het sluiten van het hoofdvenster."
+
+#: ../data/empathy.schemas.in.h:16
+msgid "Show offline contacts"
+msgstr "Offline contacten tonen"
+
+#: ../data/empathy.schemas.in.h:17
+msgid "Spell checking languages"
+msgstr "Talen voor de spellingchecker"
+
+#: ../data/empathy.schemas.in.h:18
+msgid "The last directory that an avatar image was chosen from."
+msgstr "De laatst gebruikte map voor gebruikersafbeeldingen."
+
+#: ../data/empathy.schemas.in.h:19
+msgid "The theme that is used to display the conversation in chat windows."
+msgstr "Het thema dat gebruikt wordt voor het tonen van chats in chatvensters."
+
+#: ../data/empathy.schemas.in.h:20
+msgid "Use graphical smileys"
+msgstr "Smileys grafisch tonen"
+
+#: ../data/empathy.schemas.in.h:21
+msgid "Use notification sounds"
+msgstr "Waarschuwingsgeluiden gebruiken"
+
+#: ../data/empathy.schemas.in.h:22
+msgid "Use theme for chat rooms"
+msgstr "Thema voor chatruimte gebruiken"
+
+# Bah, wat een lelijke vertaling (Wouter Bolsterlee)
+#: ../data/empathy.schemas.in.h:23
+msgid ""
+"Whether or not to check words typed against the languages you want to check "
+"with."
+msgstr ""
+"Ingetypte woorden al dan niet controleren op de talen waar u op wilt "
+"controleren."
+
+#: ../data/empathy.schemas.in.h:24
+msgid ""
+"Whether or not to convert smileys into graphical images in conversations."
+msgstr "Smileys in gesprekken grafisch tonen."
+
+#: ../data/empathy.schemas.in.h:25
+msgid "Whether or not to play a sound when messages arrive."
+msgstr "Een geluid afspelen als berichten binnenkomen."
+
+#: ../data/empathy.schemas.in.h:26
+msgid "Whether or not to play sounds when away."
+msgstr "Geluiden afspelen indien afwezig."
+
+#: ../data/empathy.schemas.in.h:27
+msgid "Whether or not to play sounds when busy."
+msgstr "Geluiden afspelen indien bezig."
+
+#: ../data/empathy.schemas.in.h:28
+msgid "Whether or not to show a popup when a contact becomes available."
+msgstr "Een notificatiebericht tonen als een contact online komt."
+
+#: ../data/empathy.schemas.in.h:29
+msgid ""
+"Whether or not to show avatars for contacts in the contact list and chat "
+"windows."
+msgstr ""
+"Gebruikersafbeeldingen wel of niet tonen in de contactlijst en chatvensters."
+
+#: ../data/empathy.schemas.in.h:30
+msgid "Whether or not to show contacts that are offline in the contact list."
+msgstr "Contacten die offline zijn in de contactlijst wel of niet tonen."
+
+#: ../data/empathy.schemas.in.h:31
+msgid ""
+"Whether or not to show the message dialog about closing the main window with "
+"the 'x' button in the title bar."
+msgstr ""
+"Al dan niet het informatievenster over het sluiten van het hoofdvenster "
+"tonen als het venster met de ‘x’ in de titelbank gesloten wordt."
+
+#: ../data/empathy.schemas.in.h:32
+msgid "Whether to show the contact list in compact mode or not."
+msgstr "Al dan niet de contactlijst in compacte modus tonen"
+
+#: ../data/empathy.schemas.in.h:33
+msgid "Whether to use the theme for chat rooms or not."
+msgstr "Thema voor chatruimtes gebruiken"
+
+#: ../data/empathy.schemas.in.h:34
+msgid ""
+"Which criterium to use when sorting the contact list. Default is to use sort "
+"by the contact's name with the value \"name\". A value of \"state\" will "
+"sort the contact list by state."
+msgstr ""
+
+#: ../libempathy/gossip-contact.c:654 ../libempathy/gossip-presence.c:184
+#: ../libempathy/gossip-presence.c:283
+msgid "Offline"
+msgstr "Offline"
+
+#: ../libempathy/gossip-presence.c:274
+msgid "Available"
+msgstr "Beschikbaar"
+
+#: ../libempathy/gossip-presence.c:276
+msgid "Busy"
+msgstr "Bezig"
+
+#: ../libempathy/gossip-presence.c:279
+msgid "Away"
+msgstr "Afwezig"
+
+#: ../libempathy-gtk/empathy-main-window.c:254
+msgid "Show and edit accounts"
+msgstr "Accounts tonen en bewerken"
+
+#: ../libempathy-gtk/empathy-main-window.c:456
+msgid "Group"
+msgstr "Groep"
+
+#: ../libempathy-gtk/empathy-main-window.c:477
+msgid "Contact"
+msgstr "Contact"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:1
+#, fuzzy
+msgid "Contact List - Empathy"
+msgstr "Contactlijst - Gossip"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:2
+msgid "Context"
+msgstr "Context"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:3
+msgid "Join _Favorites"
+msgstr "_Bladwijzers openen"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:4
+#: ../libempathy-gtk/gossip-chat.glade.h:10
+msgid "Join _New..."
+msgstr "_Nieuw groepsgesprek binnengaan…"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:5
+msgid "Manage Favorites..."
+msgstr "Bladwijzers beheren…"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:6
+msgid "Show _Offline Contacts"
+msgstr "_Offline contacten tonen"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:7
+msgid "_About"
+msgstr "_Over"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:8
+msgid "_Accounts"
+msgstr "_Accounts"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:9
+#: ../libempathy-gtk/gossip-chat.glade.h:15
+msgid "_Add Contact..."
+msgstr "_Contact toevoegen..."
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:10
+#: ../libempathy-gtk/gossip-contact-list.c:298
+msgid "_Chat"
+msgstr "_Chatten"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:11
+msgid "_Contents"
+msgstr "In_houd"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:12
+#: ../libempathy-gtk/gossip-chat.glade.h:21
+#: ../libempathy-gtk/gossip-contact-list.c:310
+msgid "_Edit"
+msgstr "Be_werken"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:13
+msgid "_Help"
+msgstr "_Help"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:14
+#: ../libempathy-gtk/empathy-status-icon.glade.h:2
+msgid "_New Message..."
+msgstr "_Nieuw bericht..."
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:15
+msgid "_Personal Information"
+msgstr "_Persoonlijke gegevens"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:16
+msgid "_Preferences"
+msgstr "_Voorkeuren"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:17
+#: ../libempathy-gtk/empathy-status-icon.glade.h:3
+msgid "_Quit"
+msgstr "_Afsluiten"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:18
+#: ../libempathy-gtk/gossip-chat.glade.h:25
+msgid "_Room"
+msgstr "_Ruimte"
+
+#: ../libempathy-gtk/empathy-main-window.glade.h:19
+#: ../libempathy-gtk/gossip-chat.glade.h:28
+#: ../libempathy-gtk/gossip-contact-list.c:326
+msgid "_View Previous Conversations"
+msgstr "_Vorige gesprekken tonen"
+
+#: ../libempathy-gtk/empathy-status-icon.glade.h:1
+msgid "Status"
+msgstr "Status"
+
+#: ../libempathy-gtk/empathy-status-icon.glade.h:4
+msgid "_Show Contact List"
+msgstr "Contactlijst _tonen"
+
+#: ../libempathy-gtk/gossip-about-dialog.c:63
+#, fuzzy
+msgid ""
+"Empathy is free software; you can redistribute it and/or modify it under the "
+"terms of the GNU General Public License as published by the Free Software "
+"Foundation; either version 2 of the License, or (at your option) any later "
+"version."
+msgstr ""
+"Gossip is vrije Software; u kunt het verspreiden en/of aanpassen onder de "
+"voorwaarden van de GNU General Public License zoals uitgegeven door de Free "
+"Software Foundation; ofwel versie 2, ofwel (naar keuze) een latere versie."
+
+#: ../libempathy-gtk/gossip-about-dialog.c:67
+#, fuzzy
+msgid ""
+"Empathy is distributed in the hope that it will be useful, but WITHOUT ANY "
+"WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
+"FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
+"details."
+msgstr ""
+"Gossip wordt verspreid in de hoop dat het bruikbaar is, maar ZONDER ENIGE "
+"GARANTIE; zelfs niet de impliciete garantie van VERKOOPBAARHEID of "
+"GESCHIKTHEID VOOR EEN BEPAALD DOEL. Zie de GNU General Public License voor "
+"meer informatie."
+
+#: ../libempathy-gtk/gossip-about-dialog.c:71
+#, fuzzy
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"Empathy; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Street, Fifth Floor, Boston, MA 02110-130159 USA"
+msgstr ""
+"U zou een kopie van de GNU General Public License moeten hebben ontvangen "
+"bij Gossip; is dit niet het geval, dan kun u schrijven naar de Free Software "
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-130159 "
+"USA"
+
+#: ../libempathy-gtk/gossip-about-dialog.c:99
+msgid "An Instant Messaging client for GNOME"
+msgstr "Gossip, een chatclient voor GNOME"
+
+#: ../libempathy-gtk/gossip-about-dialog.c:105
+msgid "translator-credits"
+msgstr ""
+"Vincent van Adrighem\n"
+"Taco Witte\n"
+"Wouter Bolsterlee\n"
+"http://nl.gnome.org/"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:224
+#, fuzzy
+msgid "Disable"
+msgstr "Beschikbaar"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:227
+#, fuzzy
+msgid "Enable"
+msgstr "Voorbeeld"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:261
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:3
+msgid "<b>No Account Selected</b>"
+msgstr "<b>Geen account geselecteerd</b>"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#: ../libempathy-gtk/gossip-accounts-dialog.c:263
+msgid ""
+"To add a new account, you can click on the 'Add' button and a new entry will "
+"be created for you to start configuring.\n"
+"\n"
+"If you do not want to add an account, simply click on the account you want "
+"to configure in the list on the left."
+msgstr ""
+"U kunt de knop ‘Toevoegen’ gebruiken om een nieuw account toe te voegen en "
+"in te stellen.\n"
+"\n"
+"Om bestaande accountgegevens te veranderen u een account uit de lijst aan de "
+"linkerzijde kiezen."
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:272
+msgid "<b>No Accounts Configured</b>"
+msgstr "<b>Geen accounts ingesteld</b>"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#: ../libempathy-gtk/gossip-accounts-dialog.c:274
+msgid ""
+"To add a new account, you can click on the 'Add' button and a new entry will "
+"be created for you to start configuring."
+msgstr ""
+"U kunt de knop ‘Toevoegen’ gebruiken om een nieuw account toe te voegen en "
+"in te stellen."
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:362
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:6
+msgid "Accounts"
+msgstr "Accounts"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:857
+#, c-format
+msgid ""
+"You are about to remove your %s account!\n"
+"Are you sure you want to proceed?"
+msgstr ""
+"Het account ‘%s’ zal verwijderd worden!\n"
+"Weet u zeker dat u wilt doorgaan?"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.c:863
+msgid ""
+"Any associated conversations and chat rooms will NOT be removed if you "
+"decide to proceed.\n"
+"\n"
+"Should you decide to add the account back at a later time, they will still "
+"be available."
+msgstr ""
+"Gerelateerde gesprekken en chatruimtes zullen niet verwijderd worden als u "
+"doorgaat.\n"
+"\n"
+"Als u het account later weer toevoegt, dan zullen deze weer beschikbaar zijn."
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:1
+msgid "<b>Account</b>"
+msgstr "<b>Account</b>"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:2
+msgid "<b>New Account</b>"
+msgstr "<b>Nieuw account</b>"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:4
+msgid "<b>Settings</b>"
+msgstr "<b>Instellingen</b>"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:5
+msgid "A unique name for this account to identify it personally to you."
+msgstr ""
+"Een unieke naam voor dit account om het voor u persoonlijk herkenbaar te "
+"maken."
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:7
+msgid "Cr_eate"
+msgstr "_Aanmaken"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:8
+msgid "Imendio "
+msgstr "Imendio "
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:9
+msgid "Jabber"
+msgstr "Jabber"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:10
+msgid ""
+"To add a new account, you can click on the 'Add' button and a new entry will "
+"be created for you to started configuring.\n"
+"\n"
+"If you do not want to add an account, simply click on the account you want "
+"to configure in the list on the left."
+msgstr ""
+"U kunt de knop ‘Toevoegen’ gebruiken om een nieuw account toe te voegen en "
+"in te stellen.\n"
+"\n"
+"Om bestaande accountgegevens te veranderen u een account uit de lijst aan de "
+"linkerzijde kiezen."
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:13
+msgid "_Name:"
+msgstr "_Naam:"
+
+#: ../libempathy-gtk/gossip-accounts-dialog.glade.h:14
+msgid "_Type:"
+msgstr "_Type:"
+
+#: ../libempathy-gtk/gossip-account-widget-generic.c:144
+#: ../libempathy-gtk/gossip-account-widget-generic.c:186
+#, c-format
+msgid "%s:"
+msgstr "%s:"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:1
+msgid ""
+"<small><b><span foreground=\"#555\">Example: user@jabber.org</span></b></"
+"small>"
+msgstr ""
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:2
+msgid "Forget password and clear the entry."
+msgstr "Wachtwoord vergeten en het invoervak leegmaken"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:3
+msgid "Login I_D:"
+msgstr "Login I_D"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:4
+msgid "Pass_word:"
+msgstr "_Wachtwoord:"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:5
+msgid "Reso_urce:"
+msgstr "_Bron:"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:6
+msgid "Use encryption (SS_L)"
+msgstr "Encryptie gebruiken (SS_L)"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:7
+msgid "_Port:"
+msgstr "_Poort:"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:8
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../libempathy-gtk/gossip-account-widget-jabber.glade.h:9
+msgid "jabber account settings"
+msgstr "jabber-accountgegevens"
+
+#: ../libempathy-gtk/gossip-chat.c:314
+msgid "Disconnected"
+msgstr "Verbinding verbroken"
+
+#: ../libempathy-gtk/gossip-chat.c:858
+msgid "Insert Smiley"
+msgstr "Smiley invoegen"
+
+#: ../libempathy-gtk/gossip-chat.c:906
+msgid "_Check Word Spelling..."
+msgstr "Spelling van woord _controleren..."
+
+#: ../libempathy-gtk/gossip-chat.c:1244
+msgid "Connected"
+msgstr "Verbonden"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:1
+msgid "C_lear"
+msgstr "_Wissen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:2
+msgid "Change _Topic..."
+msgstr "_Onderwerp instellen…"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:3
+msgid "Chat"
+msgstr "Chatten"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:4
+msgid "Contact Infor_mation"
+msgstr "Contactinfor_matie"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:5
+msgid "Cu_t"
+msgstr "K_nippen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:6
+msgid "In_vite..."
+msgstr "_Uitnodigen…"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:7
+msgid "Insert _Smiley"
+msgstr "_Smiley invoegen"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#: ../libempathy-gtk/gossip-chat.glade.h:8
+msgid "Invitation _message:"
+msgstr "_Uitnodiging:"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:9
+msgid "Invite"
+msgstr "Uitnodigen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:11
+msgid "Move Tab _Left"
+msgstr "Tabblad naar _links verplaatsen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:12
+msgid "Move Tab _Right"
+msgstr "Tabblad naar _rechts verplaatsen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:13
+msgid "Select who would you like to invite:"
+msgstr "Kies wie u wilt uitnodigen:"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:14
+msgid "You have been invited to join a chat conference."
+msgstr "U bent uitgenodigd voor een groepsgesprek."
+
+#: ../libempathy-gtk/gossip-chat.glade.h:16
+msgid "_Add To Favorites"
+msgstr "_Aan bladwijzers toevoegen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:17
+msgid "_Close"
+msgstr "Sl_uiten"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:18
+msgid "_Conversation"
+msgstr "_Gesprek"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:19
+msgid "_Copy"
+msgstr "_Kopiëren"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:20
+msgid "_Detach Tab"
+msgstr "Tabblad _losmaken"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:22
+msgid "_Next Tab"
+msgstr "Vo_lgend tabblad"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:23
+msgid "_Paste"
+msgstr "_Plakken"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:24
+msgid "_Previous Tab"
+msgstr "Vo_rig tabblad"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:26
+msgid "_Show Contacts"
+msgstr "C_ontactlijst tonen"
+
+#: ../libempathy-gtk/gossip-chat.glade.h:27
+msgid "_Tabs"
+msgstr "_Tabbladen"
+
+#: ../libempathy-gtk/gossip-chat-view.c:544
+msgid "_Copy Link Address"
+msgstr "Koppelingsadres _kopiëren"
+
+#: ../libempathy-gtk/gossip-chat-view.c:552
+msgid "_Open Link"
+msgstr "Koppeling _openen"
+
+#: ../libempathy-gtk/gossip-chat-view.c:889
+msgid "%A %d %B %Y"
+msgstr "%A %d %B %Y"
+
+#: ../libempathy-gtk/gossip-chat-window.c:685
+#: ../libempathy-gtk/gossip-chat-window.c:715
+msgid "New Message"
+msgid_plural "New Messages"
+msgstr[0] "Nieuw bericht"
+msgstr[1] "Nieuwe berichten"
+
+#: ../libempathy-gtk/gossip-chat-window.c:691
+msgid "Chat Room"
+msgstr "Chatruimte"
+
+#: ../libempathy-gtk/gossip-chat-window.c:696
+#: ../libempathy-gtk/gossip-chat-window.c:719
+#, c-format
+msgid "Conversation"
+msgid_plural "Conversations (%d)"
+msgstr[0] "Gesprek"
+msgstr[1] "Gesprekken (%d)"
+
+#: ../libempathy-gtk/gossip-chat-window.c:1295
+msgid "Typing a message."
+msgstr "Bezig met typen van een bericht."
+
+#: ../libempathy-gtk/gossip-contact-list.c:290
+msgid "_Contact"
+msgstr "_Contact"
+
+#: ../libempathy-gtk/gossip-contact-list.c:294
+msgid "_Group"
+msgstr "_Groep"
+
+#: ../libempathy-gtk/gossip-contact-list.c:298
+msgid "Chat with contact"
+msgstr "Met dit contact chatten"
+
+#: ../libempathy-gtk/gossip-contact-list.c:302
+msgid "Infor_mation"
+msgstr "Infor_matie"
+
+#: ../libempathy-gtk/gossip-contact-list.c:302
+msgid "View contact information"
+msgstr "Contactinformatie tonen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:306
+msgid "Re_name"
+msgstr "Her_noemen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:306
+msgid "Rename"
+msgstr "Hernoemen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:310
+msgid "Edit the groups and name for this contact"
+msgstr "Groepen en naam voor dit contact bewerken"
+
+#: ../libempathy-gtk/gossip-contact-list.c:314
+msgid "_Remove"
+msgstr "_Verwijderen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:314
+msgid "Remove contact"
+msgstr "Contact verwijderen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:318
+msgid "_Invite to Chat Room"
+msgstr "In chatruimte _uitnodigen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:318
+msgid "Invite to a currently open chat room"
+msgstr "In een geopende chatruimte uitnodigen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:322
+msgid "_Send File..."
+msgstr "Be_stand versturen…"
+
+#: ../libempathy-gtk/gossip-contact-list.c:322
+msgid "Send a file"
+msgstr "Een bestand versturen"
+
+#: ../libempathy-gtk/gossip-contact-list.c:326
+msgid "View previous conversations with this contact"
+msgstr "Vorige gesprekken met dit contact tonen"
+
+#: ../libempathy-gtk/gossip-preferences.c:250
+msgid "Language"
+msgstr "Taal"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:1
+msgid "<b>Appearance</b>"
+msgstr "<b>Uiterlijk</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:2
+msgid "<b>Audio</b>"
+msgstr "<b>Geluid</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:3
+msgid "<b>Behaviour</b>"
+msgstr "<b>Gedrag</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:4
+#, fuzzy
+msgid "<b>Contact List</b>"
+msgstr "<b>Verbinding</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:5
+msgid "<b>Languages</b>"
+msgstr "<b>Talen</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:6
+msgid "<b>Options</b>"
+msgstr "<b>Opties</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:7
+msgid "<b>Visual</b>"
+msgstr "<b>Visueel</b>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:8
+msgid ""
+"<small>The list of languages reflects only the languages for which you have "
+"a dictionary installed.</small>"
+msgstr ""
+"<small>Bovenstaande lijst met talen toont alleen de talen waarvoor u een "
+"woordenboek heeft geïnstalleerd.</small>"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:9
+msgid "Avatars are user chosen images shown in the contact list"
+msgstr ""
+"Gebruikersafbeeldingen zijn door de gebruiker gekozen afbeeldingen die in de "
+"contactlijst en in chatvensters getoond worden"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:10
+msgid "Chat Th_eme:"
+msgstr "_Chatthema:"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:11
+msgid "Display notifications when contacts come _online"
+msgstr "_Notificatiebericht tonen als contacten online komen"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:12
+msgid "Enable sounds when _away"
+msgstr "Geluid afspelen indien _afwezig"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:13
+msgid "Enable sounds when _busy"
+msgstr "Geluid afspelen indien _bezig"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:14
+msgid "General"
+msgstr "Algemeen"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:15
+msgid "Notifications"
+msgstr "Notificatieberichten"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:16
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:17
+msgid "Show _avatars"
+msgstr "_Gebruikersafbeeldingen tonen"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:18
+msgid "Show _smileys as images"
+msgstr "_Smileys tonen"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#: ../libempathy-gtk/gossip-preferences.glade.h:19
+msgid "Show co_mpact contact list"
+msgstr "Contactlijst co_mpact maken"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:20
+msgid "Sort by _name"
+msgstr ""
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:21
+msgid "Sort by s_tate"
+msgstr ""
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:22
+msgid "Spell Checking"
+msgstr "Spellingchecker"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:23
+msgid "Themes"
+msgstr "Thema's"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:24
+msgid "_Enable spell checking"
+msgstr "_Spellingchecker inschakelen"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:25
+msgid "_Open new chats in separate windows"
+msgstr "_Nieuwe chats in eigen vensters openen"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:26
+msgid "_Play sound when messages arrive"
+msgstr "_Geluid afspelen bij nieuwe berichten"
+
+#: ../libempathy-gtk/gossip-preferences.glade.h:27
+msgid "_Use for chat rooms"
+msgstr "Voor chatruimtes _gebruiken"
+
+#: ../libempathy-gtk/gossip-presence-chooser.c:702
+msgid "Custom message..."
+msgstr "Aangepast bericht…"
+
+#. Clear list
+#: ../libempathy-gtk/gossip-presence-chooser.c:724
+msgid "Clear List..."
+msgstr "Lijst wissen…"
+
+#: ../libempathy-gtk/gossip-presence-chooser.c:803
+msgid "Are you sure you want to clear the list?"
+msgstr "Weet u zeker dat u de lijst wilt wissen?"
+
+#: ../libempathy-gtk/gossip-presence-chooser.c:807
+msgid ""
+"This will remove any custom messages you have added to the list of preset "
+"status messages."
+msgstr ""
+"Hiermee verwijdert u alle aangepaste statusberichten die u eerder aan de "
+"lijst heeft toegevoegd."
+
+#: ../libempathy-gtk/gossip-presence-chooser.c:812
+msgid "Clear List"
+msgstr "Wissen"
+
+#: ../libempathy-gtk/gossip-presence-chooser.glade.h:1
+msgid "Enter status message:"
+msgstr "Geef een statusbericht:"
+
+#: ../libempathy-gtk/gossip-presence-chooser.glade.h:2
+msgid "Status Message Presets"
+msgstr "Opgeslagen statusberichten"
+
+#: ../libempathy-gtk/gossip-presence-chooser.glade.h:3
+msgid "_Add to status message list"
+msgstr "_Aan statusberichten toevoegen"
+
+#: ../libempathy-gtk/gossip-private-chat.c:198
+#, c-format
+msgid "%s went offline"
+msgstr "%s ging offline"
+
+#: ../libempathy-gtk/gossip-private-chat.c:212
+#, c-format
+msgid "%s has come online"
+msgstr "%s is nu online"
+
+#: ../libempathy-gtk/gossip-theme-manager.c:87
+msgid "Classic"
+msgstr "Klassiek"
+
+#: ../libempathy-gtk/gossip-theme-manager.c:88
+msgid "Simple"
+msgstr "Simpel"
+
+# Dichterlijke vrijheid (Wouter Bolsterlee)
+#: ../libempathy-gtk/gossip-theme-manager.c:89
+msgid "Clean"
+msgstr "Helder"
+
+#: ../libempathy-gtk/gossip-theme-manager.c:90
+msgid "Blue"
+msgstr "Blauw"
+
+#: ../src/empathy-main.c:145
+msgid "Don't connect on startup"
+msgstr "Niet verbinden bij opstarten"
+
+#: ../src/empathy-main.c:155
+#, fuzzy
+msgid "- Empathy Instant Messenger"
+msgstr "- Gossip Instant Messenger"
+
+#~ msgid "Gossip Instant Messenger"
+#~ msgstr "Gossip Instant Messenger"
+
+#~ msgid "Normal"
+#~ msgstr "Normaal"
+
+#~ msgid "Joining"
+#~ msgstr "Verbinden…"
+
+#~ msgid "Active"
+#~ msgstr "Actief"
+
+#~ msgid "Inactive"
+#~ msgstr "Niet actief"
+
+#~ msgid "Unknown"
+#~ msgstr "Onbekend"
+
+#~ msgid "Error"
+#~ msgstr "Fout"
+
+#~ msgid "Moderator"
+#~ msgid_plural "Moderators"
+#~ msgstr[0] "Moderator"
+#~ msgstr[1] "Moderators"
+
+#~ msgid "Participant"
+#~ msgid_plural "Participants"
+#~ msgstr[0] "Deelnemer"
+#~ msgstr[1] "Deelnemers"
+
+#~ msgid "Visitor"
+#~ msgid_plural "Visitors"
+#~ msgstr[0] "Bezoeker"
+#~ msgstr[1] "Bezoekers"
+
+#~ msgid "No role"
+#~ msgstr "Geen rol"
+
+#~ msgid "Owner"
+#~ msgid_plural "Owners"
+#~ msgstr[0] "Eigenaar"
+#~ msgstr[1] "Eigenaars"
+
+#~ msgid "Administrator"
+#~ msgid_plural "Administrators"
+#~ msgstr[0] "Beheerder"
+#~ msgstr[1] "Beheerders"
+
+#~ msgid "Member"
+#~ msgid_plural "Members"
+#~ msgstr[0] "Lid"
+#~ msgstr[1] "Leden"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "Outcast"
+#~ msgid_plural "Outcasts"
+#~ msgstr[0] "Buitenstaander"
+#~ msgstr[1] "Buitenstaanders"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "No affiliation"
+#~ msgstr "Geen relatie"
+
+#~ msgid "The nickname you have chosen is already in use."
+#~ msgstr "De bijnaam die u heeft gekozen is al in gebruik."
+
+#~ msgid "The chat room you tried to join requires a password."
+#~ msgstr ""
+#~ "De chatruimte die u probeert te betreden is met een wachtwoord beveiligd."
+
+#~ msgid "The remote conference server did not respond in a sensible time."
+#~ msgstr "The chatserver gaf geen antwoord binnen de verwachte tijd."
+
+#~ msgid "The conference server you tried to join could not be found."
+#~ msgstr "De chatserver kon niet gevonden worden."
+
+#~ msgid "An unknown error occurred, check your details are correct."
+#~ msgstr "Er is een onbekende fout opgetreden. Controleer uw gegevens."
+
+#~ msgid "Joining the chatroom was canceled."
+#~ msgstr "Binnengaan van chatruimte is geannuleerd"
+
+#~ msgid "Unavailable"
+#~ msgstr "Niet beschikbaar"
+
+#~ msgid "An unknown error occurred."
+#~ msgstr "Een onbekende fout is opgetreden."
+
+#~ msgid "Connection refused."
+#~ msgstr "Verbinding geweigerd."
+
+#~ msgid "Server address could not be resolved."
+#~ msgstr "Het serveradres kon niet opgevraagd worden."
+
+#~ msgid "Connection timed out."
+#~ msgstr "Er kan geen verbinding gemaakt worden."
+
+#~ msgid "Authentication failed."
+#~ msgstr "Aanmelden mislukt."
+
+#~ msgid "The username you are trying already exists."
+#~ msgstr "Deze gebruikersnaam is al in gebruik."
+
+#~ msgid "The username you are trying is not valid."
+#~ msgstr "Deze gebruikersnaam is niet geldig."
+
+#~ msgid "This feature is unavailable."
+#~ msgstr "Deze functie is niet beschikbaar."
+
+#~ msgid "This feature is unauthorized."
+#~ msgstr "Deze functie is niet toegankelijk."
+
+#~ msgid "A specific protocol error occurred that was unexpected."
+#~ msgstr "Er is een onverwachtse protocolfout opgetreden."
+
+#~ msgid "new account"
+#~ msgstr "nieuw account"
+
+#~ msgid "Home"
+#~ msgstr "Thuis"
+
+#~ msgid "Couldn't send message!"
+#~ msgstr "Bericht kon niet verzonden worden!"
+
+#~ msgid "Connection could not be opened"
+#~ msgstr "Verbinding kon niet gemaakt worden"
+
+#~ msgid "Service has gone and is no longer available"
+#~ msgstr "De dienst is niet langer beschikbaar"
+
+#~ msgid "Bad or malformed request to this service"
+#~ msgstr "Onjuiste aanvraag voor deze dienst"
+
+#~ msgid "Unauthorized request to this service"
+#~ msgstr "Aanvraag voor deze dienst niet toegestaan"
+
+#~ msgid "Payment is required for this service"
+#~ msgstr "Deze dienst vereist betaling"
+
+#~ msgid "This service is forbidden"
+#~ msgstr "Geen toegang tot deze dienst"
+
+#~ msgid "This service is unavailable or not found"
+#~ msgstr "Deze functie is niet beschikbaar of kon niet gevonden worden."
+
+#~ msgid "Unacceptable request sent to this services"
+#~ msgstr "Onacceptabele aanvraag naar deze dienst verstuurd"
+
+#~ msgid "Registration is required"
+#~ msgstr "Registratie is vereist"
+
+# Huh, wat betekent dit? (Wouter Bolsterlee)
+#~ msgid "There was a conflict of interest trying to use this service"
+#~ msgstr "Conflicterende belangen bij het gebruik van deze dienst"
+
+#~ msgid "There was an internal service error"
+#~ msgstr "Er is een interne fout opgetreden"
+
+#~ msgid "This feature is not implemented"
+#~ msgstr "Deze functie is niet geïmplementeerd."
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "The remote service timed out"
+#~ msgstr "De server gaf geen antwoord."
+
+#~ msgid "Using the %s backend"
+#~ msgstr "Gebruikte backend: %s"
+
+#~ msgid "Stop"
+#~ msgstr "Afbreken"
+
+#~ msgid "Disconnect"
+#~ msgstr "Verbinding ver_breken"
+
+#~ msgid "Connect"
+#~ msgstr "Verbinden"
+
+#~ msgid "Bye bye"
+#~ msgstr "Tot ziens"
+
+#~ msgid "Successfully registered your new account settings."
+#~ msgstr "Registratie van nieuwe accountgegevens gelukt"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "You should now be able to connect to your new account."
+#~ msgstr "Verbinden met het nieuwe account zou nu moeten werken."
+
+#~ msgid "Failed to register your new account settings."
+#~ msgstr "Registratie accountgegevens mislukt"
+
+#~ msgid "Successfully changed your account password."
+#~ msgstr "Accountwachtwoord succesvol gewijzigd."
+
+#~ msgid "You should now be able to connect with your new password."
+#~ msgstr "Verbinden met het nieuwe wachtwoord zou nu moeten werken."
+
+#~ msgid "Failed to change your account password."
+#~ msgstr "Wijzigen van wachtwoord is mislukt."
+
+#~ msgid ""
+#~ "Please enter a new password for this account:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Vul een nieuw wachtwoord in voor dit account\n"
+#~ "%s"
+
+#~ msgid "No information is available for this contact."
+#~ msgstr "Er is geen informatie over dit contact beschikbaar."
+
+#~ msgid "Information requested, please wait..."
+#~ msgstr "Informatie opgevraagd, even geduld..."
+
+#~ msgid "I would like to add you to my contact list."
+#~ msgstr "Ik wil je graag toevoegen aan mijn contactlijst."
+
+#~ msgid "To summarize:"
+#~ msgstr "Samengevat:"
+
+#~ msgid "%d new message"
+#~ msgid_plural "%d new messages"
+#~ msgstr[0] "%d nieuw bericht"
+#~ msgstr[1] "%d nieuwe berichten"
+
+#~ msgid "%d subscription request"
+#~ msgid_plural "%d subscription requests"
+#~ msgstr[0] "%d inschrijvingsverzoek"
+#~ msgstr[1] "%d inschrijvingsverzoeken"
+
+#~ msgid "%d file transfer request"
+#~ msgid_plural "%d file transfer requests"
+#~ msgstr[0] "%d aanvraag voor bestandsoverdracht"
+#~ msgstr[1] "%d aanvragen voor bestandsoverdracht"
+
+#~ msgid "%d server message"
+#~ msgid_plural "%d server messages"
+#~ msgstr[0] "%d serverbericht"
+#~ msgstr[1] "%d serverberichten"
+
+#~ msgid "%d error"
+#~ msgid_plural "%d errors"
+#~ msgstr[0] "%d fout"
+#~ msgstr[1] "%d fouten"
+
+#~ msgid "If you quit, you will lose all unread information."
+#~ msgstr "Alle ongelezen berichten zullen bij afsluiten verloren gaan."
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "Gossip is still running, it is just hidden."
+#~ msgstr "Gossip draait in de achtergrond verder."
+
+#~ msgid "Click on the notification area icon to show Gossip."
+#~ msgstr ""
+#~ "Klik op het pictogram in het mededelingengebied om Gossip weer te openen."
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "You were about to quit!"
+#~ msgstr "Gossip wordt afgesloten!"
+
+#~ msgid ""
+#~ "Since no system or notification tray has been found, this action would "
+#~ "normally quit Gossip.\n"
+#~ "\n"
+#~ "This is just a reminder, from now on, Gossip will quit when performing "
+#~ "this action unless you uncheck the option below."
+#~ msgstr ""
+#~ "Omdat er geen mededelingengebied is gevonden, zou Gossip bij deze actie "
+#~ "normaal gesproken afgesloten worden.\n"
+#~ "\n"
+#~ "Deze mededeling verschijnt omdat Gossip vanaf nu afgesloten zal worden "
+#~ "bij deze actie, tenzij u het vinkje hieronder uitschakelt."
+
+#~ msgid "Edit Account _Details"
+#~ msgstr "Accountgegevens _bewerken"
+
+#~ msgid "Click to enlarge"
+#~ msgstr "Klik om te vergroten"
+
+#~ msgid "Word"
+#~ msgstr "Woord"
+
+#~ msgid "Select who would you like to invite to room:"
+#~ msgstr "Kies wie u wilt uitnodigen in deze ruimte:"
+
+#~ msgid "Select which room you would like to invite:"
+#~ msgstr "Kies welke ruimte u wilt uitnodigen:"
+
+#~ msgid "New message from %s"
+#~ msgstr "Nieuw bericht van %s"
+
+#~ msgid "Your invitation has been declined"
+#~ msgstr "Uw uitnodiging is geweigerd."
+
+#~ msgid "Accept"
+#~ msgstr "Accepteren"
+
+#~ msgid "Decline"
+#~ msgstr "Weigeren"
+
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#~ msgid "Room"
+#~ msgstr "Ruimte"
+
+#~ msgid "Server"
+#~ msgstr "Server"
+
+#~ msgid "Auto Connect"
+#~ msgstr "Automatisch verbinden"
+
+#~ msgid "Information requested..."
+#~ msgstr "Informatie opgevraagd…"
+
+#~ msgid "Do you want to remove this contact from your roster?"
+#~ msgstr "Wilt u dit contact echt uit de contactlijst verwijderen?"
+
+#~ msgid ""
+#~ "Please enter a new name for the group:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Vul een nieuwe naam in voor de groep\n"
+#~ "%s"
+
+#~ msgid "Select"
+#~ msgstr "Selecteren"
+
+#~ msgid "Unsorted"
+#~ msgstr "Ongesorteerd"
+
+#~ msgid ""
+#~ "Set the alias you want to use for:\n"
+#~ "<b>%s</b>\n"
+#~ "\n"
+#~ "You can retrieve contact information from the server."
+#~ msgstr ""
+#~ "Geef de bijnaam die u wilt gebruiken voor\n"
+#~ "<b>%s</b>\n"
+#~ "\n"
+#~ "Contactinformatie kan van de server opgevraagd worden."
+
+#~ msgid "New file transfer request from %s"
+#~ msgstr "Nieuwe aanvraag voor bestandsoverdracht van %s"
+
+#~ msgid "File transfer is not supported by both parties."
+#~ msgstr "Bestandsoverdracht is aan beide kanten niet ondersteund."
+
+#~ msgid "Your file transfer offer declined."
+#~ msgstr "De bestandsoverdracht is geweigerd."
+
+#~ msgid "The other user decided not to continue."
+#~ msgstr "De andere gebruiker de transactie afgebroken."
+
+#~ msgid "Unknown error occurred during file transfer."
+#~ msgstr "Er is een onbekende fout opgetreden tijdens de bestandsoverdracht."
+
+#~ msgid "%s would like to send you a file."
+#~ msgstr "%s wil u een bestand toesturen."
+
+#~ msgid "Someone would like to send you a file."
+#~ msgstr "Iemand wil u een bestand toesturen."
+
+#~ msgid "Select a file"
+#~ msgstr "Bestand selecteren"
+
+#~ msgid "Connecting..."
+#~ msgstr "Verbinden..."
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "Retry connection"
+#~ msgstr "Opnieuw verbinding maken"
+
+#~ msgid "Invited %s to join this chat conference."
+#~ msgstr "%s wordt uitgenodigd om aan dit gesprek deel te nemen."
+
+#~ msgid "%s has set the topic: %s"
+#~ msgstr "%s heeft het onderwerp ingesteld op: %s"
+
+#~ msgid "Enter the new topic you want to set for this room:"
+#~ msgstr "Geef een nieuw onderwerp dat u voor deze chatruime wilt instellen:"
+
+#~ msgid "%s has joined the room"
+#~ msgstr "%s is de chatruimte binnengekomen"
+
+#~ msgid "%s has left the room"
+#~ msgstr "%s heeft de chatruimte verlaten"
+
+#~ msgid "Topic: %s"
+#~ msgstr "Onderwerp: %s"
+
+#~ msgid "Account"
+#~ msgstr "Account"
+
+#~ msgid "Conversation With"
+#~ msgstr "Gesprek met"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Allow multiple instances of the application to run at the same time"
+#~ msgstr "Meerdere keren opstarten van deze applicatie toestaan"
+
+#~ msgid "List the available accounts"
+#~ msgstr "Beschikbare accounts tonen"
+
+#~ msgid "Which account to connect to on startup"
+#~ msgstr "Met dit account verbinden bij opstarten"
+
+#~ msgid "ACCOUNT-NAME"
+#~ msgstr "ACCOUNTNAAM"
+
+#~ msgid "You can not use --no-connect together with --account"
+#~ msgstr "U kunt --no-connect niet tegelijk met --account gebruiken"
+
+#~ msgid "No accounts available."
+#~ msgstr "Geen accounts beschikbaar."
+
+#~ msgid "Available accounts:"
+#~ msgstr "Beschikbare accounts:"
+
+#~ msgid "[default]"
+#~ msgstr "[standaard]"
+
+#~ msgid "There is no account with the name '%s'."
+#~ msgstr "Er is geen account met de naam ‘%s’."
+
+#~ msgid "Join"
+#~ msgstr "_Binnengaan"
+
+#~ msgid "Create"
+#~ msgstr "Aanmaken"
+
+#~ msgid "Chat Rooms"
+#~ msgstr "Chatruimtes"
+
+#~ msgid "Found %d conference rooms"
+#~ msgstr "%d chatruimtes gevonden"
+
+#~ msgid "Browsing for conference rooms, please wait..."
+#~ msgstr "Zoeken naar chatruimes, even geduld…"
+
+#~ msgid "Browsing cancelled!"
+#~ msgstr "Zoeken gestopt!"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+#~ msgid "Chat!"
+#~ msgstr "Chatten"
+
+#~ msgid "%s wants to be added to your contact list."
+#~ msgstr "%s wil aan uw contactlijst worden toegevoegd."
+
+#~ msgid "Someone wants to be added to your contact list."
+#~ msgstr "Iemand wil aan de contactlijst worden toegevoegd."
+
+#~ msgid "Subscription request"
+#~ msgstr "Inschrijvingsverzoek"
+
+#~ msgid "Show"
+#~ msgstr "Tonen"
+
+#~ msgid "Contact Information"
+#~ msgstr "Contactinformatie"
+
+#~ msgid "Contact has been removed"
+#~ msgstr "Het contact is verwijderd."
+
+#~ msgid "Subject: %s"
+#~ msgstr "Onderwerp: %s"
+
+#~ msgid "Suggestions for the word"
+#~ msgstr "Suggesties voor dit woord"
+
+#~ msgid "New subscription request from %s"
+#~ msgstr "Nieuw inschrijvingsverzoek van %s"
+
+#~ msgid "Do you want to add this person to your contact list?"
+#~ msgstr "Wilt u deze persoon aan de contactlijst toevoegen?"
+
+#~ msgid "Do you want to add %s to your contact list?"
+#~ msgstr "Wilt u %s aan de contactlijst toevoegen?"
+
+#~ msgid "Please enter your %s account password"
+#~ msgstr "Geef uw wachtwoord voor account ‘%s’:"
+
+#~ msgid "Logging in to account '%s'"
+#~ msgstr "Inloggen met account ‘%s’"
+
+#~ msgid "Remember Password?"
+#~ msgstr "Wachtwoord onthouden?"
+
+#~ msgid "Do not show this again"
+#~ msgstr "Niet opnieuw tonen"
+
+#~ msgid "Could not display the help contents."
+#~ msgstr "De hulptekst kan niet worden weergegeven."
+
+#~ msgid "Select Your Avatar Image"
+#~ msgstr "Kies uw gebruikersafbeelding"
+
+#~ msgid "No Image"
+#~ msgstr "Geen afbeelding"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "The server does not seem to be responding."
+#~ msgstr "De server lijkt niet te reageren."
+
+#~ msgid "Try again later."
+#~ msgstr "Probeer het later opnieuw."
+
+#~ msgid "Change"
+#~ msgstr "Wijzigen"
+
+#~ msgid "Contact goes offline"
+#~ msgstr "Contact gaat offline"
+
+#~ msgid "Contact goes online"
+#~ msgstr "Contact komt online"
+
+#~ msgid "Contact ID:"
+#~ msgstr "Contact ID:"
+
+#~ msgid "Do you want to accept this file?"
+#~ msgstr "Wilt u dit bestand accepteren?"
+
+#~ msgid "File Transfer Request"
+#~ msgstr "Aanvraag bestandsoverdracht"
+
+#~ msgid "File name:"
+#~ msgstr "Bestandsnaam:"
+
+#~ msgid "File size:"
+#~ msgstr "Bestandsgrootte:"
+
+#~ msgid "Not supported yet"
+#~ msgstr "Nog niet ondersteund"
+
+#~ msgid "This person wishes to send you this file:"
+#~ msgstr "Deze persoon wil u dit bestand toe sturen:"
+
+#~ msgid "Web site:"
+#~ msgstr "Website:"
+
+#~ msgid "_Accept"
+#~ msgstr "_Accepteren"
+
+#~ msgid "_Deny"
+#~ msgstr "_Weigeren"
+
+#~ msgid "<b>Topic:</b>"
+#~ msgstr "<b>Onderwerp:</b>"
+
+#~ msgid "Account:"
+#~ msgstr "Account:"
+
+#~ msgid "Browse:"
+#~ msgstr "Bladeren:"
+
+#~ msgid "Edit Favorite Room"
+#~ msgstr "Bladwijzer bewerken"
+
+#~ msgid ""
+#~ "Enter the room name to join here or click on one or more rooms in the "
+#~ "list."
+#~ msgstr ""
+#~ "Vul hier de naam van de chatruimte in of kies een chatruimte uit de lijst."
+
+#~ msgid "Group Chat"
+#~ msgstr "Chatten"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "Join New"
+#~ msgstr "Nieuw groepsgesprek"
+
+#~ msgid "Join room on start_up"
+#~ msgstr "Chatruimte binnengaan bij _opstarten"
+
+#~ msgid "Join this chat room when Gossip starts and you are connected"
+#~ msgstr "Deze chatruimte binnengaan als Gossip start en u verbonden bent"
+
+#~ msgid "Manage Favorite Rooms"
+#~ msgstr "Bladwijzers beheren…"
+
+#~ msgid "N_ame:"
+#~ msgstr "_Naam:"
+
+#~ msgid "Re_fresh"
+#~ msgstr "Ver_versen"
+
+#~ msgid "S_erver:"
+#~ msgstr "S_erver:"
+
+#~ msgid ""
+#~ "This list represents all chat rooms hosted on the server you have entered."
+#~ msgstr ""
+#~ "Deze lijst toont alle chatruimtes op de server waarmee u verbonden bent."
+
+#~ msgid "_Nickname:"
+#~ msgstr "_Bijnaam:"
+
+#~ msgid "_Room:"
+#~ msgstr "_Ruimte:"
+
+#~ msgid "-"
+#~ msgstr "-"
+
+#~ msgid "<b>About</b>"
+#~ msgstr "<b>Over</b>"
+
+#~ msgid "<b>Client Information</b>"
+#~ msgstr "<b>Clientinformatie</b>"
+
+#~ msgid "<b>Groups</b>"
+#~ msgstr "<b>Groepen</b>"
+
+#~ msgid "<b>Name</b>"
+#~ msgstr "<b>Naam</b>"
+
+#~ msgid "<b>Personal Details</b>"
+#~ msgstr "<b>Persoonlijke details</b>"
+
+#~ msgid "<b>Status</b>"
+#~ msgstr "<b>Status</b>"
+
+#~ msgid "<b>Subscription</b>"
+#~ msgstr "<b>Inschrijving</b>"
+
+#~ msgid "<span size=\"smaller\">Example: Mikael or user@server.org</span>"
+#~ msgstr ""
+#~ "<span size=\"smaller\">Voorbeeld: Wouter of gebruiker@server.org</span>"
+
+#~ msgid "Accou_nt:"
+#~ msgstr "Accou_nt:"
+
+#~ msgid "Add Contact"
+#~ msgstr "Contact toevoegen"
+
+#~ msgid "Alia_s:"
+#~ msgstr "Alia_s:"
+
+# hier geen 'gebruikersafbeelding', want dat is te groot (Wouter Bolsterlee)
+#~ msgid "Avatar:"
+#~ msgstr "Afbeelding:"
+
+#~ msgid "Birthday:"
+#~ msgstr "Verjaardag:"
+
+#~ msgid "C_hange"
+#~ msgstr "_Wijzigen"
+
+#~ msgid "Ch_at"
+#~ msgstr "Ch_atten"
+
+#~ msgid "Client:"
+#~ msgstr "Client:"
+
+#~ msgid "Con_tact:"
+#~ msgstr "Con_tact"
+
+#~ msgid "Connect on S_tartup"
+#~ msgstr "Verbinden bij ops_tarten"
+
+#~ msgid "Contacts"
+#~ msgstr "Contacten"
+
+#~ msgid "Country:"
+#~ msgstr "Land:"
+
+#~ msgid "Decide _Later"
+#~ msgstr "_Later besluiten"
+
+#~ msgid "Edit Contact"
+#~ msgstr "Contact bewerken"
+
+#~ msgid "Edit Groups"
+#~ msgstr "Groepen bewerken"
+
+#~ msgid "Email:"
+#~ msgstr "E-mail:"
+
+#~ msgid "ID:"
+#~ msgstr "ID:"
+
+#~ msgid ""
+#~ "If you chose to decide later you will be asked the next time you log on."
+#~ msgstr ""
+#~ "Als u later wilt besluiten, wordt u bij de volgende keer inloggen opnieuw "
+#~ "gevraagd."
+
+#~ msgid "Name:"
+#~ msgstr "Naam:"
+
+#~ msgid "OS:"
+#~ msgstr "OS:"
+
+#~ msgid "Personal Details"
+#~ msgstr "Persoonlijke details"
+
+#~ msgid "R_egister"
+#~ msgstr "R_egistreren"
+
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#~ msgid ""
+#~ "Select the groups you want this contact to appear in, you can select more "
+#~ "than one group or no groups."
+#~ msgstr ""
+#~ "Selecteer de groepen waar u dit contact in wilt plaatsen. U kunt meerdere "
+#~ "of zelfs geen groepen kiezen."
+
+#~ msgid ""
+#~ "Set the alias you want to use for:\n"
+#~ "<b>foo@bar.baz</b>\n"
+#~ "\n"
+#~ "You can retrieve contact information from the server. "
+#~ msgstr ""
+#~ "Geef de bijnaam die u wilt gebruiken voor\n"
+#~ "<b>foo@bar.baz</b>\n"
+#~ "\n"
+#~ "Contactinformatie kan van de server opgevraagd worden."
+
+#~ msgid "Spell Checker"
+#~ msgstr "Spellingchecker"
+
+#~ msgid "Subscription Request"
+#~ msgstr "Inschrijvingsverzoek"
+
+#~ msgid "Suggestions for the word:"
+#~ msgstr "Suggesties voor dit woord:"
+
+#~ msgid ""
+#~ "This acts as a filter to the contact list below. You can use segments of "
+#~ "contact's name or ID, for example, \"jabber.org\" will list everyone "
+#~ "using that server"
+#~ msgstr ""
+#~ "Dit werkt als een filter voor de contactlijst hieronder. U kunt delen van "
+#~ "de naam of het ID van een contact invullen. Voorbeeld: ‘jabber.org’ toont "
+#~ "iedereen op die server."
+
+#~ msgid "This is the name that will be used on your roster for this contact"
+#~ msgstr ""
+#~ "Dit is de naam die voor dit contact getoond wordt in uw contactlijst"
+
+#~ msgid "This name will be used to identify you in chat windows"
+#~ msgstr ""
+#~ "Deze naam zal worden gebruikt om u mee te identificeren in chatvensters"
+
+#~ msgid ""
+#~ "This name will be used to identify you when new contacts lookup your "
+#~ "details"
+#~ msgstr ""
+#~ "Deze naam zal worden gebruikt om u mee te identificeren als nieuwe "
+#~ "contacten uw gegevens opvragen"
+
+# Vrij vertaald (Wouter Bolsterlee)
+#~ msgid "Use default name here from the contact's VCard."
+#~ msgstr "Gebruik de naam van de VCard van het contact."
+
+#~ msgid "Use system pro_xy"
+#~ msgstr "Systeempro_xy gebruiken"
+
+#~ msgid "Version:"
+#~ msgstr "Versie:"
+
+#~ msgid "View Previous Conversations"
+#~ msgstr "Vorige gesprekken tonen"
+
+#~ msgid "Which account do you want to use?"
+#~ msgstr "Welk account wilt u gebruiken?"
+
+#~ msgid "You are not subscribed to this contact."
+#~ msgstr "U bent niet ingeschreven voor dit contact."
+
+#~ msgid "_Birthday:"
+#~ msgstr "_Verjaardag:"
+
+#~ msgid "_Connect"
+#~ msgstr "_Verbinden"
+
+#~ msgid "_Description:"
+#~ msgstr "_Beschrijving:"
+
+#~ msgid "_Disconnect"
+#~ msgstr "Verbinding ver_breken"
+
+#~ msgid "_Email:"
+#~ msgstr "_E-mail:"
+
+#~ msgid ""
+#~ "_Enter the name or contact ID of the person you want to chat to below:"
+#~ msgstr "_Vul de naam of het adres in van de persoon met wie u wilt chatten:"
+
+#~ msgid "_For:"
+#~ msgstr "_Voor:"
+
+#~ msgid "_Full Name:"
+#~ msgstr "_Volledige naam:"
+
+#~ msgid "_Group:"
+#~ msgstr "_Groep:"
+
+#~ msgid "_Nick Name:"
+#~ msgstr "_Bijnaam:"
+
+#~ msgid "_Password:"
+#~ msgstr "_Wachtwoord:"
+
+#~ msgid "_Quit Message:"
+#~ msgstr "Bericht bij afsl_uiten:"
+
+#~ msgid "_Retrieve"
+#~ msgstr "Op_vragen"
+
+#~ msgid "_Subscribe"
+#~ msgstr "_Inschrijven"
+
+#~ msgid "_Web site:"
+#~ msgstr "_Website:"
+
+#~ msgid "irc account settings"
+#~ msgstr "irc-accountgegevens"
+
+#~ msgid "msn account settings"
+#~ msgstr "msn-accountgegevens"
+
+#~ msgid "Gossip"
+#~ msgstr "Gossip"
+
+# Hehe, egotripperij ;)
+#~ msgid "Martyn Russell"
+#~ msgstr "Wouter Bolsterlee"
+
+# De naam hieronder wordt nergens getoond, maar is toch leuk om te vertalen...
+# (Wouter Bolsterlee)
+#~ msgid ""
+#~ "Set the alias you want to use for:\n"
+#~ "<b>martyn@imendio.com</b>\n"
+#~ "\n"
+#~ "You can retrieve contact information from the server. "
+#~ msgstr ""
+#~ "Geef de bijnaam die u wilt gebruiken voor\n"
+#~ "<b>uws@jabber.xs4all.nl</b>\n"
+#~ "\n"
+#~ "You can retrieve contact information from the server. "
+
+#~ msgid "_Forget"
+#~ msgstr "_Vergeten"
+
+#~ msgid "    "
+#~ msgstr "    "
+
+#~ msgid "Group:"
+#~ msgstr "Groep:"
+
+#~ msgid "Nickname:"
+#~ msgstr "Bijnaam:"
+
+#~ msgid "Web Site:"
+#~ msgstr "Website:"
+
+# hmmmm (Wouter Bolsterlee)
+#~ msgid "Favourite"
+#~ msgstr "Bladwijzer"
+
+#~ msgid "Add to _favourites"
+#~ msgstr "Aan _bladwijzers toevoegen"
+
+#~ msgid ""
+#~ "Customize your own nickname, the server and chatroom which you wish to "
+#~ "join."
+#~ msgstr ""
+#~ "Bewerk uw bijnaam, de server en de chatruimte waar u wilt binnengaan."
+
+#~ msgid "Edit your chat room details:"
+#~ msgstr "Bewerkt de gegevens van de chatruimte:"
+
+#~ msgid "Na_me:"
+#~ msgstr "Naa_m:"
+
+#~ msgid "New Chat Room"
+#~ msgstr "Nieuwe chatruimte"
+
+#~ msgid ""
+#~ "Pick a saved chat room from the presets available below and click Join to "
+#~ "start chatting."
+#~ msgstr ""
+#~ "Kies een opgeslagen chatruimte uit de onderstaande lijst en ga de ruimte "
+#~ "binnen om te chatten."
+
+#~ msgid "Save _this chat room"
+#~ msgstr "Deze chatruimte op_slaan"
+
+#~ msgid "Press Subscribe to request to receive their status"
+#~ msgstr "Kies ‘Inschrijven’ als u om statusberichten wilt vragen"
+
+#~ msgid "_Group Chat"
+#~ msgstr "_Groepsgesprek"
+
+#~ msgid "You have no Instant Messaging accounts configured!"
+#~ msgstr "Er zijn geen chat-accounts ingesteld!"
+
+#~ msgid ""
+#~ "Next you will be presented with the Account Information dialog to set "
+#~ "your details up."
+#~ msgstr ""
+#~ "De volgende stap is het invullen van uw accountgegevens in het "
+#~ "accountvenster."
+
+#~ msgid "Registering account"
+#~ msgstr "Bezig met registreren account"
+
+#~ msgid "<span size=\"smaller\">Example:</span>"
+#~ msgstr "<span size=\"smaller\">Voorbeeld:</span>"
+
+#~ msgid "Account Name"
+#~ msgstr "Accountnaam"
+
+#~ msgid "Connection Details"
+#~ msgstr "Verbindingsgegevens"
+
+#~ msgid "Do you already have an account set up on a server?"
+#~ msgstr "Heeft u al een account op een Jabber-server?"
+
+#~ msgid "Enter a name for this account"
+#~ msgstr "Geef een naam voor dit account"
+
+#~ msgid "Enter the port used in the connection for this account"
+#~ msgstr "Vul de poort die gebruikt wordt voor het verbinden met dit account"
+
+#~ msgid "Enter the server used in the connection for this account"
+#~ msgstr "Vul de server die gebruikt wordt voor het verbinden met dit account"
+
+#~ msgid "Enter your real name here"
+#~ msgstr "Vul hier uw echte naam in"
+
+#~ msgid "Finished"
+#~ msgstr "Voltooid"
+
+#~ msgid "For increased security, enable this option"
+#~ msgstr "Schakel deze optie in voor een betere beveiling"
+
+#~ msgid ""
+#~ "Gossip is a modern client for the Jabber Instant Messaging system.\n"
+#~ "\n"
+#~ "This assistant will help you configure Gossip and connect you to your "
+#~ "favorite Jabber server.\n"
+#~ "\n"
+#~ "To get started, just click \"Forward\"."
+#~ msgstr ""
+#~ "Gossip is een moderne client voor het Jabber Instant Messaging-systeem.\n"
+#~ "\n"
+#~ "Deze assistent zal u helpen bij het instellen van Gossip en zal u met uw "
+#~ "favoriete Jabber-server verbinden.\n"
+#~ "\n"
+#~ "Klik om te beginnen op ‘Verder’."
+
+#~ msgid ""
+#~ "If you have another machine on your network which 'proxies' the "
+#~ "connection to the internet and you want to use it, enable this option"
+#~ msgstr ""
+#~ "Als u een andere machine op uw netwerk heeft die als ‘proxy’ fungeert "
+#~ "naar het internet, kies dan deze optie om deze ‘proxy’ te gebruiken"
+
+#~ msgid ""
+#~ "If you need to set specific connection details, like a different server "
+#~ "or port, you can configure that here:"
+#~ msgstr ""
+#~ "Als u specifieke connectiegegevens in wilt vullen, zoals bijvoorbeeld een "
+#~ "verschillende server of poort, kunt u dat hier instellen."
+
+#~ msgid ""
+#~ "Leave this blank if you don't want your password stored on a public "
+#~ "machine. If you decide to do this, you will be prompted each time you "
+#~ "connect for a password"
+#~ msgstr ""
+#~ "U kunt dit leeglaten als u niet wilt dat uw wachtwoord op een gedeelde "
+#~ "computer opgeslagen wordt. U wordt dan wel iedere keer om uw wachtwoord "
+#~ "gevraagd bij het maken van een verbinding."
+
+#~ msgid "Port:"
+#~ msgstr "Poort:"
+
+#~ msgid "Registering Account"
+#~ msgstr "Bezig met accountregistratie"
+
+#~ msgid "Resource:"
+#~ msgstr "Bron:"
+
+#~ msgid "Welcome to Gossip"
+#~ msgstr "Welkom bij Gossip"
+
+#~ msgid "What is your name?"
+#~ msgstr "Wat is uw naam?"
+
+#~ msgid ""
+#~ "What name do you want to use to identify this account?\n"
+#~ "\n"
+#~ "This name could be something associated with the service provider, for "
+#~ "example, <b>Google</b>."
+#~ msgstr ""
+#~ "Welke naam wilt u gebruiken voor dit account?\n"
+#~ "\n"
+#~ "U kunt bijvoorbeeld de naam van de provider hiervoor gebruiken. "
+#~ "Voorbeeld: <b>Google</b>"
+
+#~ msgid "What password do you want to use?"
+#~ msgstr "Welk wachtwoord wilt u gebruiken?"
+
+#~ msgid "What username do you use?"
+#~ msgstr "Wat is uw gebruikersnaam?"
+
+#~ msgid "What username do you want to use?"
+#~ msgstr "Welke gebruikersnaam wilt u gebruiken?"
+
+#~ msgid ""
+#~ "You can change your account settings later by selecting the Edit-"
+#~ ">Accounts menu item."
+#~ msgstr ""
+#~ "De accountgegevens kunnen later gewijzigd worden via ‘Accounts’ in het "
+#~ "menu ‘Bewerken’."
+
+#~ msgid ""
+#~ "You need to set a name for the connection, for example, <b>Home</b> or "
+#~ "<b>Laptop</b>."
+#~ msgstr ""
+#~ "Ieder account heeft een eigen naam, bijvoorbeeld <b>Thuis</b> of "
+#~ "<b>Kantoor</b>. Kies een naam voor dit account:"
+
+#~ msgid "Your Account"
+#~ msgstr "Uw account"
+
+#~ msgid "Your Identity"
+#~ msgstr "Uw identiteit"
+
+#~ msgid "Your new account has now been set up."
+#~ msgstr "Uw nieuwe account is gereed."
+
+#~ msgid "_No"
+#~ msgstr "_Nee"
+
+#~ msgid "_Yes"
+#~ msgstr "_Ja"

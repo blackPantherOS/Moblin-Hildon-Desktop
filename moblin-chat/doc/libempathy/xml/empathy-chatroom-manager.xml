@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyChatroomManager">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyChatroomManager</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyChatroomManager</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyChatroomManagerPriv">EmpathyChatroomManagerPriv</link>;
+                    <link linkend="EmpathyChatroomManager-struct">EmpathyChatroomManager</link>;
+<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link>* <link linkend="empathy-chatroom-manager-new">empathy_chatroom_manager_new</link>    (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-chatroom-manager-add">empathy_chatroom_manager_add</link>        (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);
+<link linkend="void">void</link>                <link linkend="empathy-chatroom-manager-remove">empathy_chatroom_manager_remove</link>     (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);
+<link linkend="EmpathyChatroom">EmpathyChatroom</link>*    <link linkend="empathy-chatroom-manager-find">empathy_chatroom_manager_find</link>       (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *room);
+<link linkend="GList">GList</link>*              <link linkend="empathy-chatroom-manager-get-chatrooms">empathy_chatroom_manager_get_chatrooms</link>
+                                                        (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="guint">guint</link>               <link linkend="empathy-chatroom-manager-get-count">empathy_chatroom_manager_get_count</link>  (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="void">void</link>                <link linkend="empathy-chatroom-manager-store">empathy_chatroom_manager_store</link>      (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyChatroomManager
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyChatroomManager-chatroom-added">chatroom-added</link>&quot;                                 : Run Last
+  &quot;<link linkend="EmpathyChatroomManager-chatroom-removed">chatroom-removed</link>&quot;                               : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyChatroomManagerPriv" role="struct"/>EmpathyChatroomManagerPriv</title>
+<indexterm><primary>EmpathyChatroomManagerPriv</primary></indexterm><programlisting>typedef struct _EmpathyChatroomManagerPriv EmpathyChatroomManagerPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyChatroomManager-struct" role="struct"/>EmpathyChatroomManager</title>
+<indexterm><primary>EmpathyChatroomManager</primary></indexterm><programlisting>typedef struct _EmpathyChatroomManager EmpathyChatroomManager;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-new" role="function"/>empathy_chatroom_manager_new ()</title>
+<indexterm><primary>empathy_chatroom_manager_new</primary></indexterm><programlisting><link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link>* empathy_chatroom_manager_new    (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-add" role="function"/>empathy_chatroom_manager_add ()</title>
+<indexterm><primary>empathy_chatroom_manager_add</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_chatroom_manager_add        (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-remove" role="function"/>empathy_chatroom_manager_remove ()</title>
+<indexterm><primary>empathy_chatroom_manager_remove</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatroom_manager_remove     (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="EmpathyChatroom">EmpathyChatroom</link> *chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-find" role="function"/>empathy_chatroom_manager_find ()</title>
+<indexterm><primary>empathy_chatroom_manager_find</primary></indexterm><programlisting><link linkend="EmpathyChatroom">EmpathyChatroom</link>*    empathy_chatroom_manager_find       (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *room);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>room</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-get-chatrooms" role="function"/>empathy_chatroom_manager_get_chatrooms ()</title>
+<indexterm><primary>empathy_chatroom_manager_get_chatrooms</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_chatroom_manager_get_chatrooms
+                                                        (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-get-count" role="function"/>empathy_chatroom_manager_get_count ()</title>
+<indexterm><primary>empathy_chatroom_manager_get_count</primary></indexterm><programlisting><link linkend="guint">guint</link>               empathy_chatroom_manager_get_count  (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-chatroom-manager-store" role="function"/>empathy_chatroom_manager_store ()</title>
+<indexterm><primary>empathy_chatroom_manager_store</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_chatroom_manager_store      (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *manager);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyChatroomManager-chatroom-added"/>The &quot;chatroom-added&quot; signal</title>
+<indexterm><primary>EmpathyChatroomManager::chatroom-added</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *empathychatroommanager,
+                                                        <link linkend="EmpathyChatroom">EmpathyChatroom</link>        *arg1,
+                                                        <link linkend="gpointer">gpointer</link>                user_data)                   : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychatroommanager</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="EmpathyChatroomManager-chatroom-removed"/>The &quot;chatroom-removed&quot; signal</title>
+<indexterm><primary>EmpathyChatroomManager::chatroom-removed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChatroomManager">EmpathyChatroomManager</link> *empathychatroommanager,
+                                                        <link linkend="EmpathyChatroom">EmpathyChatroom</link>        *arg1,
+                                                        <link linkend="gpointer">gpointer</link>                user_data)                   : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychatroommanager</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

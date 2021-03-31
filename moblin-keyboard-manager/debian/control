@@ -1,0 +1,17 @@
+Source: moblin-keyboard-manager
+Section: utils
+Priority: extra
+Maintainer: Horace Li <horace.li@intel.com>
+Build-Depends: debhelper (>= 5), libosso-dev, libhildondesktop-dev, libhildondesktop0, libdbus-glib-1-dev 
+Standards-Version: 3.7.2
+
+Package: moblin-keyboard-manager
+Architecture: any
+Depends: ${shlibs:Depends}, matchbox-keyboard
+Replaces: matchbox-keyboard-toggler
+Conflicts: matchbox-keyboard-toggler
+Description: Hildon plugin for toggling the matchbox keyboard
+ This is a small utility used for showing and hiding the matchbox
+ on-screen keyboard.  It is a plugin for the Hildon framework used for
+ Ubuntu Mobile and is not particularly useful if you are not running a
+ hildon desktop.

@@ -1,0 +1,9 @@
+General :
+        - Add more games to the package
+
+AisleRiot:
+        - Implement Help files into package.  These can be built using the gnome-doc-tool to xhtml.  Moblin browser then needs a libosso listener to pull up help files when called.
+
+MoblinSays:
+        - Update Graphics
+	- Add Sound

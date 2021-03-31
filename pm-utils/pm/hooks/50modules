@@ -1,0 +1,34 @@
+#!/bin/bash
+
+. /etc/pm/functions
+
+suspend_modules()
+{
+	[ -z "$SUSPEND_MODULES" ] && return 0
+	for x in $SUSPEND_MODULES ; do
+		modunload $x
+	done
+	return 0
+}
+
+resume_modules()
+{
+	[ -z "$SUSPEND_MODULES" ] && return 0
+	for x in $SUSPEND_MODULES ; do
+		modreload $x
+	done
+	return 0
+}
+
+case "$1" in
+	hibernate|suspend)
+		suspend_modules
+		;;
+	thaw|resume)
+		resume_modules
+		;;
+	*)
+		;;
+esac
+
+exit $?

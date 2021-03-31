@@ -1,0 +1,68 @@
+diff -ruNp udev-111~/udevd.8 udev-111/udevd.8
+--- udev-111~/udevd.8	2007-05-10 11:42:56.000000000 +0100
++++ udev-111/udevd.8	2007-05-21 12:41:58.000000000 +0100
+@@ -42,6 +42,11 @@ Print log messages to stdout.
+ Print version number.
+ .RE
+ .PP
++\fB\-\-suppress-syslog\fR
++.RS 3n
++Do not send any log messages to syslog.
++.RE
++.PP
+ \fB\-\-help\fR
+ .RS 4
+ Print usage.
+diff -ruNp udev-111~/udevd.c udev-111/udevd.c
+--- udev-111~/udevd.c	2007-05-10 11:42:56.000000000 +0100
++++ udev-111/udevd.c	2007-05-21 12:41:58.000000000 +0100
+@@ -46,7 +46,7 @@
+ #include "udev_selinux.h"
+ 
+ static int debug_trace;
+-static int verbose;
++static int verbose, suppress_syslog;
+ 
+ static struct udev_rules rules;
+ static int udevd_sock = -1;
+@@ -76,9 +76,11 @@ void log_message(int priority, const cha
+ 	if (priority > udev_log_priority)
+ 		return;
+ 
+-	va_start(args, format);
+-	vsyslog(priority, format, args);
+-	va_end(args);
++	if (!suppress_syslog) {
++		va_start(args, format);
++		vsyslog(priority, format, args);
++		va_end(args);
++	}
+ 
+ 	if (verbose) {
+ 		va_start(args, format);
+@@ -944,6 +946,7 @@ int main(int argc, char *argv[], char *e
+ 		{ "daemon", 0, NULL, 'd' },
+ 		{ "debug-trace", 0, NULL, 't' },
+ 		{ "verbose", 0, NULL, 'v' },
++		{ "suppress-syslog", 0, NULL, 'S' },
+ 		{ "help", 0, NULL, 'h' },
+ 		{ "version", 0, NULL, 'V' },
+ 		{}
+@@ -969,13 +972,16 @@ int main(int argc, char *argv[], char *e
+ 		case 't':
+ 			debug_trace = 1;
+ 			break;
++		case 'S':
++			suppress_syslog = 1;
++			break;
+ 		case 'v':
+ 			verbose = 1;
+ 			if (udev_log_priority < LOG_INFO)
+ 				udev_log_priority = LOG_INFO;
+ 			break;
+ 		case 'h':
+-			printf("Usage: udevd [--help] [--daemon] [--debug-trace] [--verbose] [--version]\n");
++			printf("Usage: udevd [--help] [--daemon] [--debug-trace] [--verbose] [--suppress-syslog] [--version]\n");
+ 			goto exit;
+ 		case 'V':
+ 			printf("%s\n", UDEV_VERSION);

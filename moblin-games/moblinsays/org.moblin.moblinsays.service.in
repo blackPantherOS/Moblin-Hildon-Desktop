@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.moblin.moblinsays
+Exec=/usr/bin/moblinsays
+

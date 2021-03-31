@@ -1,0 +1,50 @@
+moblin-media-browser-plugin (1.10.3) gaston; urgency=low
+
+  * Changed debian/control file so that it overwrites the defaults.list, that
+    might be installed by a conflicting package desktop-file-utils.
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Mon, 07 Apr 2008 15:30:36 -0700
+
+moblin-media-browser-plugin (1.10.2) gaston; urgency=low
+
+  * Update the version and cut a release.
+
+ -- Carl Wong <carl.wong@intel.com>  Sat, 22 Mar 2008 22:05:16 -0700
+
+moblin-media-browser-plugin (1.10.1-3) gaston; urgency=low
+
+  * Fixed typo in Makefile. 
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Fri, 21 Mar 2008 18:26:44 -0700
+
+moblin-media-browser-plugin (1.10.1-2) gaston; urgency=low
+
+  * Added .desktop file and default.list to system's default handlers to open Moblin-Player,
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Fri, 21 Mar 2008 16:24:44 -0700
+
+moblin-media-browser-plugin (1.10.1-1) gaston; urgency=low
+
+  * Updated the mimetype config file to handle application/octet-stream for rmvb files.
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Thu, 20 Mar 2008 13:36:12 -0700
+
+moblin-media-browser-plugin (1.10.1) gaston; urgency=low
+
+  * Updated to Mozplugger 1.10.1 code base
+  * Changed the call to moblinplayer-client to accept single param
+  * Added mimetype support for rmvb video files.
+
+ -- Jimmy Huang <jimmy.huang@linux.intel.com>  Thu, 21 Feb 2008 13:58:28 -0800
+
+moblin-media-browser-plugin (1.8.1-1) gaston; urgency=low
+
+  * Adding m4 depend
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Fri, 12 Oct 2007 18:58:13 -0700
+
+moblin-media-browser-plugin (1.8.1) gaston; urgency=low
+
+  * Initial release
+
+ -- Carl Wong <carl.wong@intel.com>  Fri, 12 Oct 2007 13:16:25 -0700

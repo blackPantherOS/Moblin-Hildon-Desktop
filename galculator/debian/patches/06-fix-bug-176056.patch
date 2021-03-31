@@ -1,0 +1,123 @@
+diff -Nur galculator/ui/main_frame_hildon.glade galculator-new/ui/main_frame_hildon.glade
+--- galculator/ui/main_frame_hildon.glade	2008-03-27 22:15:57.000000000 +0800
++++ galculator-new/ui/main_frame_hildon.glade	2008-03-27 22:17:17.000000000 +0800
+@@ -46,7 +46,6 @@
+ 			  <property name="label" translatable="yes">_Quit</property>
+ 			  <property name="use_underline">True</property>
+ 			  <signal name="activate" handler="on_quit_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-			  <accelerator key="q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 
+ 			  <child internal-child="image">
+ 			    <widget class="GtkImage" id="image215">
+@@ -81,7 +80,6 @@
+ 			  <property name="label" translatable="yes">Cu_t Display Value</property>
+ 			  <property name="use_underline">True</property>
+ 			  <signal name="activate" handler="on_cut_activate" last_modification_time="Sat, 05 Jul 2003 11:29:00 GMT"/>
+-			  <accelerator key="x" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 
+ 			  <child internal-child="image">
+ 			    <widget class="GtkImage" id="image216">
+@@ -103,7 +101,6 @@
+ 			  <property name="label" translatable="yes">_Copy Display Value</property>
+ 			  <property name="use_underline">True</property>
+ 			  <signal name="activate" handler="on_copy_activate" last_modification_time="Sat, 05 Jul 2003 11:29:00 GMT"/>
+-			  <accelerator key="c" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 
+ 			  <child internal-child="image">
+ 			    <widget class="GtkImage" id="image217">
+@@ -125,7 +122,6 @@
+ 			  <property name="label" translatable="yes">_Paste As Display Value</property>
+ 			  <property name="use_underline">True</property>
+ 			  <signal name="activate" handler="on_paste_activate" last_modification_time="Sat, 05 Jul 2003 11:29:00 GMT"/>
+-			  <accelerator key="v" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 
+ 			  <child internal-child="image">
+ 			    <widget class="GtkImage" id="image218">
+@@ -153,7 +149,6 @@
+ 			  <property name="label" translatable="yes">_Preferences...</property>
+ 			  <property name="use_underline">True</property>
+ 			  <signal name="activate" handler="on_preferences1_activate" last_modification_time="Fri, 21 Feb 2003 21:17:43 GMT"/>
+-			  <accelerator key="P" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 
+ 			  <child internal-child="image">
+ 			    <widget class="GtkImage" id="image219">
+@@ -291,7 +286,6 @@
+ 				  <property name="use_underline">True</property>
+ 				  <property name="active">False</property>
+ 				  <signal name="activate" handler="on_dec_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="D" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -303,7 +297,6 @@
+ 				  <property name="active">False</property>
+ 				  <property name="group">dec</property>
+ 				  <signal name="activate" handler="on_hex_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="H" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -315,7 +308,6 @@
+ 				  <property name="active">False</property>
+ 				  <property name="group">dec</property>
+ 				  <signal name="activate" handler="on_oct_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="O" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -327,7 +319,6 @@
+ 				  <property name="active">True</property>
+ 				  <property name="group">dec</property>
+ 				  <signal name="activate" handler="on_bin_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="B" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 			    </widget>
+@@ -351,7 +342,6 @@
+ 				  <property name="use_underline">True</property>
+ 				  <property name="active">False</property>
+ 				  <signal name="activate" handler="on_deg_activate" last_modification_time="Fri, 25 Oct 2002 21:07:15 GMT"/>
+-				  <accelerator key="E" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -363,7 +353,6 @@
+ 				  <property name="active">False</property>
+ 				  <property name="group">deg</property>
+ 				  <signal name="activate" handler="on_rad_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="R" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -375,7 +364,6 @@
+ 				  <property name="active">True</property>
+ 				  <property name="group">deg</property>
+ 				  <signal name="activate" handler="on_grad_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="G" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 			    </widget>
+@@ -399,7 +387,6 @@
+ 				  <property name="use_underline">True</property>
+ 				  <property name="active">False</property>
+ 				  <signal name="activate" handler="on_ordinary_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="A" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -411,7 +398,6 @@
+ 				  <property name="active">True</property>
+ 				  <property name="group">alg</property>
+ 				  <signal name="activate" handler="on_rpn_activate" last_modification_time="Fri, 25 Oct 2002 20:58:56 GMT"/>
+-				  <accelerator key="N" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 
+@@ -423,7 +409,6 @@
+ 				  <property name="active">False</property>
+ 				  <property name="group">alg</property>
+ 				  <signal name="activate" handler="on_form_activate" last_modification_time="Thu, 29 Jan 2004 09:13:38 GMT"/>
+-				  <accelerator key="F" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+ 				</widget>
+ 			      </child>
+ 			    </widget>

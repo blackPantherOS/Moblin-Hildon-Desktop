@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyContact</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyChatroomManager.html" title="EmpathyChatroomManager">
+<link rel="next" href="EmpathyLogManager.html" title="EmpathyLogManager">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyChatroomManager.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyLogManager.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2515279" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2616072" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2615926" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2615950" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyContact"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2515279"></a><span class="refentrytitle">EmpathyContact</span>
+</h2>
+<p>EmpathyContact</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyContact.html#EmpathyContact-struct">EmpathyContact</a>;
+enum                <a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a>;
+GType               <a href="EmpathyContact.html#empathy-contact-get-gtype">empathy_contact_get_gtype</a>           (void);
+<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     <a href="EmpathyContact.html#empathy-contact-new">empathy_contact_new</a>                 (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     <a href="EmpathyContact.html#empathy-contact-new-full">empathy_contact_new_full</a>            (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *id,
+                                                         const gchar *name);
+const gchar*        <a href="EmpathyContact.html#empathy-contact-get-id">empathy_contact_get_id</a>              (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+const gchar*        <a href="EmpathyContact.html#empathy-contact-get-name">empathy_contact_get_name</a>            (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+<a href="libempathy-empathy-avatar.html#EmpathyAvatar">EmpathyAvatar</a>*      <a href="EmpathyContact.html#empathy-contact-get-avatar">empathy_contact_get_avatar</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>*          <a href="EmpathyContact.html#empathy-contact-get-account">empathy_contact_get_account</a>         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>*    <a href="EmpathyContact.html#empathy-contact-get-presence">empathy_contact_get_presence</a>        (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+GList*              <a href="EmpathyContact.html#empathy-contact-get-groups">empathy_contact_get_groups</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+<a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a> <a href="EmpathyContact.html#empathy-contact-get-subscription">empathy_contact_get_subscription</a>    (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+guint               <a href="EmpathyContact.html#empathy-contact-get-handle">empathy_contact_get_handle</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+gboolean            <a href="EmpathyContact.html#empathy-contact-is-user">empathy_contact_is_user</a>             (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+void                <a href="EmpathyContact.html#empathy-contact-set-id">empathy_contact_set_id</a>              (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *id);
+void                <a href="EmpathyContact.html#empathy-contact-set-name">empathy_contact_set_name</a>            (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *name);
+void                <a href="EmpathyContact.html#empathy-contact-set-avatar">empathy_contact_set_avatar</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a href="libempathy-empathy-avatar.html#EmpathyAvatar">EmpathyAvatar</a> *avatar);
+void                <a href="EmpathyContact.html#empathy-contact-set-account">empathy_contact_set_account</a>         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+void                <a href="EmpathyContact.html#empathy-contact-set-presence">empathy_contact_set_presence</a>        (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence);
+void                <a href="EmpathyContact.html#empathy-contact-set-groups">empathy_contact_set_groups</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         GList *categories);
+void                <a href="EmpathyContact.html#empathy-contact-set-subscription">empathy_contact_set_subscription</a>    (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a> subscription);
+void                <a href="EmpathyContact.html#empathy-contact-set-handle">empathy_contact_set_handle</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         guint handle);
+void                <a href="EmpathyContact.html#empathy-contact-set-is-user">empathy_contact_set_is_user</a>         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         gboolean is_user);
+void                <a href="EmpathyContact.html#empathy-contact-add-group">empathy_contact_add_group</a>           (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *group);
+void                <a href="EmpathyContact.html#empathy-contact-remove-group">empathy_contact_remove_group</a>        (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *group);
+gboolean            <a href="EmpathyContact.html#empathy-contact-is-online">empathy_contact_is_online</a>           (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+gboolean            <a href="EmpathyContact.html#empathy-contact-is-in-group">empathy_contact_is_in_group</a>         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *group);
+const gchar*        <a href="EmpathyContact.html#empathy-contact-get-status">empathy_contact_get_status</a>          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+gboolean            <a href="EmpathyContact.html#empathy-contact-equal">empathy_contact_equal</a>               (gconstpointer v1,
+                                                         gconstpointer v2);
+guint               <a href="EmpathyContact.html#empathy-contact-hash">empathy_contact_hash</a>                (gconstpointer key);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2615926"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyContact
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2615950"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyContact.html#EmpathyContact--account">account</a>"                  <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>             : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--avatar">avatar</a>"                   <a href="libempathy-empathy-avatar.html#EmpathyAvatar">EmpathyAvatar</a>         : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--groups">groups</a>"                   gpointer              : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--handle">handle</a>"                   guint                 : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--id">id</a>"                       gchararray            : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--is-user">is-user</a>"                  gboolean              : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--name">name</a>"                     gchararray            : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--presence">presence</a>"                 <a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>       : Read / Write
+  "<a href="EmpathyContact.html#EmpathyContact--subscription">subscription</a>"             <a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a>   : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2616072"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2616088"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2616099"></a><h3>
+<a name="EmpathyContact-struct"></a>EmpathyContact</h3>
+<a class="indexterm" name="id2616110"></a><pre class="programlisting">typedef struct _EmpathyContact EmpathyContact;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616127"></a><h3>
+<a name="EmpathySubscription"></a>enum EmpathySubscription</h3>
+<a class="indexterm" name="id2616139"></a><pre class="programlisting">typedef enum {
+	EMPATHY_SUBSCRIPTION_NONE = 0,
+	EMPATHY_SUBSCRIPTION_TO   = 1 &lt;&lt; 0,	/* We send our presence to that contact */
+	EMPATHY_SUBSCRIPTION_FROM = 1 &lt;&lt; 1,	/* That contact sends his presence to us */
+	EMPATHY_SUBSCRIPTION_BOTH = EMPATHY_SUBSCRIPTION_TO | EMPATHY_SUBSCRIPTION_FROM
+} EmpathySubscription;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2616160"></a><h3>
+<a name="empathy-contact-get-gtype"></a>empathy_contact_get_gtype ()</h3>
+<a class="indexterm" name="id2621400"></a><pre class="programlisting">GType               empathy_contact_get_gtype           (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621432"></a><h3>
+<a name="empathy-contact-new"></a>empathy_contact_new ()</h3>
+<a class="indexterm" name="id2621442"></a><pre class="programlisting"><a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     empathy_contact_new                 (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621492"></a><h3>
+<a name="empathy-contact-new-full"></a>empathy_contact_new_full ()</h3>
+<a class="indexterm" name="id2621502"></a><pre class="programlisting"><a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     empathy_contact_new_full            (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         const gchar *id,
+                                                         const gchar *name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621600"></a><h3>
+<a name="empathy-contact-get-id"></a>empathy_contact_get_id ()</h3>
+<a class="indexterm" name="id2621612"></a><pre class="programlisting">const gchar*        empathy_contact_get_id              (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621670"></a><h3>
+<a name="empathy-contact-get-name"></a>empathy_contact_get_name ()</h3>
+<a class="indexterm" name="id2621681"></a><pre class="programlisting">const gchar*        empathy_contact_get_name            (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621739"></a><h3>
+<a name="empathy-contact-get-avatar"></a>empathy_contact_get_avatar ()</h3>
+<a class="indexterm" name="id2621750"></a><pre class="programlisting"><a href="libempathy-empathy-avatar.html#EmpathyAvatar">EmpathyAvatar</a>*      empathy_contact_get_avatar          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621807"></a><h3>
+<a name="empathy-contact-get-account"></a>empathy_contact_get_account ()</h3>
+<a class="indexterm" name="id2621819"></a><pre class="programlisting"><a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>*          empathy_contact_get_account         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621876"></a><h3>
+<a name="empathy-contact-get-presence"></a>empathy_contact_get_presence ()</h3>
+<a class="indexterm" name="id2621889"></a><pre class="programlisting"><a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>*    empathy_contact_get_presence        (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2621945"></a><h3>
+<a name="empathy-contact-get-groups"></a>empathy_contact_get_groups ()</h3>
+<a class="indexterm" name="id2621957"></a><pre class="programlisting">GList*              empathy_contact_get_groups          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622014"></a><h3>
+<a name="empathy-contact-get-subscription"></a>empathy_contact_get_subscription ()</h3>
+<a class="indexterm" name="id2622027"></a><pre class="programlisting"><a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a> empathy_contact_get_subscription    (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622084"></a><h3>
+<a name="empathy-contact-get-handle"></a>empathy_contact_get_handle ()</h3>
+<a class="indexterm" name="id2622096"></a><pre class="programlisting">guint               empathy_contact_get_handle          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622153"></a><h3>
+<a name="empathy-contact-is-user"></a>empathy_contact_is_user ()</h3>
+<a class="indexterm" name="id2622164"></a><pre class="programlisting">gboolean            empathy_contact_is_user             (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622221"></a><h3>
+<a name="empathy-contact-set-id"></a>empathy_contact_set_id ()</h3>
+<a class="indexterm" name="id2622232"></a><pre class="programlisting">void                empathy_contact_set_id              (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *id);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>id</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622299"></a><h3>
+<a name="empathy-contact-set-name"></a>empathy_contact_set_name ()</h3>
+<a class="indexterm" name="id2622310"></a><pre class="programlisting">void                empathy_contact_set_name            (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622378"></a><h3>
+<a name="empathy-contact-set-avatar"></a>empathy_contact_set_avatar ()</h3>
+<a class="indexterm" name="id2622390"></a><pre class="programlisting">void                empathy_contact_set_avatar          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a href="libempathy-empathy-avatar.html#EmpathyAvatar">EmpathyAvatar</a> *avatar);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>avatar</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622457"></a><h3>
+<a name="empathy-contact-set-account"></a>empathy_contact_set_account ()</h3>
+<a class="indexterm" name="id2622469"></a><pre class="programlisting">void                empathy_contact_set_account         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622536"></a><h3>
+<a name="empathy-contact-set-presence"></a>empathy_contact_set_presence ()</h3>
+<a class="indexterm" name="id2622550"></a><pre class="programlisting">void                empathy_contact_set_presence        (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>presence</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622618"></a><h3>
+<a name="empathy-contact-set-groups"></a>empathy_contact_set_groups ()</h3>
+<a class="indexterm" name="id2622630"></a><pre class="programlisting">void                empathy_contact_set_groups          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         GList *categories);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>categories</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622697"></a><h3>
+<a name="empathy-contact-set-subscription"></a>empathy_contact_set_subscription ()</h3>
+<a class="indexterm" name="id2622711"></a><pre class="programlisting">void                empathy_contact_set_subscription    (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         <a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a> subscription);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>subscription</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622779"></a><h3>
+<a name="empathy-contact-set-handle"></a>empathy_contact_set_handle ()</h3>
+<a class="indexterm" name="id2622791"></a><pre class="programlisting">void                empathy_contact_set_handle          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         guint handle);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>handle</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622858"></a><h3>
+<a name="empathy-contact-set-is-user"></a>empathy_contact_set_is_user ()</h3>
+<a class="indexterm" name="id2622870"></a><pre class="programlisting">void                empathy_contact_set_is_user         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         gboolean is_user);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>is_user</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622938"></a><h3>
+<a name="empathy-contact-add-group"></a>empathy_contact_add_group ()</h3>
+<a class="indexterm" name="id2587720"></a><pre class="programlisting">void                empathy_contact_add_group           (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2622995"></a><h3>
+<a name="empathy-contact-remove-group"></a>empathy_contact_remove_group ()</h3>
+<a class="indexterm" name="id2623007"></a><pre class="programlisting">void                empathy_contact_remove_group        (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623068"></a><h3>
+<a name="empathy-contact-is-online"></a>empathy_contact_is_online ()</h3>
+<a class="indexterm" name="id2623079"></a><pre class="programlisting">gboolean            empathy_contact_is_online           (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623129"></a><h3>
+<a name="empathy-contact-is-in-group"></a>empathy_contact_is_in_group ()</h3>
+<a class="indexterm" name="id2623140"></a><pre class="programlisting">gboolean            empathy_contact_is_in_group         (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact,
+                                                         const gchar *group);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>group</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623210"></a><h3>
+<a name="empathy-contact-get-status"></a>empathy_contact_get_status ()</h3>
+<a class="indexterm" name="id2623221"></a><pre class="programlisting">const gchar*        empathy_contact_get_status          (<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623272"></a><h3>
+<a name="empathy-contact-equal"></a>empathy_contact_equal ()</h3>
+<a class="indexterm" name="id2623282"></a><pre class="programlisting">gboolean            empathy_contact_equal               (gconstpointer v1,
+                                                         gconstpointer v2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>v1</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>v2</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623352"></a><h3>
+<a name="empathy-contact-hash"></a>empathy_contact_hash ()</h3>
+<a class="indexterm" name="id2623362"></a><pre class="programlisting">guint               empathy_contact_hash                (gconstpointer key);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2623414"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2623423"></a><h3>
+<a name="EmpathyContact--account"></a>The "<code class="literal">account</code>" property</h3>
+<a class="indexterm" name="id2623436"></a><pre class="programlisting">  "account"                  <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>             : Read / Write</pre>
+<p>The account associated with the contact.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623456"></a><h3>
+<a name="EmpathyContact--avatar"></a>The "<code class="literal">avatar</code>" property</h3>
+<a class="indexterm" name="id2623468"></a><pre class="programlisting">  "avatar"                   <a href="libempathy-empathy-avatar.html#EmpathyAvatar">EmpathyAvatar</a>         : Read / Write</pre>
+<p>The avatar image.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623488"></a><h3>
+<a name="EmpathyContact--groups"></a>The "<code class="literal">groups</code>" property</h3>
+<a class="indexterm" name="id2623500"></a><pre class="programlisting">  "groups"                   gpointer              : Read / Write</pre>
+<p>Groups of contact.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623520"></a><h3>
+<a name="EmpathyContact--handle"></a>The "<code class="literal">handle</code>" property</h3>
+<a class="indexterm" name="id2623533"></a><pre class="programlisting">  "handle"                   guint                 : Read / Write</pre>
+<p>The handle of the contact.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623556"></a><h3>
+<a name="EmpathyContact--id"></a>The "<code class="literal">id</code>" property</h3>
+<a class="indexterm" name="id2623569"></a><pre class="programlisting">  "id"                       gchararray            : Read / Write</pre>
+<p>String identifying contact.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623592"></a><h3>
+<a name="EmpathyContact--is-user"></a>The "<code class="literal">is-user</code>" property</h3>
+<a class="indexterm" name="id2623604"></a><pre class="programlisting">  "is-user"                  gboolean              : Read / Write</pre>
+<p>Is contact the user.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623627"></a><h3>
+<a name="EmpathyContact--name"></a>The "<code class="literal">name</code>" property</h3>
+<a class="indexterm" name="id2623640"></a><pre class="programlisting">  "name"                     gchararray            : Read / Write</pre>
+<p>The name of the contact.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623663"></a><h3>
+<a name="EmpathyContact--presence"></a>The "<code class="literal">presence</code>" property</h3>
+<a class="indexterm" name="id2623675"></a><pre class="programlisting">  "presence"                 <a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>       : Read / Write</pre>
+<p>Presence of contact.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2623695"></a><h3>
+<a name="EmpathyContact--subscription"></a>The "<code class="literal">subscription</code>" property</h3>
+<a class="indexterm" name="id2623709"></a><pre class="programlisting">  "subscription"             <a href="EmpathyContact.html#EmpathySubscription">EmpathySubscription</a>   : Read / Write</pre>
+<p>The subscription status of the contact.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

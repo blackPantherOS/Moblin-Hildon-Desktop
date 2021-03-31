@@ -1,0 +1,12 @@
+diff -Nur nm-applet-0.6.5/src/applet.c nm-applet-0.6.5.new/src/applet.c
+--- nm-applet-0.6.5/src/applet.c	2007-06-18 15:55:23.000000000 +0200
++++ nm-applet-0.6.5.new/src/applet.c	2007-06-18 15:56:01.000000000 +0200
+@@ -1417,7 +1417,7 @@
+ static void nma_menu_configure_vpn_item_activate (GtkMenuItem *item, gpointer user_data)
+ {
+ 	NMApplet	*applet = (NMApplet *)user_data;
+-	const char *argv[] = { BINDIR "/nm-vpn-properties", NULL};
++	const char *argv[] = { "/usr/lib/network-manager/nm-vpn-properties", NULL};
+ 
+ 	g_return_if_fail (item != NULL);
+ 	g_return_if_fail (applet != NULL);

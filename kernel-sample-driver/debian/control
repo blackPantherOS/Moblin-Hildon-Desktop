@@ -1,0 +1,12 @@
+Source: kernel-sample-driver
+Section: devel
+Priority: extra
+Maintainer: alek <alek.du@intel.com>
+Build-Depends: debhelper (>= 5) linux-mccaslin-default (>=2.6.21)
+Standards-Version: 3.7.2
+
+Package: kernel-sample-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: a kernel-sample-driver for MID PDK
+ <insert long description, indented with spaces>

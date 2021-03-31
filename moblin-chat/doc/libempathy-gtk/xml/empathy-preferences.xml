@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-preferences">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-preferences</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-preferences</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="EMPATHY-PREFS-PATH:CAPS">EMPATHY_PREFS_PATH</link>
+#define             <link linkend="EMPATHY-PREFS-SOUNDS-FOR-MESSAGES:CAPS">EMPATHY_PREFS_SOUNDS_FOR_MESSAGES</link>
+#define             <link linkend="EMPATHY-PREFS-SOUNDS-WHEN-AWAY:CAPS">EMPATHY_PREFS_SOUNDS_WHEN_AWAY</link>
+#define             <link linkend="EMPATHY-PREFS-SOUNDS-WHEN-BUSY:CAPS">EMPATHY_PREFS_SOUNDS_WHEN_BUSY</link>
+#define             <link linkend="EMPATHY-PREFS-POPUPS-WHEN-AVAILABLE:CAPS">EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE</link>
+#define             <link linkend="EMPATHY-PREFS-CHAT-SHOW-SMILEYS:CAPS">EMPATHY_PREFS_CHAT_SHOW_SMILEYS</link>
+#define             <link linkend="EMPATHY-PREFS-CHAT-THEME:CAPS">EMPATHY_PREFS_CHAT_THEME</link>
+#define             <link linkend="EMPATHY-PREFS-CHAT-THEME-CHAT-ROOM:CAPS">EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM</link>
+#define             <link linkend="EMPATHY-PREFS-CHAT-SPELL-CHECKER-LANGUAGES:CAPS">EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES</link>
+#define             <link linkend="EMPATHY-PREFS-CHAT-SPELL-CHECKER-ENABLED:CAPS">EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED</link>
+#define             <link linkend="EMPATHY-PREFS-UI-SEPARATE-CHAT-WINDOWS:CAPS">EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS</link>
+#define             <link linkend="EMPATHY-PREFS-UI-MAIN-WINDOW-HIDDEN:CAPS">EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN</link>
+#define             <link linkend="EMPATHY-PREFS-UI-AVATAR-DIRECTORY:CAPS">EMPATHY_PREFS_UI_AVATAR_DIRECTORY</link>
+#define             <link linkend="EMPATHY-PREFS-UI-SHOW-AVATARS:CAPS">EMPATHY_PREFS_UI_SHOW_AVATARS</link>
+#define             <link linkend="EMPATHY-PREFS-UI-COMPACT-CONTACT-LIST:CAPS">EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST</link>
+#define             <link linkend="EMPATHY-PREFS-CONTACTS-SHOW-OFFLINE:CAPS">EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE</link>
+#define             <link linkend="EMPATHY-PREFS-CONTACTS-SORT-CRITERIUM:CAPS">EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM</link>
+#define             <link linkend="EMPATHY-PREFS-HINTS-CLOSE-MAIN-WINDOW:CAPS">EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW</link>
+#define             <link linkend="EMPATHY-PREFS-SALUT-ACCOUNT-CREATED:CAPS">EMPATHY_PREFS_SALUT_ACCOUNT_CREATED</link>
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-preferences-show">empathy_preferences_show</link>            (<link linkend="GtkWindow">GtkWindow</link> *parent);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-PATH:CAPS" role="macro"/>EMPATHY_PREFS_PATH</title>
+<indexterm><primary>EMPATHY_PREFS_PATH</primary></indexterm><programlisting>#define EMPATHY_PREFS_PATH "/apps/empathy"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-SOUNDS-FOR-MESSAGES:CAPS" role="macro"/>EMPATHY_PREFS_SOUNDS_FOR_MESSAGES</title>
+<indexterm><primary>EMPATHY_PREFS_SOUNDS_FOR_MESSAGES</primary></indexterm><programlisting>#define EMPATHY_PREFS_SOUNDS_FOR_MESSAGES          EMPATHY_PREFS_PATH "/notifications/sounds_for_messages"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-SOUNDS-WHEN-AWAY:CAPS" role="macro"/>EMPATHY_PREFS_SOUNDS_WHEN_AWAY</title>
+<indexterm><primary>EMPATHY_PREFS_SOUNDS_WHEN_AWAY</primary></indexterm><programlisting>#define EMPATHY_PREFS_SOUNDS_WHEN_AWAY             EMPATHY_PREFS_PATH "/notifications/sounds_when_away"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-SOUNDS-WHEN-BUSY:CAPS" role="macro"/>EMPATHY_PREFS_SOUNDS_WHEN_BUSY</title>
+<indexterm><primary>EMPATHY_PREFS_SOUNDS_WHEN_BUSY</primary></indexterm><programlisting>#define EMPATHY_PREFS_SOUNDS_WHEN_BUSY             EMPATHY_PREFS_PATH "/notifications/sounds_when_busy"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-POPUPS-WHEN-AVAILABLE:CAPS" role="macro"/>EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE</title>
+<indexterm><primary>EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE</primary></indexterm><programlisting>#define EMPATHY_PREFS_POPUPS_WHEN_AVAILABLE        EMPATHY_PREFS_PATH "/notifications/popups_when_available"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CHAT-SHOW-SMILEYS:CAPS" role="macro"/>EMPATHY_PREFS_CHAT_SHOW_SMILEYS</title>
+<indexterm><primary>EMPATHY_PREFS_CHAT_SHOW_SMILEYS</primary></indexterm><programlisting>#define EMPATHY_PREFS_CHAT_SHOW_SMILEYS            EMPATHY_PREFS_PATH "/conversation/graphical_smileys"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CHAT-THEME:CAPS" role="macro"/>EMPATHY_PREFS_CHAT_THEME</title>
+<indexterm><primary>EMPATHY_PREFS_CHAT_THEME</primary></indexterm><programlisting>#define EMPATHY_PREFS_CHAT_THEME                   EMPATHY_PREFS_PATH "/conversation/theme"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CHAT-THEME-CHAT-ROOM:CAPS" role="macro"/>EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM</title>
+<indexterm><primary>EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM</primary></indexterm><programlisting>#define EMPATHY_PREFS_CHAT_THEME_CHAT_ROOM         EMPATHY_PREFS_PATH "/conversation/theme_chat_room"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CHAT-SPELL-CHECKER-LANGUAGES:CAPS" role="macro"/>EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES</title>
+<indexterm><primary>EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES</primary></indexterm><programlisting>#define EMPATHY_PREFS_CHAT_SPELL_CHECKER_LANGUAGES EMPATHY_PREFS_PATH "/conversation/spell_checker_languages"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CHAT-SPELL-CHECKER-ENABLED:CAPS" role="macro"/>EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED</title>
+<indexterm><primary>EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED</primary></indexterm><programlisting>#define EMPATHY_PREFS_CHAT_SPELL_CHECKER_ENABLED   EMPATHY_PREFS_PATH "/conversation/spell_checker_enabled"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-UI-SEPARATE-CHAT-WINDOWS:CAPS" role="macro"/>EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS</title>
+<indexterm><primary>EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS</primary></indexterm><programlisting>#define EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS     EMPATHY_PREFS_PATH "/ui/separate_chat_windows"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-UI-MAIN-WINDOW-HIDDEN:CAPS" role="macro"/>EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN</title>
+<indexterm><primary>EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN</primary></indexterm><programlisting>#define EMPATHY_PREFS_UI_MAIN_WINDOW_HIDDEN        EMPATHY_PREFS_PATH "/ui/main_window_hidden"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-UI-AVATAR-DIRECTORY:CAPS" role="macro"/>EMPATHY_PREFS_UI_AVATAR_DIRECTORY</title>
+<indexterm><primary>EMPATHY_PREFS_UI_AVATAR_DIRECTORY</primary></indexterm><programlisting>#define EMPATHY_PREFS_UI_AVATAR_DIRECTORY          EMPATHY_PREFS_PATH "/ui/avatar_directory"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-UI-SHOW-AVATARS:CAPS" role="macro"/>EMPATHY_PREFS_UI_SHOW_AVATARS</title>
+<indexterm><primary>EMPATHY_PREFS_UI_SHOW_AVATARS</primary></indexterm><programlisting>#define EMPATHY_PREFS_UI_SHOW_AVATARS              EMPATHY_PREFS_PATH "/ui/show_avatars"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-UI-COMPACT-CONTACT-LIST:CAPS" role="macro"/>EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST</title>
+<indexterm><primary>EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST</primary></indexterm><programlisting>#define EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST      EMPATHY_PREFS_PATH "/ui/compact_contact_list"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CONTACTS-SHOW-OFFLINE:CAPS" role="macro"/>EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE</title>
+<indexterm><primary>EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE</primary></indexterm><programlisting>#define EMPATHY_PREFS_CONTACTS_SHOW_OFFLINE        EMPATHY_PREFS_PATH "/contacts/show_offline"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-CONTACTS-SORT-CRITERIUM:CAPS" role="macro"/>EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM</title>
+<indexterm><primary>EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM</primary></indexterm><programlisting>#define EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM      EMPATHY_PREFS_PATH "/contacts/sort_criterium"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-HINTS-CLOSE-MAIN-WINDOW:CAPS" role="macro"/>EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW</title>
+<indexterm><primary>EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW</primary></indexterm><programlisting>#define EMPATHY_PREFS_HINTS_CLOSE_MAIN_WINDOW      EMPATHY_PREFS_PATH "/hints/close_main_window"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EMPATHY-PREFS-SALUT-ACCOUNT-CREATED:CAPS" role="macro"/>EMPATHY_PREFS_SALUT_ACCOUNT_CREATED</title>
+<indexterm><primary>EMPATHY_PREFS_SALUT_ACCOUNT_CREATED</primary></indexterm><programlisting>#define EMPATHY_PREFS_SALUT_ACCOUNT_CREATED        EMPATHY_PREFS_PATH "/accounts/salut_created"
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-preferences-show" role="function"/>empathy_preferences_show ()</title>
+<indexterm><primary>empathy_preferences_show</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_preferences_show            (<link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

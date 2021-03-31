@@ -1,0 +1,65 @@
+#!/bin/sh -e
+# initramfs hook for udev
+
+MINKVER="2.6.17"
+PREREQ=""
+
+# Output pre-requisites
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case "$1" in
+    prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+
+. /usr/share/initramfs-tools/hook-functions
+
+# udev uses unix sockets for communication
+force_load unix
+
+# We use pkill
+copy_exec /usr/bin/pkill /sbin
+
+# Copy across the udev binaries
+copy_exec /sbin/udevd /sbin
+copy_exec /sbin/udevtrigger /sbin
+copy_exec /sbin/udevsettle /sbin
+
+# Copy udev configuration
+mkdir -p ${DESTDIR}/etc/udev
+cp -p /etc/udev/udev.conf ${DESTDIR}/etc/udev
+
+# Only copy across relevant rules
+mkdir -p ${DESTDIR}/etc/udev/rules.d
+for rules in 00-init.rules 05-options.rules 20-names.rules 65-persistent-storage.rules 80-programs.rules 90-modprobe.rules; do
+    cp -p /etc/udev/rules.d/$rules ${DESTDIR}/etc/udev/rules.d
+done
+
+# Copy across helpers the rules need
+mkdir -p ${DESTDIR}/lib/udev
+# 20-names.rules
+copy_exec /lib/udev/dvb_device_name /lib/udev
+copy_exec /lib/udev/usb_device_name /lib/udev
+# 65-persistent-storage.rules
+copy_exec /lib/udev/ata_id /lib/udev
+copy_exec /lib/udev/edd_id /lib/udev
+copy_exec /lib/udev/usb_id /lib/udev
+copy_exec /lib/udev/vol_id /lib/udev
+copy_exec /lib/udev/scsi_id /lib/udev
+copy_exec /lib/udev/path_id /lib/udev
+# 80-programs.rules
+copy_exec /lib/udev/firmware_helper /lib/udev
+# 90-modprobe.rules
+copy_exec /lib/udev/pnp_modules /lib/udev
+copy_exec /lib/udev/ide_media /lib/udev
+copy_exec /lib/udev/vio_type /lib/udev
+
+# watershed expects /var/run to exist
+copy_exec /lib/udev/watershed /lib/udev
+mkdir -p ${DESTDIR}/var/run

@@ -1,0 +1,23 @@
+=== modified file 'src/nm-device-802-11-wireless.c'
+--- network-manager-0.6.5.old/src/nm-device-802-11-wireless.c	2007-07-25 12:15:50 +0000
++++ network-manager-0.6.5/src/nm-device-802-11-wireless.c	2007-08-03 12:21:39 +0000
+@@ -2612,17 +2612,17 @@ supplicant_status_cb (GIOChannel *source
+ 	else if (strstr (message, WPA_EVENT_DISCONNECTED) != NULL)
+ 	{
+ 		if (nm_device_is_activated (dev) || nm_device_is_activating (dev))
+ 		{
+ 			/* Start the link timeout so we allow some time for reauthentication */
+ 			if ((self->priv->link_timeout == NULL) && !self->priv->scanning)
+ 			{
+ 				GMainContext *	context = nm_device_get_main_context (dev);
+-				self->priv->link_timeout = g_timeout_source_new (8000);
++				self->priv->link_timeout = g_timeout_source_new (20000);
+ 				g_source_set_callback (self->priv->link_timeout,
+ 									   link_timeout_cb,
+ 									   self,
+ 									   link_timeout_done);
+ 				g_source_attach (self->priv->link_timeout, context);
+ 				g_source_unref (self->priv->link_timeout);
+ 			}
+ 		}
+

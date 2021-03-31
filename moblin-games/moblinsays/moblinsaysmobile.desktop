@@ -1,0 +1,12 @@
+[Mobile Entry]
+Version=1.0
+Encoding=UTF-8
+X-Osso-Service=org.moblin.moblinsays
+Name=Moblin Says
+Comment=A simple memory game
+Exec=moblinsays
+Icon=moblinsays
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=GTK;Games;

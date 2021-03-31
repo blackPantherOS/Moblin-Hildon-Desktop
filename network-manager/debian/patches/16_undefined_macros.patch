@@ -1,0 +1,19 @@
+diff -Nur bzr.debian.0.9.5/src/nm-netlink-monitor.c bzr.debian.0.9.5.new/src/nm-netlink-monitor.c
+--- bzr.debian.0.9.5/src/nm-netlink-monitor.c	2007-06-25 17:18:17.000000000 +0200
++++ bzr.debian.0.9.5.new/src/nm-netlink-monitor.c	2007-06-25 17:33:45.000000000 +0200
+@@ -53,6 +53,15 @@
+ #define NM_NETLINK_MONITOR_DISCONNECT_CONDITIONS \
+ 	((GIOCondition) (G_IO_HUP))
+ 
++#include <linux/if_addr.h>
++#ifndef IFLA_RTA
++#define IFLA_RTA(r)  ((struct rtattr*)(((char*)(r)) + NLMSG_ALIGN(sizeof(struct ifinfomsg))))
++#endif
++
++#ifndef IFLA_PAYLOAD
++#define IFLA_PAYLOAD(n) NLMSG_PAYLOAD(n,sizeof(struct ifaddrmsg))
++#endif
++
+ struct NMData;
+ struct _NmNetlinkMonitorPrivate 
+ {

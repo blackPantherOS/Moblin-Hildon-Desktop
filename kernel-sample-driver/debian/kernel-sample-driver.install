@@ -1,0 +1,2 @@
+debian/tmp/usr/share/doc/kernel-sample-driver/* 	usr/share/doc/kernel-sample-driver/
+debian/tmp/usr/src/kernel-sample-driver/*		usr/src/kernel-sample-driver/

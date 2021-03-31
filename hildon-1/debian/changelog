@@ -1,0 +1,172 @@
+libhildon (1.0.5-7) gaston; urgency=low
+
+  * Allocate GdkColor on the stack instead of dynamic memory allocation to
+    get color property of font selection dialog. This will avoid unexpected
+    memory access errors, mainly to fix bug #174577.
+
+ -- Horace Li <horace.li@intel.com>  Mon, 07 Apr 2008 16:47:29 +0800
+
+libhildon (1.0.5-6) gaston; urgency=low
+
+  * Place hint window in the center so it doesn't flicker
+
+ -- Bob Spencer <bob.spencer@intel.com>  Sun, 30 Mar 2008 00:32:50 -0700
+
+libhildon (1.0.5-5) gaston; urgency=low
+
+  * set hildon banner line wrap mode to both support work boundary
+    and characters bundary, this is also for bug #146109.
+
+ -- Horace Li <horace.li@intel.com>  Mon, 28 Jan 2008 22:40:11 +0800
+
+libhildon (1.0.5-4) gaston; urgency=low
+
+  * fix bug #146109, reolace string longer than 80 characters with "..."
+
+ -- Horace Li <horace.li@intel.com>  Thu, 24 Jan 2008 17:52:28 +0800
+
+libhildon (1.0.5-3) gaston; urgency=low
+
+  * Remove application name from window titlebar, displaying window
+    title only.
+
+ -- Horace Li <horace.li@intel.com>  Fri, 07 Dec 2007 18:53:18 +0800
+
+libhildon (1.0.5-2) gaston; urgency=low
+
+  * Copy hardy release to gaston. Bump up version.
+
+ -- Horace Li <horace.li@intel.com>  Thu, 06 Dec 2007 18:38:18 +0800
+
+libhildon (1.0.5-1ubuntu7) gutsy; urgency=low
+
+  [ Adilson Oliveira ]
+  * Added patch from Peter Zhu to hildon-window.c to avoid crash when
+    hildon window is destroyed in some cases.
+
+  [ Tollef Fog Heen ]
+  * Update Maintainer field to be ubuntu-mobile.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 10 Aug 2007 13:45:58 +0200
+
+libhildon (1.0.5-1ubuntu6) gutsy; urgency=low
+
+  * It's libhildon-1-0, not libhildon1-0, fix control file.
+  * Rename .install files accordingly.
+  * Fix -dbg package to include debug symbols.
+  * Update shlibs to match package rename.
+  * debian/compat says 5, so update versioned build-depends on debhelper
+    to match.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 25 May 2007 11:51:24 +0200
+
+libhildon (1.0.5-1ubuntu5) gutsy; urgency=low
+
+  * Rename libhildon1.install to libhildon1-0.install
+  * Update dh_makeshlibs call to match libhildon1-0 package name.
+  * Make autogen.sh call automake with --copy.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 24 May 2007 12:54:33 +0200
+
+libhildon (1.0.5-1ubuntu4) gutsy; urgency=low
+
+  * Build-depend on automake, for depcomp, install-sh, missing.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Mon, 21 May 2007 11:01:40 +0200
+
+libhildon (1.0.5-1ubuntu3) gutsy; urgency=low
+
+  * Remove osso-sounds-ui from libhildon1 Depends.  They're non-free and
+    not needed for bootstrapping.
+  * Add long descriptions.
+  * Remove obsolete version code from debian/rules.
+  * Rename library packages to match sonames.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 18 May 2007 13:39:58 +0200
+
+libhildon (1.0.5-1ubuntu2) gutsy; urgency=low
+
+  * Make sure to remove debian/build in debian/rules clean.
+  * Update debian/copyright with blurb and reference to the common place
+    where the full text is stored.
+  * Stop creating links to libhildon_1.so* in debian/rules.
+  * Update to debhelper compat level 5 and fix the build of the debug
+    package so it actually works again.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Wed, 16 May 2007 14:05:13 +0200
+
+libhildon (1.0.5-1ubuntu1) gutsy; urgency=low
+
+  * Remove epoch from libgtk-dev in Depends and Build-Depends, as they are
+    not epoched in Ubuntu.
+  * Remove build-dependency and dependency on libosso-esd-dev to allow
+    bootstrapping
+  * Pass --without-maemo-gtk to configure.
+  * Change gpointer * to gpointer in src/hildon-banner.c to fix FTBFS
+  * Change == to = in autogen.sh; == in tests is a bashism.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Mon, 14 May 2007 11:31:31 +0200
+
+libhildon (1.0.5-1) stable; urgency=low
+
+  * Fixes: NB#54149 Date editor: Accepts year greater than 2037
+  * Fixes: NB#49374 Programs using HildonWizardDialog cannot set the sensitivity of buttons when the page changes
+
+  * Memory freeing fixes in font selection dialog.
+  * Breadcrumb update.
+
+ -- Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>  Mon, 07 May 2007 13:16:09 +0300
+
+libhildon (1.0.4-1) stable; urgency=low
+
+  * Changing the API guard name to HILDON_ENABLE_UNSTABLE_API.
+
+ -- Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>  Thu, 26 Apr 2007 16:20:55 +0300
+
+libhildon (1.0.3-1) stable; urgency=low
+
+  * Removing the API guard from helper functions. It was a mistake.
+
+ -- Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>  Thu, 26 Apr 2007 15:54:12 +0300
+
+libhildon (1.0.2-1) stable; urgency=low
+
+  * Guard unstable API's with ENABLE_UNSTABLE_API define
+  * Breadcrumb updates
+  * Fixing a problem with timed banners having their parrent destroyed before they are
+  * Fixing the sh libs
+
+ -- Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>  Wed, 25 Apr 2007 16:48:30 +0300
+
+libhildon (1.0.1-1) stable; urgency=low
+
+  * New breadcrumb trial widget.
+  * Fingerable scrollbar API.
+
+  * Fixes: NB#54182 HildonDateEditor min/max properties cannot be set
+
+ -- Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>  Mon, 16 Apr 2007 11:09:27 +0300
+
+libhildon (1.0.0-1) stable; urgency=low
+
+  * Move to Gtk 2.10
+  * Consolidated API
+  * All the deprecated widgets are now removed
+  * Version bumping to 1.0.0 since we're now nice and stable
+  * Fix packaging for gtk-doc (not enabled by default)
+  * License change to LGPL version 2.1 or later
+  * Adding examples for many widgets
+
+  * Fixes: NB#49043 Build fails due to duplicate definition of INVALID_CHAR
+  * Fixes: NB#49810 Errors in hildon-libs
+  * Fixes: NB#47751 Tap and hold of Home key minimize applications but does not close the application menu
+  * Fixes: NB#46434 HildonWindow: inconsistent memory management
+  * Fixes: NB#30265 Warning from hildonlibs build
+  * Fixes: NB#47751 Tap and hold of Home key minimize applications but does not close the application menu
+  * Fixes: NB#47989 Not possible to set empty title for HildonWindow
+  * Fixes: NB#50496 While quickly tapping the same Edit button, the message is displayed differently.
+  * Fixes: NB#51736 Enhancement in hildon_caption_set_label_text()
+  * Fixes: NB#50854 application menu closes when mouse released
+  
+ -- Michael Dominic Kostrzewa <michael.kostrzewa@nokia.com>  Thu, 29 Mar 2007 16:36:27 +0300
+

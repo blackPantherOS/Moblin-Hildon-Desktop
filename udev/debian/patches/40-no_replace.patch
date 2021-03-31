@@ -1,0 +1,92 @@
+diff -uNrp udev-111.orig/udev.7 udev-111/udev.7
+--- udev-111.orig/udev.7	2007-05-10 03:42:56.000000000 -0700
++++ udev-111/udev.7	2007-05-27 10:53:15.000000000 -0700
+@@ -285,6 +285,11 @@ Specify the priority of the created syml
+ .RS 4
+ Create the device nodes for all available partitions of a block device. This may be useful for removable media devices where media changes are not detected.
+ .RE
++.PP
++\fBno_replace\fR
++.RS 4
++Prevent replacement of untrusted characters when obtaining results from PROGRAM rules and when setting NAME and SYMLINK.  Applies only for the rule it appears in.
++.RE
+ .RE
+ .RE
+ .PP
+diff -uNrp udev-111.orig/udev_rules.c udev-111/udev_rules.c
+--- udev-111.orig/udev_rules.c	2007-05-10 03:42:56.000000000 -0700
++++ udev-111/udev_rules.c	2007-05-27 10:50:58.000000000 -0700
+@@ -781,9 +781,12 @@ try_parent:
+ 
+ 			dbg("PROGRAM matches");
+ 			remove_trailing_chars(result, '\n');
+-			count = replace_untrusted_chars(result);
+-			if (count)
+-				info("%i untrusted character(s) replaced" , count);
++			if (!rule->no_replace) {
++				count = replace_untrusted_chars(result);
++				if (count)
++					info("%i untrusted character(s) replaced" , count);
++			}
++
+ 			dbg("result is '%s'", result);
+ 			strlcpy(udev->program_result, result, sizeof(udev->program_result));
+ 			dbg("PROGRAM returned successful");
+@@ -966,9 +969,12 @@ int udev_rules_get_name(struct udev_rule
+ 				}
+ 				strlcpy(temp, key_val(rule, &rule->symlink), sizeof(temp));
+ 				udev_rules_apply_format(udev, temp, sizeof(temp));
+-				count = replace_untrusted_chars(temp);
+-				if (count)
+-					info("%i untrusted character(s) replaced" , count);
++				if (!rule->no_replace) {
++					count = replace_untrusted_chars(temp);
++					if (count)
++						info("%i untrusted character(s) replaced" , count);
++				}
++
+ 				dbg("rule applied, added symlink(s) '%s'", temp);
+ 
+ 				/* add multiple symlinks separated by spaces */
+@@ -1000,9 +1006,11 @@ int udev_rules_get_name(struct udev_rule
+ 				name_set = 1;
+ 				strlcpy(udev->name, key_val(rule, &rule->name), sizeof(udev->name));
+ 				udev_rules_apply_format(udev, udev->name, sizeof(udev->name));
+-				count = replace_untrusted_chars(udev->name);
+-				if (count)
+-					info("%i untrusted character(s) replaced", count);
++				if (!rule->no_replace) {
++					count = replace_untrusted_chars(udev->name);
++					if (count)
++						info("%i untrusted character(s) replaced", count);
++				}
+ 
+ 				info("rule applied, '%s' becomes '%s'", udev->dev->kernel, udev->name);
+ 				if (strcmp(udev->dev->subsystem, "net") != 0)
+diff -uNrp udev-111.orig/udev_rules.h udev-111/udev_rules.h
+--- udev-111.orig/udev_rules.h	2007-05-10 03:42:56.000000000 -0700
++++ udev-111/udev_rules.h	2007-05-27 10:50:58.000000000 -0700
+@@ -91,7 +91,8 @@ struct udev_rule {
+ 	unsigned int partitions;
+ 	unsigned int last_rule:1,
+ 		     ignore_device:1,
+-		     ignore_remove:1;
++		     ignore_remove:1,
++		     no_replace:1;
+ 
+ 	size_t bufsize;
+ 	char buf[];
+diff -uNrp udev-111.orig/udev_rules_parse.c udev-111/udev_rules_parse.c
+--- udev-111.orig/udev_rules_parse.c	2007-05-10 03:42:56.000000000 -0700
++++ udev-111/udev_rules_parse.c	2007-05-27 10:50:58.000000000 -0700
+@@ -569,6 +569,10 @@ static int add_to_rules(struct udev_rule
+ 				dbg("remove event should be ignored");
+ 				rule->ignore_remove = 1;
+ 			}
++			if (strstr(value, "no_replace") != NULL) {
++				dbg("untrusted characters will not be replaced");
++				rule->no_replace = 1;
++			}
+ 			pos = strstr(value, "link_priority=");
+ 			if (pos != NULL) {
+ 				rule->link_priority = atoi(&pos[strlen("link_priority=")]);

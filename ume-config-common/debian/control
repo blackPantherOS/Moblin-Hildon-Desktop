@@ -1,0 +1,17 @@
+Source: ume-config-common 
+Section: admin
+Priority: extra
+Maintainer: Ubuntu Mobile <ubuntu-mobile@lists.ubuntu.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: ume-config-common
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, debconf, user-setup
+Description: Common configuration for Ubuntu Mobile
+ This package provides common configuration files for Ubuntu Mobile.
+ It is useful by itself in a chroot as well as being a base package
+ for other ume-config packages to build on.
+ .
+ You do not want this on a normal system, it will overwrite bits of
+ your system such as your host name.

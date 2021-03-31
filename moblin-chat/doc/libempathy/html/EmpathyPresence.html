@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyPresence</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyFilter.html" title="EmpathyFilter">
+<link rel="next" href="EmpathyChandler.html" title="EmpathyChandler">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyFilter.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="EmpathyChandler.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2586742" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2565060" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2564996" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2565020" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyPresence"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2586742"></a><span class="refentrytitle">EmpathyPresence</span>
+</h2>
+<p>EmpathyPresence</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyPresence.html#EmpathyPresence-struct">EmpathyPresence</a>;
+<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>*    <a href="EmpathyPresence.html#empathy-presence-new">empathy_presence_new</a>                (void);
+<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>*    <a href="EmpathyPresence.html#empathy-presence-new-full">empathy_presence_new_full</a>           (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);
+<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          <a href="EmpathyPresence.html#empathy-presence-get-state">empathy_presence_get_state</a>          (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence);
+const gchar*        <a href="EmpathyPresence.html#empathy-presence-get-status">empathy_presence_get_status</a>         (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence);
+void                <a href="EmpathyPresence.html#empathy-presence-set-state">empathy_presence_set_state</a>          (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);
+void                <a href="EmpathyPresence.html#empathy-presence-set-status">empathy_presence_set_status</a>         (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence,
+                                                         const gchar *status);
+gint                <a href="EmpathyPresence.html#empathy-presence-sort-func">empathy_presence_sort_func</a>          (gconstpointer a,
+                                                         gconstpointer b);
+const gchar*        <a href="EmpathyPresence.html#empathy-presence-state-get-default-status">empathy_presence_state_get_default_status</a>
+                                                        (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);
+const gchar*        <a href="EmpathyPresence.html#empathy-presence-state-to-str">empathy_presence_state_to_str</a>       (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);
+<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          <a href="EmpathyPresence.html#empathy-presence-state-from-str">empathy_presence_state_from_str</a>     (const gchar *str);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2564996"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyPresence
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2565020"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyPresence.html#EmpathyPresence--state">state</a>"                    <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>            : Read / Write
+  "<a href="EmpathyPresence.html#EmpathyPresence--status">status</a>"                   gchararray            : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2565060"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2565076"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2565087"></a><h3>
+<a name="EmpathyPresence-struct"></a>EmpathyPresence</h3>
+<a class="indexterm" name="id2565099"></a><pre class="programlisting">typedef struct _EmpathyPresence EmpathyPresence;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2565115"></a><h3>
+<a name="empathy-presence-new"></a>empathy_presence_new ()</h3>
+<a class="indexterm" name="id2569949"></a><pre class="programlisting"><a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>*    empathy_presence_new                (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2569985"></a><h3>
+<a name="empathy-presence-new-full"></a>empathy_presence_new_full ()</h3>
+<a class="indexterm" name="id2569997"></a><pre class="programlisting"><a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a>*    empathy_presence_new_full           (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2570074"></a><h3>
+<a name="empathy-presence-get-state"></a>empathy_presence_get_state ()</h3>
+<a class="indexterm" name="id2570085"></a><pre class="programlisting"><a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          empathy_presence_get_state          (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>presence</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2570141"></a><h3>
+<a name="empathy-presence-get-status"></a>empathy_presence_get_status ()</h3>
+<a class="indexterm" name="id2570153"></a><pre class="programlisting">const gchar*        empathy_presence_get_status         (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>presence</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2570211"></a><h3>
+<a name="empathy-presence-set-state"></a>empathy_presence_set_state ()</h3>
+<a class="indexterm" name="id2608712"></a><pre class="programlisting">void                empathy_presence_set_state          (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence,
+                                                         <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>presence</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608779"></a><h3>
+<a name="empathy-presence-set-status"></a>empathy_presence_set_status ()</h3>
+<a class="indexterm" name="id2608790"></a><pre class="programlisting">void                empathy_presence_set_status         (<a href="EmpathyPresence.html" title="EmpathyPresence">EmpathyPresence</a> *presence,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>presence</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608858"></a><h3>
+<a name="empathy-presence-sort-func"></a>empathy_presence_sort_func ()</h3>
+<a class="indexterm" name="id2608869"></a><pre class="programlisting">gint                empathy_presence_sort_func          (gconstpointer a,
+                                                         gconstpointer b);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>a</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>b</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608947"></a><h3>
+<a name="empathy-presence-state-get-default-status"></a>empathy_presence_state_get_default_status ()</h3>
+<a class="indexterm" name="id2608959"></a><pre class="programlisting">const gchar*        empathy_presence_state_get_default_status
+                                                        (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609018"></a><h3>
+<a name="empathy-presence-state-to-str"></a>empathy_presence_state_to_str ()</h3>
+<a class="indexterm" name="id2609029"></a><pre class="programlisting">const gchar*        empathy_presence_state_to_str       (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609086"></a><h3>
+<a name="empathy-presence-state-from-str"></a>empathy_presence_state_from_str ()</h3>
+<a class="indexterm" name="id2609098"></a><pre class="programlisting"><a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          empathy_presence_state_from_str     (const gchar *str);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2611517"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2611526"></a><h3>
+<a name="EmpathyPresence--state"></a>The "<code class="literal">state</code>" property</h3>
+<a class="indexterm" name="id2611539"></a><pre class="programlisting">  "state"                    <a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>            : Read / Write</pre>
+<p>The current state of the presence.</p>
+<p>Default value: MC_PRESENCE_AVAILABLE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2611563"></a><h3>
+<a name="EmpathyPresence--status"></a>The "<code class="literal">status</code>" property</h3>
+<a class="indexterm" name="id2611576"></a><pre class="programlisting">  "status"                   gchararray            : Read / Write</pre>
+<p>Status string set on presence.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div>
+</body>
+</html>

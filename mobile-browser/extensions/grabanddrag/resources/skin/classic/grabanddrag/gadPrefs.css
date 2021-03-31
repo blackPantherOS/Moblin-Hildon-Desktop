@@ -1,0 +1,14 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+description {
+	width:25em;
+	overflow:auto;
+}
+description.inner {
+	font-size: 90%;	
+	color: graytext;
+}
+scale {
+	-moz-binding: url('chrome://grabanddrag/content/gadScale.xml#scale');
+	min-width: 200px;
+}

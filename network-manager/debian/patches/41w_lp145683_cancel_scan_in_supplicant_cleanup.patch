@@ -1,0 +1,27 @@
+---
+ src/nm-device-802-11-wireless.c |    2 ++
+ 1 file changed, 2 insertions(+)
+
+Index: network-manager.debian/src/nm-device-802-11-wireless.c
+===================================================================
+--- network-manager.debian.orig/src/nm-device-802-11-wireless.c
++++ network-manager.debian/src/nm-device-802-11-wireless.c
+@@ -2435,16 +2435,18 @@
+ 
+ static void
+ supplicant_cleanup (NMDevice80211Wireless *self)
+ {
+ 	char * sock_path;
+ 
+ 	g_return_if_fail (self != NULL);
+ 
++	cancel_pending_scan (self);
++
+ 	if (self->priv->supplicant.pid > 0)
+ 	{
+ 		if(self->priv->supplicant.ctrl) {
+ 	  		wpa_ctrl_set_custom_timeout(self->priv->supplicant.ctrl, 12);
+ 			if (!nm_utils_supplicant_request_with_check (self->priv->supplicant.ctrl, "OK", __func__, NULL,
+                         "DISABLE_NETWORK 0"))
+ 				nm_warning("supplicant_cleanup - couldn't disable network in supplicant_cleanup");
+ 

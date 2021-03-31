@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-ui-utils">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-ui-utils</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-ui-utils</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="G-STR-EMPTY:CAPS">G_STR_EMPTY</link>                         (x)
+<link linkend="void">void</link>                <link linkend="empathy-glade-get-file-simple">empathy_glade_get_file_simple</link>       (const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *root,
+                                                         const <link linkend="gchar">gchar</link> *domain,
+                                                         const <link linkend="gchar">gchar</link> *first_required_widget,
+                                                         ...);
+<link linkend="GladeXML">GladeXML</link>*           <link linkend="empathy-glade-get-file">empathy_glade_get_file</link>              (const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *root,
+                                                         const <link linkend="gchar">gchar</link> *domain,
+                                                         const <link linkend="gchar">gchar</link> *first_required_widget,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="empathy-glade-connect">empathy_glade_connect</link>               (<link linkend="GladeXML">GladeXML</link> *gui,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="gchar">gchar</link> *first_widget,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="empathy-glade-setup-size-group">empathy_glade_setup_size_group</link>      (<link linkend="GladeXML">GladeXML</link> *gui,
+                                                         <link linkend="GtkSizeGroupMode">GtkSizeGroupMode</link> mode,
+                                                         <link linkend="gchar">gchar</link> *first_widget,
+                                                         ...);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="empathy-pixbuf-from-icon-name">empathy_pixbuf_from_icon_name</link>       (const <link linkend="gchar">gchar</link> *icon_name,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="empathy-pixbuf-from-smiley">empathy_pixbuf_from_smiley</link>          (<link linkend="EmpathySmiley">EmpathySmiley</link> type,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-icon-name-from-account">empathy_icon_name_from_account</link>      (<link linkend="McAccount">McAccount</link> *account);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-icon-name-for-presence-state">empathy_icon_name_for_presence_state</link>
+                                                        (<link linkend="McPresence">McPresence</link> state);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-icon-name-for-presence">empathy_icon_name_for_presence</link>      (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-icon-name-for-contact">empathy_icon_name_for_contact</link>       (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="empathy-pixbuf-from-avatar-scaled">empathy_pixbuf_from_avatar_scaled</link>   (<link linkend="EmpathyAvatar">EmpathyAvatar</link> *avatar,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="empathy-pixbuf-avatar-from-contact-scaled">empathy_pixbuf_avatar_from_contact_scaled</link>
+                                                        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-text-iter-forward-search">empathy_text_iter_forward_search</link>    (const <link linkend="GtkTextIter">GtkTextIter</link> *iter,
+                                                         const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_end,
+                                                         const <link linkend="GtkTextIter">GtkTextIter</link> *limit);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-text-iter-backward-search">empathy_text_iter_backward_search</link>   (const <link linkend="GtkTextIter">GtkTextIter</link> *iter,
+                                                         const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_end,
+                                                         const <link linkend="GtkTextIter">GtkTextIter</link> *limit);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-window-get-is-visible">empathy_window_get_is_visible</link>       (<link linkend="GtkWindow">GtkWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="empathy-window-present">empathy_window_present</link>              (<link linkend="GtkWindow">GtkWindow</link> *window,
+                                                         <link linkend="gboolean">gboolean</link> steal_focus);
+<link linkend="void">void</link>                <link linkend="empathy-window-iconify">empathy_window_iconify</link>              (<link linkend="GtkWindow">GtkWindow</link> *window,
+                                                         <link linkend="GtkStatusIcon">GtkStatusIcon</link> *status_icon);
+<link linkend="GtkWindow">GtkWindow</link>*          <link linkend="empathy-get-toplevel-window">empathy_get_toplevel_window</link>         (<link linkend="GtkWidget">GtkWidget</link> *widget);
+<link linkend="void">void</link>                <link linkend="empathy-url-show">empathy_url_show</link>                    (const <link linkend="char">char</link> *url);
+<link linkend="void">void</link>                <link linkend="empathy-toggle-button-set-state-quietly">empathy_toggle_button_set_state_quietly</link>
+                                                        (<link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="gboolean">gboolean</link> active);
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="empathy-link-button-new">empathy_link_button_new</link>             (const <link linkend="gchar">gchar</link> *url,
+                                                         const <link linkend="gchar">gchar</link> *title);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="G-STR-EMPTY:CAPS" role="macro"/>G_STR_EMPTY()</title>
+<indexterm><primary>G_STR_EMPTY</primary></indexterm><programlisting>#define G_STR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-glade-get-file-simple" role="function"/>empathy_glade_get_file_simple ()</title>
+<indexterm><primary>empathy_glade_get_file_simple</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_glade_get_file_simple       (const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *root,
+                                                         const <link linkend="gchar">gchar</link> *domain,
+                                                         const <link linkend="gchar">gchar</link> *first_required_widget,
+                                                         ...);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>root</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>domain</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_required_widget</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-glade-get-file" role="function"/>empathy_glade_get_file ()</title>
+<indexterm><primary>empathy_glade_get_file</primary></indexterm><programlisting><link linkend="GladeXML">GladeXML</link>*           empathy_glade_get_file              (const <link linkend="gchar">gchar</link> *filename,
+                                                         const <link linkend="gchar">gchar</link> *root,
+                                                         const <link linkend="gchar">gchar</link> *domain,
+                                                         const <link linkend="gchar">gchar</link> *first_required_widget,
+                                                         ...);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>root</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>domain</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_required_widget</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-glade-connect" role="function"/>empathy_glade_connect ()</title>
+<indexterm><primary>empathy_glade_connect</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_glade_connect               (<link linkend="GladeXML">GladeXML</link> *gui,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="gchar">gchar</link> *first_widget,
+                                                         ...);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gui</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_widget</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-glade-setup-size-group" role="function"/>empathy_glade_setup_size_group ()</title>
+<indexterm><primary>empathy_glade_setup_size_group</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_glade_setup_size_group      (<link linkend="GladeXML">GladeXML</link> *gui,
+                                                         <link linkend="GtkSizeGroupMode">GtkSizeGroupMode</link> mode,
+                                                         <link linkend="gchar">gchar</link> *first_widget,
+                                                         ...);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>gui</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mode</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_widget</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-pixbuf-from-icon-name" role="function"/>empathy_pixbuf_from_icon_name ()</title>
+<indexterm><primary>empathy_pixbuf_from_icon_name</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          empathy_pixbuf_from_icon_name       (const <link linkend="gchar">gchar</link> *icon_name,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>icon_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_size</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-pixbuf-from-smiley" role="function"/>empathy_pixbuf_from_smiley ()</title>
+<indexterm><primary>empathy_pixbuf_from_smiley</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          empathy_pixbuf_from_smiley          (<link linkend="EmpathySmiley">EmpathySmiley</link> type,
+                                                         <link linkend="GtkIconSize">GtkIconSize</link> icon_size);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>icon_size</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-icon-name-from-account" role="function"/>empathy_icon_name_from_account ()</title>
+<indexterm><primary>empathy_icon_name_from_account</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_icon_name_from_account      (<link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-icon-name-for-presence-state" role="function"/>empathy_icon_name_for_presence_state ()</title>
+<indexterm><primary>empathy_icon_name_for_presence_state</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_icon_name_for_presence_state
+                                                        (<link linkend="McPresence">McPresence</link> state);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-icon-name-for-presence" role="function"/>empathy_icon_name_for_presence ()</title>
+<indexterm><primary>empathy_icon_name_for_presence</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_icon_name_for_presence      (<link linkend="EmpathyPresence">EmpathyPresence</link> *presence);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>presence</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-icon-name-for-contact" role="function"/>empathy_icon_name_for_contact ()</title>
+<indexterm><primary>empathy_icon_name_for_contact</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_icon_name_for_contact       (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-pixbuf-from-avatar-scaled" role="function"/>empathy_pixbuf_from_avatar_scaled ()</title>
+<indexterm><primary>empathy_pixbuf_from_avatar_scaled</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          empathy_pixbuf_from_avatar_scaled   (<link linkend="EmpathyAvatar">EmpathyAvatar</link> *avatar,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>avatar</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-pixbuf-avatar-from-contact-scaled" role="function"/>empathy_pixbuf_avatar_from_contact_scaled ()</title>
+<indexterm><primary>empathy_pixbuf_avatar_from_contact_scaled</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          empathy_pixbuf_avatar_from_contact_scaled
+                                                        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="gint">gint</link> width,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-text-iter-forward-search" role="function"/>empathy_text_iter_forward_search ()</title>
+<indexterm><primary>empathy_text_iter_forward_search</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_text_iter_forward_search    (const <link linkend="GtkTextIter">GtkTextIter</link> *iter,
+                                                         const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_end,
+                                                         const <link linkend="GtkTextIter">GtkTextIter</link> *limit);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>match_start</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>match_end</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>limit</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-text-iter-backward-search" role="function"/>empathy_text_iter_backward_search ()</title>
+<indexterm><primary>empathy_text_iter_backward_search</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_text_iter_backward_search   (const <link linkend="GtkTextIter">GtkTextIter</link> *iter,
+                                                         const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_start,
+                                                         <link linkend="GtkTextIter">GtkTextIter</link> *match_end,
+                                                         const <link linkend="GtkTextIter">GtkTextIter</link> *limit);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>match_start</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>match_end</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>limit</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-window-get-is-visible" role="function"/>empathy_window_get_is_visible ()</title>
+<indexterm><primary>empathy_window_get_is_visible</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_window_get_is_visible       (<link linkend="GtkWindow">GtkWindow</link> *window);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-window-present" role="function"/>empathy_window_present ()</title>
+<indexterm><primary>empathy_window_present</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_window_present              (<link linkend="GtkWindow">GtkWindow</link> *window,
+                                                         <link linkend="gboolean">gboolean</link> steal_focus);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>steal_focus</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-window-iconify" role="function"/>empathy_window_iconify ()</title>
+<indexterm><primary>empathy_window_iconify</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_window_iconify              (<link linkend="GtkWindow">GtkWindow</link> *window,
+                                                         <link linkend="GtkStatusIcon">GtkStatusIcon</link> *status_icon);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status_icon</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-get-toplevel-window" role="function"/>empathy_get_toplevel_window ()</title>
+<indexterm><primary>empathy_get_toplevel_window</primary></indexterm><programlisting><link linkend="GtkWindow">GtkWindow</link>*          empathy_get_toplevel_window         (<link linkend="GtkWidget">GtkWidget</link> *widget);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-url-show" role="function"/>empathy_url_show ()</title>
+<indexterm><primary>empathy_url_show</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_url_show                    (const <link linkend="char">char</link> *url);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>url</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-toggle-button-set-state-quietly" role="function"/>empathy_toggle_button_set_state_quietly ()</title>
+<indexterm><primary>empathy_toggle_button_set_state_quietly</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_toggle_button_set_state_quietly
+                                                        (<link linkend="GtkWidget">GtkWidget</link> *widget,
+                                                         <link linkend="GCallback">GCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data,
+                                                         <link linkend="gboolean">gboolean</link> active);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>widget</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>active</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-link-button-new" role="function"/>empathy_link_button_new ()</title>
+<indexterm><primary>empathy_link_button_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          empathy_link_button_new             (const <link linkend="gchar">gchar</link> *url,
+                                                         const <link linkend="gchar">gchar</link> *title);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>url</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>title</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

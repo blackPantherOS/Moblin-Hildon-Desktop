@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>empathy-time</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyIdle.html" title="EmpathyIdle">
+<link rel="next" href="libempathy-empathy-utils.html" title="empathy-utils">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyIdle.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="libempathy-empathy-utils.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2509756" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2610816" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-empathy-time"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2509756"></a><span class="refentrytitle">empathy-time</span>
+</h2>
+<p>empathy-time</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+#define             <a href="libempathy-empathy-time.html#EMPATHY-TIME-FORMAT-DISPLAY-SHORT:CAPS">EMPATHY_TIME_FORMAT_DISPLAY_SHORT</a>
+#define             <a href="libempathy-empathy-time.html#EMPATHY-TIME-FORMAT-DISPLAY-LONG:CAPS">EMPATHY_TIME_FORMAT_DISPLAY_LONG</a>
+typedef             <a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>;
+<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         <a href="libempathy-empathy-time.html#empathy-time-get-current">empathy_time_get_current</a>            (void);
+time_t              <a href="libempathy-empathy-time.html#empathy-time-get-local-time">empathy_time_get_local_time</a>         (struct tm *tm);
+<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         <a href="libempathy-empathy-time.html#empathy-time-parse">empathy_time_parse</a>                  (const gchar *str);
+<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         <a href="libempathy-empathy-time.html#empathy-time-parse-format">empathy_time_parse_format</a>           (const gchar *str,
+                                                         const gchar *format);
+gchar*              <a href="libempathy-empathy-time.html#empathy-time-to-string-utc">empathy_time_to_string_utc</a>          (<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a> t,
+                                                         const gchar *format);
+gchar*              <a href="libempathy-empathy-time.html#empathy-time-to-string-local">empathy_time_to_string_local</a>        (<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a> t,
+                                                         const gchar *format);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2610816"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2610832"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2610843"></a><h3>
+<a name="EMPATHY-TIME-FORMAT-DISPLAY-SHORT:CAPS"></a>EMPATHY_TIME_FORMAT_DISPLAY_SHORT</h3>
+<a class="indexterm" name="id2610854"></a><pre class="programlisting">#define EMPATHY_TIME_FORMAT_DISPLAY_SHORT "%H:%M"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610870"></a><h3>
+<a name="EMPATHY-TIME-FORMAT-DISPLAY-LONG:CAPS"></a>EMPATHY_TIME_FORMAT_DISPLAY_LONG</h3>
+<a class="indexterm" name="id2610881"></a><pre class="programlisting">#define EMPATHY_TIME_FORMAT_DISPLAY_LONG  "%a %d %b %Y"
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610897"></a><h3>
+<a name="EmpathyTime"></a>EmpathyTime</h3>
+<a class="indexterm" name="id2610909"></a><pre class="programlisting">typedef long EmpathyTime;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610924"></a><h3>
+<a name="empathy-time-get-current"></a>empathy_time_get_current ()</h3>
+<a class="indexterm" name="id2610936"></a><pre class="programlisting"><a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         empathy_time_get_current            (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2610972"></a><h3>
+<a name="empathy-time-get-local-time"></a>empathy_time_get_local_time ()</h3>
+<a class="indexterm" name="id2610983"></a><pre class="programlisting">time_t              empathy_time_get_local_time         (struct tm *tm);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>tm</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2611039"></a><h3>
+<a name="empathy-time-parse"></a>empathy_time_parse ()</h3>
+<a class="indexterm" name="id2611052"></a><pre class="programlisting"><a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         empathy_time_parse                  (const gchar *str);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2611108"></a><h3>
+<a name="empathy-time-parse-format"></a>empathy_time_parse_format ()</h3>
+<a class="indexterm" name="id2611119"></a><pre class="programlisting"><a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         empathy_time_parse_format           (const gchar *str,
+                                                         const gchar *format);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>format</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2611197"></a><h3>
+<a name="empathy-time-to-string-utc"></a>empathy_time_to_string_utc ()</h3>
+<a class="indexterm" name="id2611208"></a><pre class="programlisting">gchar*              empathy_time_to_string_utc          (<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a> t,
+                                                         const gchar *format);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>t</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>format</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2611927"></a><h3>
+<a name="empathy-time-to-string-local"></a>empathy_time_to_string_local ()</h3>
+<a class="indexterm" name="id2611938"></a><pre class="programlisting">gchar*              empathy_time_to_string_local        (<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a> t,
+                                                         const gchar *format);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>t</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>format</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

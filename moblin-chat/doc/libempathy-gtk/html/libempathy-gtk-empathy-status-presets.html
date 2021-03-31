@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>empathy-status-presets</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="libempathy-gtk-empathy-preferences.html" title="empathy-preferences">
+<link rel="next" href="libempathy-gtk-empathy-account-widget-generic.html" title="empathy-account-widget-generic">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-gtk-empathy-preferences.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="libempathy-gtk-empathy-account-widget-generic.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2573818" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2604183" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libempathy-gtk-empathy-status-presets"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2573818"></a><span class="refentrytitle">empathy-status-presets</span>
+</h2>
+<p>empathy-status-presets</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+void                <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-get-all">empathy_status_presets_get_all</a>      (void);
+GList*              <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-get">empathy_status_presets_get</a>          (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         gint max_number);
+void                <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-set-last">empathy_status_presets_set_last</a>     (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);
+void                <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-remove">empathy_status_presets_remove</a>       (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);
+void                <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-reset">empathy_status_presets_reset</a>        (void);
+<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-get-default-state">empathy_status_presets_get_default_state</a>
+                                                        (void);
+const gchar*        <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-get-default-status">empathy_status_presets_get_default_status</a>
+                                                        (void);
+void                <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-set-default">empathy_status_presets_set_default</a>  (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);
+void                <a href="libempathy-gtk-empathy-status-presets.html#empathy-status-presets-clear-default">empathy_status_presets_clear_default</a>
+                                                        (void);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2604183"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2607763"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2607774"></a><h3>
+<a name="empathy-status-presets-get-all"></a>empathy_status_presets_get_all ()</h3>
+<a class="indexterm" name="id2607785"></a><pre class="programlisting">void                empathy_status_presets_get_all      (void);</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607806"></a><h3>
+<a name="empathy-status-presets-get"></a>empathy_status_presets_get ()</h3>
+<a class="indexterm" name="id2607817"></a><pre class="programlisting">GList*              empathy_status_presets_get          (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         gint max_number);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>max_number</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607895"></a><h3>
+<a name="empathy-status-presets-set-last"></a>empathy_status_presets_set_last ()</h3>
+<a class="indexterm" name="id2607907"></a><pre class="programlisting">void                empathy_status_presets_set_last     (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606466"></a><h3>
+<a name="empathy-status-presets-remove"></a>empathy_status_presets_remove ()</h3>
+<a class="indexterm" name="id2606479"></a><pre class="programlisting">void                empathy_status_presets_remove       (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606546"></a><h3>
+<a name="empathy-status-presets-reset"></a>empathy_status_presets_reset ()</h3>
+<a class="indexterm" name="id2606560"></a><pre class="programlisting">void                empathy_status_presets_reset        (void);</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606581"></a><h3>
+<a name="empathy-status-presets-get-default-state"></a>empathy_status_presets_get_default_state ()</h3>
+<a class="indexterm" name="id2606595"></a><pre class="programlisting"><a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a>          empathy_status_presets_get_default_state
+                                                        (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2606633"></a><h3>
+<a name="empathy-status-presets-get-default-status"></a>empathy_status_presets_get_default_status ()</h3>
+<a class="indexterm" name="id2606647"></a><pre class="programlisting">const gchar*        empathy_status_presets_get_default_status
+                                                        (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2577444"></a><h3>
+<a name="empathy-status-presets-set-default"></a>empathy_status_presets_set_default ()</h3>
+<a class="indexterm" name="id2577458"></a><pre class="programlisting">void                empathy_status_presets_set_default  (<a
+href="../libmissioncontrol/libmissioncontrol-mission-control.html#McPresence"
+>McPresence</a> state,
+                                                         const gchar *status);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2577525"></a><h3>
+<a name="empathy-status-presets-clear-default"></a>empathy_status_presets_clear_default ()</h3>
+<a class="indexterm" name="id2577538"></a><pre class="programlisting">void                empathy_status_presets_clear_default
+                                                        (void);</pre>
+<p>
+
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

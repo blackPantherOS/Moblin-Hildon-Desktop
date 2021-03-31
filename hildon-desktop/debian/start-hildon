@@ -1,0 +1,30 @@
+#!/bin/bash
+
+PREFIX=/usr
+
+THEME=${PREFIX}/share/themes/plankton
+if [ -d ${PREFIX}/share/themes/mobilebasic ]; then
+    THEME=${PREFIX}/share/themes/mobilebasic
+fi
+
+export DISPLAY=:1
+
+export GTK2_RC_FILES=${THEME}/gtk-2.0/gtkrc:${THEME}/gtk-2.0/gtkrc.maemo_af_desktop
+export LANG=en_GB.UTF-8
+
+export $(dbus-launch --exit-with-session)
+
+/usr/lib/libgconf2-4/gconfd-2 &
+
+${PREFIX}/bin/matchbox-window-manager -display ${DISPLAY} \
+                                      -theme ${THEME}/matchbox/theme.xml \
+                                      -use_titlebar no \
+                                      -use_desktop_mode plain \
+                                      -use_lowlight no \
+                                      -use_cursor yes \
+                                      -use_super_modal yes &
+
+${PREFIX}/lib/sapwood/sapwood-server &
+${PREFIX}/sbin/mas &
+
+exec ${PREFIX}/bin/hildon-desktop

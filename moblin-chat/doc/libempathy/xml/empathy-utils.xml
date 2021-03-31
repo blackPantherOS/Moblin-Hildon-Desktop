@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-empathy-utils">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-utils</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-utils</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+#define             <link linkend="G-STR-EMPTY:CAPS">G_STR_EMPTY</link>                         (x)
+enum                <link linkend="EmpathyRegExType">EmpathyRegExType</link>;
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-substring">empathy_substring</link>                   (const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="gint">gint</link> start,
+                                                         <link linkend="gint">gint</link> end);
+<link linkend="gint">gint</link>                <link linkend="empathy-regex-match">empathy_regex_match</link>                 (<link linkend="EmpathyRegExType">EmpathyRegExType</link> type,
+                                                         const <link linkend="gchar">gchar</link> *msg,
+                                                         <link linkend="GArray">GArray</link> *start,
+                                                         <link linkend="GArray">GArray</link> *end);
+<link linkend="gint">gint</link>                <link linkend="empathy-strcasecmp">empathy_strcasecmp</link>                  (const <link linkend="gchar">gchar</link> *s1,
+                                                         const <link linkend="gchar">gchar</link> *s2);
+<link linkend="gint">gint</link>                <link linkend="empathy-strncasecmp">empathy_strncasecmp</link>                 (const <link linkend="gchar">gchar</link> *s1,
+                                                         const <link linkend="gchar">gchar</link> *s2,
+                                                         <link linkend="gsize">gsize</link> n);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-xml-validate">empathy_xml_validate</link>                (<link linkend="xmlDoc">xmlDoc</link> *doc,
+                                                         const <link linkend="gchar">gchar</link> *dtd_filename);
+<link linkend="xmlNodePtr">xmlNodePtr</link>          <link linkend="empathy-xml-node-get-child">empathy_xml_node_get_child</link>          (<link linkend="xmlNodePtr">xmlNodePtr</link> node,
+                                                         const <link linkend="gchar">gchar</link> *child_name);
+<link linkend="xmlChar">xmlChar</link>*            <link linkend="empathy-xml-node-get-child-content">empathy_xml_node_get_child_content</link>  (<link linkend="xmlNodePtr">xmlNodePtr</link> node,
+                                                         const <link linkend="gchar">gchar</link> *child_name);
+<link linkend="xmlNodePtr">xmlNodePtr</link>          <link linkend="empathy-xml-node-find-child-prop-value">empathy_xml_node_find_child_prop_value</link>
+                                                        (<link linkend="xmlNodePtr">xmlNodePtr</link> node,
+                                                         const <link linkend="gchar">gchar</link> *prop_name,
+                                                         const <link linkend="gchar">gchar</link> *prop_value);
+<link linkend="guint">guint</link>               <link linkend="empathy-account-hash">empathy_account_hash</link>                (<link linkend="gconstpointer">gconstpointer</link> key);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-account-equal">empathy_account_equal</link>               (<link linkend="gconstpointer">gconstpointer</link> a,
+                                                         <link linkend="gconstpointer">gconstpointer</link> b);
+<link linkend="MissionControl">MissionControl</link>*     <link linkend="empathy-mission-control-new">empathy_mission_control_new</link>         (void);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-inspect-handle">empathy_inspect_handle</link>              (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="guint">guint</link> handle,
+                                                         <link linkend="guint">guint</link> handle_type);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-inspect-channel">empathy_inspect_channel</link>             (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-strdiff">empathy_strdiff</link>                     (const <link linkend="gchar">gchar</link> *left,
+                                                         const <link linkend="gchar">gchar</link> *right);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="G-STR-EMPTY:CAPS" role="macro"/>G_STR_EMPTY()</title>
+<indexterm><primary>G_STR_EMPTY</primary></indexterm><programlisting>#define G_STR_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
+</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>x</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="EmpathyRegExType" role="enum"/>enum EmpathyRegExType</title>
+<indexterm><primary>EmpathyRegExType</primary></indexterm><programlisting>typedef enum {
+	EMPATHY_REGEX_AS_IS,
+	EMPATHY_REGEX_BROWSER,
+	EMPATHY_REGEX_EMAIL,
+	EMPATHY_REGEX_OTHER,
+	EMPATHY_REGEX_ALL,
+} EmpathyRegExType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-substring" role="function"/>empathy_substring ()</title>
+<indexterm><primary>empathy_substring</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_substring                   (const <link linkend="gchar">gchar</link> *str,
+                                                         <link linkend="gint">gint</link> start,
+                                                         <link linkend="gint">gint</link> end);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>start</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>end</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-regex-match" role="function"/>empathy_regex_match ()</title>
+<indexterm><primary>empathy_regex_match</primary></indexterm><programlisting><link linkend="gint">gint</link>                empathy_regex_match                 (<link linkend="EmpathyRegExType">EmpathyRegExType</link> type,
+                                                         const <link linkend="gchar">gchar</link> *msg,
+                                                         <link linkend="GArray">GArray</link> *start,
+                                                         <link linkend="GArray">GArray</link> *end);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>start</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>end</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-strcasecmp" role="function"/>empathy_strcasecmp ()</title>
+<indexterm><primary>empathy_strcasecmp</primary></indexterm><programlisting><link linkend="gint">gint</link>                empathy_strcasecmp                  (const <link linkend="gchar">gchar</link> *s1,
+                                                         const <link linkend="gchar">gchar</link> *s2);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>s1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>s2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-strncasecmp" role="function"/>empathy_strncasecmp ()</title>
+<indexterm><primary>empathy_strncasecmp</primary></indexterm><programlisting><link linkend="gint">gint</link>                empathy_strncasecmp                 (const <link linkend="gchar">gchar</link> *s1,
+                                                         const <link linkend="gchar">gchar</link> *s2,
+                                                         <link linkend="gsize">gsize</link> n);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>s1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>s2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-xml-validate" role="function"/>empathy_xml_validate ()</title>
+<indexterm><primary>empathy_xml_validate</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_xml_validate                (<link linkend="xmlDoc">xmlDoc</link> *doc,
+                                                         const <link linkend="gchar">gchar</link> *dtd_filename);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>doc</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dtd_filename</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-xml-node-get-child" role="function"/>empathy_xml_node_get_child ()</title>
+<indexterm><primary>empathy_xml_node_get_child</primary></indexterm><programlisting><link linkend="xmlNodePtr">xmlNodePtr</link>          empathy_xml_node_get_child          (<link linkend="xmlNodePtr">xmlNodePtr</link> node,
+                                                         const <link linkend="gchar">gchar</link> *child_name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>node</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>child_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-xml-node-get-child-content" role="function"/>empathy_xml_node_get_child_content ()</title>
+<indexterm><primary>empathy_xml_node_get_child_content</primary></indexterm><programlisting><link linkend="xmlChar">xmlChar</link>*            empathy_xml_node_get_child_content  (<link linkend="xmlNodePtr">xmlNodePtr</link> node,
+                                                         const <link linkend="gchar">gchar</link> *child_name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>node</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>child_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-xml-node-find-child-prop-value" role="function"/>empathy_xml_node_find_child_prop_value ()</title>
+<indexterm><primary>empathy_xml_node_find_child_prop_value</primary></indexterm><programlisting><link linkend="xmlNodePtr">xmlNodePtr</link>          empathy_xml_node_find_child_prop_value
+                                                        (<link linkend="xmlNodePtr">xmlNodePtr</link> node,
+                                                         const <link linkend="gchar">gchar</link> *prop_name,
+                                                         const <link linkend="gchar">gchar</link> *prop_value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>node</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prop_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prop_value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-hash" role="function"/>empathy_account_hash ()</title>
+<indexterm><primary>empathy_account_hash</primary></indexterm><programlisting><link linkend="guint">guint</link>               empathy_account_hash                (<link linkend="gconstpointer">gconstpointer</link> key);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>key</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-account-equal" role="function"/>empathy_account_equal ()</title>
+<indexterm><primary>empathy_account_equal</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_account_equal               (<link linkend="gconstpointer">gconstpointer</link> a,
+                                                         <link linkend="gconstpointer">gconstpointer</link> b);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>a</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>b</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-mission-control-new" role="function"/>empathy_mission_control_new ()</title>
+<indexterm><primary>empathy_mission_control_new</primary></indexterm><programlisting><link linkend="MissionControl">MissionControl</link>*     empathy_mission_control_new         (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-inspect-handle" role="function"/>empathy_inspect_handle ()</title>
+<indexterm><primary>empathy_inspect_handle</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_inspect_handle              (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="guint">guint</link> handle,
+                                                         <link linkend="guint">guint</link> handle_type);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle_type</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-inspect-channel" role="function"/>empathy_inspect_channel ()</title>
+<indexterm><primary>empathy_inspect_channel</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_inspect_channel             (<link linkend="McAccount">McAccount</link> *account,
+                                                         <link linkend="TpChan">TpChan</link> *tp_chan);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tp_chan</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-strdiff" role="function"/>empathy_strdiff ()</title>
+<indexterm><primary>empathy_strdiff</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_strdiff                     (const <link linkend="gchar">gchar</link> *left,
+                                                         const <link linkend="gchar">gchar</link> *right);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>left</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>right</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

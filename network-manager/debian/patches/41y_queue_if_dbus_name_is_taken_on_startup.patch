@@ -1,0 +1,117 @@
+---
+ src/NetworkManagerDbus.c |   55 ++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 38 insertions(+), 17 deletions(-)
+
+Index: network-manager.debian/src/NetworkManagerDbus.c
+===================================================================
+--- network-manager.debian.orig/src/NetworkManagerDbus.c
++++ network-manager.debian/src/NetworkManagerDbus.c
+@@ -525,16 +525,22 @@
+ 	{
+ 		nm_hal_deinit (data);
+ 		dbus_connection_unref (data->dbus_connection);
+ 		data->dbus_connection = NULL;
+ 		nm_dhcp_manager_dispose (data->dhcp_manager);
+ 		g_thread_create ((GThreadFunc) nm_dbus_reinit, (gpointer) data, FALSE, NULL);
+ 		handled = TRUE;
+ 	}
++	else if (dbus_message_is_signal (message, DBUS_INTERFACE_DBUS, "NameLost"))
++	{
++	  g_warning("NetworkManagerDBus Lost the primary service name ownership ... shutting down!");
++	  write (nm_get_sigterm_pipe (), "X", 1);
++	  handled = TRUE;
++	}
+ 	else if (dbus_message_is_signal (message, DBUS_INTERFACE_DBUS, "NameOwnerChanged"))
+ 	{
+ 		char 	*service;
+ 		char		*old_owner;
+ 		char		*new_owner;
+ 
+ 		if (dbus_message_get_args (message, &error, DBUS_TYPE_STRING, &service, DBUS_TYPE_STRING, &old_owner,
+ 									DBUS_TYPE_STRING, &new_owner, DBUS_TYPE_INVALID))
+@@ -802,17 +808,17 @@
+ DBusConnection *nm_dbus_init (NMData *data)
+ {
+ 	DBusError		 		error;
+ 	DBusConnection *		connection;
+ 	DBusObjectPathVTable	nm_vtable = {NULL, &nm_dbus_nm_message_handler, NULL, NULL, NULL, NULL};
+ 	DBusObjectPathVTable	devices_vtable = {NULL, &nm_dbus_devices_message_handler, NULL, NULL, NULL, NULL};
+ 	DBusObjectPathVTable	vpn_vtable = {NULL, &nm_dbus_vpn_message_handler, NULL, NULL, NULL, NULL};
+ 	char *				owner;
+-	int					flags, ret;
++	int					flags, ret, i;
+ 
+ 	dbus_connection_set_change_sigpipe (TRUE);
+ 
+ 	dbus_error_init (&error);
+ 	connection = dbus_bus_get (DBUS_BUS_SYSTEM, &error);
+ 	if ((connection == NULL) || dbus_error_is_set (&error))
+ 	{
+ 		nm_warning ("nm_dbus_init() could not get the system bus.  Make sure the message bus daemon is running!");
+@@ -854,35 +860,50 @@
+ 	{
+ 		char *match = get_nmi_match_string (owner);
+ 
+ 		dbus_bus_add_match (connection, match, NULL);
+ 		g_free (match);
+ 		g_free (owner);
+ 	}
+ 
+-	dbus_error_init (&error);
++	for (i=0; i < 10; i++) {
++		dbus_error_init (&error);
+ #if (DBUS_VERSION_MAJOR == 0) && (DBUS_VERSION_MINOR < 60)
+-	flags = DBUS_NAME_FLAG_PROHIBIT_REPLACEMENT;
++		if(i == 9)
++			flags = DBUS_NAME_FLAG_REPLACE_EXISTING;
++		else
++			flags = 0;
+ #else
+-	flags = DBUS_NAME_FLAG_DO_NOT_QUEUE;
++		flags = DBUS_NAME_FLAG_ALLOW_REPLACEMENT | DBUS_NAME_FLAG_DO_NOT_QUEUE;
++		if(i == 9)
++			flags |= DBUS_NAME_FLAG_REPLACE_EXISTING; // we want to QUEUE in case the previous NetworkManager didn't yet terminate.
+ #endif
+-	ret = dbus_bus_request_name (connection, NM_DBUS_SERVICE, flags, &error);
+-	if (dbus_error_is_set (&error))
+-	{
+-		nm_warning ("nm_dbus_init() could not acquire the NetworkManager service.\n  Message: '%s'", error.message);
+-		connection = NULL;
+-		goto out;
+-	}
+-	else if (ret != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER)
+-	{
+-		nm_warning ("nm_dbus_init() could not acquire the NetworkManager service as it is already taken (ret=%d). Is the daemon already running?",
+-				  ret);
+-		connection = NULL;
+-		goto out;
++		ret = dbus_bus_request_name (connection, NM_DBUS_SERVICE, flags, &error);
++		if (dbus_error_is_set (&error))
++		{
++			nm_warning ("nm_dbus_init() could not acquire the NetworkManager service.\n  Message: '%s'", error.message);
++			connection = NULL;
++			goto out;
++		}
++		else if (ret != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER && ret != DBUS_REQUEST_NAME_REPLY_ALREADY_OWNER)
++		{
++			nm_info ("nm_dbus_init() could not acquire the NetworkManager service as PRIMARY_OWNER (ret=%d). This happens if NetworkManager daemon is already/still running?",
++					  ret);
++			if (dbus_error_is_set (&error))
++				dbus_error_free (&error);
++			if (i == 9) {
++				connection = NULL;
++				goto out;
++			}
++			// sleep 200 ms
++			g_usleep (G_USEC_PER_SEC);
++		} else {
++		  break;
++		}
+ 	}
+ 
+ out:
+ 	if (dbus_error_is_set (&error))
+ 		dbus_error_free (&error);
+ 
+ 	return (connection);
+ }

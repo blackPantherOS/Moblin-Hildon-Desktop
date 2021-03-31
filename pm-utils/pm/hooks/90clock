@@ -1,0 +1,39 @@
+#!/bin/sh
+
+. /etc/pm/functions
+
+suspend_clock() {
+    if [ ! -f /var/run/pm-ntpd.lock ]; then
+	touch /var/run/pm-ntpd.lock
+    	stopservice ntpd
+    fi
+
+    /sbin/hwclock --systohc >/dev/null 2>&1 0<&1
+    return $?
+}
+
+resume_clock() {
+    /sbin/hwclock --hctosys >/dev/null 2>&1 0<&1
+    rc=$?
+
+    # Bring back ntpd _after_ NetworkManager and such come back...
+    ( touch /var/run/pm-ntpd.lock ;
+      sleep 20 ; 
+      restartservice ntpd ;
+      rm -f /var/run/pm-ntpd.lock
+    ) &
+    return $rc
+}
+
+case "$1" in
+	hibernate|suspend)
+		suspend_clock
+		;;
+	thaw|resume)
+		resume_clock
+		;;
+	*)
+		;;
+esac
+
+exit $?

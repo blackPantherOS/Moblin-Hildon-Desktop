@@ -1,0 +1,10 @@
+# shut-down event hander
+#
+# This task is run whenever the shut-down event is take place.  
+# Usually used to shut down the machine.
+
+description	"System shut-down event handler"
+author		"Martin Xu <martin.xu@intel.com>"
+
+start on shut-down
+exec /usr/sbin/ume-shutdown

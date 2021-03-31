@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyLogManager">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyLogManager</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyLogManager</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyLogManagerPriv">EmpathyLogManagerPriv</link>;
+                    <link linkend="EmpathyLogSearchHit">EmpathyLogSearchHit</link>;
+                    <link linkend="EmpathyLogManager-struct">EmpathyLogManager</link>;
+<link linkend="EmpathyLogManager">EmpathyLogManager</link>*  <link linkend="empathy-log-manager-new">empathy_log_manager_new</link>             (void);
+<link linkend="void">void</link>                <link linkend="empathy-log-manager-add-message">empathy_log_manager_add_message</link>     (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom,
+                                                         <link linkend="EmpathyMessage">EmpathyMessage</link> *message);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-log-manager-exists">empathy_log_manager_exists</link>          (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom);
+<link linkend="GList">GList</link>*              <link linkend="empathy-log-manager-get-dates">empathy_log_manager_get_dates</link>       (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom);
+<link linkend="GList">GList</link>*              <link linkend="empathy-log-manager-get-messages-for-file">empathy_log_manager_get_messages_for_file</link>
+                                                        (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *filename);
+<link linkend="GList">GList</link>*              <link linkend="empathy-log-manager-get-messages-for-date">empathy_log_manager_get_messages_for_date</link>
+                                                        (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom,
+                                                         const <link linkend="gchar">gchar</link> *date);
+<link linkend="GList">GList</link>*              <link linkend="empathy-log-manager-get-last-messages">empathy_log_manager_get_last_messages</link>
+                                                        (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom);
+<link linkend="GList">GList</link>*              <link linkend="empathy-log-manager-get-chats">empathy_log_manager_get_chats</link>       (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="GList">GList</link>*              <link linkend="empathy-log-manager-search-new">empathy_log_manager_search_new</link>      (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *text);
+<link linkend="void">void</link>                <link linkend="empathy-log-manager-search-free">empathy_log_manager_search_free</link>     (<link linkend="GList">GList</link> *hits);
+<link linkend="gchar">gchar</link>*              <link linkend="empathy-log-manager-get-date-readable">empathy_log_manager_get_date_readable</link>
+                                                        (const <link linkend="gchar">gchar</link> *date);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyLogManager
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyLogManagerPriv" role="struct"/>EmpathyLogManagerPriv</title>
+<indexterm><primary>EmpathyLogManagerPriv</primary></indexterm><programlisting>typedef struct _EmpathyLogManagerPriv EmpathyLogManagerPriv;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyLogSearchHit" role="struct"/>EmpathyLogSearchHit</title>
+<indexterm><primary>EmpathyLogSearchHit</primary></indexterm><programlisting>typedef struct {
+	McAccount *account;
+	gchar     *chat_id;
+	gboolean   is_chatroom;
+	gchar     *filename;
+	gchar     *date;
+} EmpathyLogSearchHit;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathyLogManager-struct" role="struct"/>EmpathyLogManager</title>
+<indexterm><primary>EmpathyLogManager</primary></indexterm><programlisting>typedef struct _EmpathyLogManager EmpathyLogManager;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-new" role="function"/>empathy_log_manager_new ()</title>
+<indexterm><primary>empathy_log_manager_new</primary></indexterm><programlisting><link linkend="EmpathyLogManager">EmpathyLogManager</link>*  empathy_log_manager_new             (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-add-message" role="function"/>empathy_log_manager_add_message ()</title>
+<indexterm><primary>empathy_log_manager_add_message</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_log_manager_add_message     (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom,
+                                                         <link linkend="EmpathyMessage">EmpathyMessage</link> *message);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>message</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-exists" role="function"/>empathy_log_manager_exists ()</title>
+<indexterm><primary>empathy_log_manager_exists</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_log_manager_exists          (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-get-dates" role="function"/>empathy_log_manager_get_dates ()</title>
+<indexterm><primary>empathy_log_manager_get_dates</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_log_manager_get_dates       (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-get-messages-for-file" role="function"/>empathy_log_manager_get_messages_for_file ()</title>
+<indexterm><primary>empathy_log_manager_get_messages_for_file</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_log_manager_get_messages_for_file
+                                                        (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *filename);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filename</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-get-messages-for-date" role="function"/>empathy_log_manager_get_messages_for_date ()</title>
+<indexterm><primary>empathy_log_manager_get_messages_for_date</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_log_manager_get_messages_for_date
+                                                        (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom,
+                                                         const <link linkend="gchar">gchar</link> *date);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>date</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-get-last-messages" role="function"/>empathy_log_manager_get_last_messages ()</title>
+<indexterm><primary>empathy_log_manager_get_last_messages</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_log_manager_get_last_messages
+                                                        (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *chat_id,
+                                                         <link linkend="gboolean">gboolean</link> chatroom);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chat_id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chatroom</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-get-chats" role="function"/>empathy_log_manager_get_chats ()</title>
+<indexterm><primary>empathy_log_manager_get_chats</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_log_manager_get_chats       (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-search-new" role="function"/>empathy_log_manager_search_new ()</title>
+<indexterm><primary>empathy_log_manager_search_new</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_log_manager_search_new      (<link linkend="EmpathyLogManager">EmpathyLogManager</link> *manager,
+                                                         const <link linkend="gchar">gchar</link> *text);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>manager</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-search-free" role="function"/>empathy_log_manager_search_free ()</title>
+<indexterm><primary>empathy_log_manager_search_free</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_log_manager_search_free     (<link linkend="GList">GList</link> *hits);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>hits</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-log-manager-get-date-readable" role="function"/>empathy_log_manager_get_date_readable ()</title>
+<indexterm><primary>empathy_log_manager_get_date_readable</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              empathy_log_manager_get_date_readable
+                                                        (const <link linkend="gchar">gchar</link> *date);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>date</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

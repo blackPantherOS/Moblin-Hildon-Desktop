@@ -1,0 +1,580 @@
+# Moblin Media Translation Template:
+#
+# Copyright 2007, 2008 Intel Corporation
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),  
+# to deal in the Software without restriction, including without limitation  
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,  
+# and/or sell copies of the Software, and to permit persons to whom the  
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in 
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+# DEALINGS IN THE SOFTWARE.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-14 20:12-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/dialogs.glade.h:1
+msgid "4.12 MB"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:2
+msgid "4hr 2min 3sec"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:3
+msgid "<small>Copyright (c) Intel Corporation 2007-2008</small>"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:4
+msgid ""
+"<span foreground=\"black\" weight=\"bold\" size=\"24000\">Moblin Media</span>"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:5
+msgid "About Moblin Media"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:6
+msgid "Album:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:7
+msgid "Artist:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:8
+msgid "Beatles"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:9
+msgid "Enter an internet URL to play online content:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:10
+msgid "File:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:11
+msgid "Greatest Hits Vol 2"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:12
+msgid "Hint"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:13
+msgid "JPG"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:14
+msgid "Length:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:15
+msgid "Music, Video, and Photos"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:16
+msgid "Name:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:17
+msgid "Online Music Properties"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:18
+msgid "Open Location"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:19 ../src/constant.py:185
+msgid "Properties"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:20
+msgid "Size:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:21
+msgid "Song Properties"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:22
+msgid "Title:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:23
+msgid "Type:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:24
+msgid "URL:"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:25 ../glade/moblin_media.glade.h:14
+msgid "Yellow Brick Road"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:26
+msgid "Yellow_Brick_Road.mp3"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:27
+msgid "http://"
+msgstr ""
+
+#: ../glade/dialogs.glade.h:28
+msgid "version 0.38"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:1
+msgid "1988"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:2
+msgid "Album Name"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:3
+msgid "Artist Name"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:4
+msgid "Elton John"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:5
+msgid "FileList"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:6
+msgid "Greatest Hits"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:7
+msgid "Media"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:8
+msgid "Select browse button below to open a photo"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:9
+msgid "Select browse button below to open a video"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:10
+msgid ""
+"Sort By Title\n"
+"Sort By Artist\n"
+"Sort By Album\n"
+"Sort By Length"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:15
+msgid "_Add to Playlist"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:16
+msgid "album"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:17
+msgid "artist"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:18
+msgid "default"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:19
+msgid "music"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:20
+msgid "photo"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:21
+msgid "playback"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:22
+msgid "playlist"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:23
+msgid "pm_clutter"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:24
+msgid "share"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:25
+msgid "thumbnail"
+msgstr ""
+
+#: ../glade/moblin_media.glade.h:26
+msgid "video"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:1
+msgid " second(s)."
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:2
+msgid "(1.4 MB)"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:3
+msgid "Customize how labels are displayed below the photo thumbnail images."
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:4
+msgid "Defaults"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:5 ../src/constant.py:219
+msgid "Delete"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:6
+msgid "Extension (jpg, tif, ...)"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:7
+msgid "Full screen"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:8
+msgid "Labels"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:9 ../src/constant.py:223
+msgid "Name"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:10
+msgid "Photo Settings"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:11
+msgid "PhotoSample.jpg"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:12
+msgid "Play slideshow"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:13
+msgid "Resize thumbnails (slider)"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:14
+msgid "Rotate photo"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:15
+msgid "Select the features you would like to include on the toolbar."
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:16
+msgid "Set your preferences for the slide show."
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:17
+msgid "Settings"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:18
+msgid "Show each photo for "
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:19 ../src/constant.py:224
+msgid "Size"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:20
+msgid "Slide Show"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:21
+msgid ""
+"SlideShow Icon\n"
+"Goes Above"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:23
+msgid ""
+"Smooth Fade\n"
+"Flip\n"
+"Pixelate\n"
+"Shatter\n"
+"Drip\n"
+"Zip\n"
+"Random"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:30
+msgid "Sort"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:31
+msgid "Toolbar"
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:32
+msgid "Transition between slides using: "
+msgstr ""
+
+#: ../glade/settings_dialog.glade.h:33
+msgid "View properties"
+msgstr ""
+
+#. #############################################################################
+#. Translatable Strings
+#: ../src/constant.py:169
+msgid "A song can not be deleted while it is playing."
+msgstr ""
+
+#: ../src/constant.py:170
+msgid "A song can not be edited while it is playing."
+msgstr ""
+
+#: ../src/constant.py:171
+msgid "Can not edit playing video"
+msgstr ""
+
+#: ../src/constant.py:172
+msgid "Application is disabled while in docking mode"
+msgstr ""
+
+#: ../src/constant.py:173
+msgid "Unable to open file"
+msgstr ""
+
+#: ../src/constant.py:174
+msgid "Unable to play file"
+msgstr ""
+
+#: ../src/constant.py:175
+msgid "Delete Media"
+msgstr ""
+
+#: ../src/constant.py:176
+#, python-format
+msgid ""
+"Are you sure you want to delete \n"
+"'%s'?"
+msgstr ""
+
+#: ../src/constant.py:177
+msgid "Please select a song to delete."
+msgstr ""
+
+#: ../src/constant.py:178
+msgid "Rename Conflict"
+msgstr ""
+
+#: ../src/constant.py:179
+#, python-format
+msgid "The file '%s' already exists.  Do you want to replace it?"
+msgstr ""
+
+#: ../src/constant.py:180
+msgid "Extension Changed"
+msgstr ""
+
+#: ../src/constant.py:181
+#, python-format
+msgid "Are you sure you want to change the file extension from %s to %s?"
+msgstr ""
+
+#: ../src/constant.py:182
+msgid "Music"
+msgstr ""
+
+#: ../src/constant.py:183
+msgid "Video"
+msgstr ""
+
+#: ../src/constant.py:184
+msgid "Photos"
+msgstr ""
+
+#: ../src/constant.py:186
+msgid "Please select an item to see its propreties."
+msgstr ""
+
+#: ../src/constant.py:187
+msgid "The name can not be empty"
+msgstr ""
+
+#: ../src/constant.py:188
+msgid "Error"
+msgstr ""
+
+#: ../src/constant.py:189
+msgid ""
+"Please input a title. \n"
+"\n"
+"A title can be any descriptive text to identify this online music."
+msgstr ""
+
+#: ../src/constant.py:191
+msgid "Please enter a valid URL"
+msgstr ""
+
+#: ../src/constant.py:192
+msgid "An error occurred when adding the online music entry."
+msgstr ""
+
+#: ../src/constant.py:193
+msgid "The stream type is not supported.  Playback can not continue."
+msgstr ""
+
+#: ../src/constant.py:194
+msgid "The protocol is not supported."
+msgstr ""
+
+#: ../src/constant.py:195
+msgid "The URL is invalid."
+msgstr ""
+
+#: ../src/constant.py:196
+msgid "The file is corrupt."
+msgstr ""
+
+#: ../src/constant.py:197
+msgid "Out of memory."
+msgstr ""
+
+#: ../src/constant.py:198
+msgid "An unknown error has occurred."
+msgstr ""
+
+#: ../src/constant.py:199
+msgid "Sorting by Name"
+msgstr ""
+
+#: ../src/constant.py:200
+msgid "Sorting by Size"
+msgstr ""
+
+#: ../src/constant.py:201
+msgid "Sorting by Date"
+msgstr ""
+
+#: ../src/constant.py:203
+msgid "Title"
+msgstr ""
+
+#: ../src/constant.py:204
+msgid "Length"
+msgstr ""
+
+#: ../src/constant.py:205
+msgid "Artist"
+msgstr ""
+
+#: ../src/constant.py:206
+msgid "Album"
+msgstr ""
+
+#: ../src/constant.py:207
+msgid "URL"
+msgstr ""
+
+#: ../src/constant.py:208
+msgid "Playlist"
+msgstr ""
+
+#: ../src/constant.py:210
+msgid "Online Music"
+msgstr ""
+
+#: ../src/constant.py:211
+msgid "All Songs"
+msgstr ""
+
+#: ../src/constant.py:213
+msgid "Open Location..."
+msgstr ""
+
+#: ../src/constant.py:214
+msgid "Edit"
+msgstr ""
+
+#: ../src/constant.py:215
+msgid "Sort by"
+msgstr ""
+
+#: ../src/constant.py:216
+msgid "Settings..."
+msgstr ""
+
+#: ../src/constant.py:217
+msgid "About"
+msgstr ""
+
+#: ../src/constant.py:218
+msgid "Quit"
+msgstr ""
+
+#: ../src/constant.py:220
+msgid "File Properties..."
+msgstr ""
+
+#: ../src/constant.py:221
+msgid "Rotate clockwise"
+msgstr ""
+
+#: ../src/constant.py:222
+msgid "Rotate counter-clockwise"
+msgstr ""
+
+#: ../import/media-import:81
+msgid "Do you want to import media files?"
+msgstr ""
+
+#: ../import/media-import:82
+msgid "Media Import"
+msgstr ""
+
+#: ../import/media-import:217
+msgid "File"
+msgstr ""
+
+#: ../import/media-import:230
+msgid "Generating thumbnail for"
+msgstr ""
+
+#: ../import/media-import.glade.h:1
+msgid "Copying"
+msgstr ""
+
+#: ../import/media-import.glade.h:2
+msgid "Copying ..."
+msgstr ""
+
+#: ../import/media-import.glade.h:3
+msgid "Importing Media"
+msgstr ""

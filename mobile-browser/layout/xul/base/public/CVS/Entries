@@ -1,0 +1,16 @@
+/.cvsignore/1.1/Fri Aug 20 00:11:29 1999//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.25/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIBoxObject.idl/1.11/Wed Jan 16 23:38:37 2008//TFIREFOX_3_0b2_RELEASE
+/nsIBrowserBoxObject.idl/1.6/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIContainerBoxObject.idl/1.1/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIEditorBoxObject.idl/1.8/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIIFrameBoxObject.idl/1.5/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIListBoxObject.idl/1.3/Mon Jan 30 21:28:51 2006//TFIREFOX_3_0b2_RELEASE
+/nsIMenuBoxObject.idl/1.6/Sat Jul  3 21:00:06 2004//TFIREFOX_3_0b2_RELEASE
+/nsIMenuFrame.h/1.19/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsIPopupBoxObject.idl/1.11/Wed Jan 16 23:38:37 2008//TFIREFOX_3_0b2_RELEASE
+/nsIScrollBoxObject.idl/1.5/Tue Apr 26 11:26:31 2005//TFIREFOX_3_0b2_RELEASE
+/nsIScrollbarMediator.h/1.5/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsPIBoxObject.h/1.9/Thu Dec 13 11:58:33 2007//TFIREFOX_3_0b2_RELEASE
+/nsXULPopupManager.h/1.20/Wed Jan 16 23:38:37 2008//TFIREFOX_3_0b2_RELEASE
+D

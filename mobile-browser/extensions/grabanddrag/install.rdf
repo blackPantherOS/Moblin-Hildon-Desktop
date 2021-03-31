@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <rdf:Description rdf:about="urn:mozilla:install-manifest">
+    <em:id>{477c4c36-24eb-11da-94d4-00e08161165f}</em:id>
+    <em:version>2.5.0.3</em:version>
+
+	<!-- Firefox -->
+    <em:targetApplication>
+      <rdf:Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>3.0b2</em:maxVersion>
+      </rdf:Description>
+    </em:targetApplication>
+
+    <!-- Midbrowser -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{aa5ca914-c309-495d-91cf-3141bbb04115}</em:id>
+        <em:minVersion>0.1</em:minVersion>
+        <em:maxVersion>2.0.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+
+	<!-- Thunderbird -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>3.0a1</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+	<!-- Flock --> 
+	<em:targetApplication>
+  	  <Description>
+        <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
+        <em:minVersion>0.7</em:minVersion>
+        <em:maxVersion>1.0+</em:maxVersion>
+      </Description>
+	</em:targetApplication>   
+	
+	<!-- SeaMonkey 
+	<em:targetApplication> 
+		<Description>
+			<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+			<em:minVersion>1.0</em:minVersion>
+			<em:maxVersion>1.0+</em:maxVersion>
+		</Description>
+	</em:targetApplication> -->
+
+	<!-- Netscape 
+    <em:targetApplication> 
+      <Description>
+        <em:id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</em:id>
+        <em:minVersion>8.0</em:minVersion>
+        <em:maxVersion>8.1+</em:maxVersion>
+      </Description>
+    </em:targetApplication> -->
+
+    <em:name>Grab and Drag</em:name>
+    <em:file>
+      <rdf:Description rdf:about="urn:mozilla:extension:file:grabanddrag.jar">
+        <em:package>content/grabanddrag/</em:package>
+ 		<em:skin>skin/classic/grabanddrag/</em:skin>
+
+ 		<em:locale>locale/en-US/grabanddrag/</em:locale>
+ 		<em:locale>locale/fr-FR/grabanddrag/</em:locale>
+ 		<em:locale>locale/de-DE/grabanddrag/</em:locale>
+ 		<em:locale>locale/ko-KR/grabanddrag/</em:locale>
+ 		<em:locale>locale/es-ES/grabanddrag/</em:locale>
+ 		<em:locale>locale/zh-CN/grabanddrag/</em:locale>
+<!--
+ 		<em:locale>locale/ru-RU/grabanddrag/</em:locale>
+ 		<em:locale>locale/it-IT/grabanddrag/</em:locale>
+ 		<em:locale>locale/zh-TW/grabanddrag/</em:locale>
+ 		<em:locale>locale/nl-NL/grabanddrag/</em:locale>
+ 		<em:locale>locale/pl-PL/grabanddrag/</em:locale>
+ 		<em:locale>locale/da-DK/grabanddrag/</em:locale>
+ 		<em:locale>locale/pt-BR/grabanddrag/</em:locale>
+ 		<em:locale>locale/fi-FI/grabanddrag/</em:locale>
+ 		<em:locale>locale/ja-JP/grabanddrag/</em:locale>
+ 		<em:locale>locale/tr-TR/grabanddrag/</em:locale>
+ 		<em:locale>locale/cs-CZ/grabanddrag/</em:locale>
+-->
+      </rdf:Description>
+    </em:file>
+    <em:description>Enables Adobe Acrobat-style grab and drag scrolling.</em:description>
+    <em:creator>Ian Weiner</em:creator>
+    <em:contributor>Lauri Lahnasalo (fi-FI)</em:contributor>
+    <em:contributor>Batuhan &#199;etin (tr-TR)</em:contributor>
+    <em:contributor>urko (es-ES)</em:contributor>
+    <em:contributor>MatrixIsAllOver by eXtenZilla (it-IT)</em:contributor>
+    <em:contributor>victory (ja-JP)</em:contributor>
+    <em:contributor>Mori (fr-FR)</em:contributor>
+    <em:contributor>Goofy (fr-FR)</em:contributor>
+    <em:contributor>HPClean (fr-FR)</em:contributor>
+    <em:contributor>Serge Roth (de-DE)</em:contributor>
+    <em:contributor>Viper (ru-RU)</em:contributor>
+    <em:contributor>Quicksilver tears (ru-RU)</em:contributor>
+    <em:contributor>Ghelman (pt-BR)</em:contributor>
+    <em:contributor>zvedavaolihen (cs-CZ)</em:contributor>
+    <em:contributor>teo (pl-PL, UI design)</em:contributor>
+    <em:contributor>AlleyKat (da-DK)</em:contributor>
+    <em:contributor>pitdicker (nl-NL)</em:contributor>
+    <em:contributor>Wang King (zh-CN)</em:contributor>
+    <em:contributor>bit (zh-TW)</em:contributor>
+    <em:contributor>jeongsw (ko-KR)</em:contributor>
+    <em:contributor>Gregory Jordan</em:contributor>
+    
+	<em:homepageURL>http://grabanddrag.mozdev.org/index.html</em:homepageURL>
+  <em:optionsURL>chrome://grabanddrag/content/gadPrefs.xul</em:optionsURL>
+	<em:iconURL>chrome://grabanddrag/skin/grabanddrag32.png</em:iconURL>	
+<!--
+	<em:updateURL>http://grabanddrag.mozdev.org/update.rdf</em:updateURL>
+-->
+  </rdf:Description>
+</rdf:RDF>

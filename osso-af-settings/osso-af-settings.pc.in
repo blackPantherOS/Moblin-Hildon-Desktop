@@ -1,0 +1,19 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+desktopentrydir=@datadir@/applications
+datarootdir=@datadir@
+tasknavigatordesktopentrydir=@datadir@/applications/hildon-navigator
+statusbardesktopentrydir=@datadir@/applications/hildon-status-bar
+marqueedesktopentrydir=@datadir@/applications/hildon-marquee
+homedesktopentrydir=@datadir@/applications/hildon-home
+hildondesktoplibdir=@libdir@/hildon-desktop
+legacyhomelibdir=@libdir@/hildon-home
+legacystatusbarlibdir=@libdir@/hildon-status-bar
+legacynavigatorlibdir=@libdir@/hildon-navigator
+localedir=@localedir@
+hildonpixmapdir=@hildonpixmapdir@
+dbusservicedir=/usr/share/dbus-1/services
+
+Name: osso-af-settings
+Description: Settings for the OSSO environment
+Version: @VERSION@

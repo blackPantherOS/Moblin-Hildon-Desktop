@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libempathy-gtk-empathy-contact-dialogs">
+<refmeta>
+<refentrytitle role="top_of_page">empathy-contact-dialogs</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY-GTK Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>empathy-contact-dialogs</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>                <link linkend="empathy-subscription-dialog-show">empathy_subscription_dialog_show</link>    (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);
+<link linkend="void">void</link>                <link linkend="empathy-contact-information-dialog-show">empathy_contact_information_dialog_show</link>
+                                                        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent,
+                                                         <link linkend="gboolean">gboolean</link> edit);
+<link linkend="void">void</link>                <link linkend="empathy-new-contact-dialog-show">empathy_new_contact_dialog_show</link>     (<link linkend="GtkWindow">GtkWindow</link> *parent);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="empathy-subscription-dialog-show" role="function"/>empathy_subscription_dialog_show ()</title>
+<indexterm><primary>empathy_subscription_dialog_show</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_subscription_dialog_show    (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-information-dialog-show" role="function"/>empathy_contact_information_dialog_show ()</title>
+<indexterm><primary>empathy_contact_information_dialog_show</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_information_dialog_show
+                                                        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent,
+                                                         <link linkend="gboolean">gboolean</link> edit);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>edit</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-new-contact-dialog-show" role="function"/>empathy_new_contact_dialog_show ()</title>
+<indexterm><primary>empathy_new_contact_dialog_show</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_new_contact_dialog_show     (<link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>parent</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

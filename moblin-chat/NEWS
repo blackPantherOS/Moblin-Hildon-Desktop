@@ -1,0 +1,116 @@
+NEW in 0.11:
+===========
+ - Only update the topic of it has really be changed, avoid diplaying many
+   times "Topic set to:" message.
+ - Some Jabber chatroom sends messages received before we joined the room, avoid
+   displaying those messages if we already logged them last time we joined that
+   room. Previous workaround prevented Empathy to log offline messages.
+
+NEW in 0.11:
+===========
+ - Change main window's title to "Contact list".
+ - Do not list profiles that don't have the corresponding CM installed when
+   creating a new account.
+
+NEW in 0.10:
+===========
+ - Align param names on the left in the generic account settings widget.
+ - Try to guess the server from the jid if we are using the jabber profile.
+
+NEW in 0.9:
+===========
+ - Initial room list support. It doesn't work yet but most of the code is ready.
+ - Tell the user when a message can't be sent.
+ - Set all contacts from salut protocol to the "Local Network" group.
+ - Fix NetworkManager support.
+ - Iconify main window to the status icon like in rhythmbox.
+ - Show avatars in chatrooms.
+ - Fix avatar not being requested when empathy starts.
+ - Remove unused nickname entry and use a GtkTable for room information.
+ - Set a window title and fix alignment of widgets for contact related dialogs
+   (add, edit/view info).
+ - Adding initial API documentation using gtk-doc.
+ - Auto-accept to publish presence to contacts that are in our subscribe list.
+   When accepting a pending contact add it to publish and subscribe list.
+ - Filter incoming text channels and make status icon flash when there we
+   receive a new message. Dispatch the channel only when we get a message and
+   the user click on the icon.
+ - Install libempathy and libempathy-gtk and make their API public. The API is
+   NOT STABLE AT ALL !!!
+
+NEW in 0.8:
+===========
+ - Fixed contact list handling.
+ - Make use of NetworkManager to set presence to OFFILE when we are disconnected
+   and restore presence once we are reconnected.
+ - UI for searching in conversation history and to view all conversations with
+   a given contact.
+ - Do not use 2 different processes (empathy and empathy-chat), merge them
+   into one client. This is easier for debugging and share data.
+ - Do not create log directory for a chat if there is no messages to put in.
+ - Do not set active contacts when creating the store, and when contact groups
+   changed.
+ - Fix warning when using command-line options.
+ - Ignore ssl errors by default. This is needed to connect jabber accounts
+   using ssl.
+ - Adding spellcheck support using aspell.
+ - Lots of bugs fixed.
+
+NEW in 0.7:
+===========
+ - Adding new contacts.
+ - Accept/Reject contacts who wants to get our presence.
+ - Edit/View contacts information.
+ - Get name and topic properties for chatrooms.
+ - Log chats and display 10 last messages when opening a new chat.
+ - Set presence to available for protocols that do not supports presence
+   (SIP, IRC).
+ - Lots of bugs fixed.
+
+NEW in 0.6:
+===========
+ - Join room when clicking on favorite rooms.
+ - Do not restore away presence message when coming back after the user set
+   manually to away.
+ - Set parent window when poping a new window/dialog.
+ - Implement favorite chatroom menu.
+ - Do not highlight contacts already known when creating the contact list.
+ - Do not set status message to "Extended autoaway", let user's message
+   unchanged.
+ - Many bugs and leaks fixed.
+
+NEW in 0.5:
+===========
+ - Do not highlight groups when adding them in the roster.
+ - Do not create new GossipContact object in presence/avatar/alias changed
+   signal if we don't already know that contact from a contact list channel.
+   This should fix DBus max pending calls limit reached in some cases.
+ - New icon for empathy-new-message, empathy-group-message and
+   empathy-proto-irc.
+ - Chatroom support. New objects: GossipNewChatroomDialog, GossipAccountChooser,
+   GossipGroupChat
+ - If we are offline do not set away on idle. If we are already away restore to
+   available when we are no mode idle. Do no modify status message.
+ - Fixed message displaying with fancy themes.
+ - Many bugs fixed.
+
+NEW in 0.4:
+===========
+ - contact list refactoring: EmpathyContactList is an iface implemented by
+   EmpathyTpContactList, EmpathyContactManager and EmpathyTpChatroom.
+   GossipContactList splitted into GossipContactListStore and
+   GossipContactListView, it can display any object implementing the
+   EmpathyContactList iface. Make possible to set custom functions to define
+   the groups of a contact, by default it gets the "group" property of the
+   GossipContact object. This make possible to reuse the contact list UI from
+   the main window for chatrooms where groups are the role/affiliation of the
+   contact on that room.
+ - Auto away when gnome-screensaver says the session is idle and extended away
+   30min after that.
+ - Display ChatState when the contact is composing.
+ - Bugbuddy now reports crashes to GNOME Bugzilla.
+ - New program icon.
+ - Setting i18n support and importing po files from gossip.
+ - Add an example label for jid.
+ - Do not open chat window twice for the same conversation.
+ 

@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE window SYSTEM "chrome://grabanddrag/locale/grabanddrag.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://grabanddrag/skin/" type="text/css"?>
+
+<dialog id="gadPrefs"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	title="&options.title;"
+	buttons="accept, cancel, extra1" 
+	buttonlabelextra1="&options.apply;"
+	onload="init();"
+	ondialogaccept="return savePrefs();"
+	ondialogextra1="savePrefs();"
+	persist="screenX screenY"
+	flex="1" style="max-height: 600px; max-width: 600px;">
+
+<script type="application/x-javascript">
+<![CDATA[
+  
+function init() {
+  var checkboxes  = ["qtOffCopy"]; 
+  var menulists = ["button", "preLevel", "qtOnCnt", "qtOffCnt"];
+  var checkbox, radiogroup, menulist, textbox, i, j;
+  var pref = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+  for (i = 0; i < checkboxes.length; ++i) {
+    checkbox = document.getElementById(checkboxes[i]);
+    if (checkbox.hasAttribute("prefstring")) {
+	    checkbox.checked = pref.getBoolPref(checkbox.getAttribute("prefstring"));
+    } else {
+	    checkbox.checked = pref.getBoolPref("grabAndDrag." + checkbox.getAttribute("id"));
+    }
+  }
+  for (i = 0; i < menulists.length; ++i) {
+    menulist = document.getElementById(menulists[i]);
+    if (menulist.hasAttribute("prefstring")) {
+	    menulist.value = pref.getIntPref(menulist.getAttribute("prefstring"));
+    } else {
+	    menulist.value = pref.getIntPref("grabAndDrag." + menulist.getAttribute("id"));
+    }
+  }
+  
+  // special cases 
+  document.getElementById("mult").disabled = document.getElementById("sbmode").checked;
+  document.getElementById("reverse").disabled = document.getElementById("sbmode").checked;
+  document.getElementById("flickspeed").disabled = !document.getElementById("flickon").checked;
+  document.getElementById("flicktimelimit").disabled = !document.getElementById("flickon").checked;
+  document.getElementById("flickwhole").disabled = !document.getElementById("flickon").checked;
+  document.getElementById("momExtent").disabled = !document.getElementById("momOn").checked;
+  document.getElementById("momVariation").disabled = !document.getElementById("momOn").checked;
+}
+
+function savePrefs() {
+  var checkboxes  = ["qtOffCopy"]; 
+  var menulists = ["button", "preLevel", "qtOnCnt", "qtOffCnt"];
+  var checkbox, radiogroup, menulist, textbox, i;
+  var pref = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+  for (i = 0; i < checkboxes.length; ++i) {
+    checkbox = document.getElementById(checkboxes[i]);
+    if (checkbox.hasAttribute("prefstring")) {
+    	pref.setBoolPref(checkbox.getAttribute("prefstring"), checkbox.checked);
+    } else {
+	  	pref.setBoolPref("grabAndDrag." + checkbox.getAttribute("id"), checkbox.checked);
+    }
+  }
+  for (i = 0; i < menulists.length; ++i) {
+    menulist = document.getElementById(menulists[i]);
+    if (menulist.hasAttribute("prefstring")) {
+    	pref.setIntPref(menulist.getAttribute("prefstring"), menulist.value);
+    } else {
+	  	pref.setIntPref("grabAndDrag." + menulist.getAttribute("id"), menulist.value);
+    }
+  }
+  return true;
+}
+
+function runWizard() {
+	window.openDialog("chrome://grabanddrag/content/gadIntro.xul", "gadIntro", "chrome,centerscreen");
+	this.close();
+}
+
+]]>
+</script>
+<hbox flex="1" orient="vertical">
+			<groupbox orient="vertical">
+				<caption label="&options.behavior;"/>
+				<hbox align="center">
+					<label value="&options.button1;"/>
+					<menulist id="button">
+						<menupopup>
+							<menuitem label="&left;" value="0"/>
+							<menuitem label="&middle;" value="1"/>
+							<menuitem label="&right;" value="2"/>
+						</menupopup>
+					</menulist>
+					<label value="&options.button2;"/>
+				</hbox>
+				<hbox align="center">
+					<label value="&options.preLevel1;"/>
+					<menulist id="preLevel">
+						<menupopup>
+							<menuitem label="&preLevel.0;" value="0"/>
+							<menuitem label="&preLevel.1;" value="1"/>
+							<menuitem label="&preLevel.2;" value="2"/>
+						</menupopup>
+					</menulist>
+					<label value="&options.preLevel2;"/>
+				</hbox>
+			</groupbox>
+			<groupbox orient="vertical">
+				<caption label="&options.QT;"/>
+				<grid flex="1">
+					<columns>
+						<column flex=""/>
+						<column flex=""/>
+						<column flex=""/>
+					</columns>
+					<rows>
+						<row align="center">
+							<label value="&qt.clicking;"/>
+							<menulist id="qtOnCnt">
+								<menupopup>
+									<menuitem label="&one;" value="1"/>
+									<menuitem label="&two;" value="2"/>
+									<menuitem label="&three;" value="3"/>
+								</menupopup>
+							</menulist>
+							<label value="&qt.enable;"/>							
+						</row>      			
+						<row align="center">
+							<label value="&qt.clicking;"/>
+							<menulist id="qtOffCnt">
+								<menupopup>
+									<menuitem label="&one;" value="1"/>
+									<menuitem label="&two;" value="2"/>
+									<menuitem label="&three;" value="3"/>
+								</menupopup>
+							</menulist>
+							<label value="&qt.disable;"/>
+						</row>
+					</rows>
+				</grid>
+				<checkbox id="qtOffCopy" type="checkbox" label="&qt.qtOffCopy;"/>
+			</groupbox>
+</hbox>
+
+<hbox id="dialogButtons">
+	<spacer flex="1" />
+	<button dlgtype="accept" id="gad-accept-button" />
+	<button dlgtype="extra1" id="gad-apply-button" />
+	<button dlgtype="cancel" id="gad-cancel-button" />
+</hbox>
+
+</dialog>
+

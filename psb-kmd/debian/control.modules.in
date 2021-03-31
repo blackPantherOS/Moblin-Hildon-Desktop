@@ -1,0 +1,20 @@
+Source: psb-kmd
+Section: unknown
+Priority: optional
+Maintainer: root <root@unknown>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: psb-kmd-modules-_KVERS_
+Architecture: any
+Provides: psb-kmd-modules
+Description: psb-kmd modules for Linux (kernel _KVERS_).
+ This package contains the set of loadable kernel modules for the
+ <description>.
+ .
+ This package contains the compiled kernel modules for _KVERS_
+ .
+ If you have compiled your own kernel, you will most likely need to build
+ your own psb-kmd-modules. The psb-kmd-source package has been
+ provided for use with the Debian's module-assistant or kernel-package
+ utilities to produce a version of psb-kmd-modules for your kernel.

@@ -1,0 +1,14 @@
+prefix = /usr/local
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
+sbindir = /usr/sbin
+datarootdir = $(prefix)/share
+datadir = $(datarootdir)
+libdir = $(exec_prefix)/lib
+
+plugindir = $(libdir)/ppm
+plugindiruser = $(libdir)/ppm-user
+ppmdatadir = $(datadir)/ppm
+logdir = /var/log
+dbusconfdir = /etc/dbus-1
+dbusdatadir = /usr/share/dbus-1

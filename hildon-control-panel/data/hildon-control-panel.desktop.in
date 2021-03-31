@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=copa_ap_cp_name
+Comment=copa_ap_cp_name_thumb
+Exec=/usr/bin/controlpanel
+Icon=controlpanel
+OnlyShowIn=GNOME;
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-OtherBinaries=/usr/bin/controlpanel
+X-Ubuntu-Gettext-Domain=controlpanel

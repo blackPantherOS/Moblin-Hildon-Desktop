@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyChandler">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyChandler</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyChandler</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyChandler-struct">EmpathyChandler</link>;
+<link linkend="EmpathyChandler">EmpathyChandler</link>*    <link linkend="empathy-chandler-new">empathy_chandler_new</link>                (const <link linkend="gchar">gchar</link> *bus_name,
+                                                         const <link linkend="gchar">gchar</link> *object_path);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyChandler
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyChandler-new-channel">new-channel</link>&quot;                                    : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyChandler-struct" role="struct"/>EmpathyChandler</title>
+<indexterm><primary>EmpathyChandler</primary></indexterm><programlisting>typedef struct _EmpathyChandler EmpathyChandler;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-chandler-new" role="function"/>empathy_chandler_new ()</title>
+<indexterm><primary>empathy_chandler_new</primary></indexterm><programlisting><link linkend="EmpathyChandler">EmpathyChandler</link>*    empathy_chandler_new                (const <link linkend="gchar">gchar</link> *bus_name,
+                                                         const <link linkend="gchar">gchar</link> *object_path);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>bus_name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object_path</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="EmpathyChandler-new-channel"/>The &quot;new-channel&quot; signal</title>
+<indexterm><primary>EmpathyChandler::new-channel</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EmpathyChandler">EmpathyChandler</link> *empathychandler,
+                                                        <link linkend="TpConn">TpConn</link>          *arg1,
+                                                        <link linkend="TpChan">TpChan</link>          *arg2,
+                                                        <link linkend="gpointer">gpointer</link>         user_data)            : Run Last</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>empathychandler</parameter>&nbsp;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

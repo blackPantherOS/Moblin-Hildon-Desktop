@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Terminal
+Type=Application
+Exec=uxterm -fa Monospace -fs 12
+Encoding=UTF-8
+Icon=xterm
+Categories=Application;Utility
+#X-Osso-Service=org.moblin.xterm
+OnlyShowIn=GNOME;Mobile;
+StartupWMClass=xterm
+

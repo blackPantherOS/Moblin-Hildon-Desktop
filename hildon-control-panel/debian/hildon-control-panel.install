@@ -1,0 +1,4 @@
+etc/gconf
+usr/bin
+usr/share/applications
+usr/share/dbus-1/services/com.nokia.controlpanel.service

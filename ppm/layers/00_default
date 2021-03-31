@@ -1,0 +1,6 @@
+cpu	performance	max
+radio	radio		allowed
+wifi	radio		on
+display	screensaver	user
+display	brightness	50
+sata	performance	max

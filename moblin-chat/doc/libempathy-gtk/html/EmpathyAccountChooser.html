@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyAccountChooser</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy-gtk Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy-gtk API reference">
+<link rel="prev" href="libempathy-gtk-empathy-spell.html" title="empathy-spell">
+<link rel="next" href="EmpathyChat.html" title="EmpathyChat">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy-gtk API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libempathy-gtk-empathy-spell.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy-gtk Reference Manual</th>
+<td><a accesskey="n" href="EmpathyChat.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2589366" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2578879" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2578745" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2578807" class="shortcut">Implemented Interfaces</a>
+                  &#160;|&#160;
+                  <a href="#id2578848" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyAccountChooser"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2589366"></a><span class="refentrytitle">EmpathyAccountChooser</span>
+</h2>
+<p>EmpathyAccountChooser</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+gboolean            (<a href="EmpathyAccountChooser.html#EmpathyAccountChooserFilterFunc">*EmpathyAccountChooserFilterFunc</a>)  (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         gpointer user_data);
+                    <a href="EmpathyAccountChooser.html#EmpathyAccountChooser-struct">EmpathyAccountChooser</a>;
+GtkWidget*          <a href="EmpathyAccountChooser.html#empathy-account-chooser-new">empathy_account_chooser_new</a>         (void);
+<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>*          <a href="EmpathyAccountChooser.html#empathy-account-chooser-get-account">empathy_account_chooser_get_account</a> (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser);
+gboolean            <a href="EmpathyAccountChooser.html#empathy-account-chooser-set-account">empathy_account_chooser_set_account</a> (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);
+gboolean            <a href="EmpathyAccountChooser.html#empathy-account-chooser-get-has-all-option">empathy_account_chooser_get_has_all_option</a>
+                                                        (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser);
+void                <a href="EmpathyAccountChooser.html#empathy-account-chooser-set-has-all-option">empathy_account_chooser_set_has_all_option</a>
+                                                        (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser,
+                                                         gboolean has_all_option);
+void                <a href="EmpathyAccountChooser.html#empathy-account-chooser-set-filter">empathy_account_chooser_set_filter</a>  (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser,
+                                                         <a href="EmpathyAccountChooser.html#EmpathyAccountChooserFilterFunc">EmpathyAccountChooserFilterFunc</a> filter,
+                                                         gpointer user_data);
+gboolean            <a href="EmpathyAccountChooser.html#empathy-account-chooser-filter-is-connected">empathy_account_chooser_filter_is_connected</a>
+                                                        (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         gpointer user_data);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2578745"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----GInitiallyUnowned
+         +----GtkObject
+               +----GtkWidget
+                     +----GtkContainer
+                           +----GtkBin
+                                 +----GtkComboBox
+                                       +----EmpathyAccountChooser
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2578807"></a><h2>Implemented Interfaces</h2>
+<p>
+EmpathyAccountChooser implements
+ AtkImplementorIface,  GtkBuildable,  GtkCellLayout and  GtkCellEditable.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2578848"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyAccountChooser.html#EmpathyAccountChooser--has-all-option">has-all-option</a>"           gboolean              : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2578879"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2567664"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2567674"></a><h3>
+<a name="EmpathyAccountChooserFilterFunc"></a>EmpathyAccountChooserFilterFunc ()</h3>
+<a class="indexterm" name="id2567687"></a><pre class="programlisting">gboolean            (*EmpathyAccountChooserFilterFunc)  (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         gpointer user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2567766"></a><h3>
+<a name="EmpathyAccountChooser-struct"></a>EmpathyAccountChooser</h3>
+<a class="indexterm" name="id2567779"></a><pre class="programlisting">typedef struct _EmpathyAccountChooser EmpathyAccountChooser;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2567795"></a><h3>
+<a name="empathy-account-chooser-new"></a>empathy_account_chooser_new ()</h3>
+<a class="indexterm" name="id2567806"></a><pre class="programlisting">GtkWidget*          empathy_account_chooser_new         (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2567843"></a><h3>
+<a name="empathy-account-chooser-get-account"></a>empathy_account_chooser_get_account ()</h3>
+<a class="indexterm" name="id2567857"></a><pre class="programlisting"><a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a>*          empathy_account_chooser_get_account (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chooser</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2567912"></a><h3>
+<a name="empathy-account-chooser-set-account"></a>empathy_account_chooser_set_account ()</h3>
+<a class="indexterm" name="id2561412"></a><pre class="programlisting">gboolean            empathy_account_chooser_set_account (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser,
+                                                         <a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chooser</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561488"></a><h3>
+<a name="empathy-account-chooser-get-has-all-option"></a>empathy_account_chooser_get_has_all_option ()</h3>
+<a class="indexterm" name="id2561503"></a><pre class="programlisting">gboolean            empathy_account_chooser_get_has_all_option
+                                                        (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chooser</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561560"></a><h3>
+<a name="empathy-account-chooser-set-has-all-option"></a>empathy_account_chooser_set_has_all_option ()</h3>
+<a class="indexterm" name="id2561574"></a><pre class="programlisting">void                empathy_account_chooser_set_has_all_option
+                                                        (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser,
+                                                         gboolean has_all_option);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chooser</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>has_all_option</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561642"></a><h3>
+<a name="empathy-account-chooser-set-filter"></a>empathy_account_chooser_set_filter ()</h3>
+<a class="indexterm" name="id2561656"></a><pre class="programlisting">void                empathy_account_chooser_set_filter  (<a href="EmpathyAccountChooser.html" title="EmpathyAccountChooser">EmpathyAccountChooser</a> *chooser,
+                                                         <a href="EmpathyAccountChooser.html#EmpathyAccountChooserFilterFunc">EmpathyAccountChooserFilterFunc</a> filter,
+                                                         gpointer user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chooser</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>filter</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2580292"></a><h3>
+<a name="empathy-account-chooser-filter-is-connected"></a>empathy_account_chooser_filter_is_connected ()</h3>
+<a class="indexterm" name="id2598193"></a><pre class="programlisting">gboolean            empathy_account_chooser_filter_is_connected
+                                                        (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         gpointer user_data);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2601572"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2601581"></a><h3>
+<a name="EmpathyAccountChooser--has-all-option"></a>The "<code class="literal">has-all-option</code>" property</h3>
+<a class="indexterm" name="id2601596"></a><pre class="programlisting">  "has-all-option"           gboolean              : Read / Write</pre>
+<p>Have a separate option in the list to mean ALL accounts.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+</div>
+</body>
+</html>

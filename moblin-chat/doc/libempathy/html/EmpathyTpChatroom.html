@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyTpChatroom</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyTpChat.html" title="EmpathyTpChat">
+<link rel="next" href="libempathy-empathy-avatar.html" title="empathy-avatar">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyTpChat.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="libempathy-empathy-avatar.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2575663" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2599056" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2599004" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2599034" class="shortcut">Implemented Interfaces</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyTpChatroom"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2575663"></a><span class="refentrytitle">EmpathyTpChatroom</span>
+</h2>
+<p>EmpathyTpChatroom</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyTpChatroom.html#EmpathyTpChatroomPriv">EmpathyTpChatroomPriv</a>;
+                    <a href="EmpathyTpChatroom.html#EmpathyTpChatroom-struct">EmpathyTpChatroom</a>;
+<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a>*  <a href="EmpathyTpChatroom.html#empathy-tp-chatroom-new">empathy_tp_chatroom_new</a>             (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         TpChan *tp_chan);
+gboolean            <a href="EmpathyTpChatroom.html#empathy-tp-chatroom-get-invitation">empathy_tp_chatroom_get_invitation</a>  (<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a> *chatroom,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> **contact,
+                                                         const gchar **message);
+void                <a href="EmpathyTpChatroom.html#empathy-tp-chatroom-accept-invitation">empathy_tp_chatroom_accept_invitation</a>
+                                                        (<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a> *chatroom);
+void                <a href="EmpathyTpChatroom.html#empathy-tp-chatroom-set-topic">empathy_tp_chatroom_set_topic</a>       (<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a> *chatroom,
+                                                         const gchar *topic);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2599004"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----<a href="EmpathyTpChat.html" title="EmpathyTpChat">EmpathyTpChat</a>
+         +----EmpathyTpChatroom
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2599034"></a><h2>Implemented Interfaces</h2>
+<p>
+EmpathyTpChatroom implements
+ <a href="libempathy-empathy-contact-list.html#EmpathyContactList">EmpathyContactList</a>.</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2599056"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2557248"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2557258"></a><h3>
+<a name="EmpathyTpChatroomPriv"></a>EmpathyTpChatroomPriv</h3>
+<a class="indexterm" name="id2557270"></a><pre class="programlisting">typedef struct _EmpathyTpChatroomPriv EmpathyTpChatroomPriv;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557285"></a><h3>
+<a name="EmpathyTpChatroom-struct"></a>EmpathyTpChatroom</h3>
+<a class="indexterm" name="id2557296"></a><pre class="programlisting">typedef struct _EmpathyTpChatroom EmpathyTpChatroom;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557313"></a><h3>
+<a name="empathy-tp-chatroom-new"></a>empathy_tp_chatroom_new ()</h3>
+<a class="indexterm" name="id2557324"></a><pre class="programlisting"><a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a>*  empathy_tp_chatroom_new             (<a
+href="../libmissioncontrol/McAccount.html"
+>McAccount</a> *account,
+                                                         TpChan *tp_chan);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>account</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>tp_chan</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561102"></a><h3>
+<a name="empathy-tp-chatroom-get-invitation"></a>empathy_tp_chatroom_get_invitation ()</h3>
+<a class="indexterm" name="id2561114"></a><pre class="programlisting">gboolean            empathy_tp_chatroom_get_invitation  (<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a> *chatroom,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> **contact,
+                                                         const gchar **message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561213"></a><h3>
+<a name="empathy-tp-chatroom-accept-invitation"></a>empathy_tp_chatroom_accept_invitation ()</h3>
+<a class="indexterm" name="id2561225"></a><pre class="programlisting">void                empathy_tp_chatroom_accept_invitation
+                                                        (<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a> *chatroom);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2561273"></a><h3>
+<a name="empathy-tp-chatroom-set-topic"></a>empathy_tp_chatroom_set_topic ()</h3>
+<a class="indexterm" name="id2561284"></a><pre class="programlisting">void                empathy_tp_chatroom_set_topic       (<a href="EmpathyTpChatroom.html" title="EmpathyTpChatroom">EmpathyTpChatroom</a> *chatroom,
+                                                         const gchar *topic);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>chatroom</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>topic</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

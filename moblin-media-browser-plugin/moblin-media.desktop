@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Music
+GenericName=Media
+Comment=Play Media
+Exec=/usr/bin/moblinplayer-client
+Terminal=false
+Type=Application
+StartupNotify=true

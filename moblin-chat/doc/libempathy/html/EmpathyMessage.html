@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>EmpathyMessage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.72.0">
+<link rel="start" href="index.html" title="libempathy Reference Manual">
+<link rel="up" href="ch01.html" title="libempathy API reference">
+<link rel="prev" href="EmpathyConf.html" title="EmpathyConf">
+<link rel="next" href="libempathy-empathy-contact-list.html" title="empathy-contact-list">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libempathy API reference">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EmpathyConf.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libempathy Reference Manual</th>
+<td><a accesskey="n" href="libempathy-empathy-contact-list.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2584160" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id2605145" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id2577968" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id2577992" class="shortcut">Properties</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="EmpathyMessage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id2584160"></a><span class="refentrytitle">EmpathyMessage</span>
+</h2>
+<p>EmpathyMessage</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a href="EmpathyMessage.html#EmpathyMessage-struct">EmpathyMessage</a>;
+enum                <a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a>;
+GType               <a href="EmpathyMessage.html#empathy-message-get-gtype">empathy_message_get_gtype</a>           (void);
+<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a>*     <a href="EmpathyMessage.html#empathy-message-new">empathy_message_new</a>                 (const gchar *body);
+void                <a href="EmpathyMessage.html#empathy-message-set-type">empathy_message_set_type</a>            (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a> type);
+<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     <a href="EmpathyMessage.html#empathy-message-get-sender">empathy_message_get_sender</a>          (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);
+void                <a href="EmpathyMessage.html#empathy-message-set-sender">empathy_message_set_sender</a>          (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+<a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     <a href="EmpathyMessage.html#empathy-message-get-receiver">empathy_message_get_receiver</a>        (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);
+void                <a href="EmpathyMessage.html#empathy-message-set-receiver">empathy_message_set_receiver</a>        (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);
+const gchar*        <a href="EmpathyMessage.html#empathy-message-get-body">empathy_message_get_body</a>            (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);
+void                <a href="EmpathyMessage.html#empathy-message-set-body">empathy_message_set_body</a>            (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         const gchar *body);
+<a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         <a href="EmpathyMessage.html#empathy-message-get-timestamp">empathy_message_get_timestamp</a>       (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);
+void                <a href="EmpathyMessage.html#empathy-message-set-timestamp">empathy_message_set_timestamp</a>       (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a> timestamp);
+<a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a>  <a href="EmpathyMessage.html#empathy-message-type-from-str">empathy_message_type_from_str</a>       (const gchar *type_str);
+const gchar*        <a href="EmpathyMessage.html#empathy-message-type-to-str">empathy_message_type_to_str</a>         (<a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a> type);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2577968"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  GObject
+   +----EmpathyMessage
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2577992"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a href="EmpathyMessage.html#EmpathyMessage--body">body</a>"                     gchararray            : Read / Write
+  "<a href="EmpathyMessage.html#EmpathyMessage--receiver">receiver</a>"                 <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>        : Read / Write
+  "<a href="EmpathyMessage.html#EmpathyMessage--sender">sender</a>"                   <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>        : Read / Write
+  "<a href="EmpathyMessage.html#EmpathyMessage--timestamp">timestamp</a>"                glong                 : Read / Write
+  "<a href="EmpathyMessage.html#EmpathyMessage--type">type</a>"                     <a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a>    : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2605145"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2605160"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2605171"></a><h3>
+<a name="EmpathyMessage-struct"></a>EmpathyMessage</h3>
+<a class="indexterm" name="id2605183"></a><pre class="programlisting">typedef struct _EmpathyMessage EmpathyMessage;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605199"></a><h3>
+<a name="EmpathyMessageType"></a>enum EmpathyMessageType</h3>
+<a class="indexterm" name="id2605212"></a><pre class="programlisting">typedef enum {
+	EMPATHY_MESSAGE_TYPE_NORMAL,
+	EMPATHY_MESSAGE_TYPE_ACTION,
+	EMPATHY_MESSAGE_TYPE_NOTICE,
+	EMPATHY_MESSAGE_TYPE_AUTO_REPLY,
+	EMPATHY_MESSAGE_TYPE_LAST
+} EmpathyMessageType;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605230"></a><h3>
+<a name="empathy-message-get-gtype"></a>empathy_message_get_gtype ()</h3>
+<a class="indexterm" name="id2605242"></a><pre class="programlisting">GType               empathy_message_get_gtype           (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605278"></a><h3>
+<a name="empathy-message-new"></a>empathy_message_new ()</h3>
+<a class="indexterm" name="id2605290"></a><pre class="programlisting"><a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a>*     empathy_message_new                 (const gchar *body);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>body</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605347"></a><h3>
+<a name="empathy-message-set-type"></a>empathy_message_set_type ()</h3>
+<a class="indexterm" name="id2605538"></a><pre class="programlisting">void                empathy_message_set_type            (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605606"></a><h3>
+<a name="empathy-message-get-sender"></a>empathy_message_get_sender ()</h3>
+<a class="indexterm" name="id2605618"></a><pre class="programlisting"><a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     empathy_message_get_sender          (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605674"></a><h3>
+<a name="empathy-message-set-sender"></a>empathy_message_set_sender ()</h3>
+<a class="indexterm" name="id2605685"></a><pre class="programlisting">void                empathy_message_set_sender          (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2605753"></a><h3>
+<a name="empathy-message-get-receiver"></a>empathy_message_get_receiver ()</h3>
+<a class="indexterm" name="id2605766"></a><pre class="programlisting"><a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>*     empathy_message_get_receiver        (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607611"></a><h3>
+<a name="empathy-message-set-receiver"></a>empathy_message_set_receiver ()</h3>
+<a class="indexterm" name="id2607621"></a><pre class="programlisting">void                empathy_message_set_receiver        (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a> *contact);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>contact</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607682"></a><h3>
+<a name="empathy-message-get-body"></a>empathy_message_get_body ()</h3>
+<a class="indexterm" name="id2607692"></a><pre class="programlisting">const gchar*        empathy_message_get_body            (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607747"></a><h3>
+<a name="empathy-message-set-body"></a>empathy_message_set_body ()</h3>
+<a class="indexterm" name="id2607758"></a><pre class="programlisting">void                empathy_message_set_body            (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         const gchar *body);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>body</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607826"></a><h3>
+<a name="empathy-message-get-timestamp"></a>empathy_message_get_timestamp ()</h3>
+<a class="indexterm" name="id2607839"></a><pre class="programlisting"><a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a>         empathy_message_get_timestamp       (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607896"></a><h3>
+<a name="empathy-message-set-timestamp"></a>empathy_message_set_timestamp ()</h3>
+<a class="indexterm" name="id2607909"></a><pre class="programlisting">void                empathy_message_set_timestamp       (<a href="EmpathyMessage.html" title="EmpathyMessage">EmpathyMessage</a> *message,
+                                                         <a href="libempathy-empathy-time.html#EmpathyTime">EmpathyTime</a> timestamp);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><em class="parameter"><code>timestamp</code></em>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607978"></a><h3>
+<a name="empathy-message-type-from-str"></a>empathy_message_type_from_str ()</h3>
+<a class="indexterm" name="id2607991"></a><pre class="programlisting"><a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a>  empathy_message_type_from_str       (const gchar *type_str);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>type_str</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608048"></a><h3>
+<a name="empathy-message-type-to-str"></a>empathy_message_type_to_str ()</h3>
+<a class="indexterm" name="id2608060"></a><pre class="programlisting">const gchar*        empathy_message_type_to_str         (<a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><span class="term"><em class="parameter"><code>type</code></em>&#160;:</span></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2608119"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2608130"></a><h3>
+<a name="EmpathyMessage--body"></a>The "<code class="literal">body</code>" property</h3>
+<a class="indexterm" name="id2608144"></a><pre class="programlisting">  "body"                     gchararray            : Read / Write</pre>
+<p>The content of the message.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608169"></a><h3>
+<a name="EmpathyMessage--receiver"></a>The "<code class="literal">receiver</code>" property</h3>
+<a class="indexterm" name="id2608183"></a><pre class="programlisting">  "receiver"                 <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>        : Read / Write</pre>
+<p>The receiver of the message.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2560656"></a><h3>
+<a name="EmpathyMessage--sender"></a>The "<code class="literal">sender</code>" property</h3>
+<a class="indexterm" name="id2608196"></a><pre class="programlisting">  "sender"                   <a href="EmpathyContact.html" title="EmpathyContact">EmpathyContact</a>        : Read / Write</pre>
+<p>The sender of the message.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608214"></a><h3>
+<a name="EmpathyMessage--timestamp"></a>The "<code class="literal">timestamp</code>" property</h3>
+<a class="indexterm" name="id2608227"></a><pre class="programlisting">  "timestamp"                glong                 : Read / Write</pre>
+<p>timestamp.</p>
+<p>Allowed values: &gt;= -1</p>
+<p>Default value: -1</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608253"></a><h3>
+<a name="EmpathyMessage--type"></a>The "<code class="literal">type</code>" property</h3>
+<a class="indexterm" name="id2608265"></a><pre class="programlisting">  "type"                     <a href="EmpathyMessage.html#EmpathyMessageType">EmpathyMessageType</a>    : Read / Write</pre>
+<p>The type of message.</p>
+<p>Default value: EMPATHY_MESSAGE_TYPE_NORMAL</p>
+</div>
+</div>
+</div>
+</body>
+</html>

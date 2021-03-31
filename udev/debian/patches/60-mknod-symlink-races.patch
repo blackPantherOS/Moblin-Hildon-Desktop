@@ -1,0 +1,87 @@
+Binary files udev-111~/.udev_node.c.swp and udev-111/.udev_node.c.swp differ
+diff -ruNp udev-111~/udev_node.c udev-111/udev_node.c
+--- udev-111~/udev_node.c	2007-05-10 11:42:56.000000000 +0100
++++ udev-111/udev_node.c	2007-05-21 18:26:31.000000000 +0100
+@@ -37,13 +37,14 @@
+ int udev_node_mknod(struct udevice *udev, const char *file, dev_t devt, mode_t mode, uid_t uid, gid_t gid)
+ {
+ 	struct stat stats;
+-	int retval = 0;
++	int retval = 0, no_repeat = 0;
+ 
+ 	if (major(devt) != 0 && strcmp(udev->dev->subsystem, "block") == 0)
+ 		mode |= S_IFBLK;
+ 	else
+ 		mode |= S_IFCHR;
+ 
++check:
+ 	if (lstat(file, &stats) != 0)
+ 		goto create;
+ 
+@@ -54,9 +55,10 @@ int udev_node_mknod(struct udevice *udev
+ 		goto perms;
+ 	}
+ 
+-	if (unlink(file) != 0)
++	if (unlink(file) != 0) {
++		no_repeat = 1;
+ 		err("unlink(%s) failed: %s", file, strerror(errno));
+-	else
++	} else
+ 		dbg("already present file '%s' unlinked", file);
+ 
+ create:
+@@ -64,6 +66,8 @@ create:
+ 	retval = mknod(file, mode, devt);
+ 	selinux_resetfscreatecon();
+ 	if (retval != 0) {
++		if ((no_repeat == 0) && (errno == EEXIST))
++			goto check;
+ 		err("mknod(%s, %#o, %u, %u) failed: %s",
+ 		    file, mode, major(devt), minor(devt), strerror(errno));
+ 		goto exit;
+@@ -96,6 +100,7 @@ static int node_symlink(const char *node
+ 	int i = 0;
+ 	int tail = 0;
+ 	int len;
++	int no_repeat = 0;
+ 
+ 	/* use relative link */
+ 	while (node[i] && (node[i] == slink[i])) {
+@@ -110,6 +115,7 @@ static int node_symlink(const char *node
+ 	}
+ 	strlcat(target, &node[tail], sizeof(target));
+ 
++check:
+ 	/* look if symlink already exists */
+ 	len = readlink(slink, buf, sizeof(buf));
+ 	if (len > 0) {
+@@ -120,14 +126,26 @@ static int node_symlink(const char *node
+ 			goto exit;
+ 		}
+ 		info("link '%s' points to different target '%s', delete it", slink, buf);
+-		unlink(slink);
++		if (unlink(slink) != 0) {
++			no_repeat = 1;
++			err("unlink(%s) failed: %s", slink, strerror(errno));
++		}
++	} else if (errno == EINVAL) {
++		info("link '%s' points to non-symlink, delete it", slink);
++		if (unlink(slink) != 0) {
++			no_repeat = 1;
++			err("unlink(%s) failed: %s", slink, strerror(errno));
++		}
+ 	}
+ 
+ 	/* create link */
+ 	info("creating symlink '%s' to '%s'", slink, target);
+ 	selinux_setfscreatecon(slink, NULL, S_IFLNK);
+-	if (symlink(target, slink) != 0)
++	if (symlink(target, slink) != 0) {
++		if ((no_repeat == 0) && (errno == EEXIST))
++			goto check;
+ 		err("symlink(%s, %s) failed: %s", target, slink, strerror(errno));
++	}
+ 	selinux_resetfscreatecon();
+ 
+ exit:

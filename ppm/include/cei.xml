@@ -1,0 +1,22 @@
+<node name="/ppmd">
+	<interface name="com.intel.ppmd">
+		<method name="ActivateModes">
+			<arg type="as" name="activemodes" direction="in" />
+		</method>
+		<method name="DeactivateModes">
+			<arg type="as" name="deactivemodes" direction="in" />
+		</method>
+		<method name="AppendActiveModes">
+			<arg type="as" name="activemodes" direction="in" />
+		</method>
+		<method name="QueryModes">
+			<arg type="a(si)" name="modes" direction="out" />
+			<arg type="i" name="count" direction="out" />
+		</method>
+		<signal name="sendCmd">
+			<arg type="s" name="class" />
+			<arg type="s" name="command" />
+			<arg type="s" name="option" />
+		</signal>
+	</interface>
+</node>

@@ -1,0 +1,4 @@
+version=2
+http://prdownloads.sourceforge.net/galculator/ \
+        /galculator/galculator-(.*).tar.gz \
+        debian uupdate

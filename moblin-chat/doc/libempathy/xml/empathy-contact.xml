@@ -1,0 +1,600 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="EmpathyContact">
+<refmeta>
+<refentrytitle role="top_of_page">EmpathyContact</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBEMPATHY Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EmpathyContact</refname>
+<refpurpose></refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="EmpathyContact-struct">EmpathyContact</link>;
+enum                <link linkend="EmpathySubscription">EmpathySubscription</link>;
+<link linkend="GType">GType</link>               <link linkend="empathy-contact-get-gtype">empathy_contact_get_gtype</link>           (void);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-contact-new">empathy_contact_new</link>                 (<link linkend="McAccount">McAccount</link> *account);
+<link linkend="EmpathyContact">EmpathyContact</link>*     <link linkend="empathy-contact-new-full">empathy_contact_new_full</link>            (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *id,
+                                                         const <link linkend="gchar">gchar</link> *name);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-contact-get-id">empathy_contact_get_id</link>              (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-contact-get-name">empathy_contact_get_name</link>            (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="EmpathyAvatar">EmpathyAvatar</link>*      <link linkend="empathy-contact-get-avatar">empathy_contact_get_avatar</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="McAccount">McAccount</link>*          <link linkend="empathy-contact-get-account">empathy_contact_get_account</link>         (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="EmpathyPresence">EmpathyPresence</link>*    <link linkend="empathy-contact-get-presence">empathy_contact_get_presence</link>        (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="GList">GList</link>*              <link linkend="empathy-contact-get-groups">empathy_contact_get_groups</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="EmpathySubscription">EmpathySubscription</link> <link linkend="empathy-contact-get-subscription">empathy_contact_get_subscription</link>    (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="guint">guint</link>               <link linkend="empathy-contact-get-handle">empathy_contact_get_handle</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-is-user">empathy_contact_is_user</link>             (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-id">empathy_contact_set_id</link>              (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *id);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-name">empathy_contact_set_name</link>            (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *name);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-avatar">empathy_contact_set_avatar</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="EmpathyAvatar">EmpathyAvatar</link> *avatar);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-account">empathy_contact_set_account</link>         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="McAccount">McAccount</link> *account);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-presence">empathy_contact_set_presence</link>        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="EmpathyPresence">EmpathyPresence</link> *presence);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-groups">empathy_contact_set_groups</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GList">GList</link> *categories);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-subscription">empathy_contact_set_subscription</link>    (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="EmpathySubscription">EmpathySubscription</link> subscription);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-handle">empathy_contact_set_handle</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="guint">guint</link> handle);
+<link linkend="void">void</link>                <link linkend="empathy-contact-set-is-user">empathy_contact_set_is_user</link>         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="gboolean">gboolean</link> is_user);
+<link linkend="void">void</link>                <link linkend="empathy-contact-add-group">empathy_contact_add_group</link>           (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *group);
+<link linkend="void">void</link>                <link linkend="empathy-contact-remove-group">empathy_contact_remove_group</link>        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *group);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-is-online">empathy_contact_is_online</link>           (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-is-in-group">empathy_contact_is_in_group</link>         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *group);
+const <link linkend="gchar">gchar</link>*        <link linkend="empathy-contact-get-status">empathy_contact_get_status</link>          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);
+<link linkend="gboolean">gboolean</link>            <link linkend="empathy-contact-equal">empathy_contact_equal</link>               (<link linkend="gconstpointer">gconstpointer</link> v1,
+                                                         <link linkend="gconstpointer">gconstpointer</link> v2);
+<link linkend="guint">guint</link>               <link linkend="empathy-contact-hash">empathy_contact_hash</link>                (<link linkend="gconstpointer">gconstpointer</link> key);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----EmpathyContact
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="EmpathyContact--account">account</link>&quot;                  <link linkend="McAccount">McAccount</link>             : Read / Write
+  &quot;<link linkend="EmpathyContact--avatar">avatar</link>&quot;                   <link linkend="EmpathyAvatar">EmpathyAvatar</link>         : Read / Write
+  &quot;<link linkend="EmpathyContact--groups">groups</link>&quot;                   <link linkend="gpointer">gpointer</link>              : Read / Write
+  &quot;<link linkend="EmpathyContact--handle">handle</link>&quot;                   <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="EmpathyContact--id">id</link>&quot;                       <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyContact--is-user">is-user</link>&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EmpathyContact--name">name</link>&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="EmpathyContact--presence">presence</link>&quot;                 <link linkend="EmpathyPresence">EmpathyPresence</link>       : Read / Write
+  &quot;<link linkend="EmpathyContact--subscription">subscription</link>&quot;             <link linkend="EmpathySubscription">EmpathySubscription</link>   : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="EmpathyContact-struct" role="struct"/>EmpathyContact</title>
+<indexterm><primary>EmpathyContact</primary></indexterm><programlisting>typedef struct _EmpathyContact EmpathyContact;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="EmpathySubscription" role="enum"/>enum EmpathySubscription</title>
+<indexterm><primary>EmpathySubscription</primary></indexterm><programlisting>typedef enum {
+	EMPATHY_SUBSCRIPTION_NONE = 0,
+	EMPATHY_SUBSCRIPTION_TO   = 1 &lt;&lt; 0,	/* We send our presence to that contact */
+	EMPATHY_SUBSCRIPTION_FROM = 1 &lt;&lt; 1,	/* That contact sends his presence to us */
+	EMPATHY_SUBSCRIPTION_BOTH = EMPATHY_SUBSCRIPTION_TO | EMPATHY_SUBSCRIPTION_FROM
+} EmpathySubscription;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-gtype" role="function"/>empathy_contact_get_gtype ()</title>
+<indexterm><primary>empathy_contact_get_gtype</primary></indexterm><programlisting><link linkend="GType">GType</link>               empathy_contact_get_gtype           (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-new" role="function"/>empathy_contact_new ()</title>
+<indexterm><primary>empathy_contact_new</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_contact_new                 (<link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-new-full" role="function"/>empathy_contact_new_full ()</title>
+<indexterm><primary>empathy_contact_new_full</primary></indexterm><programlisting><link linkend="EmpathyContact">EmpathyContact</link>*     empathy_contact_new_full            (<link linkend="McAccount">McAccount</link> *account,
+                                                         const <link linkend="gchar">gchar</link> *id,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-id" role="function"/>empathy_contact_get_id ()</title>
+<indexterm><primary>empathy_contact_get_id</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_contact_get_id              (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-name" role="function"/>empathy_contact_get_name ()</title>
+<indexterm><primary>empathy_contact_get_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_contact_get_name            (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-avatar" role="function"/>empathy_contact_get_avatar ()</title>
+<indexterm><primary>empathy_contact_get_avatar</primary></indexterm><programlisting><link linkend="EmpathyAvatar">EmpathyAvatar</link>*      empathy_contact_get_avatar          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-account" role="function"/>empathy_contact_get_account ()</title>
+<indexterm><primary>empathy_contact_get_account</primary></indexterm><programlisting><link linkend="McAccount">McAccount</link>*          empathy_contact_get_account         (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-presence" role="function"/>empathy_contact_get_presence ()</title>
+<indexterm><primary>empathy_contact_get_presence</primary></indexterm><programlisting><link linkend="EmpathyPresence">EmpathyPresence</link>*    empathy_contact_get_presence        (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-groups" role="function"/>empathy_contact_get_groups ()</title>
+<indexterm><primary>empathy_contact_get_groups</primary></indexterm><programlisting><link linkend="GList">GList</link>*              empathy_contact_get_groups          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-subscription" role="function"/>empathy_contact_get_subscription ()</title>
+<indexterm><primary>empathy_contact_get_subscription</primary></indexterm><programlisting><link linkend="EmpathySubscription">EmpathySubscription</link> empathy_contact_get_subscription    (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-handle" role="function"/>empathy_contact_get_handle ()</title>
+<indexterm><primary>empathy_contact_get_handle</primary></indexterm><programlisting><link linkend="guint">guint</link>               empathy_contact_get_handle          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-is-user" role="function"/>empathy_contact_is_user ()</title>
+<indexterm><primary>empathy_contact_is_user</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_is_user             (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-id" role="function"/>empathy_contact_set_id ()</title>
+<indexterm><primary>empathy_contact_set_id</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_id              (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *id);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>id</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-name" role="function"/>empathy_contact_set_name ()</title>
+<indexterm><primary>empathy_contact_set_name</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_name            (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-avatar" role="function"/>empathy_contact_set_avatar ()</title>
+<indexterm><primary>empathy_contact_set_avatar</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_avatar          (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="EmpathyAvatar">EmpathyAvatar</link> *avatar);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>avatar</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-account" role="function"/>empathy_contact_set_account ()</title>
+<indexterm><primary>empathy_contact_set_account</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_account         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="McAccount">McAccount</link> *account);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>account</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-presence" role="function"/>empathy_contact_set_presence ()</title>
+<indexterm><primary>empathy_contact_set_presence</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_presence        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="EmpathyPresence">EmpathyPresence</link> *presence);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>presence</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-groups" role="function"/>empathy_contact_set_groups ()</title>
+<indexterm><primary>empathy_contact_set_groups</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_groups          (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="GList">GList</link> *categories);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>categories</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-subscription" role="function"/>empathy_contact_set_subscription ()</title>
+<indexterm><primary>empathy_contact_set_subscription</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_subscription    (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="EmpathySubscription">EmpathySubscription</link> subscription);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>subscription</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-handle" role="function"/>empathy_contact_set_handle ()</title>
+<indexterm><primary>empathy_contact_set_handle</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_handle          (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="guint">guint</link> handle);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handle</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-set-is-user" role="function"/>empathy_contact_set_is_user ()</title>
+<indexterm><primary>empathy_contact_set_is_user</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_set_is_user         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         <link linkend="gboolean">gboolean</link> is_user);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_user</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-add-group" role="function"/>empathy_contact_add_group ()</title>
+<indexterm><primary>empathy_contact_add_group</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_add_group           (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-remove-group" role="function"/>empathy_contact_remove_group ()</title>
+<indexterm><primary>empathy_contact_remove_group</primary></indexterm><programlisting><link linkend="void">void</link>                empathy_contact_remove_group        (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-is-online" role="function"/>empathy_contact_is_online ()</title>
+<indexterm><primary>empathy_contact_is_online</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_is_online           (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-is-in-group" role="function"/>empathy_contact_is_in_group ()</title>
+<indexterm><primary>empathy_contact_is_in_group</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_is_in_group         (<link linkend="EmpathyContact">EmpathyContact</link> *contact,
+                                                         const <link linkend="gchar">gchar</link> *group);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>group</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-get-status" role="function"/>empathy_contact_get_status ()</title>
+<indexterm><primary>empathy_contact_get_status</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        empathy_contact_get_status          (<link linkend="EmpathyContact">EmpathyContact</link> *contact);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>contact</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-equal" role="function"/>empathy_contact_equal ()</title>
+<indexterm><primary>empathy_contact_equal</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            empathy_contact_equal               (<link linkend="gconstpointer">gconstpointer</link> v1,
+                                                         <link linkend="gconstpointer">gconstpointer</link> v2);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>v2</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="empathy-contact-hash" role="function"/>empathy_contact_hash ()</title>
+<indexterm><primary>empathy_contact_hash</primary></indexterm><programlisting><link linkend="guint">guint</link>               empathy_contact_hash                (<link linkend="gconstpointer">gconstpointer</link> key);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>key</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="EmpathyContact--account"/>The &quot;<literal>account</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:account</primary></indexterm><programlisting>  &quot;account&quot;                  <link linkend="McAccount">McAccount</link>             : Read / Write</programlisting>
+<para>The account associated with the contact.</para></refsect2>
+<refsect2><title><anchor id="EmpathyContact--avatar"/>The &quot;<literal>avatar</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:avatar</primary></indexterm><programlisting>  &quot;avatar&quot;                   <link linkend="EmpathyAvatar">EmpathyAvatar</link>         : Read / Write</programlisting>
+<para>The avatar image.</para></refsect2>
+<refsect2><title><anchor id="EmpathyContact--groups"/>The &quot;<literal>groups</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:groups</primary></indexterm><programlisting>  &quot;groups&quot;                   <link linkend="gpointer">gpointer</link>              : Read / Write</programlisting>
+<para>Groups of contact.</para></refsect2>
+<refsect2><title><anchor id="EmpathyContact--handle"/>The &quot;<literal>handle</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:handle</primary></indexterm><programlisting>  &quot;handle&quot;                   <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>The handle of the contact.</para><para>Default value: 0</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyContact--id"/>The &quot;<literal>id</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:id</primary></indexterm><programlisting>  &quot;id&quot;                       <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>String identifying contact.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyContact--is-user"/>The &quot;<literal>is-user</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:is-user</primary></indexterm><programlisting>  &quot;is-user&quot;                  <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Is contact the user.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyContact--name"/>The &quot;<literal>name</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:name</primary></indexterm><programlisting>  &quot;name&quot;                     <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>The name of the contact.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="EmpathyContact--presence"/>The &quot;<literal>presence</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:presence</primary></indexterm><programlisting>  &quot;presence&quot;                 <link linkend="EmpathyPresence">EmpathyPresence</link>       : Read / Write</programlisting>
+<para>Presence of contact.</para></refsect2>
+<refsect2><title><anchor id="EmpathyContact--subscription"/>The &quot;<literal>subscription</literal>&quot; property</title>
+<indexterm><primary>EmpathyContact:subscription</primary></indexterm><programlisting>  &quot;subscription&quot;             <link linkend="EmpathySubscription">EmpathySubscription</link>   : Read / Write</programlisting>
+<para>The subscription status of the contact.</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

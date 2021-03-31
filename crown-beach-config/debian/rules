@@ -1,0 +1,52 @@
+#!/usr/bin/make -f
+
+build:
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	install -m644 -D xorg.conf $(CURDIR)/debian/ume-config-crown-beach/etc/X11/xorg-crownbeach.conf
+	install -m644 -D 60-touchscreen.rules $(CURDIR)/debian/ume-config-crown-beach/etc/udev/rules.d/60-touchscreen-crown-beach.rules
+	install -m644 -D 80-iusbc.rules $(CURDIR)/debian/ume-config-crown-beach/etc/udev/rules.d/80-iusbc.rules
+	install -m755 -D iusbc $(CURDIR)/debian/ume-config-crown-beach/etc/init.d/iusbc
+	install -m644 -D session $(CURDIR)/debian/ume-config-crown-beach/etc/event.d/session
+	install -m644 -D power_save $(CURDIR)/debian/ume-config-crown-beach/etc/event.d/power_save
+	install -m644 -D disable_poll.fdi $(CURDIR)/debian/ume-config-crown-beach/etc/hal/fdi/information/disable_poll.fdi
+	install -m644 -D options $(CURDIR)/debian/ume-config-crown-beach/etc/modprobe.d/options-ume
+	install -m755 -D ume-hibernate $(CURDIR)/debian/ume-config-crown-beach/usr/sbin/ume-hibernate
+	install -m755 -D ume-shutdown $(CURDIR)/debian/ume-config-crown-beach/usr/sbin/ume-shutdown
+	install -m755 -D powerbtn.sh.ume $(CURDIR)/debian/ume-config-crown-beach/etc/acpi/powerbtn.sh.ume
+	install -m755 -D mount_helper $(CURDIR)/debian/ume-config-crown-beach/lib/udev/mount_helper
+	install -m755 -D iusbc.schemas $(CURDIR)/debian/ume-config-crown-beach/etc/gconf/gconf.xml.defaults/iusbc.schemas
+	install -m755 -D post-service $(CURDIR)/debian/ume-config-crown-beach/etc/init.d/post-service
+	install -m755 -D post-srv $(CURDIR)/debian/ume-config-crown-beach/usr/sbin/post-srv
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

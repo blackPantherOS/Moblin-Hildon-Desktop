@@ -1,0 +1,337 @@
+diff --git a/Makefile.am b/Makefile.am
+index c52259a..5582b87 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,11 +1,14 @@
+ ## Process this file with automake to produce Makefile.in
+ 
++dbusdir = $(datadir)/dbus-1/services
++dbus_DATA = org.gnome.galculator.service
++
+ desktopdir = $(datadir)/applications
+ desktop_in_files = galculator.desktop.in
+ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+ @INTLTOOL_DESKTOP_RULE@
+ 
+-CLEANFILES = $(desktop_DATA)
++CLEANFILES = $(desktop_DATA) $(dbus_DATA)
+ 
+ SUBDIRS = src po ui doc
+ 
+@@ -14,6 +17,7 @@ SUBDIRS = src po ui doc
+ EXTRA_DIST = galculator.spec \
+ 	galculator.spec.in \
+ 	galculator.desktop.in \
++	org.gnome.galculator.service.in \
+ 	intltool-merge.in \
+ 	intltool-extract.in \
+ 	intltool-update.in \
+diff --git a/Makefile.in b/Makefile.in
+index 987cf57..9c793ec 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -39,6 +39,7 @@ host_triplet = @host@
+ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
+ 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
+ 	$(srcdir)/galculator.spec.in $(top_srcdir)/configure ABOUT-NLS \
++	$(srcdir)/org.gnome.galculator.service.in \
+ 	AUTHORS COPYING ChangeLog INSTALL NEWS THANKS TODO \
+ 	config.guess config.sub depcomp install-sh ltmain.sh missing \
+ 	mkinstalldirs
+@@ -51,7 +52,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+  configure.lineno configure.status.lineno
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+ CONFIG_HEADER = config.h
+-CONFIG_CLEAN_FILES = galculator.spec
++CONFIG_CLEAN_FILES = galculator.spec org.gnome.galculator.service
+ SOURCES =
+ DIST_SOURCES =
+ RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
+@@ -66,9 +67,10 @@ am__vpath_adj = case $$p in \
+     *) f=$$p;; \
+   esac;
+ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
+-am__installdirs = "$(DESTDIR)$(desktopdir)"
++am__installdirs = "$(DESTDIR)$(dbusdir)" "$(DESTDIR)$(desktopdir)"
++dbusDATA_INSTALL = $(INSTALL_DATA)
+ desktopDATA_INSTALL = $(INSTALL_DATA)
+-DATA = $(desktop_DATA)
++DATA = $(dbus_DATA) $(desktop_DATA)
+ ETAGS = etags
+ CTAGS = ctags
+ DIST_SUBDIRS = $(SUBDIRS)
+@@ -231,16 +233,19 @@ sbindir = @sbindir@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
++dbusdir = $(datadir)/dbus-1/services
++dbus_DATA = org.gnome.galculator.service
+ desktopdir = $(datadir)/applications
+ desktop_in_files = galculator.desktop.in
+ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+-CLEANFILES = $(desktop_DATA)
++CLEANFILES = $(desktop_DATA) $(dbus_DATA)
+ SUBDIRS = src po ui doc
+ 
+ # things we want to include in the source code distribution
+ EXTRA_DIST = galculator.spec \
+ 	galculator.spec.in \
+ 	galculator.desktop.in \
++	org.gnome.galculator.service.in \
+ 	intltool-merge.in \
+ 	intltool-extract.in \
+ 	intltool-update.in \
+@@ -302,6 +307,8 @@ distclean-hdr:
+ 	-rm -f config.h stamp-h1
+ galculator.spec: $(top_builddir)/config.status $(srcdir)/galculator.spec.in
+ 	cd $(top_builddir) && $(SHELL) ./config.status $@
++org.gnome.galculator.service: $(top_builddir)/config.status $(srcdir)/org.gnome.galculator.service.in
++	cd $(top_builddir) && $(SHELL) ./config.status $@
+ 
+ mostlyclean-libtool:
+ 	-rm -f *.lo
+@@ -312,6 +319,24 @@ clean-libtool:
+ distclean-libtool:
+ 	-rm -f libtool
+ uninstall-info-am:
++
++install-dbusDATA: $(dbus_DATA)
++	@$(NORMAL_INSTALL)
++	test -z "$(dbusdir)" || $(mkdir_p) "$(DESTDIR)$(dbusdir)"
++	@list='$(dbus_DATA)'; for p in $$list; do \
++	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
++	  f=$(am__strip_dir) \
++	  echo " $(dbusDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(dbusdir)/$$f'"; \
++	  $(dbusDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(dbusdir)/$$f"; \
++	done
++
++uninstall-dbusDATA:
++	@$(NORMAL_UNINSTALL)
++	@list='$(dbus_DATA)'; for p in $$list; do \
++	  f=$(am__strip_dir) \
++	  echo " rm -f '$(DESTDIR)$(dbusdir)/$$f'"; \
++	  rm -f "$(DESTDIR)$(dbusdir)/$$f"; \
++	done
+ install-desktopDATA: $(desktop_DATA)
+ 	@$(NORMAL_INSTALL)
+ 	test -z "$(desktopdir)" || $(mkdir_p) "$(DESTDIR)$(desktopdir)"
+@@ -609,7 +634,7 @@ check: check-recursive
+ all-am: Makefile $(DATA) config.h
+ installdirs: installdirs-recursive
+ installdirs-am:
+-	for dir in "$(DESTDIR)$(desktopdir)"; do \
++	for dir in "$(DESTDIR)$(dbusdir)" "$(DESTDIR)$(desktopdir)"; do \
+ 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
+ 	done
+ install: install-recursive
+@@ -657,7 +682,7 @@ info: info-recursive
+ 
+ info-am:
+ 
+-install-data-am: install-desktopDATA
++install-data-am: install-dbusDATA install-desktopDATA
+ 
+ install-exec-am:
+ 
+@@ -685,7 +710,7 @@ ps: ps-recursive
+ 
+ ps-am:
+ 
+-uninstall-am: uninstall-desktopDATA uninstall-info-am
++uninstall-am: uninstall-dbusDATA uninstall-desktopDATA uninstall-info-am
+ 
+ uninstall-info: uninstall-info-recursive
+ 
+@@ -696,14 +721,14 @@ uninstall-info: uninstall-info-recursive
+ 	distclean-generic distclean-hdr distclean-libtool \
+ 	distclean-recursive distclean-tags distcleancheck distdir \
+ 	distuninstallcheck dvi dvi-am html html-am info info-am \
+-	install install-am install-data install-data-am \
++	install install-am install-data install-data-am install-dbusDATA\
+ 	install-desktopDATA install-exec install-exec-am install-info \
+ 	install-info-am install-man install-strip installcheck \
+ 	installcheck-am installdirs installdirs-am maintainer-clean \
+ 	maintainer-clean-generic maintainer-clean-recursive \
+ 	mostlyclean mostlyclean-generic mostlyclean-libtool \
+ 	mostlyclean-recursive pdf pdf-am ps ps-am tags tags-recursive \
+-	uninstall uninstall-am uninstall-desktopDATA uninstall-info-am
++	uninstall uninstall-am uninstall-dbusDATA uninstall-desktopDATA uninstall-info-am
+ 
+ @INTLTOOL_DESKTOP_RULE@
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+diff --git a/configure b/configure
+index 6450e0a..66d6a24 100755
+--- a/configure
++++ b/configure
+@@ -4786,12 +4786,12 @@ if test -n "$PKG_CONFIG"; then
+         pkg_cv_HILDON_CFLAGS="$HILDON_CFLAGS"
+     else
+         if test -n "$PKG_CONFIG" && \
+-    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"hildon-1\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "hildon-1") 2>&5
++    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"hildon-1 dbus-1 libosso\"") >&5
++  ($PKG_CONFIG --exists --print-errors "hildon-1 dbus-1 libosso") 2>&5
+   ac_status=$?
+   echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); }; then
+-  pkg_cv_HILDON_CFLAGS=`$PKG_CONFIG --cflags "hildon-1" 2>/dev/null`
++  pkg_cv_HILDON_CFLAGS=`$PKG_CONFIG --cflags "hildon-1 dbus-1 libosso" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -4804,12 +4804,12 @@ if test -n "$PKG_CONFIG"; then
+         pkg_cv_HILDON_LIBS="$HILDON_LIBS"
+     else
+         if test -n "$PKG_CONFIG" && \
+-    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"hildon-1\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "hildon-1") 2>&5
++    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"hildon-1 dbus-1 libosso\"") >&5
++  ($PKG_CONFIG --exists --print-errors "hildon-1 dbus-1 libosso") 2>&5
+   ac_status=$?
+   echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); }; then
+-  pkg_cv_HILDON_LIBS=`$PKG_CONFIG --libs "hildon-1" 2>/dev/null`
++  pkg_cv_HILDON_LIBS=`$PKG_CONFIG --libs "hildon-1 dbus-1 libosso" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -4828,9 +4828,9 @@ else
+         _pkg_short_errors_supported=no
+ fi
+         if test $_pkg_short_errors_supported = yes; then
+-	        HILDON_PKG_ERRORS=`$PKG_CONFIG --short-errors --errors-to-stdout --print-errors "hildon-1"`
++	        HILDON_PKG_ERRORS=`$PKG_CONFIG --short-errors --errors-to-stdout --print-errors "hildon-1 dbus-1 libosso"`
+         else
+-	        HILDON_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "hildon-1"`
++	        HILDON_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "hildon-1 dbus-1 libosso"`
+         fi
+ 	# Put the nasty error message in config.log where it belongs
+ 	echo "$HILDON_PKG_ERRORS" >&5
+@@ -21605,7 +21605,7 @@ if test "x$GCC" = "xyes"; then
+   esac
+ fi
+ 
+-ac_config_files="$ac_config_files Makefile galculator.spec src/Makefile po/Makefile.in ui/Makefile doc/Makefile"
++ac_config_files="$ac_config_files Makefile galculator.spec org.gnome.galculator.service src/Makefile po/Makefile.in ui/Makefile doc/Makefile"
+ 
+ cat >confcache <<\_ACEOF
+ # This file is a shell script that caches the results of configure
+@@ -22213,6 +22213,7 @@ do
+     "default-1") CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
+     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+     "galculator.spec") CONFIG_FILES="$CONFIG_FILES galculator.spec" ;;
++    "org.gnome.galculator.service") CONFIG_FILES="$CONFIG_FILES org.gnome.galculator.service" ;;
+     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
+     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
+     "ui/Makefile") CONFIG_FILES="$CONFIG_FILES ui/Makefile" ;;
+diff --git a/configure.in b/configure.in
+index 8cccae9..80279b7 100644
+--- a/configure.in
++++ b/configure.in
+@@ -27,7 +27,7 @@ HILDON_LIBS=""
+ AC_ARG_ENABLE(hildon,AS_HELP_STRING([--enable-hildon],[Turn on hildon support]),[
+ 	if test "x$enableval" = "xyes"; then
+ 	   hildon=true
+-	   PKG_CHECK_MODULES(HILDON,[hildon-1], 
++	   PKG_CHECK_MODULES(HILDON,[hildon-1 dbus-1 libosso], 
+ 				HAVE_HILDON=yes,HAVE_HILDON=no)
+ 
+ 	   HILDON_CFLAGS="$HILDON_CFLAGS -DWITH_HILDON=1"
+@@ -60,6 +60,7 @@ changequote([,])dnl
+ 
+ AC_OUTPUT([Makefile
+ galculator.spec
++org.gnome.galculator.service
+ src/Makefile
+ po/Makefile.in 
+ ui/Makefile
+diff --git a/org.gnome.galculator.service.in b/org.gnome.galculator.service.in
+new file mode 100644
+index 0000000..5653867
+--- /dev/null
++++ b/org.gnome.galculator.service.in
+@@ -0,0 +1,4 @@
++[D-BUS Service]
++Name=org.gnome.galculator
++Exec=/usr/bin/galculator
++
+diff --git a/src/galculator.h b/src/galculator.h
+index 7082876..36e564f 100644
+--- a/src/galculator.h
++++ b/src/galculator.h
+@@ -31,6 +31,7 @@
+ #include "hildon/hildon-program.h"
+ #include "hildon/hildon-window.h"
+ #include "glade/glade-build.h"
++#include "libosso.h"
+ #endif
+ 
+ #define DEFAULT_DEC_POINT '.'
+@@ -40,6 +41,10 @@
+ #define CONFIG_FILE_NAME ".galculator"
+ #ifdef WITH_HILDON
+ #define MAIN_GLADE_FILE 		PACKAGE_GLADE_DIR "/main_frame_hildon.glade"
++
++#define OSSO_GALCULATOR_NAME    "galculator"
++#define OSSO_GALCULATOR_VERSION "1.2.5.2"
++#define OSSO_GALCULATOR_SERVICE "org.gnome."OSSO_GALCULATOR_NAME
+ #else
+ #define MAIN_GLADE_FILE 		PACKAGE_GLADE_DIR "/main_frame.glade"
+ #endif
+diff --git a/src/main.c b/src/main.c
+index ec313d0..339a75d 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -112,7 +112,23 @@ int key_snooper (GtkWidget *grab_widget, GdkEventKey *event, gpointer func_data)
+ /* Registering the hildon application */
+ static GtkWidget* glade_hildon_window_new (GladeXML *xml, GType type, GladeWidgetInfo *info)
+ {
+-    return hildon_window_new();
++	return hildon_window_new();
++}
++
++static gint rpc_handler (const gchar *interface, const gchar *method, GArray *arguments, gpointer data, osso_rpc_t *retval)
++{
++	g_return_val_if_fail (method, OSSO_ERROR);
++
++	if ((!strcmp (method, "top_application"))) {
++		gtk_window_present (GTK_WINDOW (data));
++		retval->type = DBUS_TYPE_INT32;
++		retval->value.i = 0;
++		return OSSO_OK;
++	}
++
++	retval->type = DBUS_TYPE_INT32;
++	retval->value.i = -1;
++	return OSSO_ERROR;
+ }
+ #endif
+ 
+@@ -122,6 +138,7 @@ int main (int argc, char *argv[])
+ 	GtkWidget 	*main_window;
+ #ifdef WITH_HILDON
+ 	HildonProgram   *hildon_program;
++	osso_context_t  *osso;
+ #endif
+ 	/*
+ 	 * gtk_init runs (among other things) setlocale (LC_ALL, ""). Therefore we
+@@ -161,6 +178,8 @@ int main (int argc, char *argv[])
+ 	
+ 	main_window = ui_main_window_create();
+ #ifdef WITH_HILDON
++	osso = osso_initialize(OSSO_GALCULATOR_SERVICE, OSSO_GALCULATOR_VERSION, TRUE, NULL);
++	osso_rpc_set_default_cb_f (osso, (osso_rpc_cb_f *) rpc_handler, main_window);
+ 	hildon_program_add_window(hildon_program, HILDON_WINDOW(main_window));
+ 	g_set_application_name("Galculator");
+ 	create_hildon_menu(HILDON_WINDOW(main_window));
+@@ -201,6 +220,10 @@ int main (int argc, char *argv[])
+ 	
+ 	gtk_main ();
+ 
++#ifdef WITH_HILDON
++	osso_deinitialize(osso);
++#endif
++
+ 	/* save changes to file */
+ 
+ 	config_file_name = g_strdup_printf ("%s/%s", getenv ("HOME"), CONFIG_FILE_NAME);

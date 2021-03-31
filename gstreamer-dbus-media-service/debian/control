@@ -1,0 +1,14 @@
+Source: gstreamer-dbus-media-service
+Section: graphics
+Priority: optional
+Maintainer: Halley Zhao <halley.zhao@intel.com>
+Standards-Version: 0.1.2 
+Build-Depends: debhelper (>= 5), python-support (>= 0.3)
+Standards-Version: 3.6.0
+
+Package: gstreamer-dbus-media-service
+Architecture: all
+Depends: ${python:Depends}, python-gst0.10, gstreamer0.10-gnomevfs, gstreamer0.10-plugins-bad, gstreamer0.10-plugins-ugly, gstreamer0.10-ffmpeg
+Suggests: gstreamer0.10-plugins-bad-multiverse, gstreamer0.10-plugins-ugly-multiverse 
+Description: Media service for Ubuntu Mobile
+ This is the Dbus backend used by the Ubuntu Mobile media player.

@@ -1,0 +1,22 @@
+D/resources////
+/.cvsignore/1.1/Wed Mar 31 08:30:31 1999//TFIREFOX_3_0b2_RELEASE
+/DistinguishedSchema.tbl/1.3/Thu Jun 29 22:30:40 2000//TFIREFOX_3_0b2_RELEASE
+/FieldSchema.tbl/1.10/Tue Nov 14 14:24:01 2000//TFIREFOX_3_0b2_RELEASE
+/Makefile.in/1.66/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/PositionalSchema.tbl/1.1/Tue Nov 14 14:21:56 2000//TFIREFOX_3_0b2_RELEASE
+/SchemaConcat.tbl/1.7/Tue Nov 14 14:24:34 2000//TFIREFOX_3_0b2_RELEASE
+/SchemaStrings.tbl/1.3/Tue Dec 12 15:07:23 2000//TFIREFOX_3_0b2_RELEASE
+/StateSchema.tbl/1.1/Tue Nov 14 14:21:41 2000//TFIREFOX_3_0b2_RELEASE
+/VcardSchema.tbl/1.1/Tue Jan 16 21:57:27 2001//TFIREFOX_3_0b2_RELEASE
+/nsPassword.cpp/1.12/Sun Apr 18 22:14:07 2004//TFIREFOX_3_0b2_RELEASE
+/nsPassword.h/1.7/Sun Apr 18 22:14:07 2004//TFIREFOX_3_0b2_RELEASE
+/nsPasswordManager.cpp/1.22/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsPasswordManager.h/1.6/Sun Apr 18 22:14:07 2004//TFIREFOX_3_0b2_RELEASE
+/nsWalletFactory.cpp/1.29/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsWalletService.cpp/1.166/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/nsWalletService.h/1.63/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/singsign.cpp/1.262/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/singsign.h/1.57/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/wallet.cpp/1.383/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/wallet.h/1.51/Thu Dec 13 11:58:32 2007//TFIREFOX_3_0b2_RELEASE
+/wallet.pkg/1.2/Wed Jan  7 01:21:32 2004//TFIREFOX_3_0b2_RELEASE

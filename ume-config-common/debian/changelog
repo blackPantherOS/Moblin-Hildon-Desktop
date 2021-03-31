@@ -1,0 +1,121 @@
+ume-config-common (0.11) gaston; urgency=low
+
+  * BUG: Unable to switch programs by "ALT+TAB"
+    BUGLINK: https://bugs.edge.launchpad.net/moblin-applets/+bug/210138
+    FIX: Instead of installing a blank kbdconfig, we install the
+    default minus the shortcuts for xterm and the other programs
+
+ -- Todd Brandt <todd.e.brandt@intel.com>  Wed, 30 Apr 2008 16:30:49 -0700
+
+ume-config-common (0.10gaston3) gaston; urgency=low
+
+  * Fixed a bug where users that had a version of this package 
+    older then 0.10gaston1 would see breakage when attemting to 
+    touch a file in a directory that did not exists
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 18 Mar 2008 15:18:41 -0700
+
+ume-config-common (0.10gaston2) gaston; urgency=low
+
+  * Adjusting the matchbox keyboard fix to work even if the
+    ume user already exists
+
+ -- Rusty Lynch <rusty.lynch@intel.com>  Tue, 18 Mar 2008 15:15:04 -0700
+
+ume-config-common (0.10gaston1) gaston; urgency=low
+
+  * Adding empty matchbox keyboard configuration file to fix
+    https://bugs.launchpad.net/moblin-applets/+bug/185815    
+
+ -- Rusty Lynch <rusty@intel.com>  Tue, 18 Mar 2008 14:20:30 -0700
+
+ume-config-common (0.10) gaston; urgency=low
+
+  * Starting a new line due to last wrong change log
+  * Added fast boot splash image
+
+ -- Alek Du <alek.du@intel.com>  Tue, 22 Jan 2008 16:04:06 +0800
+
+ume-config-common (0.10) hardy; urgency=low
+
+  [ Steven Kowalik ]
+  * Stop setting the hostname, m-i-c should do it.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 17 Jan 2008 20:10:36 +0100
+
+ume-config-common (0.9) gaston; urgency=low
+
+  * Added use_dialog_mode static to matchbox-window-manager
+
+ -- Bob Spencer <bob.spencer@intel.com>  Wed, 21 Nov 2007 16:15:17 -0800
+
+ume-config-common (0.8) gaston; urgency=low
+
+  * Added cmd-line parm to ume-xephyr-start for WxH of screen
+
+ -- Bob Spencer <bob.spencer@intel.com>  Tue,  6 Nov 2007 12:33:03 -0500
+
+ume-config-common (0.7) gutsy; urgency=low
+
+  * Fix up comment in postinst.
+  * Remove eth0 from interfaces file, for new NetworkManager which ignores
+    eth0 if there's a stanza there.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Tue, 02 Oct 2007 09:54:44 +0200
+
+
+ume-config-common (0.6) gutsy; urgency=low
+
+  [ John L. Villalovos ]
+  * Copyright info was incorrect.  Code base this was derived from was GPL
+    v2 only.  We can NOT make it GPL v2 or later.  So making this GPL v2
+    only.
+
+  [ Tollef Fog Heen ]
+  * Make sure to quote "*" in root's encrypted password string.
+  * Document what ume's password is.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 20 Sep 2007 22:08:13 +0200
+
+ume-config-common (0.5) gutsy; urgency=low
+
+  * Fix typo in the code used to execute .desktop files, use find(1)
+    rather than echo.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 13 Sep 2007 21:01:01 +0200
+
+ume-config-common (0.4) gutsy; urgency=low
+
+  * Rename preinst to postinst and adjust contents appropriately.
+  * Create ume user in postinst by way of user-setup.
+  * Change allowed_users in Xwrapper.config to anybody.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Fri, 07 Sep 2007 13:23:04 +0000
+
+ume-config-common (0.3) gutsy; urgency=low
+
+  [ Bob Spencer ]
+  * Created new ume-xephyr-start script for starting the UI from the target terminal on a workstation using Xephyr
+
+  [ Tollef Fog Heen ]
+  * Move ume-gui-start script to /usr/share instead of /usr/lib.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Wed, 05 Sep 2007 13:33:14 +0200
+
+ume-config-common (0.2) gutsy; urgency=low
+
+  [ Tollef Fog Heen ]
+  * Don't check for executability, just try to start the relevant app.
+  * Check in /usr/share/autostart and /usr/share/gnome/autostart for
+    .desktop files too.
+
+ume-config-common (0.1) gutsy; urgency=low
+
+  * Initial release, based on samsung-q1-ultra-config and
+    crown-beach-config.
+  * Update description.
+  * Create a somewhat simple implementation of autostart.
+  * Update copyright to refer to Canonical too.
+
+ -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 23 Aug 2007 21:26:37 +0200
+

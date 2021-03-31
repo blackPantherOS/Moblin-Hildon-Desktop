@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+SCHEMAS=/etc/gconf/schemas/hildon-control-panel.schemas
+
+GCONF_CONFIG_SOURCE=xml::/etc/gconf/gconf.xml.defaults \
+      gconftool-2 --makefile-install-rule $SCHEMAS
+mkdir -p /usr/share/applications/hildon-control-panel
+mkdir -p /usr/lib/hildon-control-panel

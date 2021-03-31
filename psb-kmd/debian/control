@@ -1,0 +1,52 @@
+Source: psb-kmd
+Section: x11
+Priority: extra
+Maintainer: Chunfeng Zhao <chunfeng.zhao@intel.com>
+Build-Depends: debhelper (>= 5), bzip2, quilt, linux-menlow-default-2.6.22, linux-menlow-developer-2.6.22, linux-menlow-default-2.6.24, linux-menlow-developer-2.6.24
+Standards-Version: 3.7.2
+
+Package: psb-kmd-default-2.6.22
+Section: x11
+Architecture: lpia
+Depends: module-init-tools, linux-menlow-default-2.6.22
+Description: The psb-kmd driver.
+ This package provides the source code for the psb-kmd kernel modules.
+ The psb-kmd package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules.
+
+Package: psb-kmd-developer-2.6.22
+Section: x11
+Architecture: lpia
+Depends: module-init-tools, linux-menlow-developer-2.6.22
+Description: The psb-kmd driver.
+ This package provides the source code for the psb-kmd kernel modules.
+ The psb-kmd package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules.
+
+Package: psb-kmd-default-2.6.24
+Section: x11
+Architecture: lpia
+Depends: module-init-tools, linux-menlow-default-2.6.24
+Description: The psb-kmd driver.
+ This package provides the source code for the psb-kmd kernel modules.
+ The psb-kmd package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules.
+
+Package: psb-kmd-developer-2.6.24
+Section: x11
+Architecture: lpia
+Depends: module-init-tools, linux-menlow-developer-2.6.24
+Description: The psb-kmd driver.
+ This package provides the source code for the psb-kmd kernel modules.
+ The psb-kmd package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules.
+
+
+Package: psb-kmd-source
+Section: x11
+Architecture: lpia
+Depends: module-assistant, debhelper (>= 5), make, bzip2
+Description: Source for the psb-kmd driver.
+ This package provides the source code for the psb-kmd kernel modules.
+ The psb-kmd package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules.
